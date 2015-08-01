@@ -1,0 +1,194 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "язык",
+            "dutch": "голландский",
+            "english": "английский",
+            "russische": "Россия",
+
+            "frans": "<span class='grey'>французский</span>",
+            "spaans": "<span class='grey'>испанский</span>",
+            "duits": "<span class='grey'>немецкий</span>",
+            "chinees": "<span class='grey'>китайский</span>",
+
+
+      	"code": "КОД",
+
+            "ACTIVATELITE": "ВКЛЮЧИТЬ</br>LITE",
+            "ACTIVATEPRO": "ВКЛЮЧИТЬ</br>PRO",
+            "ACTIVATEPREMIUM": "ВКЛЮЧИТЬ</br>PREMIUM",
+            "allready_activate": "я уже активирована",
+            "password": "пароль",
+            "repeat": "повторение",
+            "createyourpassword": "Создать пароль",
+            "screenprotect": "Защитная пленка для экрана",
+            "screenprotecttxt": "RU Screenprotect for cover you app intel and save battery.",
+            "1Minutes": "1 минут",
+            "2Minutes": "2 минут",
+            "3Minutes": "3 минут",
+            "4Minutes": "4 минут",
+            "5Minutes": "5 минут",
+            "6Minutes": "6 минут",
+            "7Minutes": "7 минут",
+            "8Minutes": "8 минут",
+            "9Minutes": "9 минут",
+            "10Minutes": "10 минут",
+            "60Minutes": "60 минут",
+            "none": "ОТСУТСТВУЕТ",
+
+            "automaticlogofftimer": "Автоматическое Выход",
+            "automaticlogofftimertxt": "RU *** ВАЖНО ***  Select the minutes when the app will automatic logout and kill all temporary keys if no activity. This to protect somebody can use your App.",
+
+            "notificationsound": "звукового уведомления",
+            "notificationsoundtxt": "RU Choice the sound if push message arrives",
+            "sound": "звук",
+             "volume": "объем",
+              "pushsound": "Нажмите звук",
+               "repeat": "повторение",
+
+            "createyourpassword": "Создать пароль",
+            "youraccountready": "Ваша учетная запись готова к использованию.",
+            "restart": "ПЕРЕЗАПУСК",
+
+
+            "passwordnotthesame": "Пароли неодни и те же",
+
+            "passwordcannotbeempty": "Пароли не может быть пустым",
+
+            "nosettingsfound": "Никакая установка не найдено !<BR>Давайте генерировать UID для вас.<BR>один момент , пожалуйста...",
+
+            "authorization": "разрешение...",
+
+            "updating": "обновление...",
+
+            "collectingdata": "сбор данных...",
+            "checking": "проверка...",
+            "preparing": "Хорошо готовит...",
+            "loading": "загрузка...",
+            "busy": "занятый...",
+            "createUID": "Создание UID...",
+            "deleting": "Удаление...",
+            "messageissend": "Ваши сообщения , это отправить.",
+
+            "crypting": "RU Crypting",
+            "oepsaerror": "RU Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "Контактный запрос.",
+            "youhavecontactrequest": "У вас есть запрос контакта.",
+            "on": "на",
+            "from": "от",
+            "note": "заметка",
+
+            "contactlink": "RU Contact Link",
+
+             "keysettings": "RU KEY SETTINGS",
+
+              "keysettingstxt": "RU Set a key to encrypt your messages automatic with this user",
+              "whatkeytouse": "RU What key to use for",
+
+            "oke": "хорошо",
+            "cancel": "ОТМЕНА",
+            "accept": "ПРИНЯТЬ",
+            "setkey": "RU SET KEY",
+            "remove": "СНЯТЬ",
+            "back": "НАЗАД",
+            "home": "ГЛАВНАЯ",
+            "keyremoved": "RU KEY Removed!",
+            "keyremovedtxt": "RU Key removed!<BR>Now use manunal input.",
+
+            "keyset": "RU Your KEY is set.",
+            "keysettxt": "RU Make SURE other site<BR>USE THE SAME KEY!",
+
+			"importent": "*** ВАЖНО ***",
+            "done1": "Запишите и сохраните ваши UID = ",
+            "done2": "и ваш код Возобновить = ",
+            "done3": " . Это для позже, если вы будете переустанавливать на новое устройство. это показывает только один раз !. Теперь вы готовы использовать SSLNote ",
+            "done4": " , С Lite версии вы можете общаться друг с другом партии, в течение более чем одной партии , вы должны купить Pro версию.",
+
+            "settings": "НАСТРОЙКИ",
+            "contactadd": "Контакты Добавить",
+            "contactaddtxt": "RU Fill in the details for the contact you will added. His UID, Nick name so you remember, extra note for the receiver. and press Send Request. The receiver will get message you will make a link with him. He can accept or cancel request, if accept the new contact will be added to your list. If you don't have somebody you can Add TEST contact.",
+            "hisuid": "RU His UID",
+            "hisnick": "RU His Nick",
+            "extranote": "RU Extra Note",
+            "myuid": "RU My UID",
+            "sendrequest": "RU Send Request",
+            "addtestcontact": "Добавить контакт TEST",
+            "fillin": "*** ЗДЕСЬ ***",
+
+            "contacts": "связи",
+            "nothingfound": "Ничего не найдено",
+            "localsettings": "Локальная настройка",
+            "logofftimer": "Выход таймера",
+            "designandnotification": "Дизайн и Уведомление",
+
+            "theme": "тема",
+            "notification": "уведомление",
+
+            "notification": "уведомление",
+            "account": "счет",
+            "nick": "Ник",
+            "options": "опции",
+            "contactadd": "Контакты Добавить",
+            "contactedit": "редактирования контакта",
+            "resetpassword": "Сбросить пароль",
+
+            "admin": "RU ADMIN",
+
+			"premiumprivateserver": "Премиум частный сервер",
+
+			"edityourserver": "Редактировать сервера :",
+
+			"createuid": "создать UID",
+			"blocklist": "Черный Список",
+			"uidlist": "UID список",
+
+			"systemstatus": "состояние системы",
+
+			"showtips": "Показывать советы",
+			"removeallsettings": "Удалить все локальные параметры",
+   
+            "activate": "активировать",
+            "sign_in": "войти в систему",
+            "here": "вот",
+
+
+
+            "tips": "EN Tips",
+            "learnhowtouse": "EN Learn how to use SSLNote<br>by taking this quick tour.",
+            "getstarted": "EN Get Started",
+            "notnow": "EN Not now",
+
+            "howtogetsupporttext": "EN How to get support anonymous? click 'Add support contact' and the support contact will be added to your contact list. Send like a normal message 'the key is set automatic' so support can read and answer to the message. if you done you can remove the support contact from your list. Support will never send you message only will reply!",
+            "howtogetsupportbutton": "EN Add Support contact",
+            "howtogetsupportalert": "EN SUPPORT ADDED SUCCESSFULLY<BR>Now you can chat secure with us if you have some bugs - tips or else. Whene you don't want SUPPORT anymore you can delete the contact to swipe from right to left.",
+            
+            "fillinreceiveddetail": "EN Fill in received details",
+
+            "yoursecuremessagehere": "ОБЕСПЕЧИТЬ ВАШЕ СООБЩЕНИЕ ЗДЕСЬ",
+            "send": "послать",
+
+            "ihavelicensekey": "Ik heb een licentiesleutel",
+            "whatisyourlicensekey": "Wat is uw licentiesleutel?",
+            "licensedontexist": "Ongeldige licentie.",
+
+            "yourkeyfor": "UW SLEUTEL VOOR",
+            "decryptmessage": "DECRYPT BERICHT",
+            "encryptmessage": "ENCRYPT BERICHT",
+
+
+
+            "messageswiped": "Bericht gewist.",
+            "messagesread": "Bericht gelezen.",
+            "messagesdelivered": "Bericht afgeleverd.",
+            "messagesnew": "Nieuw bericht.",
+
+
+
+
+
+            "next": "СЛЕДУЮЩИЙ"
+
+        }
+    ]
+}

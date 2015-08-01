@@ -1,0 +1,162 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "Language",
+            "dutch": "Dutch",
+            "english": "English",
+            "russische": "Russia",
+
+            "frans": "<span class='grey'>French</span>",
+            "spaans": "<span class='grey'>Spanish</span>",
+            "duits": "<span class='grey'>German</span>",
+            "chinees": "<span class='grey'>Chinese</span>",
+
+            "selectyourlanguagetitle": "Select Language",
+            "selectyourlanguagetext": "Hello Bonjour Hallo здравствуйте Hola 您好",
+
+
+      	"code": "DU CODE",
+
+            "ACTIVATELITE": "DU ACTIVATE</br>LITE",
+            "ACTIVATEPRO": "DU ACTIVATE</br>PRO",
+            "ACTIVATEPREMIUM": "DU ACTIVATE</br>PREMIUM",
+            "already_activate": "DU i'am already activated",
+            "password": "DU Password",
+            "repeat": "DU Repeat",
+            "createyourpassword": "DU Create your password",
+            "screenprotect": "DU Screenprotect",
+            "screenprotecttxt": "DU Screenprotect for cover you app intel and save battery.",
+            "1Minutes": "DU 1 Minut",
+            "2Minutes": "DU 2 Minutes",
+            "3Minutes": "DU 3 Minutes",
+            "4Minutes": "DU 4 Minutes",
+            "5Minutes": "DU 5 Minutes",
+            "6Minutes": "DU 6 Minutes",
+            "7Minutes": "DU 7 Minutes",
+            "8Minutes": "DU 8 Minutes",
+            "9Minutes": "DU 9 Minutes",
+            "10Minutes": "DU 10 Minutes",
+            "60Minutes": "DU 60 Minutes",
+            "none": "DU NONE",
+
+            "automaticlogofftimer": "DU Automatic Logoff timer",
+            "automaticlogofftimertxt": "DU *** IMPORTANT ***  Select the minutes whDU the app will automatic logout and kill all temporary keys if no activity. This to protect somebody can use your App.",
+
+            "notificationsound": "DU Notification Sound",
+            "notificationsoundtxt": "DU Choice the sound if push message arrives",
+            "sound": " DU Sound",
+             "volume": " DU Volume",
+              "pushsound": " DU Push sound",
+               "repeat": " DU Repeat",
+
+            "createyourpassword": "DU Create your password",
+            "youraccountready": "DU Your account ready to use.",
+            "restart": "DU RESTART",
+
+
+            "passwordnotthesame": "DU Passwords not the same",
+
+            "passwordcannotbeempty": "DU Passwords cannot be empty",
+
+            "nosettingsfound": "DU No setting found !<BR>Let's generate a UID for you.<BR>one moment please...",
+
+            "authorization": "DU Authorization...",
+
+            "updating": "DU Updating...",
+
+            "collectingdata": "DU Collecting data...",
+            "checking": "DU Checking...",
+            "preparing": "DU Oke preparing...",
+            "loading": "DU Loading...",
+            "busy": "DU Busy...",
+            "createUID": "DU Creating UID...",
+            "deleting": "DU Deleting...",
+            "messageissend": "DU Your messages is send.",
+
+            "crypting": "DU Crypting",
+            "oepsaerror": "DU Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "DU Contact request.",
+            "youhavecontactrequest": "DU You have a contact request.",
+            "on": "DU On",
+            "from": "DU From",
+            "note": "DU Note",
+
+            "contactlink": "DU Contact Link",
+
+             "keysettings": "DU KEY SETTINGS",
+
+              "keysettingstxt": "DU Set a key to encrypt your messages automatic with this user",
+              "whatkeytouse": "DU What key to use for",
+
+            "oke": "DU OKE",
+            "cancel": "DU CANCEL",
+            "accept": "DU ACCEPT",
+            "setkey": "DU SET KEY",
+            "remove": "DU REMOVE",
+            "back": "DU BACK",
+            "home": "DU HOME",
+            "keyremoved": "DU KEY Removed!",
+            "keyremovedtxt": "DU Key removed!<BR>Now use maual input.",
+
+            "keyset": "DU Your KEY is set.",
+            "keysettxt": "DU Make SURE other site<BR>USE THE SAME KEY!",
+
+			"importent": "DU *** IMPORTANT ***",
+            "done1": "DU Write down and save your UID = ",
+            "done2": "DU and your REACTIVATE code = ",
+            "done3": "DU . This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use SSLNote ",
+            "done4": "DU , With Lite version you can communicate with one other party, for more thDU one party you have to buy the Pro version.*",
+
+            "settings": "DU SETTINGS",
+            "contactadd": "DU Contact Add",
+            "contactaddtxt": "DU Fill in the details for the contact you will added. His UID, Nick name so you remember, extra note for the receiver. and press Send Request. The receiver will get message you will make a link with him. He can accept or cancel request, if accept the new contact will be added to your list. If you don't have somebody you can Add TEST contact.",
+            "hisuid": "DU His UID",
+            "hisnick": "DU His Nick",
+            "extranote": "DU Extra Note",
+            "myuid": "DU My UID",
+            "sendrequest": "DU Send Request",
+            "addtestcontact": "DU Add TEST contact",
+            "fillin": "DU *** FILL IN HERE ***",
+
+            "contacts": "DU Contacts",
+            "nothingfound": "DU Nothing found",
+            "localsettings": "DU Local Settings",
+            "logofftimer": "DU Logoff timer",
+            "designandnotification": "DU Design & Notification",
+
+            "theme": "DU Theme",
+            "notification": "DU Notification",
+
+            "notification": "DU Notification",
+            "account": "DU Account",
+            "nick": "DU Nick",
+            "options": "DU Options",
+            "contactadd": "DU Contact Add",
+            "contactedit": "DU Contact Edit",
+            "resetpassword": "DU Reset Password",
+
+            "admin": "DU ADMIN",
+
+			"premiumprivateserver": "DU Premium Private Server",
+
+			"edityourserver": "DU Edit Your Server :",
+
+			"createuid": "DU Create UID",
+			"blocklist": "DU BlockList",
+			"uidlist": "DU UIDList",
+
+			"systemstatus": "DU System status",
+
+			"showtips": "DU Show Tips",
+			"removeallsettings": "DU Remove All Local Settings",
+   
+            "activate": "DU Activate",
+            "sign_in": "DU Sign in",
+            "here": "DU here",
+
+            "next": "DU NEXT"
+
+        }
+    ]
+}

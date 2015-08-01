@@ -1,0 +1,162 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "Language",
+            "dutch": "Dutch",
+            "english": "English",
+            "russische": "Russia",
+
+            "frans": "<span class='grey'>French</span>",
+            "spaans": "<span class='grey'>Spanish</span>",
+            "duits": "<span class='grey'>German</span>",
+            "chinees": "<span class='grey'>Chinese</span>",
+
+            "selectyourlanguagetitle": "Select Language",
+            "selectyourlanguagetext": "Hello Bonjour Hallo здравствуйте Hola 您好",
+
+
+      	"code": "FR CODE",
+
+            "ACTIVATELITE": "FR ACTIVATE</br>LITE",
+            "ACTIVATEPRO": "FR ACTIVATE</br>PRO",
+            "ACTIVATEPREMIUM": "FR ACTIVATE</br>PREMIUM",
+            "allready_activate": "FR i'am already activated",
+            "password": "FR Password",
+            "repeat": "FR Repeat",
+            "createyourpassword": "FR Create your password",
+            "screenprotect": "FR Screenprotect",
+            "screenprotecttxt": "FR Screenprotect for cover you app intel and save battery.",
+            "1Minutes": "FR 1 Minut",
+            "2Minutes": "FR 2 Minutes",
+            "3Minutes": "FR 3 Minutes",
+            "4Minutes": "FR 4 Minutes",
+            "5Minutes": "FR 5 Minutes",
+            "6Minutes": "FR 6 Minutes",
+            "7Minutes": "FR 7 Minutes",
+            "8Minutes": "FR 8 Minutes",
+            "9Minutes": "FR 9 Minutes",
+            "10Minutes": "FR 10 Minutes",
+            "60Minutes": "FR 60 Minutes",
+            "none": "FR NONE",
+
+            "automaticlogofftimer": "FR Automatic Logoff timer",
+            "automaticlogofftimertxt": "FR *** IMPORTANT ***  Select the minutes whFR the app will automatic logout and kill all temporary keys if no activity. This to protect somebody can use your App.",
+
+            "notificationsound": "FR Notification Sound",
+            "notificationsoundtxt": "FR Choice the sound if push message arrives",
+            "sound": " FR Sound",
+             "volume": " FR Volume",
+              "pushsound": " FR Push sound",
+               "repeat": " FR Repeat",
+
+            "createyourpassword": "FR Create your password",
+            "youraccountready": "FR Your account ready to use.",
+            "restart": "FR RESTART",
+
+
+            "passwordnotthesame": "FR Passwords not the same",
+
+            "passwordcannotbeempty": "FR Passwords cannot be empty",
+
+            "nosettingsfound": "FR No setting found !<BR>Let's generate a UID for you.<BR>one moment please...",
+
+            "authorization": "FR Authorization...",
+
+            "updating": "FR Updating...",
+
+            "collectingdata": "FR Collecting data...",
+            "checking": "FR Checking...",
+            "preparing": "FR Oke preparing...",
+            "loading": "FR Loading...",
+            "busy": "FR Busy...",
+            "createUID": "FR Creating UID...",
+            "deleting": "FR Deleting...",
+            "messageissend": "FR Your messages is send.",
+
+            "crypting": "FR Crypting",
+            "oepsaerror": "FR Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "FR Contact request.",
+            "youhavecontactrequest": "FR You have a contact request.",
+            "on": "FR On",
+            "from": "FR From",
+            "note": "FR Note",
+
+            "contactlink": "FR Contact Link",
+
+             "keysettings": "FR KEY SETTINGS",
+
+              "keysettingstxt": "FR Set a key to encrypt your messages automatic with this user",
+              "whatkeytouse": "FR What key to use for",
+
+            "oke": "FR OKE",
+            "cancel": "FR CANCEL",
+            "accept": "FR ACCEPT",
+            "setkey": "FR SET KEY",
+            "remove": "FR REMOVE",
+            "back": "FR BACK",
+            "home": "FR HOME",
+            "keyremoved": "FR KEY Removed!",
+            "keyremovedtxt": "FR Key removed!<BR>Now use maual input.",
+
+            "keyset": "FR Your KEY is set.",
+            "keysettxt": "FR Make SURE other site<BR>USE THE SAME KEY!",
+
+			"importent": "FR *** IMPORTANT ***",
+            "done1": "FR Write down and save your UID = ",
+            "done2": "FR and your REACTIVATE code = ",
+            "done3": "FR . This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use SSLNote ",
+            "done4": "FR , With Lite version you can communicate with one other party, for more thFR one party you have to buy the Pro version.*",
+
+            "settings": "FR SETTINGS",
+            "contactadd": "FR Contact Add",
+            "contactaddtxt": "FR Fill in the details for the contact you will added. His UID, Nick name so you remember, extra note for the receiver. and press Send Request. The receiver will get message you will make a link with him. He can accept or cancel request, if accept the new contact will be added to your list. If you don't have somebody you can Add TEST contact.",
+            "hisuid": "FR His UID",
+            "hisnick": "FR His Nick",
+            "extranote": "FR Extra Note",
+            "myuid": "FR My UID",
+            "sendrequest": "FR Send Request",
+            "addtestcontact": "FR Add TEST contact",
+            "fillin": "FR *** FILL IN HERE ***",
+
+            "contacts": "FR Contacts",
+            "nothingfound": "FR Nothing found",
+            "localsettings": "FR Local Settings",
+            "logofftimer": "FR Logoff timer",
+            "designandnotification": "FR Design & Notification",
+
+            "theme": "FR Theme",
+            "notification": "FR Notification",
+
+            "notification": "FR Notification",
+            "account": "FR Account",
+            "nick": "FR Nick",
+            "options": "FR Options",
+            "contactadd": "FR Contact Add",
+            "contactedit": "FR Contact Edit",
+            "resetpassword": "FR Reset Password",
+
+            "admin": "FR ADMIN",
+
+			"premiumprivateserver": "FR Premium Private Server",
+
+			"edityourserver": "FR Edit Your Server :",
+
+			"createuid": "FR Create UID",
+			"blocklist": "FR BlockList",
+			"uidlist": "FR UIDList",
+
+			"systemstatus": "FR System status",
+
+			"showtips": "FR Show Tips",
+			"removeallsettings": "FR Remove All Local Settings",
+   
+            "activate": "FR Activate",
+            "sign_in": "FR Sign in",
+            "here": "FR here",
+
+            "next": "FR NEXT"
+
+        }
+    ]
+}

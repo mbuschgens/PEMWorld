@@ -1,0 +1,217 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "Language",
+            "dutch": "Dutch",
+            
+            "english": "<span class='grey'>English</span>",
+            "russische": "<span class='grey'>Russia</span>",
+
+            "frans": "<span class='grey'>French</span>",
+            "spaans": "<span class='grey'>Spanish</span>",
+            "duits": "<span class='grey'>German</span>",
+            "chinees": "<span class='grey'>Chinese</span>",
+
+            "selectyourlanguagetitle": "Select Language",
+            "selectyourlanguagetext": "Hello Bonjour Hallo здравствуйте Hola 您好",
+
+
+      	"code": "CODE",
+
+            "ACTIVATELITE": "ACTIVATE</br>LITE",
+            "ACTIVATEPRO": "ACTIVATE</br>PRO",
+            "ACTIVATEPREMIUM": "ACTIVATE</br>PREMIUM",
+            "allready_activate": "i'am already activated",
+            "password": "Password",
+            "repeat": "Repeat",
+            "createyourpassword": "Create your password",
+            "screenprotect": "Screenprotect",
+            "screenprotecttxt": "Screenprotect for cover you app intel and save battery.",
+            "1Minutes": "1 Minut",
+            "2Minutes": "2 Minutes",
+            "3Minutes": "3 Minutes",
+            "4Minutes": "4 Minutes",
+            "5Minutes": "5 Minutes",
+            "6Minutes": "6 Minutes",
+            "7Minutes": "7 Minutes",
+            "8Minutes": "8 Minutes",
+            "9Minutes": "9 Minutes",
+            "10Minutes": "10 Minutes",
+            "60Minutes": "60 Minutes",
+            "none": "NONE",
+
+            "automaticlogofftimer": "Automatic Logoff timer",
+            "automaticlogofftimertxt": "*** IMPORTANT ***  Select the minutes whthe app will automatic logout and kill all temporary keys if no activity. This to protect somebody can use your App.",
+
+            "notificationsound": "Notification Sound",
+            "notificationsoundtxt": "Choice the sound if push message arrives",
+            "sound": " Sound",
+             "volume": " Volume",
+              "pushsound": " Push sound",
+               "repeat": " Repeat",
+
+            "createyourpassword": "Create your password",
+            "youraccountready": "Your account ready to use.",
+            "restart": "RESTART",
+
+
+            "passwordnotthesame": "Passwords not the same",
+
+            "passwordcannotbeempty": "Passwords cannot be empty",
+
+            "nosettingsfound": "No setting found !<BR>Let's generate a UID for you.<BR>one moment please...",
+
+            "authorization": "Authorization...",
+
+            "updating": "Updating...",
+
+            "collectingdata": "Collecting data...",
+            "checking": "Checking...",
+            "preparing": "Oke preparing...",
+            "loading": "Loading...",
+            "busy": "Busy...",
+            "createUID": "Creating UID...",
+            "deleting": "Deleting...",
+            "messageissend": "Your messages Crypted and send.",
+
+            "crypting": "Crypting",
+            "oepsaerror": "Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "Contact request.",
+            "youhavecontactrequest": "You have a contact request.",
+            "on": "On",
+            "from": "From",
+            "note": "Note",
+
+            "contactlink": "Contact Link",
+
+             "keysettings": "KEY SETTINGS",
+
+              "keysettingstxt": "Set a key to encrypt your messages automatic with this user",
+              "whatkeytouse": "What key to use for",
+
+            "oke": "OKE",
+            "cancel": "CANCEL",
+            "accept": "ACCEPT",
+            "setkey": "SET KEY",
+            "remove": "REMOVE",
+            "back": "BACK",
+            "home": "HOME",
+            "keyremoved": "KEY Removed!",
+            "keyremovedtxt": "Key removed!<BR>Now use maual input.",
+
+            "keyset": "Your KEY is set.",
+            "keysettxt": "Make SURE other site<BR>USE THE SAME KEY!",
+
+			"importent": "*** IMPORTANT ***",
+            "done1": "Write down and save your UID = ",
+            "done2": "and your REACTIVATE code = ",
+            "done3": ". This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use SSLNote ",
+            "done4": ", With Lite version you can communicate with one other party, for more thone party you have to buy the Pro version.*",
+
+            "settings": "SETTINGS",
+            "contactadd": "Contact Add",
+            "contactaddtxt": "Fill in the details for the contact you will added. His UID, Nick name so you remember, extra note for the receiver. and press Send Request. The receiver will get message you will make a link with him. He can accept or cancel request, if accept the new contact will be added to your list. If you don't have somebody you can Add TEST contact.",
+            "hisuid": "His UID",
+            "hisnick": "His Nick",
+            "extranote": "Extra Note",
+            "myuid": "My UID",
+            "sendrequest": "Send Request",
+            "addtestcontact": "Add TEST contact",
+            "fillin": "*** FILL IN HERE ***",
+
+            "contacts": "Contacts",
+            "nothingfound": "Nothing found",
+            "localsettings": "Local Settings",
+            "logofftimer": "Logoff timer",
+            "designandnotification": "Design & Notification",
+
+            "theme": "Theme",
+            "notification": "Notification",
+
+            "notification": "Notification",
+            "account": "Account",
+            "nick": "Nick",
+            "options": "Options",
+            "contactadd": "Contact Add",
+            "contactedit": "Contact Edit",
+            "resetpassword": "Reset Password",
+
+            "admin": "ADMIN",
+
+			"premiumprivateserver": "Premium Private Server",
+
+			"edityourserver": "Edit Your Server :",
+
+			"createuid": "Create UID",
+			"blocklist": "BlockList",
+			"uidlist": "UIDList",
+
+			"systemstatus": "System status",
+
+			"showtips": "Show Tips",
+			"removeallsettings": "Remove All Local Settings",
+   
+            "activate": "Activate",
+            "sign_in": "Sign in",
+            "here": "here",
+
+
+
+
+
+
+
+            "tips": "Tips",
+            "learnhowtouse": "Learn how to use SSLNote<br>by taking this quick tour.",
+            "getstarted": "Get Started",
+            "notnow": "Not now",
+
+            "howtogetsupporttext": "How to get support anonymous? click 'Add support contact' and the support contact will be added to your contact list. Send like a normal message 'the key is set automatic' so support can read and answer to the message. if you done you can remove the support contact from your list. Support will never send you message only will reply!",
+            "howtogetsupportbutton": "Add Support contact",
+            "howtogetsupportalert": "SUPPORT ADDED SUCCESSFULLY<BR>Now you can chat secure with us if you have some bugs - tips or else. Whene you don't want SUPPORT anymore you can delete the contact to swipe from right to left.",
+            
+            "fillinreceiveddetail": "Fill in received details",
+
+            "yoursecuremessagehere": "YOUR SECURE MESSAGE HERE",
+            "send": "Send",
+
+
+            "ihavelicensekey": "i have a license key",
+            "whatisyourlicensekey": "What is your license key?",
+
+            "licensedontexist": "invalide license.",
+
+            "yourkeyfor": "YOUR KEY FOR",
+            "decryptmessage": "DECRYPT MESSAGE",
+            "encryptmessage": "ENCRYPT MESSAGE",
+
+            "messageswiped": "Message wiped.",
+            "messagesread": "Message read.",
+            "messagesdelivered": "Message delivered.",
+            "messagesnew": "New message.",
+
+            "testaccountadded": "TEST UID ADDED SUCCESSFULLY<BR>Now you can send message and use your oun key the server will automatic send you the message back so you can try to use a other key and see if you still can read the message.",
+            
+
+            "accescodehere": "Your access code here",
+            "loginfails": "Total wrong logins",
+
+            "loginfailsreset": "To much try's<BR>Al settings wiped",
+            "loginfailswarning": "Worng access code<BR>* WARNING * <BR> With 3 wrong try's <BR> all settings will be wiped",
+            "lastseen": "Last seen",
+            "messagereadtxt": "Message ",
+            "messagebadgenewtxt": "new",
+            "messagebadgereadtxt": "read",
+
+
+
+
+
+
+
+            "next": "NEXT"
+
+        }
+    ]
+}

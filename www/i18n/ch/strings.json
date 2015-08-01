@@ -1,0 +1,162 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "Language",
+            "dutch": "Dutch",
+            "english": "English",
+            "russische": "Russia",
+
+            "frans": "<span class='grey'>French</span>",
+            "spaans": "<span class='grey'>Spanish</span>",
+            "duits": "<span class='grey'>German</span>",
+            "chinees": "<span class='grey'>Chinese</span>",
+
+            "selectyourlanguagetitle": "Select Language",
+            "selectyourlanguagetext": "Hello Bonjour Hallo здравствуйте Hola 您好",
+
+
+      	"code": "CH CODE",
+
+            "ACTIVATELITE": "CH ACTIVATE</br>LITE",
+            "ACTIVATEPRO": "CH ACTIVATE</br>PRO",
+            "ACTIVATEPREMIUM": "CH ACTIVATE</br>PREMIUM",
+            "allready_activate": "CH i'am already activated",
+            "password": "CH Password",
+            "repeat": "CH Repeat",
+            "createyourpassword": "CH Create your password",
+            "screenprotect": "CH Screenprotect",
+            "screenprotecttxt": "CH Screenprotect for cover you app intel and save battery.",
+            "1Minutes": "CH 1 Minut",
+            "2Minutes": "CH 2 Minutes",
+            "3Minutes": "CH 3 Minutes",
+            "4Minutes": "CH 4 Minutes",
+            "5Minutes": "CH 5 Minutes",
+            "6Minutes": "CH 6 Minutes",
+            "7Minutes": "CH 7 Minutes",
+            "8Minutes": "CH 8 Minutes",
+            "9Minutes": "CH 9 Minutes",
+            "10Minutes": "CH 10 Minutes",
+            "60Minutes": "CH 60 Minutes",
+            "none": "CH NONE",
+
+            "automaticlogofftimer": "CH Automatic Logoff timer",
+            "automaticlogofftimertxt": "CH *** IMPORTANT ***  Select the minutes whCH the app will automatic logout and kill all temporary keys if no activity. This to protect somebody can use your App.",
+
+            "notificationsound": "CH Notification Sound",
+            "notificationsoundtxt": "CH Choice the sound if push message arrives",
+            "sound": " CH Sound",
+             "volume": " CH Volume",
+              "pushsound": " CH Push sound",
+               "repeat": " CH Repeat",
+
+            "createyourpassword": "CH Create your password",
+            "youraccountready": "CH Your account ready to use.",
+            "restart": "CH RESTART",
+
+
+            "passwordnotthesame": "CH Passwords not the same",
+
+            "passwordcannotbeempty": "CH Passwords cannot be empty",
+
+            "nosettingsfound": "CH No setting found !<BR>Let's generate a UID for you.<BR>one moment please...",
+
+            "authorization": "CH Authorization...",
+
+            "updating": "CH Updating...",
+
+            "collectingdata": "CH Collecting data...",
+            "checking": "CH Checking...",
+            "preparing": "CH Oke preparing...",
+            "loading": "CH Loading...",
+            "busy": "CH Busy...",
+            "createUID": "CH Creating UID...",
+            "deleting": "CH Deleting...",
+            "messageissend": "CH Your messages is send.",
+
+            "crypting": "CH Crypting",
+            "oepsaerror": "CH Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "CH Contact request.",
+            "youhavecontactrequest": "CH You have a contact request.",
+            "on": "CH On",
+            "from": "CH From",
+            "note": "CH Note",
+
+            "contactlink": "CH Contact Link",
+
+             "keysettings": "CH KEY SETTINGS",
+
+              "keysettingstxt": "CH Set a key to encrypt your messages automatic with this user",
+              "whatkeytouse": "CH What key to use for",
+
+            "oke": "CH OKE",
+            "cancel": "CH CANCEL",
+            "accept": "CH ACCEPT",
+            "setkey": "CH SET KEY",
+            "remove": "CH REMOVE",
+            "back": "CH BACK",
+            "home": "CH HOME",
+            "keyremoved": "CH KEY Removed!",
+            "keyremovedtxt": "CH Key removed!<BR>Now use maual input.",
+
+            "keyset": "CH Your KEY is set.",
+            "keysettxt": "CH Make SURE other site<BR>USE THE SAME KEY!",
+
+			"importent": "CH *** IMPORTANT ***",
+            "done1": "CH Write down and save your UID = ",
+            "done2": "CH and your REACTIVATE code = ",
+            "done3": "CH . This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use SSLNote ",
+            "done4": "CH , With Lite version you can communicate with one other party, for more thCH one party you have to buy the Pro version.*",
+
+            "settings": "CH SETTINGS",
+            "contactadd": "CH Contact Add",
+            "contactaddtxt": "CH Fill in the details for the contact you will added. His UID, Nick name so you remember, extra note for the receiver. and press Send Request. The receiver will get message you will make a link with him. He can accept or cancel request, if accept the new contact will be added to your list. If you don't have somebody you can Add TEST contact.",
+            "hisuid": "CH His UID",
+            "hisnick": "CH His Nick",
+            "extranote": "CH Extra Note",
+            "myuid": "CH My UID",
+            "sendrequest": "CH Send Request",
+            "addtestcontact": "CH Add TEST contact",
+            "fillin": "CH *** FILL IN HERE ***",
+
+            "contacts": "CH Contacts",
+            "nothingfound": "CH Nothing found",
+            "localsettings": "CH Local Settings",
+            "logofftimer": "CH Logoff timer",
+            "designandnotification": "CH Design & Notification",
+
+            "theme": "CH Theme",
+            "notification": "CH Notification",
+
+            "notification": "CH Notification",
+            "account": "CH Account",
+            "nick": "CH Nick",
+            "options": "CH Options",
+            "contactadd": "CH Contact Add",
+            "contactedit": "CH Contact Edit",
+            "resetpassword": "CH Reset Password",
+
+            "admin": "CH ADMIN",
+
+			"premiumprivateserver": "CH Premium Private Server",
+
+			"edityourserver": "CH Edit Your Server :",
+
+			"createuid": "CH Create UID",
+			"blocklist": "CH BlockList",
+			"uidlist": "CH UIDList",
+
+			"systemstatus": "CH System status",
+
+			"showtips": "CH Show Tips",
+			"removeallsettings": "CH Remove All Local Settings",
+   
+            "activate": "CH Activate",
+            "sign_in": "CH Sign in",
+            "here": "CH here",
+
+            "next": "CH NEXT"
+
+        }
+    ]
+}

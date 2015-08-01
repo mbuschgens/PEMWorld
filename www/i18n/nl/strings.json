@@ -1,0 +1,209 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "TAAL",
+
+            "dutch": "Nederlands",
+            "english": "<span class='grey'>Engels</span>",
+            "russische": "<span class='grey'>Russische</span>",
+            "frans": "<span class='grey'>Frans</span>",
+            "spaans": "<span class='grey'>Spaans</span>",
+            "duits": "<span class='grey'>Duits</span>",
+            "chinees": "<span class='grey'>Chinees</span>",
+
+            "code": "CODE",
+
+            "ACTIVATELITE": "ACTIVEREN",
+            "ACTIVATEPRO": "ACTIVEREN</br>PRO",
+            "ACTIVATEPREMIUM": "ACTIVEREN</br>PREMIUM",
+            "already_activate": "ik ben al geactiveerd",
+            "password": "paswoord",
+            "repeat": "herhaal",
+            "createyourpassword": "maak een paswoord",
+            "screenprotect": "SCHERMBEVEILIGING",
+            "screenprotecttxt": "Schermbeveiliging om uw gegevens te verbergen en besparing van batterij.",
+            "1Minutes": "1 Minuut",
+            "2Minutes": "2 Minuten",
+            "3Minutes": "3 Minuten",
+            "4Minutes": "4 Minuten",
+            "5Minutes": "5 Minuten",
+            "6Minutes": "6 Minuten",
+            "7Minutes": "7 Minuten",
+            "8Minutes": "8 Minuten",
+            "9Minutes": "9 Minuten",
+            "10Minutes": "10 Minuten",
+            "60Minutes": "60 Minuten",
+            "none": "NONE",
+
+            "automaticlogofftimer": "AFMELD TIJD",
+            "automaticlogofftimertxt": "Selecteer het aantal minuten dat de app automatische moet afmelden en alle tijdelijke sleutels verwijderd.",
+
+            "notificationsound": "BERICHT GELUID",
+            "notificationsoundtxt": "Kies het geluid als er een push bericht binnen komt.",
+
+            "sound": " <span style='color:#FFF'> Geluid </span>",
+             "volume": " Volume",
+              "pushsound": " Push geluid",
+              
+
+            "createyourpassword": "Maak je paswoord",
+            "youraccountready": "Je account is klaar voor gebruik.",
+            "restart": "START",
+
+
+            "passwordnotthesame": "Paswoord niet het zelfde",
+
+            "passwordcannotbeempty": "Paswoord mag niet leeg zijn.",
+
+            "nosettingsfound": "Geen instellingen gevonden!<BR>Maak een nieuw UID voor U.<BR>Een moment AUB...",
+
+            "authorization": "Controlleren...",
+
+            "updating": "Updating...",
+
+            "collectingdata": "Verzamel data...",
+            "checking": "Controlleren...",
+            "preparing": "Oke voorbereiden...",
+            "loading": "Laden...",
+            "busy": "Bezig...",
+            "createUID": "UID aan het maken...",
+            "deleting": "Verwijderen...",
+            "messageissend": "Je bericht is Crypted en verzonden.",
+
+            "crypting": "Crypting",
+            "oepsaerror": "Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "Contact verzoek.",
+            "youhavecontactrequest": "Je heb een contact verzoek.",
+            "on": "Op",
+            "from": "Van",
+            "note": "Bericht",
+
+            "contactlink": "Contact Link",
+
+             "keysettings": "SLEUTEL INSTELLINGEN",
+
+              "keysettingstxt": "Stel een sleutel in om automatische uw berichten te crypten met dit contact.",
+              "whatkeytouse": "Welke sleutel gebruiken voor",
+
+            "oke": "OKE",
+            "cancel": "ANNULEREN",
+            "accept": "ACCEPTEREN",
+            "setkey": "ZET SLEUTEL",
+            "remove": "VERWIJDER",
+            "back": " Terug",
+            "home": "START",
+            "keyremoved": "SLEUTEL Verwijderd!",
+            "keyremovedtxt": "U moet nu handmatig de sleutel invoeren.",
+
+            "keyset": "Je sleutel is opgeslagen.",
+            "keysettxt": "Wees zeker andere kant<BR>gebruikt dezelfde sleutel!",
+
+            "importent": "*** BELANGRIJK ***",
+            "done1": "Noteer je UID = ",
+            "done2": " en HERACTIVATIE code = ",
+            "done3": ". Dit om later te herinstalleren op een ander device. Dit wordt maar een getoond!. U bent nu klaar voor gebruik van PEM ",
+            "done4": ", Met de Lite versie kunt u maar een andere contactpersoon toevoegen, voor meer dan een contactpersoon moet u de Pro version aanschaffen.",
+
+            "settings": "INSTELLINGEN",
+            "contactaddtxt": "Vul hier de gegevens in van het contact dat u wil toevoegen.",
+            "hisuid": "Zijn UID",
+            "hisnick": "Zijn Nick",
+            "extranote": "Mijn Nick",
+            "myuid": "Mijn UID",
+            "sendrequest": "Verstuur verzoek",
+            "addtestcontact": "Voeg TEST contact toe.",
+            "fillin": "*** HIER INVULLEN ***",
+
+            "contacts": "CONTACTEN",
+            "nothingfound": "Niets gevonden",
+            "localsettings": "Locale Instellingen",
+            "logofftimer": "AFMELD TIJD",
+            "designandnotification": "Layout & Berichtgeving",
+
+            "theme": "LAYOUT",
+            "notification": "BERICHT GELUID",
+
+
+            "account": "Account",
+            "nick": "Mijn Nick",
+            "options": "Opties",
+            "contactadd": "CONTACT TOEVOEGEN",
+            "contactaddsmall": "Contact toevoegen",
+            "contactedit": "CONTACT BEWERKEN",
+            "resetpassword": "* HERSTEL PASWOORD",
+            "resetburnpassword": "* HERSTEL BURN PASWOORD",
+
+            "admin": "BEHEERDER",
+
+            "premiumprivateserver": "Premium Private Server",
+
+            "edityourserver": "Bewerk Server Instellingen :",
+
+            "createuid": "Maak een UID",
+            "blocklist": "BLOCK LIJST",
+            "uidlist": "UID Lijst",
+
+            "systemstatus": "Systeem status",
+
+            "showtips": "Toon Tips",
+            "removeallsettings": "Verwijder alle instellingen",
+   
+            "activate": "Activeren",
+            "sign_in": "Aanmelden",
+            "here": "hier",
+
+            "tips": "Tips",
+            "learnhowtouse": "Leer hoe PEM te gebruiken<br>met een kleine rondleiding.",
+            "getstarted": "Start nu",
+            "notnow": "Niet nu",
+
+            "howtogetsupporttext": "Hoe kunt u anoniem support krijgen? Klik op Voeg SUPPORT contact toe en SUPPORT contact zal automatisch in uw contact lijst worden toegevoegd. Stuur als een normaal bericht 'de geheime sleutel is al automatisch ingesteld' op die manier kan support u bericht lezen en beantworden. Als u klaar ben kunt u altijd support contact verwijderen uit u lijst. Support zal u nooit een bericht sturen alleen beantworden!",
+            "howtogetsupportbutton": "Voeg SUPPORT contact toe",
+            "howtogetsupportalert": "SUPPORT TOEGEVOEGD<BR>Nu kunt u veilig en crypted communiceren met support voor vragen - bugs - tipt enz... Als u SUPPORT contact niet meer nodig heeft kunt op op SUPPORT van rechts naar links vegen en dan delete kiezen.",
+            
+            "fillinreceiveddetail": "Vul uw gegevens in",
+
+            "yoursecuremessagehere": "UW CRYPTED BERICHT HIER",
+            "send": "Verstuur",
+
+            "ihavelicensekey": "Ik heb een licentiesleutel",
+            "whatisyourlicensekey": "Wat is uw licentiesleutel?",
+            "licensedontexist": "Ongeldige licentie.",
+
+            "yourkeyfor": "UW SLEUTEL VOOR",
+            "decryptmessage": "DECRYPT BERICHT",
+            "encryptmessage": "ENCRYPT BERICHT",
+
+
+
+            "messageswiped": "Bericht gewist.",
+            "messagesread": "Bericht gelezen.",
+            "messagesdelivered": "Bericht afgeleverd.",
+            "messagesnew": "Nieuw bericht.",
+
+            
+            "testaccountadded": "TEST UID TOEGEVOEGD<BR>Nu kunt u een bericht sturen naar TEST UID en uw eigen sleutel gebruiken, De server zal u het bericht na een paar seconden terug sturen. U kunt dan met een andere sleutel controlleren of u het bericht kan lezen.",
+            
+
+            "accescodehere": "Uw toegangs code",
+            "loginfails": "Aantal foutive aanmeldingen",
+
+            "loginfailsreset": "Teveel pogingen<BR>Alle instellingen verwijderd",
+            "loginfailswarning": "Toegangs code niet goed<BR>* WAARSCHUWING *<BR>Bij 3 foutive aanmeldingen<BR>zullen alle instellingen worden verwijderd",
+            "lastseen": "Laatst gezien ",
+            "messagereadtxt": "Bericht ",
+            "messagebadgenewtxt": "nieuw",
+            "messagebadgereadtxt": "gelezen",
+            "processing": "Verwerken...",
+            "givenickname": "Geef Nick naam.",
+            "ihaveaaccount": "ik heb een account",
+            "pendingmessages": "Berichten te verzenden",
+            "close": "Sluiten",
+
+
+            "next": "VOLGENDE"
+
+        }
+    ]
+}

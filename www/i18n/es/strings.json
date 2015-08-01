@@ -1,0 +1,162 @@
+{
+    "languageSpecifications": [
+        {   
+            "taal": "Language",
+            "dutch": "Dutch",
+            "english": "English",
+            "russische": "Russia",
+
+            "frans": "<span class='grey'>French</span>",
+            "spaans": "<span class='grey'>Spanish</span>",
+            "duits": "<span class='grey'>German</span>",
+            "chinees": "<span class='grey'>Chinese</span>",
+
+            "selectyourlanguagetitle": "Select Language",
+            "selectyourlanguagetext": "Hello Bonjour Hallo здравствуйте Hola 您好",
+
+
+      	"code": "ES CODE",
+
+            "ACTIVATELITE": "ES ACTIVATE</br>LITE",
+            "ACTIVATEPRO": "ES ACTIVATE</br>PRO",
+            "ACTIVATEPREMIUM": "ES ACTIVATE</br>PREMIUM",
+            "allready_activate": "ES i'am already activated",
+            "password": "ES Password",
+            "repeat": "ES Repeat",
+            "createyourpassword": "ES Create your password",
+            "screenprotect": "ES Screenprotect",
+            "screenprotecttxt": "ES Screenprotect for cover you app intel and save battery.",
+            "1Minutes": "ES 1 Minut",
+            "2Minutes": "ES 2 Minutes",
+            "3Minutes": "ES 3 Minutes",
+            "4Minutes": "ES 4 Minutes",
+            "5Minutes": "ES 5 Minutes",
+            "6Minutes": "ES 6 Minutes",
+            "7Minutes": "ES 7 Minutes",
+            "8Minutes": "ES 8 Minutes",
+            "9Minutes": "ES 9 Minutes",
+            "10Minutes": "ES 10 Minutes",
+            "60Minutes": "ES 60 Minutes",
+            "none": "ES NONE",
+
+            "automaticlogofftimer": "ES Automatic Logoff timer",
+            "automaticlogofftimertxt": "ES *** IMPORTANT ***  Select the minutes whES the app will automatic logout and kill all temporary keys if no activity. This to protect somebody can use your App.",
+
+            "notificationsound": "ES Notification Sound",
+            "notificationsoundtxt": "ES Choice the sound if push message arrives",
+            "sound": " ES Sound",
+             "volume": " ES Volume",
+              "pushsound": " ES Push sound",
+               "repeat": " ES Repeat",
+
+            "createyourpassword": "ES Create your password",
+            "youraccountready": "ES Your account ready to use.",
+            "restart": "ES RESTART",
+
+
+            "passwordnotthesame": "ES Passwords not the same",
+
+            "passwordcannotbeempty": "ES Passwords cannot be empty",
+
+            "nosettingsfound": "ES No setting found !<BR>Let's generate a UID for you.<BR>one moment please...",
+
+            "authorization": "ES Authorization...",
+
+            "updating": "ES Updating...",
+
+            "collectingdata": "ES Collecting data...",
+            "checking": "ES Checking...",
+            "preparing": "ES Oke preparing...",
+            "loading": "ES Loading...",
+            "busy": "ES Busy...",
+            "createUID": "ES Creating UID...",
+            "deleting": "ES Deleting...",
+            "messageissend": "ES Your messages is send.",
+
+            "crypting": "ES Crypting",
+            "oepsaerror": "ES Oops, a Error. We missing something important. please try again.",
+
+            "contactrequest": "ES Contact request.",
+            "youhavecontactrequest": "ES You have a contact request.",
+            "on": "ES On",
+            "from": "ES From",
+            "note": "ES Note",
+
+            "contactlink": "ES Contact Link",
+
+             "keysettings": "ES KEY SETTINGS",
+
+              "keysettingstxt": "ES Set a key to encrypt your messages automatic with this user",
+              "whatkeytouse": "ES What key to use for",
+
+            "oke": "ES OKE",
+            "cancel": "ES CANCEL",
+            "accept": "ES ACCEPT",
+            "setkey": "ES SET KEY",
+            "remove": "ES REMOVE",
+            "back": "ES BACK",
+            "home": "ES HOME",
+            "keyremoved": "ES KEY Removed!",
+            "keyremovedtxt": "ES Key removed!<BR>Now use maual input.",
+
+            "keyset": "ES Your KEY is set.",
+            "keysettxt": "ES Make SURE other site<BR>USE THE SAME KEY!",
+
+			"importent": "ES *** IMPORTANT ***",
+            "done1": "ES Write down and save your UID = ",
+            "done2": "ES and your REACTIVATE code = ",
+            "done3": "ES . This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use SSLNote ",
+            "done4": "ES , With Lite version you can communicate with one other party, for more thES one party you have to buy the Pro version.*",
+
+            "settings": "ES SETTINGS",
+            "contactadd": "ES Contact Add",
+            "contactaddtxt": "ES Fill in the details for the contact you will added. His UID, Nick name so you remember, extra note for the receiver. and press Send Request. The receiver will get message you will make a link with him. He can accept or cancel request, if accept the new contact will be added to your list. If you don't have somebody you can Add TEST contact.",
+            "hisuid": "ES His UID",
+            "hisnick": "ES His Nick",
+            "extranote": "ES Extra Note",
+            "myuid": "ES My UID",
+            "sendrequest": "ES Send Request",
+            "addtestcontact": "ES Add TEST contact",
+            "fillin": "ES *** FILL IN HERE ***",
+
+            "contacts": "ES Contacts",
+            "nothingfound": "ES Nothing found",
+            "localsettings": "ES Local Settings",
+            "logofftimer": "ES Logoff timer",
+            "designandnotification": "ES Design & Notification",
+
+            "theme": "ES Theme",
+            "notification": "ES Notification",
+
+            "notification": "ES Notification",
+            "account": "ES Account",
+            "nick": "ES Nick",
+            "options": "ES Options",
+            "contactadd": "ES Contact Add",
+            "contactedit": "ES Contact Edit",
+            "resetpassword": "ES Reset Password",
+
+            "admin": "ES ADMIN",
+
+			"premiumprivateserver": "ES Premium Private Server",
+
+			"edityourserver": "ES Edit Your Server :",
+
+			"createuid": "ES Create UID",
+			"blocklist": "ES BlockList",
+			"uidlist": "ES UIDList",
+
+			"systemstatus": "ES System status",
+
+			"showtips": "ES Show Tips",
+			"removeallsettings": "ES Remove All Local Settings",
+   
+            "activate": "ES Activate",
+            "sign_in": "ES Sign in",
+            "here": "ES here",
+
+            "next": "ES NEXT"
+
+        }
+    ]
+}
