@@ -1,9 +1,192 @@
+
+function checkLoginInput() {
+console.log('checkLoginInput');
+
+var password = document.getElementById("password").value;
+
+console.log('password = ' + password);
+
+var uid = localStorage.getItem('UID');
+
+        var pass = calcMD5(password);
+        console.log('A pass MD5 = '+pass);
+
+
+        app.selectAllRecords = function(fn) 
+            {
+
+                app.db.transaction(function(tx) {
+                    //console.log('app.selectAllRecords');
+                    tx.executeSql(
+                        "SELECT * FROM uid WHERE uid = ? and pass = ?", [uid, pass], fn, app.onError);
+                });
+            }
+
+
+
+
+var render = function(tx, rs) {
+        for (var i = 0; i < rs.rows.length; i++) 
+        {
+                //console.log(rs.rows.item(i)); 
+            }
+
+            if (rs.rows.length) {
+
+                console.log('A USER EXIST');
+
+                for (var i = 0; i < rs.rows.length; i++) 
+                {
+                    //console.log('A RECORD HAVE VAR');
+                    var data = rs.rows.item(i);
+                    //localStorage.setItem('server',data.server);
+                    localStorage.setItem('sound', data.sound);
+                    localStorage.setItem('volume', data.volume);
+                    localStorage.setItem('repeatpush', data.repeatpush);
+                    sessionStorage.setItem('userLoggedIn', true);
+                }
+
+                document.getElementById("uid").reset();
+                localStorage.setItem('counterhide', '0');
+
+                sessionStorage.setItem('counter', 'yes');
+                $$('.mutecolor').removeClass('red');
+                localStorage.setItem('disablesound', 'no');
+                //mainView.loadPage( 'frames/messages/Scontactlist.html');
+                localStorage.setItem('loginfails', '0');
+                $('.loginfailsbadge').removeClass('badge-red');
+                $('.loginfailsbadge').addClass('badge-green');
+                $('.loginfailsbadge').text(localStorage.getItem(
+                    'loginfails'));
+
+                sslnote.closeModal('.login-screen');
+
+                mainView.router.load({
+                    url: 'frames/messages/Scontactlist.html',
+                    animatePages: false
+                });
+
+            }
+
+            else
+
+            {
+
+            console.log('PASSWORD NOT FOUND');
+            }
+
+    }  
+
+
+
+ app.selectAllRecords(render);
+
+}
+
+
+function checkPass(passId) {
+console.log('checkPass(passId)' + passId);
+
+var pwd = document.getElementById("pass"+passId).value;
+
+console.log('pwd = ' + pwd);
+console.log('pwd.length = ' + pwd.length);
+
+
+// var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W).*$", "g");
+// var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+
+
+// var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$", "g");
+
+
+// var enoughRegex = new RegExp("(?=.{14,}).*", "g");
+
+// if (pwd.value.length==0) 
+//     {
+//     // strength2.innerHTML = 'Type Password';
+
+// $$('#check'+passId).text('0');
+
+
+//     } 
+//     else if (false == enoughRegex.test(pwd.value)) {
+//     // strength2.innerHTML = 'More Characters';
+
+//     $$('#check'+passId).text('More');
+
+
+//     } 
+//     else if (strongRegex.test(pwd.value)) {
+//     // strength2.innerHTML = '<span style="color:green">Strong!</span>';
+
+//     $$('#check'+passId).text('GOOD');
+
+//     } 
+//     // else if (mediumRegex.test(pwd.value)) {
+//     // // strength2.innerHTML = '<span style="color:orange">Medium!</span>';
+
+//     // $$('#check'+passId).text('Medium');
+
+//     // } 
+//     else 
+//     {
+//     // strength2.innerHTML = '<span style="color:red">Weak!</span>';
+
+//     $$('#check'+passId).text('Weak');
+//     }
+
+
+if(pwd.length >1) {
+
+$$('#check'+passId).removeClass('nok');
+$$('#check'+passId).addClass('ok');
+
+
+}
+
+if(pwd.length <=1) {
+
+$$('#check'+passId).removeClass('ok');
+$$('#check'+passId).addClass('nok');
+
+
+}
+
+if (pwd.length <=1) {
+
+$$('#check'+passId).removeClass('nok');
+$$('#check'+passId).removeClass('ok');  
+
+}
+
+
+
+}
+function messageSendSuccesFul() {
+
+    // backgroundInterval = setInterval(function() {
+        $$("#divtoBlink").removeClass("backgroundRed");
+        $$("#divtoBlink").addClass("backgroundGreen");
+        var messageSendSuccesFul =
+            'Message Send SuccesFul.';
+        $$("#divtoBlink").html(messageSendSuccesFul);
+
+        setTimeout(function(){ 
+            cryptingStop();
+        },6000)
+
+    // }, 1000);
+
+
+}
+
 function cryptingStart() {
     backgroundInterval = setInterval(function() {
         $$("#divtoBlink").toggleClass("backgroundRed");
         var busyCryptingAndSendingBusy =
             '<img src="img/connecting-white.png" width="11" height="11"> Crypting and sending...';
-        $("#divtoBlink").html(busyCryptingAndSendingBusy);
+        $$("#divtoBlink").html(busyCryptingAndSendingBusy);
     }, 1000)
 }
 
@@ -11,8 +194,9 @@ function cryptingStop() {
     clearTimeout(backgroundInterval);
     var busyCryptingAndSendingBusy =
         '<i class="statusbar ion-ios-locked-outline"></i> Secure Connection';
-    $("#divtoBlink").html(busyCryptingAndSendingBusy);
-    $("#divtoBlink").removeClass("backgroundRed");
+    $$("#divtoBlink").html(busyCryptingAndSendingBusy);
+    $$("#divtoBlink").removeClass("backgroundRed");
+    $$("#divtoBlink").removeClass("backgroundGreen");
 }
 
 function updateConnectionStatus(msg, connected) {
@@ -353,17 +537,18 @@ function JsonMessagesToSend() {
                                 });
                                 data = '';
                                 // $$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
-                                        sslnote.addNotification({
-                                            title: 'PEM',
-                                            message: localStorage.getItem('messageissend'),
-                                            hold: 2000
-                                        });
+                        
                                 //});
                                 //audiofile = localStorage.getItem('sound');
                                 audiofile ='SendMessage.m4a';
                                 console.log('*** AUDIOFILE = ' +audiofile);
+
                                 cryptingStop();
+
                                 console.log('*** cryptingStop = ');
+
+                                messageSendSuccesFul();
+
                                         if (os == 'ios') {
                                             var snd = new Media(
                                                 audiofile);
@@ -375,6 +560,15 @@ function JsonMessagesToSend() {
                                             });
                                             sound_click.play();
                                         }
+
+                                        // sslnote.addNotification({
+                                        //     title: 'PEM',
+                                        //     message: localStorage.getItem('messageissend'),
+                                        //     hold: 2000
+                                        // });
+
+                                
+
                                 //console.log('Fn SQLiteUpdateMessagesTotal from Fn JsonMessagesToSend');
                                 //SQLiteUpdateMessagesTotal();  
                             },
@@ -505,6 +699,7 @@ function JsonMessagesToReceive() {
     SQLiteUpdateMessagesTotal();
 }
 
+
 function SQLiteUpdateMessagesTotal() {
         ////console.log('SQLiteUpdateMessagesTotal'); 
         showBusy();
@@ -566,6 +761,14 @@ function totalMessageUpdate() {
                                     $('.totalMessages').text(totalMessage.totalmessages);
                                 }
 
+                                else
+
+                                {
+                                    $('.totalMessages').removeClass('badge badge-red');
+                                    $('.totalMessages').text('');
+
+                                }
+
                             }
 
             } 
@@ -592,8 +795,6 @@ function totalMessageUpdate() {
 
 
 }
-
-
 
 function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new,message_old) {
         // var time_now = date('H:i', time()+25200); // time() returns a time in seconds already
@@ -749,8 +950,13 @@ function importNewUIDLinks() {
                 responseData) {
                 ////console.log('*** Fn importNewUIDLinks responseData = ' +responseData);  
                 if (responseData) {
-                    //console.log('*** IMPORT UIDLINKS = ' + responseData);
+                    console.log('*** IMPORT UIDLINKS = ' + responseData);
+
+
 console.log('*** IMPORT UIDLINKS = ');
+
+
+
         app.db.transaction(function(tx) {                    
             console.log('dropUIDLinks');
                     tx.executeSql(dropUIDLinks, [], onRemovedSuccess, onError);
@@ -758,9 +964,12 @@ console.log('*** IMPORT UIDLINKS = ');
                     tx.executeSql(createUIDLinks, [], onUpdateSuccess, onError);
          });           
 
+
+
                     app.db.transaction(function(tx) {
                         var obj = JSON.parse(responseData);
                         for (var key in obj) {
+
                             var data = obj[key];
                             //console.log('data.his_uid = ' +data.his_uid);
                             //console.log('data.his_nick = ' +data.his_nick);
@@ -770,7 +979,12 @@ console.log('*** IMPORT UIDLINKS = ');
 
 //console.log('updateUIDLinks');
 
+console.log('*** IMPORT UIDLINKS DATA = ' +data);
+
+
 tx.executeSql(updateUIDLinks, [uid,data.his_uid, data.his_nick,data.his_server, testonline,'0'], onInsertSuccess, onError);
+                        
+
                         } // end for
                         //tx.executeSql(updateUIDLinks, [uid, data.his_uid, data.his_nick], onInsertSuccess, onError);
                     }); // end app.db.transaction
@@ -778,7 +992,7 @@ tx.executeSql(updateUIDLinks, [uid,data.his_uid, data.his_nick,data.his_server, 
 
 
                     // norecordes forward to SContactadd
-                    //sslnote.hideIndicator();
+                   console.log('updateUIDLinks makeContactlist');
                     makeContactlist();
                 } // end if responseData
                 else {
@@ -826,7 +1040,6 @@ function makeContactlist() {
         // //console.log('+++ showBusy');
         //$$('.refresh-link.refresh-home').addClass('refreshing');
         var uid = localStorage.getItem('UID');
-
         app.selectAllRecords = function(fn) {
                 app.db.transaction(function(tx) {
                     ////console.log('selectUIDLinks');
@@ -853,12 +1066,10 @@ function makeContactlist() {
                         ////console.log('contactItem.autocrypt = ' );
                         ////console.log(contactItem.autocrypt);
                         if (contactItem.autocrypt === 1) {
-                            var autocrypt = "grey";
+                            var autocrypt = "ion-ios-locked white";
                         } else {
-                            var autocrypt = "blanco";
+                            var autocrypt = "ion-ios-locked blanco";
                         }
-
-
                         if (contactItem.nuonline === 1) {
                             var nuonline = "useronline";
                             var online = "green";
@@ -866,8 +1077,6 @@ function makeContactlist() {
                             var nuonline = "useroffline";
                             var online = "grey";
                         }
-
-
                         // if(contactItem.online === 1)
                         // {
                         // var online ="green";
@@ -878,13 +1087,15 @@ function makeContactlist() {
                         //  var  online ="grey";
                         //  var useronline ="useroffline";
                         // }
-
-
                         if (contactItem.badge >= '1') {
                             var badge = "badge-green";
                         } else {
                             var badge = "badge-grey";
                         }
+
+
+
+
                         // if (contactItem.totalmessages == 0) 
                         // {
                         // // var page ="Smessages-send-new";
@@ -897,6 +1108,18 @@ function makeContactlist() {
                             // var page = "Spopup-ask-key";
                             var page = "Smessages-send";
                         }
+
+                        if (contactItem.his_server === '0000') {
+                            var his_server = "0000";
+                            var page = "";
+                            var notconfirm = " ( Not Confirm )";
+
+                        } else {
+                            var his_server = contactItem.his_server;
+                            var notconfirm = "";
+                        }
+
+
                         // if (contactItem.totalmessages == 1) 
                         // {
                         // var page ="Smessages-send";
@@ -904,9 +1127,6 @@ function makeContactlist() {
                         if (contactItem.totalmessages >= 2) {
                             var page = "Scontactmessagelist";
                         }
-
-
-
                         if (contactItem.his_nick == 'EX5L9271J1') {
                             var his_nick = "SUPPORT";
                         } else if (contactItem.his_nick == 'EMD7LDAV5X') {
@@ -914,21 +1134,19 @@ function makeContactlist() {
                         } else {
                             var his_nick = contactItem.his_nick;
                         }
-
-                        var online = localStorage.getItem(contactItem.his_uid +'online');
-
                         ////console.log('contactItem.badge = ' +contactItem.badge);
                         ////console.log(badge);
                         ////console.log('autocrypt = ' +autocrypt);
-                        var lastseen = localStorage.getItem(contactItem.his_uid +'active_last');
+                        var lastseen = localStorage.getItem(contactItem.his_uid +
+                            'active_last');
                         //var lastseentxt = 'laatst gezien';
                         // edit lastseen view
-
                         contactlisthtml += contactlistTemplate.replace(
                             /{{my_uid}}/g, contactItem.my_uid).replace(
                             /{{his_uid}}/g, contactItem.his_uid).replace(
                             /{{his_nick}}/g, his_nick).replace(
-                            /{{his_server}}/g, contactItem.his_server).replace(
+                            /{{his_server}}/g, his_server).replace(
+                            /{{notconfirm}}/g, notconfirm).replace(
                             /{{mid}}/g, contactItem.mid).replace(
                             /{{status}}/g, contactItem.status).replace(
                             /{{askkey}}/g, contactItem.askkey).replace(
@@ -1027,7 +1245,9 @@ function makeContactlist() {
                 } // end only 1 contact
             } // end render
         app.selectAllRecords(render);
-        //console.log('*** CHECK SyncUIDLinks');
+        
+
+        console.log('*** CHECK SyncUIDLinks');
 
             $$.ajax({
                 method: 'POST',
@@ -1365,11 +1585,13 @@ function CcheckLastActive() {
                         }
                     }); // end app.db.transaction
                 }
-        }); // end post
-        
+            });
         JsonMessagesToSend();
     } //end function CcheckLastActive
 var contactonline;
+
+
+
 
 
 function setDataSource() {
@@ -1389,7 +1611,7 @@ console.log(localStorage.getItem('UID') + ' Fn setDataSource ');
             CcheckContactsOnline.addEventListener("onlineStatus", function(e) {
                 
                 // logMessage(e);
-                //console.log('addEventListener onlineStatus ' + e.data);
+                console.log('addEventListener onlineStatus ' + e.data);
                 onlineStatus(e.data);
 
             }, false);
@@ -1397,7 +1619,7 @@ console.log(localStorage.getItem('UID') + ' Fn setDataSource ');
             CcheckContactsLastOnline.addEventListener("lastOnline", function(e) {
                 
                 // logMessage(e);
-                // console.log('addEventListener lastOnline ' + e.data);
+                console.log('addEventListener lastOnline ' + e.data);
                 lastOnline(e.data);
 
             }, false);
@@ -1507,11 +1729,7 @@ function onlineStatus(data) {
 
                     var value = obj[key];
 
-// console.log('key ' + key + ' : value ' + value);
-
-
-
-
+console.log('key ' + key + ' : value ' + value);
 
                     if (key.indexOf('online') >= 0) {
 
@@ -1550,7 +1768,7 @@ function onlineStatus(data) {
 
 function iAmOnline() {
 
-    //console.log(localStorage.getItem('UID') + ' Fn iAmOnline ');
+    console.log(localStorage.getItem('UID') + ' Fn iAmOnline ');
 
     $$.post(localStorage.getItem('connection') +
         '/appie/php/include/iAmOnline.php?uid=' +
@@ -1566,12 +1784,16 @@ function iAmOnline() {
 }
 
 
-function checkContactsOnline1() {
 
+
+
+
+
+
+
+
+function checkContactsOnline() {
     console.log(localStorage.getItem('UID') + ' Fn checkContactsOnline ');
-
-
-
     $$.post(localStorage.getItem('connection') +
         '/appie/php/include/CcheckContactsOnline.php?uid=' +
         localStorage.getItem('UID') + '&sslnoteapp=' + localStorage.getItem(
@@ -1582,7 +1804,6 @@ function checkContactsOnline1() {
                 var obj = JSON.parse(data);
                 for (var key in obj) {
                     var value = obj[key];
-
                     if (key.indexOf('online') >= 0) {
                         if (value === '1') {
                             ////console.log('.' + key+'=1');
@@ -1603,7 +1824,6 @@ function checkContactsOnline1() {
                             $('.DIV' + key).addClass('useroffline');
                         }
                     }
-
                     if (key.indexOf('active_last') >= 0) {
                         // //console.log('active_last = ');
                         // //console.log('active_last = ' + key + ' - ' +value);
@@ -1629,7 +1849,7 @@ function checkContactsOnline1() {
                     }
                 }
             }
-    }); // end post
+        });
     
     //console.log('*** DO systemalert ');
     var systemalertHTML = '';
@@ -1650,26 +1870,23 @@ function checkContactsOnline1() {
             }
             else
             {$$('.systemalert').html(systemalertHTML);}
-    }); // end post
+
+
+
+        }); // end post
 
 
     ////console.log('*** END systemalert ');
     CcheckLastActive();
-
-    // loop = setTimeout(function() {
-    //     ////console.log('LOOP Fn checkContactsOnline');
-    //     checkContactsOnline();
-    //     //CcheckLastActive();
-    //     ////console.log('LOOP Fn checkContactsOnline checkMessageToSent Start');
-    //     //JsonMessagesToSend();
-    //     ////console.log('LOOP Fn checkContactsOnline checkMessageToSent Done');
-    // }, 10000);
-
+    loop = setTimeout(function() {
+        ////console.log('LOOP Fn checkContactsOnline');
+        checkContactsOnline();
+        //CcheckLastActive();
+        ////console.log('LOOP Fn checkContactsOnline checkMessageToSent Start');
+        //JsonMessagesToSend();
+        ////console.log('LOOP Fn checkContactsOnline checkMessageToSent Done');
+    }, 10000);
 }
-
-
-
-
 
 function showBusy() {
     ////console.log('+++ Fn showBusy');
@@ -1842,9 +2059,6 @@ var pushNotification;
 function onDeviceReady() {
 
     console.log('Fn onDeviceReady');
-
-
-
     try {
         pushNotification = window.plugins.pushNotification;
         if (device.platform === 'android' || device.platform === 'Android' ||
@@ -1867,7 +2081,6 @@ function onDeviceReady() {
         txt += 'Error description: ' + err.message + '\n\n';
         alert(txt);
     }
-
 }
 var os = sslnote.device.os;
 // result contains any message sent from the plugin call

@@ -9,6 +9,8 @@
 (function ($) {
   $.countdown = function (element, options) {
     // plugin's default options
+
+
     var defaults = {
       version: '@version',
       diff: null,
@@ -40,6 +42,8 @@
 
     // the "constructor" method that gets called when the object is created
     plugin.init = function () {
+
+      console.log('counter init');
       var $digit = $element.find('.digit');
       $digit.html('<div class="top"></div><div class="bottom"></div>');
       this.settings = $.extend({}, defaults, options);
@@ -124,7 +128,7 @@ for(var key in dateData)
 
 
       
-    // console.log('TMP : ' +tmp);
+    //console.log('timertemp : ' +timertemp);
 
 
    }
@@ -182,7 +186,12 @@ for(var key in dateData)
 
   $.fn.countdown = function (options) {
     // iterate through the DOM elements we are attaching the plugin to
+    console.log('counter countdown');
+
     return this.each(function () {
+
+      console.log('sec counter countdown');
+
       if (undefined == $(this).data('countdown')) {
         // pass the DOM element and the user-provided options as arguments
         var plugin = new $.countdown(this, options);

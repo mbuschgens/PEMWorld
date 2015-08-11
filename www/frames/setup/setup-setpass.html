@@ -1,25 +1,44 @@
-<!--   <div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="#" class="back" ><i class="icon ion-android-arrow-back"></i></a></div>
-    <div class="center sliding languagespecificHTML" data-text="screenprotect">Screenprotect</div>
-    <div class="right sliding"><a href="#" class="next"><i class="icon ion-android-arrow-forward"></i></a></div>
-  </div>
-</div> -->
-
 <div class="pages navbar-through no-toolbar no-swipeback">
   <div data-page="setup-setpass" class="page">
 
 
 
-  <div class="backgroundimage"></div>
+<!--   <div class="backgroundimage"></div> -->
 
     <div class="page-content login-screen-content loginbackground">
 
-       <div class="login-screen-title"><i class="icon logopem64"></i></div>     
+<!--        <div class="login-screen-title"><i class="icon logopem64"></i></div>     --> 
 
 
       
        <form id="setpass">
+
+        <div class="list-block">
+        
+        <div class="box">
+          <ul>
+            <li class="item-content">
+              <div class="item-inner">
+                  <div class="item-input white">
+                         <center>
+                       
+                                 <div class="setpass">                
+                                      <div class="yourpid white" >YOUR PID</div>
+
+                                 </div>
+
+                          </center>
+
+                </div>
+              </div>
+              
+            </li>
+          </ul>
+
+       </div>
+     </div>
+
+
 
 
         <div class="list-block white">
@@ -33,7 +52,7 @@
 
                    <div class="box">
                                 
-                 
+<!--                  TODO oogje om passwoord zichtbaar te maken -->
 
                                   <ul>           
                                    <li class="item-content">
@@ -41,9 +60,14 @@
                                           <div class="item-input">
                                                 <div class="setpass">                
 
-                                            <textarea id="pass1" name="pass1" data-text="password" class="languageSpecificPlaceholder" placeholder="" ></textarea>
+<textarea id="pass1" name="pass1" data-text="password" class="languageSpecificPlaceholder" placeholder="" onkeyup="checkPass(1)" >
 
-                                            </div>
+
+</textarea>
+
+ <div id="check1" class="checkPass">?</div>
+
+                                              </div>
 
                                         </div>
                                       </div>
@@ -61,10 +85,15 @@
                                      <li class="item-content">
                                         <div class="item-inner">           
                                             <div class="item-input">
+
+
                               <div class="setpass">                
 
-                          <textarea id="pass2" name="pass2" data-text="repeat" class="languageSpecificPlaceholder" placeholder="" ></textarea>
+<textarea id="pass2" name="pass2" data-text="repeat" class="languageSpecificPlaceholder" placeholder="" onkeyup="checkPass(2)" >
 
+</textarea>
+
+<div id="check2" class="checkPass">?</div>  
                           </div>
 
                                           </div>
@@ -74,11 +103,26 @@
                             </div>
 
 
+
+
+
+
+
         </div>
         
                             <div class="list-block">
                               <ul>
-                                <li><a href="#" class="form-to-json item-link list-button white languagespecificHTML" data-text="next">NEXT</a></li>
+                                <li>
+ <center>
+                                <a href="#" class="form-to-json link button active languagespecificHTML" data-text="next">NEXT</a>
+
+<!--         <a href="#" class="create-new-uid link button active languagespecificHTML" data-text="CREATE_NEW_UID">CREATE NEW UID</a> -->
+
+</center>
+
+
+
+                                </li>
                               
 
                               </ul>

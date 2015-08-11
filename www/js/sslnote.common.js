@@ -14,7 +14,6 @@ var sslnote = new Framework7({
     //reloadPages:true,
     onAjaxStart: function(xhr) {
         sslnote.showIndicator();
-        // source.removeEventListener();
     },
     onAjaxComplete: function(xhr) {
         sslnote.hideIndicator();
@@ -34,9 +33,8 @@ if (!localStorage.getItem('sslnoteapp')) {
     var sslnoteapp = 'Lite';
     localStorage.setItem('sslnoteapp', sslnoteapp);
 }
-var Appversion = '1.11.0';
-localStorage.setItem('whatsnew',
-     'V10.0.12 Geen aanpassing alleen vernieuwing TestFlight.' +
+var Appversion = '1.12.1';
+localStorage.setItem('whatsnew', 
     'V10.0.11 Fix Scroll bij langen berichten, Aantal berichten in app icoon update.' +
     'V10.0.10 Sneller pagina laden,Crypting en zending info in bovenbalk, Bug fix vast lopers, Verwijder contact nu ook aan contactpersoon kant.' + 
     'V10.0.7 Active intro.' +
@@ -62,14 +60,14 @@ var onShake = function() {
     });
     sslnote.loginScreen();
     //console.log('!! STOP LOOP onShake');
-    //clearTimeout(loop);
+    clearTimeout(loop);
     sslnote.hideIndicator();
     sessionStorage.LogedIn = true;
 };
-var backgroundInterval;
+//var backgroundInterval;
 var ptrContent = $$('.pull-to-refresh-content');
 var timeouts = [];
-var screenprotect;
+//var screenprotect;
 var mainView = sslnote.addView('.view-main', {
     dynamicNavbar: true,
 });
@@ -100,9 +98,9 @@ var insertUIDMessagesSend =
 var insertMessagesToReceive =
     "INSERT INTO uid_messages_receive (my_uid,his_uid,message,mdatum,read) VALUES (?,?,?,?,?)";
 var selectUID = "SELECT * FROM uid WHERE uid = ?";
+
 var selectTotalMessages =
     "SELECT COUNT(*) AS totalmessages FROM uid_messages_receive";
-
 
 var selectUIDLinks =
     "SELECT my_uid,his_uid,his_nick,his_server,autocrypt,online,badge,totalmessages,nuonline FROM uid_links WHERE my_uid = ? ORDER BY totalmessages DESC, online DESC";
@@ -234,36 +232,9 @@ $(document).ready(function() {
     localStorage.setItem('testUID', testUID);
     var testserver = '1001';
     localStorage.setItem('testserver', testserver);
-
-
-
-        if (localStorage.getItem('autologon') === '999') {
-
-
-        // mainView.router.load({
-        //     url: 'frames/messages/Scontactlist.html',
-        //     animatePages: false
-        // });
-        // document.getElementById('countdown_dashboardHide').innerHTML =
-
-            // '<center><a href=\'#\' class=\'autologon\'><i class=\'ion-ios-refresh white\'></i></a></center>'
-
-            console.log('* AUTOLOGON');
-
-setTimeout(function() {
-
-$$('#countdown_dashboardHide').html('<a href=\'#\' class=\'autologon autotxt\'>AUTO</a>');
-
-console.log('* AUTOLOGON UPDATE DONE');
-
-    }, 300);
-
-
-
+    //     if (localStorage.getItem('autologon') === '999') {
     //     // document.getElementById('countdown_dashboardHide').innerHTML =
     //     //     '<a href=\'#\' class=\'autologon\'><i class=\'icon ion-ios-refresh\'></i></a>';
-
-
     //     // setTimeout(function() {
     //         sessionStorage.setItem('logofftimer', localStorage.getItem(
     //             'logofftimer'));
@@ -274,11 +245,7 @@ console.log('* AUTOLOGON UPDATE DONE');
     //         });
     // sslnote.hideIndicator();
     //     // }, 2800);
-
-
-    }
-
-
+    // }
     if (!localStorage.getItem('doneSetup') && !localStorage.doneTutorial) {
         //console.log('UID not set ACTIVE it');
         if (!localStorage.getItem('cLANGUAGEset')) {
@@ -309,7 +276,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, {
@@ -328,7 +295,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, {
@@ -347,7 +314,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, {
@@ -365,7 +332,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, {
@@ -383,7 +350,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, {
@@ -401,7 +368,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, {
@@ -419,7 +386,7 @@ console.log('* AUTOLOGON UPDATE DONE');
                                     '.login-screen'
                                 );
                                 setupview.loadPage(
-                                    'frames/setup/setup.html'
+                                    'frames/setup/setupintro.html'
                                 );
                             }
                         }, ]
@@ -429,20 +396,16 @@ console.log('* AUTOLOGON UPDATE DONE');
         else {
             sslnote.closeModal('.login-screen');
             setTimeout(function() {
-                setupview.loadPage('frames/setup/setup.html');
+                setupview.loadPage('frames/setup/setupintro.html');
             }, 500);
         }
     }
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
-        width: 120,
-        height: 120,
-        correctLevel: QRCode.CorrectLevel.H
-    });
 
-    function makeCode() {
-        qrcode.makeCode(localStorage.getItem('UID'));
-    }
-    makeCode();
+
+
+
+
+
     $$('.contactadd').on('click', function() {
         //console.log('frames/settings/mysettings/ScontactAdd.html');
         settingsview.loadPage(
@@ -561,21 +524,21 @@ console.log('* AUTOLOGON UPDATE DONE');
                 sslnote.actions(buttons);
             }); //end getJSON
     }); // end support
-    $$('.logoff').on('click', function() {
-        //console.log('+++ LOGOFF');
-        sslnote.hideIndicator();
-        sessionStorage.clear();
-        mainView.router.load({
-            url: 'frames/login.html',
-            animatePages: false
-        });
-        $('.countdown_dashboard').data('countdown').update({
-            diff: '-1'
-        });
-        sslnote.loginScreen();
-        //console.log('!! STOP LOOP logout button');
-        //clearTimeout(loop);
-    });
+    // $$('.logoff').on('click', function() {
+    //     //console.log('+++ LOGOFF');
+    //     sslnote.hideIndicator();
+    //     sessionStorage.clear();
+    //     mainView.router.load({
+    //         url: 'frames/login.html',
+    //         animatePages: false
+    //     });
+    //     $('.countdown_dashboard').data('countdown').update({
+    //         diff: '-1'
+    //     });
+    //     sslnote.loginScreen();
+    //     //console.log('!! STOP LOOP logout button');
+    //     clearTimeout(loop);
+    // });
     // disable till slider intro works
     //  if (!localStorage.doneTutorial  && localStorage.getItem('UID') && localStorage.getItem('doneSetup'))  {
     // //sessionStorage.setItem('counter', 'yes'); 
@@ -607,18 +570,35 @@ console.log('* AUTOLOGON UPDATE DONE');
 $$('.login-screen .form-to-json').on('click', function() {
     console.log('A login-screen Started');
     var formData = sslnote.formToJSON('#uid');
-    //console.log('A formData = '+formData);
+    console.log('A formData = '+formData);
+    console.log(formData);
+
+
     var pass = formData.pass;
-    //console.log('A pass = '+pass);
-    var pass = calcMD5(formData.pass);
-    //console.log('A pass MD5 = '+pass);
+    console.log('A pass = '+pass);
+
+    
+
     var uid = localStorage.getItem('UID');
-    //console.log('A uid = '+uid);
+    console.log('A uid = '+uid);
+    
+
+
+
+
     if (pass === '') {
         sslnote.alert('Cannot be empty.');
     } else {
+
+        var pass = calcMD5(formData.pass);
+        console.log('A pass MD5 = '+pass);
+
+
         sslnote.showIndicator();
-        //console.log('form-to-json');
+        console.log('form-to-json');
+        
+
+
         document.activeElement.blur();
         app.selectAllRecords = function(fn) {
                 app.db.transaction(function(tx) {
@@ -812,7 +792,7 @@ $$('.firstsetup').on('click', function() {
     // localStorage.setItem('doneTutorial','yes');
     //sessionStorage.setItem('counter', 'yes');     
     sslnote.closeModal();
-    setupview.loadPage('frames/setup/setup.html');
+    setupview.loadPage('frames/setup/setupintro.html');
 });
 var server = localStorage.getItem('server');
 
@@ -823,8 +803,8 @@ var server = localStorage.getItem('server');
 // $$('.serveronlineimg').html(serveronlineHTML);
 // $$('.serveronlineimgsmall').html(serveronlinesmallHTML);
 
-$$('.sslnoteversion').html(localStorage.getItem('sslnoteversion'));
-$$('.sslnoteapp').html(localStorage.getItem('sslnoteapp'));
+
+
 if (localStorage.getItem('loginfails') >= '1') {
     $('.loginfailsbadge').removeClass('badge-green');
     $('.loginfailsbadge').addClass('badge-red');
@@ -854,7 +834,7 @@ $('#contactsview').on('show', function() {
     console.log('contactsview TAB =  ');
     //////console.log('//!! STOP LOOP');
     var totalsec = localStorage.getItem('logofftimer') * 58;
-    //clearTimeout(loop);
+    clearTimeout(loop);
     ////console.log('UPDATE COUNTER + '+totalsec);
     $('.countdown_dashboard').data('countdown').update({
         diff: totalsec,
@@ -875,7 +855,7 @@ $('#contactsview').on('show', function() {
             console.log(
                 '//!! STOP LOOP from counter #contactsview'
             );
-            //clearTimeout(loop);
+            clearTimeout(loop);
             sslnote.hideIndicator();
         }
     });
@@ -888,22 +868,20 @@ $('#contactsview').on('show', function() {
         reload: true
     });
     ////console.log('!!! makeContactlist DONE'); 
-    setTimeout(function() {
-        ////console.log('***** START setTimeout Fn contactonline *****');
-        checkContactsOnline();
-        ////console.log('!!! makeContactlist START');
-        makeContactlist();
-        ////console.log('***** END setTimeout Fn contactonline *****');  
-        //  CcheckLastActive();
-    }, 0);
+    // setTimeout(function() {
+    //     ////console.log('***** START setTimeout Fn contactonline *****');
+    //     checkContactsOnline();
+    //     ////console.log('!!! makeContactlist START');
+    //     makeContactlist();
+    //     ////console.log('***** END setTimeout Fn contactonline *****');  
+    //     //  CcheckLastActive();
+    // }, 0);
 });
 $('.showsettings').on('click', function() {
-    console.log('showsettings TAB =  showsettings');
+    console.log('showsettings TAB =  ');
     //////console.log('//!! STOP LOOP');
-
     var totalsec = localStorage.getItem('logofftimer') * 58;
-    ////clearTimeout(loop);
-
+    clearTimeout(loop);
     //console.log('UPDATE COUNTER + '+totalsec);
     $('.countdown_dashboard').data('countdown').update({
         diff: totalsec,
@@ -924,7 +902,7 @@ $('.showsettings').on('click', function() {
             console.log(
                 '//!! STOP LOOP from counter .showsettings'
             );
-            //clearTimeout(loop);
+            clearTimeout(loop);
             sslnote.hideIndicator();
         }
     });
@@ -940,6 +918,10 @@ $('.showsettings').on('click', function() {
 $$('.showTourClose').on('click', function() {
     closeTour();
 });
+
+$$('.sslnoteversion').html(localStorage.getItem('sslnoteversion'));
+$$('.sslnoteapp').html(localStorage.getItem('sslnoteapp'));
+
 //*************************************************************************************************************
 //*************************************************************************************************************
 //********************** INIT ****************************************************************************
@@ -994,80 +976,19 @@ $$(document).on('pageInit', function(e) {
     var settingsscreenprotectData = sslnote.formGetData(
         'settingsscreenprotect');
     var storedData = sslnote.formGetData('settingsscreenprotect');
+    
+
     $$('.refresh-link.refresh-home').on('click', function() {
         console.log('refresh-link pressed');
         importNewUIDLinks();
         JsonMessagesToSend();
     });
-    // $('#contactsview').on('show', function() {
-    //     //console.log(' contactsview TAB =  ');
-    //     ////console.log('!! STOP LOOP');
-    //     //clearTimeout(loop);
-    //     //console.log('UPDATE COUNTER + '+totalsec);
-    //     $('.countdown_dashboard').data('countdown').update({
-    //         diff: totalsec,
-    //         onEnd: function() {
-    //             //console.log('+++ countdown finish onPageInit Scontactlist');
-    //             sslnote.hideIndicator();
-    //             mainView.router.load({
-    //                 url: 'frames/login.html',
-    //                 animatePages: false
-    //             });
-    //             sessionStorage.clear();
-    //             $('.countdown_dashboard').data(
-    //                 'countdown').update({
-    //                 diff: '-1'
-    //             });
-    //             sslnote.loginScreen();
-    //             //console.log('!! STOP LOOP from counter #contactsview');
-    //             //clearTimeout(loop);
-    //             sslnote.hideIndicator();
-    //         }
-    //     });
-    //     $('.countdown_dashboard').data('countdown').start();
-    //     //console.log('UPDATE COUNTER DONE #contactsview');
-    //     mainView.router.load({url:'frames/messages/Scontactlist.html', animatePages: false,reload:true});
-    //     //console.log('!!! makeContactlist START');
-    //     makeContactlist();
-    //     //console.log('!!! makeContactlist DONE'); 
-    // });
-    // $('.showsettings').on('click', function() {
-    //     //console.log(' showsettings TAB =  ');
-    //     ////console.log('!! STOP LOOP');
-    //     //clearTimeout(loop);
-    //     //console.log('UPDATE COUNTER + '+totalsec);
-    //     $('.countdown_dashboard').data('countdown').update({
-    //         diff: totalsec,
-    //         onEnd: function() {
-    //             //console.log('+++ countdown finish onPageInit Scontactlist');
-    //             sslnote.hideIndicator();
-    //             mainView.router.load({
-    //                 url: 'frames/login.html',
-    //                 animatePages: false
-    //             });
-    //             sessionStorage.clear();
-    //             $('.countdown_dashboard').data(
-    //                 'countdown').update({
-    //                 diff: '-1'
-    //             });
-    //             sslnote.loginScreen();
-    //             //console.log('!! STOP LOOP from counter .showsettings');
-    //             //clearTimeout(loop);
-    //             sslnote.hideIndicator();
-    //         }
-    //     });
-    //     $('.countdown_dashboard').data('countdown').start();
-    //     //console.log('UPDATE COUNTER DONE .showsettings');
-    //     settingsview.router.load({url:'frames/settings/index.html', animatePages: false,reload:true});
-    // });
-    if (settingsscreenprotectData) {
-        for (var key in settingsscreenprotectData) {
-            var tmp = settingsscreenprotectData[key];
-            localStorage.setItem('screenprotecttimer', tmp * 60000);
-        }
-    } else {
-        localStorage.setItem('screenprotecttimer', 50 * 60000);
-    }
+
+
+$$('.sslnoteversion').html(localStorage.getItem('sslnoteversion'));
+$$('.sslnoteapp').html(localStorage.getItem('sslnoteapp'));
+
+
     // //console.log('Startscreenprotect Started = ' +localStorage.getItem('screenprotecttimer'));
     // Startscreenprotect(); 
     // var i;
@@ -1158,6 +1079,11 @@ $$(document).on('pageInit', function(e) {
             }
         }
     });
+
+
+
+
+
     // $$('.klik').on('click', function() {
     //     //console.log('+ Play klik sound');
     // var storedData =  sslnote.formGetData('settings-keyboardclick') ;
@@ -1215,13 +1141,19 @@ $$(document).on('pageInit', function(e) {
             sessionStorage.setItem('logofftimer', logofftimer);
         }
     }
+
+
+
+
     if (localStorage.getItem('autologon') === '999') {
         var logofftimer = 999999;
         localStorage.setItem('logofftimer', logofftimer);
         sessionStorage.setItem('logofftimer', logofftimer);
     }
-    $('.countdown_dashboard').countdown();
-    //console.log('+++ countdown start');
+
+
+
+
     $$('.reset-local-storage').on('click', function() {
         //console.log('BUTTON reset-local-storage');
         var clickedLink = $(this);
@@ -1363,6 +1295,24 @@ $$(document).on('pageInit', function(e) {
         sslnote.actions(buttons);
     });
     //console.log('+++ Fn ShowCounter');
+
+
+
+if (page.name !== 'index' || 
+    page.name !== 'login' || 
+    page.name !== 'login-screen' || 
+    page.name !== 'firstsetup' || 
+    page.name !== 'contactlist' || 
+    page.name !== 'settings' 
+
+
+    ) {
+
+    $('.countdown_dashboard').countdown();
+    console.log('+++ countdown start');
+
+
+
     var totalsec = localStorage.getItem('logofftimer') * 58;
     // mainView.router.load({url:'frames/messages/Scontactlist.html',animatePages:false});
     if (localStorage.getItem('autologon') == '999') {
@@ -1370,54 +1320,53 @@ $$(document).on('pageInit', function(e) {
         //     url: 'frames/messages/Scontactlist.html',
         //     animatePages: false
         // });
-        // document.getElementById('countdown_dashboardHide').innerHTML =
-
-            // '<center><a href=\'#\' class=\'autologon\'><i class=\'ion-ios-refresh white\'></i></a></center>'
-
-            console.log('** AUTOLOGON');
-
-setTimeout(function() {
-
-$$(page.container).find('#countdown_dashboardHide').html('<a href=\'#\' class=\'autologon autotxt\'>AUTO</a>');
-
-console.log('** AUTOLOGON UPDATE DONE');
-
-    }, 300);
-
-
-
+        document.getElementById('countdown_dashboardHide').innerHTML =
+            '<a href=\'#\' class=\'autologon\'>OFF</a>';
+            // '<center><a href=\'#\' class=\'autologon\'><i class=\'ion-ios-refresh white\'></i></a></center>';
 
         //sslnote.hideIndicator();
     } else {
         //if(!localStorage.getItem('doneSetup')) { totalsec = '999999';}
         // if(!localStorage.doneTutorial) { totalsec = '999999';}
-        //console.log('UPDATE COUNTER iNIT+ '+totalsec);
+        console.log(' 1340 UPDATE COUNTER iNIT+ '+totalsec);
         //sslnote.closeModal('.login-screen');
         $('.countdown_dashboard').data('countdown').update({
             diff: totalsec,
             onEnd: function() {
-                //console.log('+++ countdown finish onPageInit Scontactlist');
+                console.log('+++ 1345 countdown finish ');
                 sslnote.hideIndicator();
+
                 mainView.router.load({
                     url: 'frames/login.html',
                     animatePages: false
                 });
+
                 sessionStorage.clear();
                 $('.countdown_dashboard').data('countdown')
                     .update({
                         diff: '-1'
                     });
+
+                $('.countdown_dashboard').data('countdown').stop();
+
                 sslnote.loginScreen();
                 //console.log('!! STOP LOOP from counter');
-                //clearTimeout(loop);
+                clearTimeout(loop);
                 sslnote.hideIndicator();
             }
         });
+
+
         $('.countdown_dashboard').data('countdown').start();
         //mainView.router.load({url:'frames/messages/Scontactlist.html',animatePages:false});
         // }
         //console.log('UPDATE COUNTER DONE iNIT');
     }
+
+}
+
+
+
 
 
 
@@ -1459,43 +1408,6 @@ var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;
 
                 console.log('-- THE IMAGE onSuccess DONE');
 
-
-
-
-        // var messageType = (['sent', 'received'])[Math.round(Math.random())];
-         
-        //   // Avatar and name for received message
-        //   var avatar, name;
-        //   if(messageType === 'received') {
-        //     avatar = 'http://lorempixel.com/output/people-q-c-100-100-9.jpg';
-        //     name = 'Kate';
-        //   }
-
-
-        // var messageText = 'test';
-
-
-        //   myMessages.addMessage({
-        //     // Message text
-        //     text: messageText,
-        //     // Random message type
-        //     type: messageType,
-        //     // Avatar and name:
-        //     avatar: avatar,
-        //     name: name,
-        //     // Day
-        //     day: !conversationStarted ? 'Today' : false,
-        //     time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
-        //   })
-         
-        //   // Update conversation flag
-        //   conversationStarted = true;
-
-
-
-
-               // myMessages.scrollMessages();
-
             }
 
             function onFail(message) {
@@ -1512,7 +1424,7 @@ var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;
 
     $$('.QRscanner').on('click', function() {
         //console.log('!! STOP LOOP');
-        //clearTimeout(loop);
+        clearTimeout(loop);
         //console.log('QRscanner Pressed');
         // var scanner = cordova.require("com.phonegap.plugins.barcodescanner.BarcodeScanner");
         cordova.plugins.barcodeScanner.scan(function(result) {
@@ -1559,6 +1471,7 @@ var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;
                         0][$(this).data("text")]);
             });
         });
+
     $$('.deleteimage').on('click', function() {
         //console.log('Photo deleted');
         var buttons = [{
@@ -1573,6 +1486,10 @@ var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;
         }, ];
         sslnote.actions(buttons);
     });
+
+
+
+
 }); // end page init
 //*************************************************************************************************************
 //********************** END PAGE INIT ****************************************************************************
@@ -1622,28 +1539,23 @@ sslnote.onPageInit('SmyContactList', function(page) {
     app.selectAllRecords(render);
 });
 //////////////////////////////////////////////////////////////////////
-sslnote.onPageBeforeInit('Scontactlist', function(page) {
-// // //console.log('!!!! onPageBeforeAnimation Scontactlist');
-// // //console.log(page.name);
-// // //console.log('!!!! onPageBeforeAnimation Scontactlist');
-// //     setTimeout(function(){
-// //     //console.log('***** START setTimeout Fn makeContactlist *****');
-// //     makeContactlist();
-// //     //console.log('***** END setTimeout Fn makeContactlist *****');  
-// //     CcheckLastActive();
-// //     },0);
-// // //console.log('--- Start SQLiteUpdateMessagesTotal');
-// // SQLiteUpdateMessagesTotal();
-// // //console.log('--- End SQLiteUpdateMessagesTotal');
-// // //console.log('***** START CHECK MESSAGE TO SEND *****');
-// // JsonMessagesToSend();
-// // //console.log('***** END CHECK MESSAGE TO SEND *****');
-// importNewUIDLinks();
-
-
+sslnote.onPageBeforeAnimation('Scontactlist', function(page) {
+// //console.log('!!!! onPageBeforeAnimation Scontactlist');
+// //console.log(page.name);
+// //console.log('!!!! onPageBeforeAnimation Scontactlist');
+//     setTimeout(function(){
+//     //console.log('***** START setTimeout Fn makeContactlist *****');
+//     makeContactlist();
+//     //console.log('***** END setTimeout Fn makeContactlist *****');  
+//     CcheckLastActive();
+//     },0);
+// //console.log('--- Start SQLiteUpdateMessagesTotal');
+// SQLiteUpdateMessagesTotal();
+// //console.log('--- End SQLiteUpdateMessagesTotal');
+// //console.log('***** START CHECK MESSAGE TO SEND *****');
+// JsonMessagesToSend();
+// //console.log('***** END CHECK MESSAGE TO SEND *****');
 iAmOnline();
-
-
 });
 // //////////////////////////////////////////////////////////////////////
 sslnote.onPageInit('Scontactlist', function(page) {
@@ -1654,11 +1566,15 @@ sslnote.onPageInit('Scontactlist', function(page) {
     sslnote.showToolbar('.tabbar');
     localStorage.setItem('showalert', 1);
     sslnote.showTab('#contactsview');
+    //importNewUIDLinks();
+
+
+
 
     setDataSource();
 
-    
-    //importNewUIDLinks();
+
+
     $("#connection").removeClass("connectionHidden");
     if (!localStorage.dotour) {
         //console.log('Add TEST contact');
@@ -1705,28 +1621,11 @@ sslnote.onPageInit('Scontactlist', function(page) {
     // }, 0);
 
 
-
-
-
-    // function logMessage(obj) {
-    //     var el = document.getElementById("log");
-    //     if (typeof obj === "string") {
-    //         el.innerHTML += obj + "<br>";
-    //     } else {
-    //         el.innerHTML += obj.lastEventId + " - " + obj.data + "<br>";
-    //     }
-    //     el.scrollTop += 20;
-    // }
-
-
-
-
     setTimeout(function() {
         console.log('***** START CHECK MESSAGE TO SEND *****');
         JsonMessagesToSend();
         ////console.log('***** END CHECK MESSAGE TO SEND *****');
     }, 0);
-
 
 
     sslnote.hideIndicator();
@@ -1745,36 +1644,6 @@ sslnote.onPageAfterAnimation('Scontactlist', function(page) {
     //////////////////////////////////////////////////////////////////////
     console.log('!!! onPageAfterAnimation Scontactlist');
     //console.log(page.name);
-
-    if (localStorage.getItem('autologon') == '999') {
-        // mainView.router.load({
-        //     url: 'frames/messages/Scontactlist.html',
-        //     animatePages: false
-        // });
-        // document.getElementById('countdown_dashboardHide').innerHTML =
-
-            // '<center><a href=\'#\' class=\'autologon\'><i class=\'ion-ios-refresh white\'></i></a></center>'
-
-            console.log('**** AUTOLOGON');
-
-$$(page.container).find('#countdown_dashboardHide').html('<a href=\'#\' class=\'autologon autotxt\'>AUTO</a>');
-
-
-console.log('**** AUTOLOGON UPDATE DONE');
-
-
-
-
-
-        //sslnote.hideIndicator();
-    }
-
-
-
-
-
-
-
     if (localStorage.dotourfirstmessagesend === 'showsend') {
         //console.log('dotourfirstmessagesend === showsend' );
         var dotourHTML = '<li>' +
@@ -2323,23 +2192,53 @@ sslnote.onPageAfterAnimation('Scontactadd', function(page) {
     // if (page.name === 'Scontactadd') {
     //console.log('page.name Scontactadd');
     //console.log('!! STOP LOOP');
-    //clearTimeout(loop);
+    clearTimeout(loop);
+
     var uid = localStorage.getItem('UID');
     var his_uidscan = sessionStorage.getItem('QRscanUID');
     var server = localStorage.getItem('server');
+
     var data = {
         uid: uid,
         server: server,
         his_uid: his_uidscan
     };
+
     sslnote.formFromJSON('#contactadd', data);
+
     $$('.form-to-json').on('click', function() {
         sslnote.showIndicator();
-        //console.log('form-to-json');
+        console.log('form-to-json');
         document.activeElement.blur();
         var formData = sslnote.formToJSON('#contactadd');
         // alert(JSON.stringify(formData));
+        console.log('formData = ' + formData);
         console.log(formData);
+
+
+        var fhis_uid = formData.his_uid;
+        var fhis_nick = formData.his_nick;
+        var fnote = formData.note;
+
+
+        console.log(fhis_uid);
+        console.log(fhis_nick);
+        console.log(fnote);
+
+if(fhis_uid === '' || fhis_nick === '' || fnote === '')
+{
+
+
+console.log('All field required.');
+sslnote.alert('All field required.');
+
+sslnote.hideIndicator();
+}
+
+// {"his_uid":"","his_nick":"","note":"","uid":"LYL8W6HQ9T","server":"1001"}
+else
+
+{
         $$.ajax({
             method: 'POST',
             dataType: 'jsonp',
@@ -2366,9 +2265,30 @@ sslnote.onPageAfterAnimation('Scontactadd', function(page) {
                     console.log(jsonObject.msg);
                     sslnote.alert(jsonObject.msg); //mainView.loadPage("frames/settings/index.html")       
                     //mainView.loadPage("Smessages.html") 
+
+                    // ADD CONTACT
+
+                app.db.transaction(function(tx) {
+                    console.log('insert CONTACT ');
+                    tx.executeSql(insertSupportUID, [
+                            localStorage.getItem('UID'),fhis_uid,fhis_nick,
+                            '0000','0', '0', '1'
+                        ], onInsertSuccess,onError);
+                });
+
                 } else {
                     console.log(jsonObject.msg);
                     sslnote.alert(jsonObject.msg);
+
+                app.db.transaction(function(tx) {
+                    console.log('insert CONTACT ');
+                    tx.executeSql(insertSupportUID, [
+                            localStorage.getItem('UID'),fhis_uid,fhis_nick,
+                            '0000','0', '0', '1'
+                        ], onInsertSuccess,onError);
+                });
+
+
                     sslnote.hideIndicator();
                     settingsview.loadPage(
                         'frames/settings/mysettings/ScontactAdd.html'
@@ -2386,27 +2306,31 @@ sslnote.onPageAfterAnimation('Scontactadd', function(page) {
                             errorThrown);
                     });
             }
-        });
+        }); // end ajax
+
+}
+
     });
+
+
+
     $$('.AddTestAccount').on('click', function() {
+
         $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
             "/strings.json", function(
                 languageSpecificObject) {
                 //console.log('Add TEST contact');
+
+
                 app.db.transaction(function(tx) {
                     //console.log('insertTestUID ');
                     tx.executeSql(insertSupportUID, [
-                            localStorage.getItem(
-                                'UID'),
-                            localStorage.getItem(
-                                'testUID'),
-                            'TEST UID',
-                            localStorage.getItem(
-                                'testserver'),
-                            '0', '0', '1'
-                        ], onInsertSuccess,
-                        onError);
+                            localStorage.getItem('UID'),
+                            localStorage.getItem('testUID'),'TEST UID',
+                            localStorage.getItem('testserver'),'0', '0', '1'
+                        ], onInsertSuccess,onError);
                 });
+
                 var posturl =
                     'https://sslnote.com/appie/php/include/JsonInsertUIDLinks.php?sslnoteapp=' +
                     localStorage.getItem('sslnoteapp') +
@@ -2419,6 +2343,8 @@ sslnote.onPageAfterAnimation('Scontactadd', function(page) {
                     localStorage.getItem('testserver') +
                     '&his_nick=TEST UID';
                 console.log(posturl);
+
+
                 $$.post(posturl, function(data) {
                     //console.log('**************************************');
                     //console.log('POST RESPONSE TEST UID INSERTED');
@@ -2729,7 +2655,7 @@ sslnote.onPageInit('Smessages-send', function(e) {
     //console.log('1------------------------------');
     document.activeElement.blur();
     //console.log('!! STOP LOOP');
-    //clearTimeout(loop);
+    clearTimeout(loop);
     //sslnote.hideToolbar('.tabbar');
     sslnote.showIndicator();
 
@@ -3239,7 +3165,9 @@ myMessages.scrollMessages();
 
 
                 var lastTime = 0;
-                $$(document).on('click', '.Aautodelete', function() {
+
+            
+                $$('.Aautodelete').on('click', function() {
                     if (sessionStorage.getItem('mid')) {
                         showBusy();
                         //console.log('A CLICK AUTODELETE ');
@@ -3300,11 +3228,13 @@ myMessages.scrollMessages();
                                 url: 'frames/messages/Scontactlist.html',
                                 reload: true
                             });
-                            SQLiteUpdateMessagesTotal
-                                ();
+                            SQLiteUpdateMessagesTotal();
                         });
                     }
                 });
+
+
+
                 $$('.newmessage').on('click', function() {
                     console.log('CLICK newmessage2');
                     sessionStorage.removeItem('mid');
@@ -3545,7 +3475,7 @@ myMessages.scrollMessages();
 //*************************************************************************************************************
 sslnote.onPageInit('Smessages-send-new', function(e) {
     //console.log('page.name Smessages-send-new');
-    //clearTimeout(loop);
+    clearTimeout(loop);
     //toast.show(false);
     sslnote.hideIndicator();
     //sslnote.hideToolbar('.tabbar');
@@ -3892,166 +3822,38 @@ myMessages.scrollMessages();
         } // end if messages == empty
     }); // end page.container 
 }); // end page.name
+
+
 //*************************************************************************************************************
 //********************** END PAGE INIT ****************************************************************************
 //*************************************************************************************************************
-sslnote.onPageInit('firstsetup', function() {
+sslnote.onPageInit('setupintro', function() {
     setupview.hideNavbar();
     sslnote.hideToolbar('.tabbar');
     sslnote.showTab('#setupview');
-    // set the basis settings
-    localStorage.setItem('f7form-settings-pushnotification',
-        '{"pushreceived":["on"],"pushread":["on"],"pushwipe":["on"]}'
-    );
-    localStorage.setItem('f7form-settingsscreenprotect',
-        '{"screenprotect":"3"}');
-    localStorage.setItem('f7form-settings-keyboardclick',
-        '{"keyboardclick":["on"]}');
-    localStorage.setItem('f7form-settingslogoff', '{"autologoff":"3"}');
-    localStorage.setItem('f7form-settings-shake',
-        '{"shakeon":"on","shakesensitivity":"20"}');
-    localStorage.setItem('f7form-settings-notification',
-        '{"uid":"","sound":"1.m4a","volume":"50"}');
-    localStorage.setItem('f7form-settings-containers',
-        '{"my-container":"RUSSIA"}');
-    // sslnote.formStoreData('cLANGUAGE ', {"cLANGUAGE":["nl"]
-    //  }); // TODO
-    //console.log('page.name firstsetup');
+
     localStorage.setItem('showalert', 0);
-    //console.log('showalert = 0');
-    //console.log('Lite INIT');
+
     document.activeElement.blur();
-    // disable counter
-    // mainView.router.load({url:'frames/login.html' , animatePages:false});
-    // $('.countdown_dashboard').data('countdown').update({diff: '-1'});
-    //console.log('sslnoteapp : ' + localStorage.getItem('sslnoteapp'));
-    //console.log('check token');
-    if (!localStorage.getItem('token')) {
-        localStorage.setItem('token', 'NO-TOKEN');
-    }
-    $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
-        "/strings.json", function(languageSpecificObject) {
-            // languageSpecificObject.languageSpecifications[0]['passwordcannotbeempty']
-            sslnote.showPreloader(languageSpecificObject.languageSpecifications[
-                0]['nosettingsfound']);
-            //console.log('Generate UID');
-        });
-    $$.ajax({
-        method: 'POST',
-        dataType: 'jsonp',
-        url: localStorage.getItem('connection') +
-            '/appie/php/Csslnoteapp.php?callback=?',
-        crossDomain: true,
-        data: {
-            sslnoteapp: localStorage.getItem('sslnoteapp'),
-            token: localStorage.getItem('token')
-        },
-        success: function(responseData, textStatus, jqXHR) {
-            //console.log('LITE responseData');
-            console.log(responseData);
-            // var jsonObject = new Function('return ' +responseData)();
-            // sslnote.alert(jsonObject.id);//     does nothing
-            // set sessionStorage.login
-            // console.log(jsonObject.id);
-            // console.log(jsonObject.uid);
-            // localStorage.setItem('UID', jsonObject.uid);
-            // //console.log('ECHO MSG : ' + jsonObject.msg);
-            localStorage.removeItem('repeatsound');
-            // sessionStorage.setItem('reactivatecode',jsonObject.reactivatecode);
-            // localStorage.setItem('account_id', jsonObject.account_id);
-            // //sessionStorage.setItem('account_id', jsonObject.account_id);
-            // localStorage.setItem('sound', jsonObject.sound);
-            // localStorage.setItem('volume', jsonObject.volume);
-            // localStorage.setItem('server', jsonObject.server);
-            // UPDATE PID SHOW
-            // //console.log('UPDATE CREATE PID');
-            // $$(page.container).find('.yourpid').html(localStorage.getItem('UID'));
-            var a = JSON.parse(responseData);
-            //console.log('responseData firstsetup');
-            //console.log('uid='+a.uid);
-            localStorage.setItem('UID', a.uid);
-            //console.log('sslnoteapp='+a.sslnoteapp);
-            //console.log('account_id='+a.account_id);
-            //localStorage.setItem('account_id',a.account_id);
-            var account_id = 'off';
-            //console.log('-- manual account_id='+account_id);
-            //console.log('active='+a.active);
-            //console.log('pass_reset='+a.pass_reset);
-            //console.log('my_nick='+a.my_nick);
-            //console.log('settpass='+a.settpass);
-            //console.log('uloginsid='+a.logins);
-            //console.log('reactivatecode='+a.reactivatecode);
-            sessionStorage.setItem('reactivatecode', a.reactivatecode);
-            //console.log('token='+a.token);
-            //console.log('sound='+a.sound);
-            localStorage.setItem('sound', a.sound);
-            //console.log('volume='+a.volume);
-            localStorage.setItem('volume', a.volume);
-            //console.log('repeatpush='+a.repeatpush);
-            localStorage.setItem('repeatpush', a.repeatpush);
-            //console.log('device='+a.device);
-            //console.log('maxlink='+a.maxlink);
-            //console.log('language='+a.language);
-            //console.log('server='+a.server);
-            localStorage.setItem('server', a.server);
-            //console.log('ECHO MSG A : ' + a.msg);
-            sslnote.hideIndicator();
-            sslnote.hidePreloader();
-            app.db.transaction(function(tx) {
-                //console.log('app.JSON to SQLite');     
-                tx.executeSql(
-                    'DROP TABLE IF EXISTS uid');
-                tx.executeSql(createUID, [],
-                    onCreateSuccess, onError);
-                tx.executeSql(
-                    'DROP TABLE IF EXISTS uid_links'
-                );
-                tx.executeSql(createUIDLinks, [],
-                    onCreateSuccess, onError);
-                tx.executeSql(
-                    'DROP TABLE IF EXISTS uid_messages_send'
-                );
-                tx.executeSql(createUIDMessagesSend, [],
-                    onCreateSuccess, onError);
-                tx.executeSql(
-                    'DROP TABLE IF EXISTS uid_messages_receive'
-                ); //console.log('TABLE uid_messages_receive DROP');    
-                tx.executeSql(
-                    createUIDMessagesReceive, [],
-                    onCreateSuccess, onError);
-                tx.executeSql(insertUID, [a.uid, a.sslnoteapp,
-                    account_id, a.active, a
-                    .pass_reset, a.my_nick,
-                    a.settpass, a.logins, a
-                    .reactivatecode, a.sound,
-                    a.volume, a.repeatpush,
-                    a.device, a.maxlink, a.language,
-                    a.server
-                ], onInsertSuccess, onError);
-            });
-            //console.log('UPDATE CREATE PID  = ' + localStorage.getItem('UID'));
-            $$('.yourpid').html(localStorage.getItem('UID'));
-        },
-        error: function(responseData, textStatus, errorThrown) {
-            console.log("something went wrong!! Error: " +textStatus);
-            sslnote.hidePreloader();
-            sslnote.alert('Error. please try again.',
-                function() {PushErrorToSupport(errorThrown);});
-        }
-    });
+
+
     // // activate button
-    $$('.activate').on('click', function() {
+    $$('.create-new-uid').on('click', function() {
         sslnote.hideIndicator();
         //console.log('LOADING frames/setup/setup-setpass.html');
         setupview.loadPage('frames/setup/setup-setpass.html');
         sslnote.hidePreloader();
     }); // end activate button
+
+
     $$('.ihaveaaccount').on('click', function() {
         sslnote.hideIndicator();
         sslnote.hidePreloader();
         //console.log('+++ ihaveaaccount +++');
         setupview.loadPage('frames/setup/Lite.html');
     });
+
+
     $$('.ialreadyacivate').on('click', function() {
         sslnote.hideIndicator();
         sslnote.hidePreloader();
@@ -4062,6 +3864,8 @@ sslnote.onPageInit('firstsetup', function() {
             animatePages: false
         });
     });
+
+
     $$('.ihavelicensekey').on('click', function() {
         sslnote.hideIndicator();
         sslnote.hidePreloader();
@@ -4069,7 +3873,10 @@ sslnote.onPageInit('firstsetup', function() {
         $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
             "/strings.json", function(
                 languageSpecificObject) {
-                //languageSpecificObject.languageSpecifications[0]['crypting'],            
+                //languageSpecificObject.languageSpecifications[0]['crypting'],  
+
+
+
                 sslnote.prompt(languageSpecificObject.languageSpecifications[
                         0]['whatisyourlicensekey'],
                     function(value) {
@@ -4171,6 +3978,320 @@ sslnote.onPageInit('firstsetup', function() {
             });
     }); // end activate button
 }); // end page.name
+
+
+//*************************************************************************************************************
+//********************** END PAGE INIT ****************************************************************************
+//*************************************************************************************************************
+// sslnote.onPageInit('firstsetup', function() {
+//     setupview.hideNavbar();
+//     sslnote.hideToolbar('.tabbar');
+//     sslnote.showTab('#setupview');
+
+
+//     // set the basis settings
+
+
+//     // localStorage.setItem('f7form-settings-pushnotification',
+//     //     '{"pushreceived":["on"],"pushread":["on"],"pushwipe":["on"]}'
+//     // );
+//     // localStorage.setItem('f7form-settingsscreenprotect',
+//     //     '{"screenprotect":"3"}');
+//     // localStorage.setItem('f7form-settings-keyboardclick',
+//     //     '{"keyboardclick":["on"]}');
+//     // localStorage.setItem('f7form-settingslogoff', '{"autologoff":"3"}');
+//     // localStorage.setItem('f7form-settings-shake',
+//     //     '{"shakeon":"on","shakesensitivity":"20"}');
+//     // localStorage.setItem('f7form-settings-notification',
+//     //     '{"uid":"","sound":"1.m4a","volume":"50"}');
+//     // localStorage.setItem('f7form-settings-containers',
+//     //     '{"my-container":["RUSSIA","PANAMA","CHINA","EU"]}');
+
+// // * TODO SOUND SHAKE notification container repeatsound
+
+
+
+
+//     // sslnote.formStoreData('cLANGUAGE ', {"cLANGUAGE":["nl"]
+//     //  }); // TODO
+//     //console.log('page.name firstsetup');
+//     localStorage.setItem('showalert', 0);
+//     //console.log('showalert = 0');
+//     //console.log('Lite INIT');
+//     document.activeElement.blur();
+//     // disable counter
+//     // contactsview.router.load({url:'frames/login.html' , animatePages:false});
+//     // $('.countdown_dashboard').data('countdown').update({diff: '-1'});
+//     //console.log('sslnoteapp : ' + localStorage.getItem('sslnoteapp'));
+//     //console.log('check token');
+//     if (!localStorage.getItem('token')) {
+//         localStorage.setItem('token', 'NO-TOKEN');
+//     }
+
+
+//     $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
+//         "/strings.json", function(languageSpecificObject) {
+//             // languageSpecificObject.languageSpecifications[0]['passwordcannotbeempty']
+//             sslnote.showPreloader(languageSpecificObject.languageSpecifications[
+//                 0]['nosettingsfound']);
+//             //console.log('Generate UID');
+//         });
+
+
+//     $$.ajax({
+//         method: 'POST',
+//         dataType: 'jsonp',
+//         url: localStorage.getItem('connection') +
+//             '/appie/php/Csslnoteapp.php?callback=?',
+//         crossDomain: true,
+//         data: {
+//             sslnoteapp: localStorage.getItem('sslnoteapp'),
+//             token: localStorage.getItem('token')
+//         },
+//         success: function(responseData, textStatus, jqXHR) {
+//             //console.log('LITE responseData');
+//             console.log(responseData);
+//             // var jsonObject = new Function('return ' +responseData)();
+//             // sslnote.alert(jsonObject.id);//     does nothing
+//             // set sessionStorage.login
+//             // console.log(jsonObject.id);
+//             // console.log(jsonObject.uid);
+//             // localStorage.setItem('UID', jsonObject.uid);
+//             // //console.log('ECHO MSG : ' + jsonObject.msg);
+//             localStorage.removeItem('repeatsound');
+//             // sessionStorage.setItem('reactivatecode',jsonObject.reactivatecode);
+//             // localStorage.setItem('account_id', jsonObject.account_id);
+//             // //sessionStorage.setItem('account_id', jsonObject.account_id);
+//             // localStorage.setItem('sound', jsonObject.sound);
+//             // localStorage.setItem('volume', jsonObject.volume);
+//             // localStorage.setItem('server', jsonObject.server);
+//             // UPDATE PID SHOW
+//             // //console.log('UPDATE CREATE PID');
+//             // $$(page.container).find('.yourpid').html(localStorage.getItem('UID'));
+//             var a = JSON.parse(responseData);
+//             //console.log('responseData firstsetup');
+//             //console.log('uid='+a.uid);
+//             localStorage.setItem('UID', a.uid);
+//             //console.log('sslnoteapp='+a.sslnoteapp);
+//             //console.log('account_id='+a.account_id);
+//             //localStorage.setItem('account_id',a.account_id);
+//             var account_id = 'off';
+//             //console.log('-- manual account_id='+account_id);
+//             //console.log('active='+a.active);
+//             //console.log('pass_reset='+a.pass_reset);
+//             //console.log('my_nick='+a.my_nick);
+//             //console.log('settpass='+a.settpass);
+//             //console.log('uloginsid='+a.logins);
+//             //console.log('reactivatecode='+a.reactivatecode);
+//             sessionStorage.setItem('reactivatecode', a.reactivatecode);
+//             //console.log('token='+a.token);
+//             //console.log('sound='+a.sound);
+//             localStorage.setItem('sound', a.sound);
+//             //console.log('volume='+a.volume);
+//             localStorage.setItem('volume', a.volume);
+//             //console.log('repeatpush='+a.repeatpush);
+//             localStorage.setItem('repeatpush', a.repeatpush);
+//             //console.log('device='+a.device);
+//             //console.log('maxlink='+a.maxlink);
+//             //console.log('language='+a.language);
+//             //console.log('server='+a.server);
+//             localStorage.setItem('server', a.server);
+//             //console.log('ECHO MSG A : ' + a.msg);
+//             sslnote.hideIndicator();
+//             sslnote.hidePreloader();
+
+
+
+//             app.db.transaction(function(tx) {
+//                 //console.log('app.JSON to SQLite');     
+//                 tx.executeSql(
+//                     'DROP TABLE IF EXISTS uid');
+//                 tx.executeSql(createUID, [],
+//                     onCreateSuccess, onError);
+//                 tx.executeSql(
+//                     'DROP TABLE IF EXISTS uid_links'
+//                 );
+//                 tx.executeSql(createUIDLinks, [],
+//                     onCreateSuccess, onError);
+//                 tx.executeSql(
+//                     'DROP TABLE IF EXISTS uid_messages_send'
+//                 );
+//                 tx.executeSql(createUIDMessagesSend, [],
+//                     onCreateSuccess, onError);
+//                 tx.executeSql(
+//                     'DROP TABLE IF EXISTS uid_messages_receive'
+//                 ); //console.log('TABLE uid_messages_receive DROP');    
+//                 tx.executeSql(
+//                     createUIDMessagesReceive, [],
+//                     onCreateSuccess, onError);
+//                 tx.executeSql(insertUID, [a.uid, a.sslnoteapp,
+//                     account_id, a.active, a
+//                     .pass_reset, a.my_nick,
+//                     a.settpass, a.logins, a
+//                     .reactivatecode, a.sound,
+//                     a.volume, a.repeatpush,
+//                     a.device, a.maxlink, a.language,
+//                     a.server
+//                 ], onInsertSuccess, onError);
+//             });
+//             //console.log('UPDATE CREATE PID  = ' + localStorage.getItem('UID'));
+//             $$('.yourpid').html(localStorage.getItem('UID'));
+//         },
+//         error: function(responseData, textStatus, errorThrown) {
+//             console.log("something went wrong!! Error: " +textStatus);
+//             sslnote.hidePreloader();
+//             sslnote.alert('Error. please try again.',
+//                 function() {PushErrorToSupport(errorThrown);});
+//         }
+//     });
+
+
+//     // // activate button
+//     $$('.activate').on('click', function() {
+//         sslnote.hideIndicator();
+//         //console.log('LOADING frames/setup/setup-setpass.html');
+//         setupview.loadPage('frames/setup/setup-setpass.html');
+//         sslnote.hidePreloader();
+//     }); // end activate button
+
+
+//         $$('.setup-close').on('click', function() {
+//         sslnote.hideIndicator();
+//         sslnote.hidePreloader();
+//         //console.log('+++ ihaveaaccount +++');
+//         setupview.loadPage('frames/setup/setupintor.html');
+//     });
+
+
+
+//     // $$('.ihaveaaccount').on('click', function() {
+//     //     sslnote.hideIndicator();
+//     //     sslnote.hidePreloader();
+//     //     //console.log('+++ ihaveaaccount +++');
+//     //     setupview.loadPage('frames/setup/Lite.html');
+//     // });
+//     // $$('.ialreadyacivate').on('click', function() {
+//     //     sslnote.hideIndicator();
+//     //     sslnote.hidePreloader();
+//     //     //console.log('+++ ialreadyacivate +++');
+//     //     sslnote.closeModal();
+//     //     contactsview.router.load({
+//     //         url: 'frames/login.html',
+//     //         animatePages: false
+//     //     });
+//     // });
+//     // $$('.ihavelicensekey').on('click', function() {
+//     //     sslnote.hideIndicator();
+//     //     sslnote.hidePreloader();
+//     //     //console.log('+++ ihavelicencekey +++');
+//     //     $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
+//     //         "/strings.json", function(
+//     //             languageSpecificObject) {
+//     //             //languageSpecificObject.languageSpecifications[0]['crypting'],            
+//     //             sslnote.prompt(languageSpecificObject.languageSpecifications[
+//     //                     0]['whatisyourlicensekey'],
+//     //                 function(value) {
+//     //                     // check licence key https://sslnote.com/appie/php/include/JsonInsertUIDLinks.php?sslnoteapp='
+//     //                     sslnote.showIndicator();
+//     //                     var templic = '7PH3E4ENB7';
+//     //                     $$.getJSON(
+//     //                         "https://sslnote.com/appie/php/include/JsonLicenseKey.php?licensekey=" +
+//     //                         templic, function(
+//     //                             response) {
+//     //                             console.log(
+//     //                                 response);
+//     //                             //sslnote.alert('response = ' + response['id'] );
+//     //                             //sslnote.alert('response = ' + response[0]['id'] );
+//     //                             //sslnote.alert('response = ' + response);
+//     //                             if (response) {
+//     //                                 // sslnote.alert('response = ' + response['id'] );
+//     //                                 // do settings
+//     //                                 sslnote.hideIndicator();
+//     //                                 sslnote.modal({
+//     //                                     title: 'SSLNOTE',
+//     //                                     text: 'We found a ' +
+//     //                                         response[
+//     //                                             'sslnoteapp'
+//     //                                         ] +
+//     //                                         ' license',
+//     //                                     buttons: [{
+//     //                                         text: languageSpecificObject
+//     //                                             .languageSpecifications[
+//     //                                                 0
+//     //                                             ]
+//     //                                             [
+//     //                                                 'cancel'
+//     //                                             ],
+//     //                                         onClick: function() {
+//     //                                             // sslnote.closeModal();
+//     //                                         }
+//     //                                     }, {
+//     //                                         text: localStorage
+//     //                                             .getItem(
+//     //                                                 'oke'
+//     //                                             ),
+//     //                                         onClick: function() {
+//     //                                             var
+//     //                                                 accounts =
+//     //                                                 response[
+//     //                                                     'accounts'
+//     //                                                 ];
+//     //                                             localStorage
+//     //                                                 .setItem(
+//     //                                                     'totalaccounts',
+//     //                                                     accounts
+//     //                                                 );
+//     //                                             var
+//     //                                                 server =
+//     //                                                 response[
+//     //                                                     'server'
+//     //                                                 ];
+//     //                                             localStorage
+//     //                                                 .setItem(
+//     //                                                     'server',
+//     //                                                     server
+//     //                                                 );
+//     //                                             var
+//     //                                                 sslnoteapp =
+//     //                                                 response[
+//     //                                                     'sslnoteapp'
+//     //                                                 ];
+//     //                                             localStorage
+//     //                                                 .setItem(
+//     //                                                     'sslnoteapp',
+//     //                                                     sslnoteapp
+//     //                                                 );
+//     //                                             setupview
+//     //                                                 .router
+//     //                                                 .load({
+//     //                                                     url: 'frames/setup/' +
+//     //                                                         localStorage
+//     //                                                         .getItem(
+//     //                                                             'sslnoteapp'
+//     //                                                         ) +
+//     //                                                         '.html'
+//     //                                                 });
+//     //                                             //window.location.reload();
+//     //                                         }
+//     //                                     }, ]
+//     //                                 });
+//     //                             } else {
+//     //                                 sslnote.hideIndicator();
+//     //                                 sslnote.alert(
+//     //                                     languageSpecificObject
+//     //                                     .languageSpecifications[
+//     //                                         0][
+//     //                                         'licensedontexist'
+//     //                                     ]);
+//     //                             }
+//     //                         });
+//     //                 });
+//     //         });
+//     // }); // end activate button
+// }); // end page.name
+//*************************************************************************************************************
+//********************** PAGE ****************************************************************************
+//***********
 //*************************************************************************************************************
 //********************** PAGE ****************************************************************************
 //*************************************************************************************************************
@@ -4246,7 +4367,7 @@ sslnote.onPageInit('Scontactmessagelist', function(e) {
         '<li><div class="item-title center">Click to reply - swipe RtL wipe</div></li>';
     $$('.busycontactmessagelist').html(busycontactmessagelistHTML);
     //console.log('!! STOP LOOP');
-    //clearTimeout(loop);
+    clearTimeout(loop);
     document.activeElement.blur();
     var his_uid = e.query.his_uid;
     var his_nick = e.query.his_nick;
@@ -4400,7 +4521,7 @@ sslnote.onPageInit('Sserver', function() {
 sslnote.onPageInit('settings', function() {
     //console.log('page.name settings');
     //console.log('!! STOP LOOP');
-    //clearTimeout(loop);
+    clearTimeout(loop);
     var uid = localStorage.getItem('UID');
     app.selectAllRecords = function(fn) {
             app.db.transaction(function(tx) {
@@ -4432,6 +4553,19 @@ sslnote.onPageInit('settings', function() {
         }
     }
     app.selectAllRecords(render);
+
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width: 120,
+        height: 120,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    function makeCode() {
+        qrcode.makeCode(localStorage.getItem('UID'));
+    }
+    makeCode();
+
+
 }); // end page.name
 //*************************************************************************************************************
 //////////////////////////////////////////////////////////////////
@@ -4560,6 +4694,9 @@ sslnote.onPageAfterAnimation('settings', function(page) {
         }
     });
     //console.log('------------ SYNC FINISH ----------------');
+
+
+
 });
 //*************************************************************************************************************        
 //*************************************************************************************************************
@@ -4578,21 +4715,32 @@ sslnote.onPageInit('settingslogoff', function() {
 //********************** PAGE ****************************************************************************
 //*************************************************************************************************************
 sslnote.onPageInit('firstsetuplite', function() {
-    //console.log('page.name firstsetuplite :');
+    console.log('page.name firstsetuplite :');
+    
+
     localStorage.setItem('showalert', 0);
+
+
+
     $$('.exitsetup').on('click', function() {
-        //console.log('+++ exitsetup');
+        console.log('+++ exitsetup 405');
         //mainView.loadPage('index.html');
         sslnote.hideIndicator();
         // sslnote.closeModal('.popup-getting-started');
         sessionStorage.removeItem('counter');
-        mainView.router.load({
-            url: 'frames/login.html',
-            animatePages: false
-        });
+            
+
+                    mainView.router.load({
+                        url: 'frames/login.html',
+                        reload: true
+                    });
+
+        onsole.log('+++ exitsetup DONE');
     });
+
+
     // check login
-    $$('.activate .form-to-json').on('click', function() {
+    $$('form-to-json').on('click', function() {
         var formData = sslnote.formToJSON('#litesetup');
         //sslnote.alert(JSON.stringify(formData));
         //sslnote.showIndicator();
@@ -4817,7 +4965,7 @@ sslnote.onPageInit('firstsetuplite', function() {
 //********************** PAGE ****************************************************************************
 //*************************************************************************************************************
 sslnote.onPageInit('firstsetuppremium', function() {
-    //console.log('page.name firstsetuppremium :');
+    console.log('page.name firstsetuppremium :');
     localStorage.setItem('showalert', 0);
     $$('.exitsetup').on('click', function() {
         //console.log('+++ exitsetup');
@@ -5050,14 +5198,174 @@ sslnote.onPageInit('firstsetuppremium', function() {
         // / }
     }); // end .form-to-json
 }); // end page.name
+
 //*************************************************************************************************************
 //********************** PAGE ****************************************************************************
 //*************************************************************************************************************
 sslnote.onPageInit('setup-setpass', function() {
-    //console.log('page.name setup-setpass :');
+    console.log('page.name setup-setpass :');
     sslnote.hidePreloader();
     setupview.hideNavbar();
     localStorage.setItem('showalert', 0);
+
+
+
+
+
+    localStorage.setItem('f7form-settings-pushnotification',
+        '{"pushreceived":["on"],"pushread":["on"],"pushwipe":["on"]}'
+    );
+    localStorage.setItem('f7form-settingsscreenprotect',
+        '{"screenprotect":"3"}');
+    localStorage.setItem('f7form-settings-keyboardclick',
+        '{"keyboardclick":["on"]}');
+    localStorage.setItem('f7form-settingslogoff', '{"autologoff":"3"}');
+    localStorage.setItem('f7form-settings-shake',
+        '{"shakeon":"on","shakesensitivity":"20"}');
+    localStorage.setItem('f7form-settings-notification',
+        '{"uid":"","sound":"1.m4a","volume":"50"}');
+    localStorage.setItem('f7form-settings-containers',
+        '{"my-container":["RUSSIA","PANAMA","CHINA","EU"]}');
+
+// * TODO SOUND SHAKE notification container repeatsound
+
+
+
+
+    // sslnote.formStoreData('cLANGUAGE ', {"cLANGUAGE":["nl"]
+    //  }); // TODO
+    //console.log('page.name firstsetup');
+    localStorage.setItem('showalert', 0);
+    //console.log('showalert = 0');
+    //console.log('Lite INIT');
+    document.activeElement.blur();
+    // disable counter
+    // contactsview.router.load({url:'frames/login.html' , animatePages:false});
+    // $('.countdown_dashboard').data('countdown').update({diff: '-1'});
+    //console.log('sslnoteapp : ' + localStorage.getItem('sslnoteapp'));
+    //console.log('check token');
+    if (!localStorage.getItem('token')) {
+        localStorage.setItem('token', 'NO-TOKEN');
+    }
+
+
+    $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
+        "/strings.json", function(languageSpecificObject) {
+            // languageSpecificObject.languageSpecifications[0]['passwordcannotbeempty']
+            sslnote.showPreloader(languageSpecificObject.languageSpecifications[
+                0]['nosettingsfound']);
+            //console.log('Generate UID');
+        });
+
+
+    $$.ajax({
+        method: 'POST',
+        dataType: 'jsonp',
+        url: localStorage.getItem('connection') +
+            '/appie/php/Csslnoteapp.php?callback=?',
+        crossDomain: true,
+        data: {
+            sslnoteapp: localStorage.getItem('sslnoteapp'),
+            token: localStorage.getItem('token')
+        },
+        success: function(responseData, textStatus, jqXHR) {
+            //console.log('LITE responseData');
+            console.log(responseData);
+            // var jsonObject = new Function('return ' +responseData)();
+            // sslnote.alert(jsonObject.id);//     does nothing
+            // set sessionStorage.login
+            // console.log(jsonObject.id);
+            // console.log(jsonObject.uid);
+            // localStorage.setItem('UID', jsonObject.uid);
+            // //console.log('ECHO MSG : ' + jsonObject.msg);
+            localStorage.removeItem('repeatsound');
+            // sessionStorage.setItem('reactivatecode',jsonObject.reactivatecode);
+            // localStorage.setItem('account_id', jsonObject.account_id);
+            // //sessionStorage.setItem('account_id', jsonObject.account_id);
+            // localStorage.setItem('sound', jsonObject.sound);
+            // localStorage.setItem('volume', jsonObject.volume);
+            // localStorage.setItem('server', jsonObject.server);
+            // UPDATE PID SHOW
+            // //console.log('UPDATE CREATE PID');
+            // $$(page.container).find('.yourpid').html(localStorage.getItem('UID'));
+            var a = JSON.parse(responseData);
+            //console.log('responseData firstsetup');
+            //console.log('uid='+a.uid);
+            localStorage.setItem('UID', a.uid);
+            //console.log('sslnoteapp='+a.sslnoteapp);
+            //console.log('account_id='+a.account_id);
+            //localStorage.setItem('account_id',a.account_id);
+            var account_id = 'off';
+            //console.log('-- manual account_id='+account_id);
+            //console.log('active='+a.active);
+            //console.log('pass_reset='+a.pass_reset);
+            //console.log('my_nick='+a.my_nick);
+            //console.log('settpass='+a.settpass);
+            //console.log('uloginsid='+a.logins);
+            //console.log('reactivatecode='+a.reactivatecode);
+            sessionStorage.setItem('reactivatecode', a.reactivatecode);
+            //console.log('token='+a.token);
+            //console.log('sound='+a.sound);
+            localStorage.setItem('sound', a.sound);
+            //console.log('volume='+a.volume);
+            localStorage.setItem('volume', a.volume);
+            //console.log('repeatpush='+a.repeatpush);
+            localStorage.setItem('repeatpush', a.repeatpush);
+            //console.log('device='+a.device);
+            //console.log('maxlink='+a.maxlink);
+            //console.log('language='+a.language);
+            //console.log('server='+a.server);
+            localStorage.setItem('server', a.server);
+            //console.log('ECHO MSG A : ' + a.msg);
+            sslnote.hideIndicator();
+            sslnote.hidePreloader();
+
+
+
+            app.db.transaction(function(tx) {
+                //console.log('app.JSON to SQLite');     
+                tx.executeSql(
+                    'DROP TABLE IF EXISTS uid');
+                tx.executeSql(createUID, [],
+                    onCreateSuccess, onError);
+                tx.executeSql(
+                    'DROP TABLE IF EXISTS uid_links'
+                );
+                tx.executeSql(createUIDLinks, [],
+                    onCreateSuccess, onError);
+                tx.executeSql(
+                    'DROP TABLE IF EXISTS uid_messages_send'
+                );
+                tx.executeSql(createUIDMessagesSend, [],
+                    onCreateSuccess, onError);
+                tx.executeSql(
+                    'DROP TABLE IF EXISTS uid_messages_receive'
+                ); //console.log('TABLE uid_messages_receive DROP');    
+                tx.executeSql(
+                    createUIDMessagesReceive, [],
+                    onCreateSuccess, onError);
+                tx.executeSql(insertUID, [a.uid, a.sslnoteapp,
+                    account_id, a.active, a
+                    .pass_reset, a.my_nick,
+                    a.settpass, a.logins, a
+                    .reactivatecode, a.sound,
+                    a.volume, a.repeatpush,
+                    a.device, a.maxlink, a.language,
+                    a.server
+                ], onInsertSuccess, onError);
+            });
+            //console.log('UPDATE CREATE PID  = ' + localStorage.getItem('UID'));
+            $$('.yourpid').html(localStorage.getItem('UID'));
+        },
+        error: function(responseData, textStatus, errorThrown) {
+            console.log("something went wrong!! Error: " +textStatus);
+            sslnote.hidePreloader();
+            sslnote.alert('Error. please try again.',
+                function() {PushErrorToSupport(errorThrown);});
+        }
+    });
+
+
     $$('.form-to-json').on('click', function() {
         var formData = sslnote.formToJSON('#setpass');
         // alert(JSON.stringify(formData));
@@ -5066,11 +5374,21 @@ sslnote.onPageInit('setup-setpass', function() {
         //console.log('PASS2 : ' + formData.pass2);
         var pass1 = formData.pass1;
         var pass2 = formData.pass2;
+
+
+        var pass1 = pass1.replace(/\s/g, '');
+        var pass2 = pass2.replace(/\s/g, '');
+        
+        console.log('PASS1 : ' + pass1);
+        console.log('PASS2 : ' + pass2);
+
+
         var stopscript = 'no';
+
         if (pass1 !== pass2) {
             // $$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
             sslnote.modal({
-                title: 'SSLNOTE',
+                title: 'PEM',
                 text: localStorage.getItem(
                     'passwordnotthesame'),
                 buttons: [{
@@ -5082,10 +5400,11 @@ sslnote.onPageInit('setup-setpass', function() {
             //});
             var stopscript = 'yes';
         }
-        if (pass1 === '') {
+
+        if (pass1 === '' || pass2 === '') {
             //$$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
             sslnote.modal({
-                title: 'SSLNOTE',
+                title: 'PEM',
                 text: localStorage.getItem(
                     'passwordcannotbeempty'),
                 buttons: [{
@@ -5097,21 +5416,7 @@ sslnote.onPageInit('setup-setpass', function() {
             //});
             var stopscript = 'yes';
         }
-        if (pass2 === '') {
-            // $$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
-            sslnote.modal({
-                title: 'SSLNOTE',
-                text: localStorage.getItem(
-                    'passwordcannotbeempty'),
-                buttons: [{
-                    text: localStorage.getItem(
-                        'oke'),
-                    onClick: function() {}
-                }, ]
-            });
-            //});
-            var stopscript = 'yes';
-        }
+
         if (stopscript == 'no') {
             if (pass1 == pass2) {
                 ////console.log('preloader');
@@ -5131,15 +5436,49 @@ sslnote.onPageInit('setup-setpass', function() {
                         ], onInsertSuccess, onError
                     );
                 });
-                //console.log('setupview LOADING frames/setup/setup-settingslogoff.html');
+                
+
+                console.log('setupview LOADING frames/setup/setup-settingslogoff.html');
                 setupview.loadPage(
-                    'frames/setup/setup-settingslogoff.html'
+                    'frames/setup/setupintroexplanation.html'
                 );
+
+
+
+
                 // sslnote.hidePreloader();
             } // end if pass the same
         } //end is stoptscript
     }); // end .form-to-json
 }); // end page.name
+
+//*************************************************************************************************************
+//********************** PAGE ****************************************************************************
+//*************************************************************************************************************
+sslnote.onPageInit('setupintroexplanation', function() {
+    //console.log('page.name setup-settingslogoff :');
+    localStorage.setItem('showalert', 0);
+    document.activeElement.blur();
+    setupview.showNavbar();
+
+
+        console.log('*** Fn importNewUIDLinks');
+
+importNewUIDLinks();
+
+
+
+
+    $$('.next').on('click', function() {
+        //setupview.router.loadPage('frames/setup/setup-settingsscreenprotect.html'); //skip screenprotect
+        setupview.router.loadPage(
+            'frames/setup/setup-notification.html');
+    });
+}); // end page.name
+
+
+
+
 //*************************************************************************************************************
 //********************** PAGE ****************************************************************************
 //*************************************************************************************************************
@@ -5232,14 +5571,54 @@ sslnote.onPageInit('settings-pushnotification', function() {
 //********************** PAGE ****************************************************************************
 //*************************************************************************************************************
 sslnote.onPageInit('login', function() {
-    //console.log('page.name login');
+    console.log('page.name login A');
+var UID = localStorage.getItem('UID');
+console.log(UID);
+
+
+    
+if (UID === '' || UID === null ) {
+    console.log('page.name login B');
+
+
+
+
+
+    sslnote.alert('NO UID Please do setup.', function() {
+
+// setupview.loadPage('frames/setup/setupintro.html');
+
+
+    setupview.router.load({
+        url: 'frames/setup/setupintro.html',
+        animatePages: false,
+        reload: true
+    });
+
+
+
+
+    });
+}
+
+else
+
+{
+    console.log('page.name login C');
+
     $("#connection").addClass("connectionHidden");
     sessionStorage.clear();
     sslnote.hideIndicator();
     sslnote.loginScreen();
     //console.log('!! STOP LOOP from onPageInit login');
-    //clearTimeout(loop);
+    clearTimeout(loop);
     sslnote.hideIndicator();
+
+}
+
+
+
+
 }); // end page.name
 //*************************************************************************************************************
 //********************** PAGE ****************************************************************************
@@ -5247,6 +5626,8 @@ sslnote.onPageInit('login', function() {
 sslnote.onPageInit('settings-containers', function() {
     //console.log('page.name settings-containers');
     console.log(sslnote.formGetData('settings-containers'));
+    console.log(sslnote.formGetData('containers'));
+
 });
 //*************************************************************************************************************
 //********************** END PAGE INIT ****************************************************************************
@@ -5264,25 +5645,11 @@ sslnote.onPageBeforeAnimation('settings', function() {
 $(document).ready(function() {
     console.log('**** Document ready online *****');
     if (localStorage.getItem('autologon') === '999') {
-
-        console.log('*** AUTOLOGON');
-
         // document.getElementById('countdown_dashboardHide').innerHTML =
         //     '<a href=\'#\' class=\'autologon\'><i class=\'icon ion-ios-refresh\'></i></a>';
 
 
-            console.log('*** AUTOLOGON');
-
-setTimeout(function() {
-
-$$(page.container).find('#countdown_dashboardHide').html('<a href=\'#\' class=\'autologon autotxt\'>AUTO</a>');
-
-console.log('*** AUTOLOGON UPDATE DONE');
-
-    }, 300);
-
-
-
+        sslnote.closeModal('.login-screen');
 
         setTimeout(function() {
             sessionStorage.setItem('logofftimer', localStorage.getItem(
@@ -5292,7 +5659,7 @@ console.log('*** AUTOLOGON UPDATE DONE');
                 animatePages: false
             });
             sslnote.hideIndicator();
-            sslnote.closeModal('.login-screen');
-        }, 2800);
+            
+        }, 800);
     }
 });

@@ -8,12 +8,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>PEM</title>
-    <link rel="stylesheet" href="css/framework7.css">
-    <link rel="stylesheet" href="css/framework7.themes.min.css">
-    <link rel="stylesheet" href="css/framework7.3dpanels.min.css">
+<!--     <link rel="stylesheet" href="css/framework7.ios.min.css"> -->
+
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+
+
+    
+<!--     <link rel="stylesheet" href="css/framework7.themes.min.css">
+    <link rel="stylesheet" href="css/framework7.3dpanels.min.css"> -->
     <link rel="stylesheet" href="css/wodry.css">
 
-    <link rel="stylesheet" href="css/sslnote.css">
+    <link rel="stylesheet" href="css/pem.css">
     <link rel="stylesheet" href="css/ionicons.min.css">
 
 <!--     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -36,7 +41,7 @@
 
 <!--   <body class="ios8"> -->
       
-<body style="background-color:#000000">
+<body>
 
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -51,20 +56,6 @@
         window.plugins.powerManagement.acquire();
         //console.log(navigator.camera);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
     </script>
@@ -73,105 +64,6 @@
 
     <div class="statusbar-overlay">
       <div id="connection" class="connectionHidden">Checking SSL Connection...</div>
-    </div>
-
-<!-- <div id="divtoBlink" class="test"><img src="img/connecting.png" width="11" height="11"> Crypting and sending...</div> -->
-
-
-
-<!-- class="backgroundimage" -->
-
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-
-    <!-- Right panel with cover effect-->
-
-    <div class="panel panel-right panel-reveal ">
-
- <div class="view">
-
-        <div class="pages navbar-through">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="center sliding">
-            <a href="#" data-view=".view-main" class="close-panel item-link load-index myuidheader " >UID</a>
-            </div>
-            <div class="right sliding">
-            <a href="#" class="close-panel "><i class="icon ion-ios-close-outline"></i></a>
-            </div>
-          </div>
-        </div>
-
-
- <div data-page="panel-right1" class="page">
-
-  <div class="list-block">
-        <ul>
-           <li>
-              <div class="item-content">
-                <div class="item-inner"> 
-                  <div class="item-title languagespecificHTML" data-text="pendingmessages">Pending Message</div> <span class="badge badge-red pendingmessages">?</span>
-                </div>
-              </div>
-            </li>
-           <li>
-            <a href="#" class="close-panel item-link link icon-only bugreport">
-              <div class="item-content">
-                <div class="item-media"><i class="icon ion-bug"></i></div>
-                <div class="item-inner"> 
-                  <div class="item-title languagespecificHTML" data-text="bugreport">Bug Report</div>
-                </div>
-              </div>
-            </a>
-          </li>
-           <li>
-            <a href="#" class="close-panel item-link link icon-only contactadd">
-              <div class="item-content">
-                <div class="item-media"><i class="icon ion-ios-personadd-outline"></i></div>
-                <div class="item-inner"> 
-                  <div class="item-title languagespecificHTML" data-text="contactaddsmall">Add Contact</div>
-                </div>
-              </div>
-            </a>
-          </li>
-           <li>
-           <a href="#" class="close-panel item-link link icon-only QRscanner languagespecificHTML ">
-              <div class="item-content">
-                <div class="item-media"><i class="icon ion-ios-camera-outline"></i></div>
-                <div class="item-inner"> 
-                  <div class="item-title languagespecificHTML" data-text="QRscanner">QR Scanner</div>
-                </div>
-              </div>
-              </a>
-          </li>
-           <li>
-              <div class="item-content" style="background-color:#FFFFFF;">
-                <div class="item-media"></div>
-                <div class="item-inner"> 
-                  <div id="qrcode"></div>
-                </div>
-              </div>
-          </li>
-           <li>
-              <div class="item-content">
-                <div class="item-inner"> 
-                  <div class="item-title languagespecificHTML" data-text="versie">VERSION</div> <div class="sslnoteapp white" >VERSION</div>
-                </div>
-              </div>
-          </li>
-          <li>
-             <div class="item-content">
-                <div class="item-inner"> 
-                  <div class="item-title languagespecificHTML" data-text="versie">BUILD</div> <div class="sslnoteversion white">BUILD</div>
-                </div>
-              </div>
-
-          </li>
-       </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
 
@@ -187,45 +79,22 @@
 
   <div class="navbar-inner">
           <div class="left">
-
-
-<!-- 
-              <a href="#" class="refresh-link refresh-home">
+<!--               <a href="#" class="refresh-link refresh-home">
                  <div id="navbarpemlogo"></div>
                  </a> -->
-
-                  <div id="countdown_dashboardHide" class="countdown_dashboard autologon">
-
-                          <div class="dash min_dash"> <span class="dash_title">min</span>
-                            <div class="digit">0</div>
-                            <div class="digit">0</div>
-                          </div>
-                          <div class="dash dot">
-                          :
-                          </div>
-                          <div class="dash sec_dash"> <span class="dash_title">sec</span>
-                            <div class="digit">0</div>
-                            <div class="digit">0</div>
-                          </div>
-
-
-                  </div>
-
-
-
           </div>
             <div class="center">
             <div class="contactlistnavbar languagespecificHTML" data-text="contacts">Contacts</div> 
             </div>
         <div class="right">
-        <a href="#" data-panel="right" class="open-panel link "><i class="icon ion-navicon-round"></i></a>
+<!--         <a href="#" data-panel="right" class="open-panel link "><i class="icon ion-navicon-round"></i></a> -->
         </div>
   </div>
 </div>
 
 
         <div class="pages navbar-through">
-          <div class="page">
+          <div class="page" data-page="index">
 
 <div class="backgroundimage"></div>
 
@@ -245,17 +114,17 @@
 <div class="navbar ">
   <div class="navbar-inner">
     <div class='left'> 
-      <div id="navbarpemlogo"></div>
+<!--       <div id="navbarpemlogo"></div> -->
     </div>
     <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
     <div class="right sliding">
-      <a href="#" data-panel="right" class="open-panel link icon-only klik"><i class="icon ion-navicon-round"></i></a>
+<!--       <a href="#" data-panel="right" class="open-panel link icon-only klik"><i class="icon ion-navicon-round"></i></a> -->
     </div>
   </div>
 </div>
 
 <div class="pages navbar-through">
-     <div class="page">
+     <div class="page" data-page="index">
   <div class="backgroundimage"></div>
             <div class="page-content">
 
@@ -280,8 +149,8 @@
     </div>
 
     <div class="pages navbar-through no-toolbar no-swipeback">
-        <div data-page="firstsetup" class="page">
-          <div class="backgroundimage"></div>
+        <div data-page="firstsetup" class="page" >
+<!--           <div class="backgroundimage"></div> -->
           <div class="page-content login-screen-content loginbackground "></div>
         </div>
     </div>
@@ -290,38 +159,46 @@
 
       <!-- Bottom Tabbar-->
       <div class="toolbar tabbar tabbar-labels">
-
         <div class="toolbar-inner">
 
+          <a href="#contactsview" class="tab-link active showcontacts">
+          <i class="icon tabbar-demo-icon-2">
 
+            <span class="totalMessages"></span>
 
-
-         <a href="#contactsview" class="tab-link active showcontacts"> 
-
-<!--          <i class="ion-ios-people-outline"> -->
-
-         <i class="icon tabbar-demo-icon-1">
-
-
-
-         </i> 
-
-         <span class="tabbar-label">Contacts</span>
-
-         </a>
+          </i> 
+            
+            <span class="tabbar-label">Contacts</span>
+          </a>
 
 
 
 
-        <a href="#view-3" class="tab-link"> 
+        <a href="#" class="tab-link autologon"> 
 
-        <i class="icon tabbar-demo-icon-2">
-
-        <span class="totalMessages"></span>
+        <i class="icon tabbar-demo-icon-target">
 
         </i>
 
-        <span class="tabbar-label">Upload</span>
+        <span class="tabbar-label">
+
+
+    <div id="countdown_dashboardHide" class="countdown_dashboard autologon">
+
+                          <div class="dash min_dash"> 
+                            <div class="digit">0</div>
+                            <div class="digit">0</div>
+                          </div>
+                          <div class="dash dot">
+                          :
+                          </div>
+                          <div class="dash sec_dash"> 
+                            <div class="digit">0</div>
+                            <div class="digit">0</div>
+                          </div>
+    </div>
+
+        </span>
 
         </a>
 
@@ -329,47 +206,17 @@
 
 
 
-<!--             <a href="#" class="tab-link support"><i class="ion-ios-help-outline"></i><span class="tabbar-label">Help</span></a> -->
-
-
-
-
-
-<!-- 
-                  <div id="countdown_dashboardHide" class="countdown_dashboard autologon">
-
-                          <div class="dash min_dash"> <span class="dash_title">min</span>
-                            <div class="digit">0</div>
-                            <div class="digit">0</div>
-                          </div>
-                          <div class="dash dot">
-                          :
-                          </div>
-                          <div class="dash sec_dash"> <span class="dash_title">sec</span>
-                            <div class="digit">0</div>
-                            <div class="digit">0</div>
-                          </div>
-
-
-                  </div>
- -->
-
-
-
 
           <a href="#settingsview" class="tab-link showsettings"> 
 
-<!--           <i class=" ion-ios-cog-outline"> -->
            <i class="icon tabbar-demo-icon-3">
 
           </i>
+
           <span class="tabbar-label">Settings</span>
-
           </a>
-
-<!--           <a href="#" class="tab-link logoff"> <i class="ion-ios-locked-outline"></i><span class="tabbar-label">Logout</span></a> -->
-
-
+<!-- 
+          <a href="#" class="tab-link logoff"> <i class="ion-ios-locked-outline"></i><span class="tabbar-label">Logout</span></a> -->
 
           </div>
       </div> <!-- end tabs -->
@@ -382,7 +229,7 @@
 
   <div data-page="login-screen" class="page" >
   
-     <div class="backgroundimage"></div>
+<!--      <div class="backgroundimage"></div> -->
 
         <div class="page-content login-screen-content loginbackground">
 
@@ -399,7 +246,7 @@
                           <div class="item-inner">
                             <div class="item-input">
                               <center>
-                                <input type="password" name="pass" data-text="accescodehere" class="languageSpecificPlaceholder" placeholder="Access code here" />
+                                <input id="password" type="password" name="pass" data-text="accescodehere" class="languageSpecificPlaceholder" placeholder="Access code here" onkeyup="checkLoginInput()"/>
                               </center>
                             </div>
                           </div>
@@ -415,19 +262,37 @@
 
                       <ul>
                         <li class="trans">
-                        <a href="#" class="form-to-json item-link list-button white signin languagespecificHTML" data-text="sign_in" >sign_in</a>
+
+<center>
+                        <a href="#" class="form-to-json link button active languagespecificHTML" data-text="sign_in" >sign_in</a>
+
+</center> 
+<!--                     <center>
+                      <a href="" class="link next button active languagespecificHTML" data-text="next">NEXT</a>
+                     </center> -->
+
+
                         </li>
                       </ul>
 
+
+<br>
+
+
                     <ul>
                       <li class="trans">
-                        <a href="#" class="firstsetup item-link list-button activate white languagespecificHTML" data-text="activate">activate</a>
+
+
+                        <a href="#" class="firstsetup item-link list-button activate white languagespecificHTML" data-text="SETUP">SETUP</a>
+
+
                         <a href="#" class="disablerepeatsound item-link list-button "><i class='icon ion-volume-mute mutecolor'></i></a>
 
                         <br>
                         <br>
 
                         <center>
+
                         <a href="#" class="reset-local-storage ">
 
                             <div class="loginfails languagespecificHTML" data-text="loginfails">loginfails</div>
@@ -444,7 +309,7 @@
                       <div class="sslnoteapp white" >VERSION</div>
 <!--                       <div class="serveronline white">System status  <div style="display: inline" class="serveronlineimgsmall"></div></div> -->
                       <div class="sslnoteversion white"></div>
-                      <div class="countdown_dashboard"> </div>    
+              <!--         <div class="countdown_dashboard"> </div>   -->  
 
                 </div>
             </form>
@@ -459,51 +324,49 @@
 
 
 <script id="contactlist-template" type="template">
-<ul>
-  <li class="swipeout demo">
+    <ul>
+      <li class="swipeout demo">
 
-     <a href="frames/messages/{{page}}.html?his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&mid={{mid}}&totalmessages={{totalmessages}}"class="swipeout-content item-link item-content " data-id="{{page}}"  data-ignoreCache="true" data-view=".view-main">
+         <a href="frames/messages/{{page}}.html?his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&mid={{mid}}&totalmessages={{totalmessages}}"class="swipeout-content item-link item-content " data-id="{{page}}"  data-ignoreCache="true" data-view=".view-main">
 
-    <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
-
-    <i id="autocrypt{{his_uid}}" class="ion-key {{autocrypt}} "></i>
-
-
-    <i id="online{{his_uid}}" class="ion-ios-eye {{his_uid}}online {{online}}"> </i>
-
-
-  <i id="linked{{his_uid}}" class="ion-ios-more {{linked}} green"></i> 
+            <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
+            <i id="autocrypt{{his_uid}}" class="ion-key {{autocrypt}} "></i>
+            <i id="online{{his_uid}}" class="ion-ios-eye {{his_uid}}online {{online}}"> </i>
+            <i id="linked{{his_uid}}" class="ion-ios-more {{linked}} green"></i> 
+            </div>     
 
 
+            <div class="item-inner">
+                 <div class="item-title ">{{his_nick}} {{notconfirm}}
+                 <div class="lastseen orange {{his_uid}}active_last"> {{lastseentxt}} : {{lastseen}} </div> 
+            </div>
 
-    </div>       
+
+                 <div class="item-after  ">
+                  <span><div id="badge{{his_uid}}" class="badge {{badge}}">{{totalmessages}}</div></span>
+                 </div>
 
 
-      <div class="item-inner">
+            </div>
+        </a>
 
-           <div class="item-title ">{{his_nick}}
-           <div class="lastseen orange {{his_uid}}active_last"> {{lastseentxt}} : {{lastseen}} </div> 
-         </div>
-           <div class="item-after  ">
-        <span><div id="badge{{his_uid}}" class="badge {{badge}}">{{totalmessages}}</div></span>
+
+        <div class="swipeout-actions-left contactlist">
+            <a href="#" class="contactuid bg-green">{{his_uid}}</a>
+            <a href="#" class="keysettings bg-blue" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="KeySettings(this)" >KEY</a>
+            <a href="frames/settings/mysettings/SmyContactEdit.html?his_uid={{his_uid}}&his_nick={{his_nick}}" data-view=".view-settings" class="bg-red item-link link load-index"  >EDIT</a>
         </div>
-      </div>
-    </a>
-    
-    <div class="swipeout-actions-left contactlist">
-      <a href="#" class="contactuid bg-green">{{his_uid}}</a>
-      <a href="#" class="keysettings bg-blue" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="KeySettings(this)" >KEY</a>
+        <div class="swipeout-actions-right">
+            <a href="#" class="swipeout-delete DeleteUidLink" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="DeleteUidLink(this)" >Delete</a>
+        </div>
+      </li>
+    </ul>
 
-      <a href="frames/settings/mysettings/SmyContactEdit.html?his_uid={{his_uid}}&his_nick={{his_nick}}" data-view=".view-settings" class="bg-red item-link link load-index"  >EDIT</a>
 
-    </div>
-     
-    <div class="swipeout-actions-right">
-     <a href="#" class="swipeout-delete DeleteUidLink" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="DeleteUidLink(this)" >Delete</a>
-     </div>
-  </li>
-</ul>
-  
+
+
+
+
 
 
 </script>
@@ -553,7 +416,7 @@
 
      <script type="text/javascript" src="js/framework7.min.js"></script>
 
-     <script type="text/javascript" src="js/framework7.3dpanels.min.js"></script>
+     // <script type="text/javascript" src="js/framework7.3dpanels.min.js"></script>
 
      <script type="text/javascript" src="js/framework7.debug.js"></script>
      <script type="text/javascript" src="js/howler.min.js"></script>
@@ -567,6 +430,8 @@
 
 
       <script type="text/javascript" src="js/sslnote.handlers.js"></script>
+
+
      <script type="text/javascript" src="js/aes.js"></script>
      <script type="text/javascript" src="js/md5.js"></script>
      <script type="text/javascript" src="js/sjcl.js"></script>

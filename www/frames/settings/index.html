@@ -2,15 +2,12 @@
 <div class="navbar ">
   <div class="navbar-inner">
     <div class='left'> 
-              <a href="#" class="refresh-link refresh-home ">
 
-                 <div id="navbarpemlogo"></div>
 
-                 </a>
     </div>
     <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
     <div class="right sliding">
-      <a href="#" data-panel="right" class="open-panel link icon-only"><i class="icon ion-navicon-round"></i></a>
+<a href="frames/settings/mysettings/ScontactAdd.html" class="item-link link item-content" data-view=".view-settings"  ><i class="icon ion-ios-personadd-outline"></i></a>
     </div>
   </div>
 </div>
@@ -21,7 +18,13 @@
 
     <div class="backgroundimage"></div>
 
-            <div class="page-content">
+
+
+
+
+
+
+  <div class="page-content">
 
   <div class="content-block-title languagespecificHTML" data-text="localsettings">LOCAL SETTINGS</div>
       
@@ -215,53 +218,126 @@
 
 
 <div class="admin">
-<div class="content-block-title languagespecificHTML" data-text="admin">ADMIN</div>
-      <div class="list-block">
-          <ul>
-            <li>
-              <a href="#" class="makeAccount item-link item-content">
-              <div class="item-media"><i class="icon ion-ios-settings"></i></div>
-              <div class="item-inner">
-                <div class="item-title languagespecificHTML " data-text="createuid">CREATE UID</div>
-              </div>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="blocklist item-link item-content">
-              <div class="item-media"><i class="icon ion-ios-settings"></i></div>
-              <div class="item-inner">
-                <div class="item-title languagespecificHTML " data-text="blocklist">BLOCK LIST</div>
-              </div>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="pidlist item-link item-content">
-              <div class="item-media"><i class="icon ion-ios-settings"></i></div>
-              <div class="item-inner">
-                <div class="item-title languagespecificHTML " data-text="uidlist">UID LIST</div>
-              </div>
-              </a>
-            </li>         
-         </ul>
-   <div class="systemstatus languagespecificHTML" data-text="systemstatus">System status</div>
-  </div>
-</div>
+    <div class="content-block-title languagespecificHTML" data-text="admin">ADMIN</div>
+          <div class="list-block">
+              <ul>
+                <li>
+                  <a href="#" class="makeAccount item-link item-content">
+                  <div class="item-media"><i class="icon ion-ios-settings"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title languagespecificHTML " data-text="createuid">CREATE UID</div>
+                  </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="blocklist item-link item-content">
+                  <div class="item-media"><i class="icon ion-ios-settings"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title languagespecificHTML " data-text="blocklist">BLOCK LIST</div>
+                  </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pidlist item-link item-content">
+                  <div class="item-media"><i class="icon ion-ios-settings"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title languagespecificHTML " data-text="uidlist">UID LIST</div>
+                  </div>
+                  </a>
+                </li>         
+             </ul>
+       <div class="systemstatus languagespecificHTML" data-text="systemstatus">System status</div>
+      </div>
+    </div>
     
 </form>
-      
-      <div class="list-block tablet-inset">
-        <ul class="center ">
-                  <li>
-                    <a href="#" class="reset-local-storage">
-                      <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title languagespecificHTML klik" data-text="removeallsettings" style="width: 100%; color: #ff3b30;">Remove All Local Settings</div>
-                        </div>
-                      </div>
+
+
+
+<div class="list-block">
+
+<div class="content-block-title languagespecificHTML" data-text="system">SYSTEM</div>
+        <ul>
+
+          <li> 
+            <a href="frames/Sbugreport.html" class="item-link link icon-only">
+              <div class="item-content">
+                <div class="item-media"><i class="icon ion-bug"></i></div>
+                <div class="item-inner"> 
+                  <div class="item-title languagespecificHTML" data-text="bugreport">Bug Report</div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+           <li>
+           <a href="#" class="item-link link icon-only QRscanner languagespecificHTML ">
+              <div class="item-content">
+                <div class="item-media"><i class="icon ion-ios-camera-outline"></i></div>
+                <div class="item-inner"> 
+                  <div class="item-title languagespecificHTML" data-text="QRscanner">QR Scanner</div>
+                </div>
+              </div>
+              </a>
+          </li>
+
+          <li>
+              <div class="item-content" style="background-color:#FFFFFF;">
+                <div class="item-media"></div>
+                <div class="item-inner"> 
+                  <div id="qrcode"></div>
+                </div>
+              </div>
+          </li>
+
+
+           <li>
+              <div class="item-content">
+                <div class="item-inner"> 
+                  <div class="item-title languagespecificHTML" data-text="versie">VERSION</div> <div class="sslnoteapp white" >VERSION</div>
+                </div>
+              </div>
+          </li>
+          <li>
+             <div class="item-content">
+                <div class="item-inner"> 
+                  <div class="item-title languagespecificHTML" data-text="versie">BUILD</div> <div class="sslnoteversion white">BUILD</div>
+                </div>
+              </div>
+
+          </li>
+
+
+
+
+
+
+          
+
+      </ul>
+
+<BR>
+
+<center>
+
+                    <a href="#" class="reset-local-storage link button active languagespecificHTML" data-text="removeallsettings" >Remove All Local Settings
+                     
                     </a>
-                  </li>
-        </ul>
-      </div>
+<BR>
+                    <a href="#" class="introduction link button active languagespecificHTML" data-text="introduction" >Introduction
+                  
+                    </a>
+</center>
+
+
+
+
+
+
+  </div>
+</div>
+     
+
 
 
 
