@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!--     <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+       <meta name="theme-color" content="#2196f3">
+
     <title>PEM</title>
 <!--     <link rel="stylesheet" href="css/framework7.ios.min.css"> -->
 
-<!--     <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.min.css">
 
- -->
+
     
 <!--     <link rel="stylesheet" href="css/framework7.themes.min.css">
     <link rel="stylesheet" href="css/framework7.3dpanels.min.css"> -->
     <link rel="stylesheet" href="css/wodry.css">
 
-<!--     <link rel="stylesheet" href="css/pem.css"> -->
+    <link rel="stylesheet" href="css/pem.css">
     <link rel="stylesheet" href="css/ionicons.min.css">
 
 <!--     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -62,16 +65,28 @@
 
 
 
-    <div class="statusbar-overlay">
+<!--     <div class="statusbar-overlay">
       <div id="connection" class="connectionHidden">Checking SSL Connection...</div>
     </div>
-
+ -->
 
    
- <div class="views tabs toolbar-through">
+ <div class="views">
 
 
-<div id="contactsview" class="view view-main tab active"> <!-- contactlist -->
+<div id="contactsview" class="view view-main"> <!-- contactlist -->
+
+
+
+
+
+        <div class="pages navbar-fixed toolbar-fixed">
+          <div class="page" data-page="index">
+
+
+
+<div class="backgroundimage"></div>
+
 
 
 
@@ -92,72 +107,6 @@
   </div>
 </div>
 
-
-        <div class="pages navbar-through">
-          <div class="page" data-page="index">
-
-<div class="backgroundimage"></div>
-
-          </div> <!-- end page -->
-        </div> <!-- end pages -->
-</div> <!-- end view -->
-
-
-
-
-
-
-
-
-<div id="settingsview" class="view view-settings tab"> <!-- settings -->
-
-<div class="navbar ">
-  <div class="navbar-inner">
-    <div class='left'> 
-<!--       <div id="navbarpemlogo"></div> -->
-    </div>
-    <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
-    <div class="right sliding">
-<!--       <a href="#" data-panel="right" class="open-panel link icon-only klik"><i class="icon ion-navicon-round"></i></a> -->
-    </div>
-  </div>
-</div>
-
-<div class="pages navbar-through">
-     <div class="page" data-page="index">
-  <div class="backgroundimage"></div>
-            <div class="page-content">
-
-
-
-            </div> <!-- end page-content -->
-          </div> <!-- end page -->
-        </div> <!-- end pages -->
-</div> <!-- end view -->
-
-
-
-
-
-<div id="setupview" class="view view-setup tab"><!-- setup -->
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left sliding"></div>
-        <div class="center sliding"></div>
-        <div class="right sliding"></div>
-      </div>
-    </div>
-
-    <div class="pages navbar-through no-toolbar no-swipeback">
-        <div data-page="firstsetup" class="page" >
-<!--           <div class="backgroundimage"></div> -->
-          <div class="page-content login-screen-content loginbackground "></div>
-        </div>
-    </div>
-</div> <!-- end view -->
-
-
-      <!-- Bottom Tabbar-->
       <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
 
@@ -215,21 +164,92 @@
 
           <span class="tabbar-label">Settings</span>
           </a>
-<!-- 
-          <a href="#" class="tab-link logoff"> <i class="ion-ios-locked-outline"></i><span class="tabbar-label">Logout</span></a> -->
+
 
           </div>
-      </div> <!-- end tabs -->
+      </div> 
 
 
-</div> <!-- end views -->
+</div> 
 
 
-<div id="loginpage" class="view login-screen modal-in">
+
+
+            <div class="page-content">
+              <p>Page content goes here</p>
+              <!-- Link to another page -->
+              <a href="about.html">About app</a>
+            </div>
+
+
+
+          </div> <!-- end page -->
+        </div> <!-- end pages -->
+</div> <!-- end view -->
+
+
+
+
+
+
+
+
+<!-- <div id="settingsview" class="view view-settings tab"> 
+
+<div class="navbar ">
+  <div class="navbar-inner">
+    <div class='left'> 
+
+    </div>
+    <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
+    <div class="right sliding">
+
+    </div>
+  </div>
+</div>
+
+<div class="pages navbar-through">
+     <div class="page" data-page="index">
+  <div class="backgroundimage"></div>
+            <div class="page-content">
+
+
+
+            </div> 
+          </div> 
+        </div> 
+</div> -->
+
+
+
+
+
+<!-- <div id="setupview" class="view view-setup tab">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"></div>
+        <div class="center sliding"></div>
+        <div class="right sliding"></div>
+      </div>
+    </div>
+
+    <div class="pages navbar-through no-toolbar no-swipeback">
+        <div data-page="firstsetup" class="page" >
+
+          <div class="page-content login-screen-content loginbackground "></div>
+        </div>
+    </div>
+</div>
+ -->
+
+      <!-- Bottom Tabbar-->
+
+
+
+<!-- <div id="loginpage" class="view login-screen modal-in">
 
   <div data-page="login-screen" class="page" >
   
-<!--      <div class="backgroundimage"></div> -->
 
         <div class="page-content login-screen-content loginbackground">
 
@@ -267,9 +287,7 @@
                         <a href="#" class="form-to-json link button active languagespecificHTML" data-text="sign_in" >sign_in</a>
 
 </center> 
-<!--                     <center>
-                      <a href="" class="link next button active languagespecificHTML" data-text="next">NEXT</a>
-                     </center> -->
+
 
 
                         </li>
@@ -307,9 +325,9 @@
                     </ul>
 
                       <div class="sslnoteapp white" >VERSION</div>
-<!--                       <div class="serveronline white">System status  <div style="display: inline" class="serveronlineimgsmall"></div></div> -->
+
                       <div class="sslnoteversion white"></div>
-              <!--         <div class="countdown_dashboard"> </div>   -->  
+
 
                 </div>
             </form>
@@ -318,8 +336,8 @@
 
   </div>
 
-</div> <!-- end view -->
-
+</div> 
+ -->
 
 
 
