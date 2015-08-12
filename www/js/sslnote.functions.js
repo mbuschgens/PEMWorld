@@ -1028,7 +1028,7 @@ tx.executeSql(updateUIDLinks, [uid,data.his_uid, data.his_nick,data.his_server, 
                     //       syncUILinks();
                     // SQLiteUpdateMessagesTotal() ;
                     //checkContactsOnline();
-                    // settingsview.loadPage('frames/settings/mysettings/ScontactAdd.html');
+                    // mainView.loadPage('frames/settings/mysettings/ScontactAdd.html');
                 }
             }); //end contact verzoek check
     }

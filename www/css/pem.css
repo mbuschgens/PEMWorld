@@ -13,6 +13,20 @@ GRIJS = #1f2429
 ORANJE = #d65946
 */
 
+/*ANDROID
+*/
+.subnavbar{
+  background-color: #FF4500;
+
+}
+
+
+
+
+/*ANDROID*/
+
+
+
 .checkPass{
 /*    content: url(../img/online.png);*/
     height: 20px;
@@ -449,6 +463,7 @@ ul {
   transform-origin: 50% 100%;
 }
 
+/*ANDROID*/
 
 .list-block .item-link .item-inner {
   padding-right: 35px;
@@ -459,6 +474,8 @@ ul {
   background-position: -webkit-calc(100% - 15px) center;
   background-position: calc(100% - 15px) center;
 }
+
+/*ANDROID*/
 
 .list-block .item-link.list-button {
   padding: 0 15px;

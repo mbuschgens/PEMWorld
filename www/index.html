@@ -4,17 +4,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
 
-<!--     <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
-       <meta name="theme-color" content="#2196f3">
 
     <title>PEM</title>
 <!--     <link rel="stylesheet" href="css/framework7.ios.min.css"> -->
 
     <link rel="stylesheet" href="css/framework7.material.min.css">
-
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
 
     
 <!--     <link rel="stylesheet" href="css/framework7.themes.min.css">
@@ -22,20 +22,21 @@
     <link rel="stylesheet" href="css/wodry.css">
 
     <link rel="stylesheet" href="css/pem.css">
+
     <link rel="stylesheet" href="css/ionicons.min.css">
 
 <!--     <link rel="stylesheet" href="css/font-awesome.min.css">
  -->
 
-    <link href="Default-568h@2x.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <link href="default@2x.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+<!--     <link href="Default-568h@2x.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="default@2x.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"> -->
     
     <script src="js/jquery.js"></script> 
     <script src="js/countdown.js"></script>
    <!--  // <script src="js/jquery-lang.js" charset="utf-8" type="text/javascript"></script> -->
+
+
     <script type="text/javascript" src="js/qrcode.js"></script>
-
-
     <script type="text/javascript" src="js/Camera.js"></script>
     <script type="text/javascript" src="js/CameraPopoverHandle.js"></script>
     <script type="text/javascript" src="js/CameraConstants.js"></script>
@@ -65,10 +66,10 @@
 
 
 
-<!--     <div class="statusbar-overlay">
+    <div class="statusbar-overlay">
       <div id="connection" class="connectionHidden">Checking SSL Connection...</div>
     </div>
- -->
+
 
    
  <div class="views">
@@ -76,38 +77,107 @@
 
 <div id="contactsview" class="view view-main"> <!-- contactlist -->
 
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+ 
+            <!-- Top Navbar. In Material theme it should be inside of the page-->
 
+    <div class="navbar">
+<!--       <div class="navbar-inner">
+ 
+      </div>
+        <div class="subnavbar">
 
+        </div> -->
+    </div>
+ 
+            <!-- Scrollable page content -->
+            <div class="page-content">
 
-
-        <div class="pages navbar-fixed toolbar-fixed">
-          <div class="page" data-page="index">
-
-
-
-<div class="backgroundimage"></div>
-
-
-
-
-<div class="navbar">
-
-  <div class="navbar-inner">
-          <div class="left">
-<!--               <a href="#" class="refresh-link refresh-home">
-                 <div id="navbarpemlogo"></div>
-                 </a> -->
-          </div>
-            <div class="center">
-            <div class="contactlistnavbar languagespecificHTML" data-text="contacts">Contacts</div> 
             </div>
-        <div class="right">
-<!--         <a href="#" data-panel="right" class="open-panel link "><i class="icon ion-navicon-round"></i></a> -->
+
+
+
+          </div>
         </div>
+      </div>
+    </div>
+
+
+
+
+
+
+<!-- 
+
+<div id="settingsview" class="view view-settings"> 
+
+
+
+        <div class="pages navbar-fixed">
+          <div data-page="index" class="page">
+
+
+
+<div class="navbar ">
+  <div class="navbar-inner">
+    <div class='left'> 
+
+    </div>
+    <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
+    <div class="right sliding">
+
+    </div>
   </div>
 </div>
 
-      <div class="toolbar tabbar tabbar-labels">
+
+
+
+  <div class="backgroundimage"></div>
+            <div class="page-content">
+
+
+
+            </div> 
+          </div> 
+        </div> 
+</div> 
+
+
+
+
+
+<div id="setupview" class="view view-setup ">
+
+
+        <div class="pages navbar-fixed">
+          <div data-page="firstsetup" class="page">
+
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+      </div>
+        <div class="subnavbar">
+
+        </div>
+    </div>
+
+
+          <div class="page-content login-screen-content loginbackground "></div>
+        </div>
+    </div>
+</div> 
+
+
+
+
+    <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
 
           <a href="#contactsview" class="tab-link active showcontacts">
@@ -168,90 +238,18 @@
 
           </div>
       </div> 
+</div>  -->
 
 
-</div> 
-
-
-
-
-            <div class="page-content">
-              <p>Page content goes here</p>
-              <!-- Link to another page -->
-              <a href="about.html">About app</a>
-            </div>
-
-
-
-          </div> <!-- end page -->
-        </div> <!-- end pages -->
-</div> <!-- end view -->
-
-
-
-
-
-
-
-
-<!-- <div id="settingsview" class="view view-settings tab"> 
-
-<div class="navbar ">
-  <div class="navbar-inner">
-    <div class='left'> 
-
-    </div>
-    <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
-    <div class="right sliding">
-
-    </div>
-  </div>
-</div>
-
-<div class="pages navbar-through">
-     <div class="page" data-page="index">
-  <div class="backgroundimage"></div>
-            <div class="page-content">
-
-
-
-            </div> 
-          </div> 
-        </div> 
-</div> -->
-
-
-
-
-
-<!-- <div id="setupview" class="view view-setup tab">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left sliding"></div>
-        <div class="center sliding"></div>
-        <div class="right sliding"></div>
-      </div>
-    </div>
-
-    <div class="pages navbar-through no-toolbar no-swipeback">
-        <div data-page="firstsetup" class="page" >
-
-          <div class="page-content login-screen-content loginbackground "></div>
-        </div>
-    </div>
-</div>
- -->
-
-      <!-- Bottom Tabbar-->
-
-
-
-<!-- <div id="loginpage" class="view login-screen modal-in">
+<div id="loginpage" class="view login-screen modal-in">
 
   <div data-page="login-screen" class="page" >
   
 
-        <div class="page-content login-screen-content loginbackground">
+
+        <div class="page-content">
+
+         <div class="login-screen-content loginbackground">
 
             <div class="login-screen-title"><i class="icon logopem64"></i></div>   
 
@@ -287,8 +285,6 @@
                         <a href="#" class="form-to-json link button active languagespecificHTML" data-text="sign_in" >sign_in</a>
 
 </center> 
-
-
 
                         </li>
                       </ul>
@@ -328,16 +324,17 @@
 
                       <div class="sslnoteversion white"></div>
 
-
                 </div>
             </form>
           
         </div>
 
+        </div>
+
   </div>
 
 </div> 
- -->
+
 
 
 
@@ -379,13 +376,6 @@
         </div>
       </li>
     </ul>
-
-
-
-
-
-
-
 
 </script>
 
@@ -434,7 +424,7 @@
 
      <script type="text/javascript" src="js/framework7.min.js"></script>
 
-     // <script type="text/javascript" src="js/framework7.3dpanels.min.js"></script>
+<!-- <script type="text/javascript" src="js/framework7.3dpanels.min.js"></script> -->
 
      <script type="text/javascript" src="js/framework7.debug.js"></script>
      <script type="text/javascript" src="js/howler.min.js"></script>
@@ -442,10 +432,6 @@
      
 <script type="text/javascript" src="js/sslnote.common.js"></script>
 <script type="text/javascript" src="js/sslnote.functions.js"></script>
-
-<!--  // <script type="text/javascript" src="js/sslnote.common.min.js"></script>
- // <script type="text/javascript" src="js/sslnote.functions.min.js"></script> -->
-
 
       <script type="text/javascript" src="js/sslnote.handlers.js"></script>
 
@@ -457,9 +443,7 @@
     <script type="text/javascript" src="js/jquery.inlinesvg.js"></script>
     <script type="text/javascript" src="js/wodry.min.js"></script>
 
-      
-
-
+  
 
   </body>
   

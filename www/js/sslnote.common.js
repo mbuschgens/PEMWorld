@@ -1,31 +1,41 @@
 // @codekit-prepend "jquery.js"
 'use strict';
-var $$ = Dom7;
+
 var sslnote = new Framework7({
     debug: true,
-    //cache: true,
-    //domCache: true,
+    // cache: true,
+    // domCache: true,
     //cacheDuration: 1000,
-    swipeBackPage: false,
-    swipeBackPageAnimateShadow: false,
-    swipeBackPageAnimateOpacity: false,
+    // swipeBackPage: false,
+    // swipeBackPageAnimateShadow: false,
+    // swipeBackPageAnimateOpacity: false,
     modalTitle: unescape('PEM'),
     router: true,
+    material: true,
+    materialPageLoadDelay:300
     //reloadPages:true,
-    onAjaxStart: function(xhr) {
-        sslnote.showIndicator();
-    },
-    onAjaxComplete: function(xhr) {
-        sslnote.hideIndicator();
-    },
-    onAjaxError: function(xhr) {
-        sslnote.hideIndicator();
-        console.log('HIDE Indicator on AJAX Error');
-
-        // mainView.router.load({url: 'frames/messages/SContactlist.html',reload:true});
-        console.error(xhr + new Error().stack);
-    }
+    // onAjaxStart: function(xhr) {
+    //     sslnote.showIndicator();
+    // },
+    // onAjaxComplete: function(xhr) {
+    //     sslnote.hideIndicator();
+    // },
+    // onAjaxError: function(xhr) {
+    //     sslnote.hideIndicator();
+    //     console.log('HIDE Indicator on AJAX Error');
+    //       console.error(xhr + new Error().stack);
+    // }
 });
+
+var $$ = Dom7;
+
+
+// $$(document).on('ajaxStart', function (e) {
+//     sslnote.showIndicator();
+// });
+// $$(document).on('ajaxComplete', function () {
+//     sslnote.hideIndicator();
+// });
 
 
 
@@ -36,8 +46,6 @@ if (!localStorage.getItem('sslnoteapp')) {
 var Appversion = '1.12.1';
 localStorage.setItem('whatsnew', 
     'V10.0.11 Fix Scroll bij langen berichten, Aantal berichten in app icoon update.' +
-    'V10.0.10 Sneller pagina laden,Crypting en zending info in bovenbalk, Bug fix vast lopers, Verwijder contact nu ook aan contactpersoon kant.' + 
-    'V10.0.7 Active intro.' +
     'V10.0.6 Bug fix hangen en CPU belasting.' + '');
 localStorage.setItem('App', 'PEM');
 var sslnoteversion = 'PEM V' + Appversion;
@@ -69,14 +77,15 @@ var ptrContent = $$('.pull-to-refresh-content');
 var timeouts = [];
 //var screenprotect;
 var mainView = sslnote.addView('.view-main', {
-    dynamicNavbar: true,
+    // dynamicNavbar: true,
 });
-var settingsview = sslnote.addView('.view-settings', {
-    dynamicNavbar: true,
-});
-var setupview = sslnote.addView('.view-setup', {
-    dynamicNavbar: true,
-});
+// var mainView = sslnote.addView('.view-settings', {
+//     // dynamicNavbar: true,
+// });
+// var mainView = sslnote.addView('.view-setup', {
+//     // dynamicNavbar: true,
+// });
+
 var interval;
 var createUID =
     "CREATE TABLE IF NOT EXISTS uid (id INTEGER PRIMARY KEY AUTOINCREMENT,uid TEXT,sslnoteapp TEXT,pass TEXT,account_id INTEGER,active INTEGER ,pass_reset INTEGER,inactive_time DATETIME,active_last DATETIME,my_nick TEXT,settpass INTEGER,logins INTEGER,reactivatecode TEXT,token TEXT,sound TEXT,volume TEXT,repeatpush INTEGER,device TEXT,maxlink INTEGER,language TEXT,server TEXT)";
@@ -275,7 +284,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -294,7 +303,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -313,7 +322,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -331,7 +340,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -349,7 +358,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -367,7 +376,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -385,7 +394,7 @@ $(document).ready(function() {
                                 sslnote.closeModal(
                                     '.login-screen'
                                 );
-                                setupview.loadPage(
+                                mainView.loadPage(
                                     'frames/setup/setupintro.html'
                                 );
                             }
@@ -396,7 +405,7 @@ $(document).ready(function() {
         else {
             sslnote.closeModal('.login-screen');
             setTimeout(function() {
-                setupview.loadPage('frames/setup/setupintro.html');
+                mainView.loadPage('frames/setup/setupintro.html');
             }, 500);
         }
     }
@@ -408,12 +417,12 @@ $(document).ready(function() {
 
     $$('.contactadd').on('click', function() {
         //console.log('frames/settings/mysettings/ScontactAdd.html');
-        settingsview.loadPage(
+        mainView.loadPage(
             'frames/settings/mysettings/ScontactAdd.html');
     });
     $$('.bugreport').on('click', function() {
         //console.log('frames/setup/Sbugreport.html');
-        settingsview.loadPage('frames/Sbugreport.html');
+        mainView.loadPage('frames/Sbugreport.html');
     });
     $$('.support').on('click', function() {
         $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
@@ -788,11 +797,13 @@ $$('.close-tutorial').on('click', function() {
     });
 });
 $$('.firstsetup').on('click', function() {
+    console.log('firstsetup clicked');
     // sslnote.closeModal();
     // localStorage.setItem('doneTutorial','yes');
     //sessionStorage.setItem('counter', 'yes');     
     sslnote.closeModal();
-    setupview.loadPage('frames/setup/setupintro.html');
+    mainView.loadPage('frames/setup/setupintro.html');
+
 });
 var server = localStorage.getItem('server');
 
@@ -830,91 +841,94 @@ $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') + "/strings.json",
                 0][$(this).data("text")]);
         });
     });
-$('#contactsview').on('show', function() {
-    console.log('contactsview TAB =  ');
-    //////console.log('//!! STOP LOOP');
-    var totalsec = localStorage.getItem('logofftimer') * 58;
-    clearTimeout(loop);
-    ////console.log('UPDATE COUNTER + '+totalsec);
-    $('.countdown_dashboard').data('countdown').update({
-        diff: totalsec,
-        onEnd: function() {
-            console.log(
-                '+++ countdown finish onPageInit Scontactlist'
-            );
-            sslnote.hideIndicator();
-            mainView.router.load({
-                url: 'frames/login.html',
-                animatePages: false
-            });
-            sessionStorage.clear();
-            $('.countdown_dashboard').data('countdown').update({
-                diff: '-1'
-            });
-            sslnote.loginScreen();
-            console.log(
-                '//!! STOP LOOP from counter #contactsview'
-            );
-            clearTimeout(loop);
-            sslnote.hideIndicator();
-        }
-    });
-    $('.countdown_dashboard').data('countdown').start();
-    ////console.log('UPDATE COUNTER DONE #contactsview');
-    //mainView.router.load('frames/messages/Scontactlist.html');
-    mainView.router.load({
-        url: 'frames/messages/Scontactlist.html',
-        animatePages: false,
-        reload: true
-    });
-    ////console.log('!!! makeContactlist DONE'); 
-    // setTimeout(function() {
-    //     ////console.log('***** START setTimeout Fn contactonline *****');
-    //     checkContactsOnline();
-    //     ////console.log('!!! makeContactlist START');
-    //     makeContactlist();
-    //     ////console.log('***** END setTimeout Fn contactonline *****');  
-    //     //  CcheckLastActive();
-    // }, 0);
-});
-$('.showsettings').on('click', function() {
-    console.log('showsettings TAB =  ');
-    //////console.log('//!! STOP LOOP');
-    var totalsec = localStorage.getItem('logofftimer') * 58;
-    clearTimeout(loop);
-    //console.log('UPDATE COUNTER + '+totalsec);
-    $('.countdown_dashboard').data('countdown').update({
-        diff: totalsec,
-        onEnd: function() {
-            console.log(
-                '+++ countdown finish onPageInit Scontactlist'
-            );
-            sslnote.hideIndicator();
-            mainView.router.load({
-                url: 'frames/login.html',
-                animatePages: false
-            });
-            sessionStorage.clear();
-            $('.countdown_dashboard').data('countdown').update({
-                diff: '-1'
-            });
-            sslnote.loginScreen();
-            console.log(
-                '//!! STOP LOOP from counter .showsettings'
-            );
-            clearTimeout(loop);
-            sslnote.hideIndicator();
-        }
-    });
-    $('.countdown_dashboard').data('countdown').start();
-    //console.log('UPDATE COUNTER DONE .showsettings');
-    //settingsview.router.load('frames/settings/index.html');
-    settingsview.router.load({
-        url: 'frames/settings/index.html',
-        animatePages: false,
-        reload: true
-    });
-});
+
+
+// MOVED IVM ANDROID
+// $$('.showcontacts').on('click', function() {
+//     console.log('contactsview TAB =  ');
+//     //////console.log('//!! STOP LOOP');
+//     var totalsec = localStorage.getItem('logofftimer') * 58;
+//     clearTimeout(loop);
+//     ////console.log('UPDATE COUNTER + '+totalsec);
+//     $('.countdown_dashboard').data('countdown').update({
+//         diff: totalsec,
+//         onEnd: function() {
+//             console.log(
+//                 '+++ countdown finish onPageInit Scontactlist'
+//             );
+//             sslnote.hideIndicator();
+//             mainView.router.load({
+//                 url: 'frames/login.html',
+//                 animatePages: false
+//             });
+//             sessionStorage.clear();
+//             $('.countdown_dashboard').data('countdown').update({
+//                 diff: '-1'
+//             });
+//             sslnote.loginScreen();
+//             console.log(
+//                 '//!! STOP LOOP from counter #contactsview'
+//             );
+//             clearTimeout(loop);
+//             sslnote.hideIndicator();
+//         }
+//     });
+//     $('.countdown_dashboard').data('countdown').start();
+//     ////console.log('UPDATE COUNTER DONE #contactsview');
+//     //mainView.router.load('frames/messages/Scontactlist.html');
+//     mainView.router.load({
+//         url: 'frames/messages/Scontactlist.html',
+//         animatePages: false,
+//         reload: true
+//     });
+//     ////console.log('!!! makeContactlist DONE'); 
+//     // setTimeout(function() {
+//     //     ////console.log('***** START setTimeout Fn contactonline *****');
+//     //     checkContactsOnline();
+//     //     ////console.log('!!! makeContactlist START');
+//     //     makeContactlist();
+//     //     ////console.log('***** END setTimeout Fn contactonline *****');  
+//     //     //  CcheckLastActive();
+//     // }, 0);
+// });
+// $$('.showsettings').on('click', function() {
+//     console.log('showsettings TAB =  ');
+//     //////console.log('//!! STOP LOOP');
+//     var totalsec = localStorage.getItem('logofftimer') * 58;
+//     clearTimeout(loop);
+//     //console.log('UPDATE COUNTER + '+totalsec);
+//     $('.countdown_dashboard').data('countdown').update({
+//         diff: totalsec,
+//         onEnd: function() {
+//             console.log(
+//                 '+++ countdown finish onPageInit Scontactlist'
+//             );
+//             sslnote.hideIndicator();
+//             mainView.router.load({
+//                 url: 'frames/login.html',
+//                 animatePages: false
+//             });
+//             sessionStorage.clear();
+//             $('.countdown_dashboard').data('countdown').update({
+//                 diff: '-1'
+//             });
+//             sslnote.loginScreen();
+//             console.log(
+//                 '//!! STOP LOOP from counter .showsettings'
+//             );
+//             clearTimeout(loop);
+//             sslnote.hideIndicator();
+//         }
+//     });
+//     $('.countdown_dashboard').data('countdown').start();
+//     //console.log('UPDATE COUNTER DONE .showsettings');
+//     //mainView.router.load('frames/settings/index.html');
+//     mainView.router.load({
+//         url: 'frames/settings/index.html',
+//         animatePages: false,
+//         reload: true
+//     });
+// });
 $$('.showTourClose').on('click', function() {
     closeTour();
 });
@@ -1080,8 +1094,93 @@ $$('.sslnoteapp').html(localStorage.getItem('sslnoteapp'));
         }
     });
 
+// MOVED IVM ANDROID
 
-
+$$('.showcontacts').on('click', function() {
+    console.log('contactsview TAB =  ');
+    //////console.log('//!! STOP LOOP');
+    var totalsec = localStorage.getItem('logofftimer') * 58;
+    clearTimeout(loop);
+    ////console.log('UPDATE COUNTER + '+totalsec);
+    $('.countdown_dashboard').data('countdown').update({
+        diff: totalsec,
+        onEnd: function() {
+            console.log(
+                '+++ countdown finish onPageInit Scontactlist'
+            );
+            sslnote.hideIndicator();
+            mainView.router.load({
+                url: 'frames/login.html',
+                animatePages: false
+            });
+            sessionStorage.clear();
+            $('.countdown_dashboard').data('countdown').update({
+                diff: '-1'
+            });
+            sslnote.loginScreen();
+            console.log(
+                '//!! STOP LOOP from counter #contactsview'
+            );
+            clearTimeout(loop);
+            sslnote.hideIndicator();
+        }
+    });
+    $('.countdown_dashboard').data('countdown').start();
+    ////console.log('UPDATE COUNTER DONE #contactsview');
+    //mainView.router.load('frames/messages/Scontactlist.html');
+    mainView.router.load({
+        url: 'frames/messages/Scontactlist.html',
+        animatePages: false,
+        reload: true
+    });
+    ////console.log('!!! makeContactlist DONE'); 
+    // setTimeout(function() {
+    //     ////console.log('***** START setTimeout Fn contactonline *****');
+    //     checkContactsOnline();
+    //     ////console.log('!!! makeContactlist START');
+    //     makeContactlist();
+    //     ////console.log('***** END setTimeout Fn contactonline *****');  
+    //     //  CcheckLastActive();
+    // }, 0);
+});
+$$('.showsettings').on('click', function() {
+    console.log('showsettings TAB =  ');
+    //////console.log('//!! STOP LOOP');
+    var totalsec = localStorage.getItem('logofftimer') * 58;
+    clearTimeout(loop);
+    //console.log('UPDATE COUNTER + '+totalsec);
+    $('.countdown_dashboard').data('countdown').update({
+        diff: totalsec,
+        onEnd: function() {
+            console.log(
+                '+++ countdown finish onPageInit Scontactlist'
+            );
+            sslnote.hideIndicator();
+            mainView.router.load({
+                url: 'frames/login.html',
+                animatePages: false
+            });
+            sessionStorage.clear();
+            $('.countdown_dashboard').data('countdown').update({
+                diff: '-1'
+            });
+            sslnote.loginScreen();
+            console.log(
+                '//!! STOP LOOP from counter .showsettings'
+            );
+            clearTimeout(loop);
+            sslnote.hideIndicator();
+        }
+    });
+    $('.countdown_dashboard').data('countdown').start();
+    //console.log('UPDATE COUNTER DONE .showsettings');
+    //mainView.router.load('frames/settings/index.html');
+    mainView.router.load({
+        url: 'frames/settings/index.html',
+        animatePages: false,
+        reload: true
+    });
+});
 
 
     // $$('.klik').on('click', function() {
@@ -1440,7 +1539,7 @@ var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;
                 his_uid: his_uidscan
             };
             sslnote.formFromJSON('#contactadd', data);
-            settingsview.loadPage(
+            mainView.loadPage(
                 'frames/settings/mysettings/ScontactAdd.html'
             );
         }, function(error) {
@@ -1687,7 +1786,7 @@ sslnote.onPageAfterAnimation('Scontactlist', function(page) {
             localStorage.dotourfirstmessagesend = 'Done';
             dotourHTML = '';
             $$('.dotour').html(dotourHTML);
-            settingsview.loadPage(
+            mainView.loadPage(
                 'frames/settings/mysettings/ScontactAdd.html'
             );
         });
@@ -2088,7 +2187,7 @@ sslnote.onPageInit('Smessagelist', function() {
 sslnote.onPageInit('Scontactadd', function() {
     // if (page.name === 'Smessagelist') {
     //console.log('page.name Scontactadd');
-    sslnote.showTab('#settingsview');
+    sslnote.showTab('#mainView');
 }); // end page.name
 //*************************************************************************************************************
 //********************** END PAGE INIT ****************************************************************************
@@ -2290,7 +2389,7 @@ else
 
 
                     sslnote.hideIndicator();
-                    settingsview.loadPage(
+                    mainView.loadPage(
                         'frames/settings/mysettings/ScontactAdd.html'
                     );
                 }
@@ -2364,7 +2463,7 @@ else
 sslnote.onPageInit('Sbugreport', function() {
     // if (page.name === 'Sbugreport') {
     //console.log('page.name Sbugreport');
-    sslnote.showTab('#settingsview');
+    sslnote.showTab('#mainView');
     var uid = localStorage.getItem('UID');
     var server = localStorage.getItem('server');
     var version = localStorage.getItem('sslnoteapp');
@@ -2429,10 +2528,10 @@ sslnote.onPageInit('SmyContactEdit', function(page) {
     //console.log('page.name SmyContactEdit');
     // $$('.view-main').hide();
     // $$('.view-settings').show();
-    //console.log('1 settingsview..router.refreshPage()');
-    // settingsview.router.refreshPage();
-    sslnote.showTab('#settingsview');
-    //console.log('2 settingsview..router.refreshPage()');
+    //console.log('1 mainView..router.refreshPage()');
+    // mainView.router.refreshPage();
+    sslnote.showTab('#mainView');
+    //console.log('2 mainView..router.refreshPage()');
     localStorage.setItem('showalert', 0);
     //console.log('showalert = 1');
     //console.log('SmyContactEdit INIT');
@@ -3828,9 +3927,10 @@ myMessages.scrollMessages();
 //********************** END PAGE INIT ****************************************************************************
 //*************************************************************************************************************
 sslnote.onPageInit('setupintro', function() {
-    setupview.hideNavbar();
+    console.log('setupintro init');
+    mainView.hideNavbar();
     sslnote.hideToolbar('.tabbar');
-    sslnote.showTab('#setupview');
+    sslnote.showTab('#mainView');
 
     localStorage.setItem('showalert', 0);
 
@@ -3841,7 +3941,7 @@ sslnote.onPageInit('setupintro', function() {
     $$('.create-new-uid').on('click', function() {
         sslnote.hideIndicator();
         //console.log('LOADING frames/setup/setup-setpass.html');
-        setupview.loadPage('frames/setup/setup-setpass.html');
+        mainView.loadPage('frames/setup/setup-setpass.html');
         sslnote.hidePreloader();
     }); // end activate button
 
@@ -3850,7 +3950,7 @@ sslnote.onPageInit('setupintro', function() {
         sslnote.hideIndicator();
         sslnote.hidePreloader();
         //console.log('+++ ihaveaaccount +++');
-        setupview.loadPage('frames/setup/Lite.html');
+        mainView.loadPage('frames/setup/Lite.html');
     });
 
 
@@ -3950,7 +4050,7 @@ sslnote.onPageInit('setupintro', function() {
                                                         'sslnoteapp',
                                                         sslnoteapp
                                                     );
-                                                setupview
+                                                mainView
                                                     .router
                                                     .load({
                                                         url: 'frames/setup/' +
@@ -3984,9 +4084,9 @@ sslnote.onPageInit('setupintro', function() {
 //********************** END PAGE INIT ****************************************************************************
 //*************************************************************************************************************
 // sslnote.onPageInit('firstsetup', function() {
-//     setupview.hideNavbar();
+//     mainView.hideNavbar();
 //     sslnote.hideToolbar('.tabbar');
-//     sslnote.showTab('#setupview');
+//     sslnote.showTab('#mainView');
 
 
 //     // set the basis settings
@@ -4150,7 +4250,7 @@ sslnote.onPageInit('setupintro', function() {
 //     $$('.activate').on('click', function() {
 //         sslnote.hideIndicator();
 //         //console.log('LOADING frames/setup/setup-setpass.html');
-//         setupview.loadPage('frames/setup/setup-setpass.html');
+//         mainView.loadPage('frames/setup/setup-setpass.html');
 //         sslnote.hidePreloader();
 //     }); // end activate button
 
@@ -4159,7 +4259,7 @@ sslnote.onPageInit('setupintro', function() {
 //         sslnote.hideIndicator();
 //         sslnote.hidePreloader();
 //         //console.log('+++ ihaveaaccount +++');
-//         setupview.loadPage('frames/setup/setupintor.html');
+//         mainView.loadPage('frames/setup/setupintor.html');
 //     });
 
 
@@ -4168,7 +4268,7 @@ sslnote.onPageInit('setupintro', function() {
 //     //     sslnote.hideIndicator();
 //     //     sslnote.hidePreloader();
 //     //     //console.log('+++ ihaveaaccount +++');
-//     //     setupview.loadPage('frames/setup/Lite.html');
+//     //     mainView.loadPage('frames/setup/Lite.html');
 //     // });
 //     // $$('.ialreadyacivate').on('click', function() {
 //     //     sslnote.hideIndicator();
@@ -4261,7 +4361,7 @@ sslnote.onPageInit('setupintro', function() {
 //     //                                                     'sslnoteapp',
 //     //                                                     sslnoteapp
 //     //                                                 );
-//     //                                             setupview
+//     //                                             mainView
 //     //                                                 .router
 //     //                                                 .load({
 //     //                                                     url: 'frames/setup/' +
@@ -4565,7 +4665,7 @@ sslnote.onPageInit('settings', function() {
     }
     makeCode();
 
-
+SQLiteUpdateMessagesTotal();
 }); // end page.name
 //*************************************************************************************************************
 //////////////////////////////////////////////////////////////////
@@ -4929,7 +5029,7 @@ sslnote.onPageInit('firstsetuplite', function() {
                         //console.log('LOADING frames/setup/setup-setpass.html');
                         // clearTimeout(noconnection);
                         sslnote.hidePreloader();
-                        setupview.loadPage(
+                        mainView.loadPage(
                             'frames/setup/setup-setpass.html'
                         );
                     } else {
@@ -5166,7 +5266,7 @@ sslnote.onPageInit('firstsetuppremium', function() {
                         //console.log('LOADING frames/setup/setup-setpass.html');
                         // clearTimeout(noconnection);
                         sslnote.hidePreloader();
-                        setupview.loadPage(
+                        mainView.loadPage(
                             'frames/setup/setup-setpass.html'
                         );
                     } else {
@@ -5205,7 +5305,7 @@ sslnote.onPageInit('firstsetuppremium', function() {
 sslnote.onPageInit('setup-setpass', function() {
     console.log('page.name setup-setpass :');
     sslnote.hidePreloader();
-    setupview.hideNavbar();
+    mainView.hideNavbar();
     localStorage.setItem('showalert', 0);
 
 
@@ -5316,14 +5416,15 @@ sslnote.onPageInit('setup-setpass', function() {
             //console.log('language='+a.language);
             //console.log('server='+a.server);
             localStorage.setItem('server', a.server);
-            //console.log('ECHO MSG A : ' + a.msg);
+            console.log('ECHO MSG A : ' + a.msg);
+            
             sslnote.hideIndicator();
             sslnote.hidePreloader();
 
 
 
             app.db.transaction(function(tx) {
-                //console.log('app.JSON to SQLite');     
+                console.log('app.JSON to SQLite');     
                 tx.executeSql(
                     'DROP TABLE IF EXISTS uid');
                 tx.executeSql(createUID, [],
@@ -5354,7 +5455,7 @@ sslnote.onPageInit('setup-setpass', function() {
                     a.server
                 ], onInsertSuccess, onError);
             });
-            //console.log('UPDATE CREATE PID  = ' + localStorage.getItem('UID'));
+            console.log('UPDATE CREATE PID  = ' + localStorage.getItem('UID'));
             $$('.yourpid').html(localStorage.getItem('UID'));
         },
         error: function(responseData, textStatus, errorThrown) {
@@ -5438,8 +5539,8 @@ sslnote.onPageInit('setup-setpass', function() {
                 });
                 
 
-                console.log('setupview LOADING frames/setup/setup-settingslogoff.html');
-                setupview.loadPage(
+                console.log('mainView LOADING frames/setup/setup-settingslogoff.html');
+                mainView.loadPage(
                     'frames/setup/setupintroexplanation.html'
                 );
 
@@ -5459,7 +5560,7 @@ sslnote.onPageInit('setupintroexplanation', function() {
     //console.log('page.name setup-settingslogoff :');
     localStorage.setItem('showalert', 0);
     document.activeElement.blur();
-    setupview.showNavbar();
+    mainView.showNavbar();
 
 
         console.log('*** Fn importNewUIDLinks');
@@ -5470,8 +5571,8 @@ importNewUIDLinks();
 
 
     $$('.next').on('click', function() {
-        //setupview.router.loadPage('frames/setup/setup-settingsscreenprotect.html'); //skip screenprotect
-        setupview.router.loadPage(
+        //mainView.router.loadPage('frames/setup/setup-settingsscreenprotect.html'); //skip screenprotect
+        mainView.router.loadPage(
             'frames/setup/setup-notification.html');
     });
 }); // end page.name
@@ -5486,13 +5587,13 @@ sslnote.onPageInit('setup-settingslogoff', function() {
     //console.log('page.name setup-settingslogoff :');
     localStorage.setItem('showalert', 0);
     document.activeElement.blur();
-    setupview.showNavbar();
+    mainView.showNavbar();
     sslnote.formFromJSON('#settingslogoff', localStorage.getItem(
         'f7form-settingslogoff'));
     // sslnote.formFromJSON('#settingslogoff', {"autologoff":"3"});
     $$('.next').on('click', function() {
-        //setupview.router.loadPage('frames/setup/setup-settingsscreenprotect.html'); //skip screenprotect
-        setupview.router.loadPage(
+        //mainView.router.loadPage('frames/setup/setup-settingsscreenprotect.html'); //skip screenprotect
+        mainView.router.loadPage(
             'frames/setup/setup-notification.html');
     });
 }); // end page.name
@@ -5507,7 +5608,7 @@ sslnote.onPageInit('setup-settingsscreenprotect', function() {
         'f7form-settingsscreenprotect'));
     // sslnote.formFromJSON('#settingsscreenprotect', {"screenprotect":"3" });
     $$('.next').on('click', function() {
-        setupview.router.loadPage(
+        mainView.router.loadPage(
             'frames/setup/setup-notification.html');
     });
 }); // end page.name
@@ -5586,10 +5687,10 @@ if (UID === '' || UID === null ) {
 
     sslnote.alert('NO UID Please do setup.', function() {
 
-// setupview.loadPage('frames/setup/setupintro.html');
+// mainView.loadPage('frames/setup/setupintro.html');
 
 
-    setupview.router.load({
+    mainView.router.load({
         url: 'frames/setup/setupintro.html',
         animatePages: false,
         reload: true
