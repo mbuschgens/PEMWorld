@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/*
+* CSS TOGGLE SWITCH
+*
+* Ionuț Colceriu - ghinda.net
+* https://github.com/ghinda/css-toggle-switch
+*
+*/
+/* supported values are px, rem-calc, em-calc
+ */
+/* imports
+ */
+/* Functions
+ */
+/* Shared
+ */
+/* Hide by default
+ */
+.switch-toggle a, .switch-light span span {
+  display: none; 
+}
+
+/* We can't test for a specific feature,
+ * so we only target browsers with support for media queries.
+ */
+@media only screen {
+  /* Checkbox
+ */
+  .switch-light {
+    position: relative;
+    display: block;
+    overflow: hidden;
+        width: 90px;
+    /* Outline the toggles when the inputs are focused
+  */ }
+
+
+    .switch-light *, .switch-light *:before, .switch-light *:after {
+      box-sizing: border-box; }
+    .switch-light a {
+      display: block;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out; }
+    .switch-light label, .switch-light > span {
+      /* breathing room for bootstrap/foundation classes
+     */
+      line-height: 2em;
+      vertical-align: middle; }
+    .switch-light input:focus ~ span a, .switch-light input:focus + label {
+      outline: 1px dotted #888; }
+  /* don't hide the input from screen-readers and keyboard access
+ */
+  .switch-light input {
+    position: absolute;
+    opacity: 0;
+    z-index: 3; }
+  .switch-light input:checked ~ span a {
+    right: 0%; }
+  /* inherit from label
+ */
+  .switch-light strong {
+    font-weight: inherit; }
+  .switch-light > span {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    min-height: 2em;
+    /* overwrite 3rd party classes padding
+   * eg. bootstrap .well
+   */
+    padding: 0;
+    text-align: left; }
+  .switch-light span span {
+    position: relative;
+    z-index: 2;
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .switch-light a {
+    position: absolute;
+    right: 50%;
+    top: 0;
+    z-index: 1;
+    display: block;
+    width: 50%;
+    height: 100%;
+    padding: 0; }
+
+  /* Candy Theme
+ * Based on the "Sort Switches / Toggles (PSD)" by Ormal Clarck
+ * http://www.premiumpixels.com/freebies/sort-switches-toggles-psd/
+ */
+  .switch-toggle.switch-candy, .switch-light.switch-candy > span {
+    background-color: #333333;
+    border-radius: 0px;
+/*    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.2); */
+  }
+
+  .switch-light.switch-candy span span, .switch-light.switch-candy input:checked ~ span span:first-child, .switch-toggle.switch-candy label {
+    color: #444444;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    top: -6px;
+    bottom: 0;
+  }
+  .switch-light.switch-candy input ~ span span:first-child, .switch-light.switch-candy input:checked ~ span span:nth-child(2), .switch-candy input:checked + label {
+    color: #ffffff;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    top: -6px;
+    bottom: 0;
+  }
+  .switch-candy a {
+    border: 1px solid #444444;
+    background-color: #f64f02;
+  }

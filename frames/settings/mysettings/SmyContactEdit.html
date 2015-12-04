@@ -1,25 +1,23 @@
-
-  <div data-page="SmyContactEdit" class="page">
-
 <div class="navbar">
   <div class="navbar-inner">
-    <div class="left sliding"><a href="frames/settings/mysettings/SmyContactList.html" data-force="true" class="back ">
-<i class="ion-android-arrow-back back"></i>
-
-    </a></div>
+    <div class="left sliding">
 
 
+<a href="frames/contacts/contacts.html" class="back link" data-force="true"><i class="icons_back icon-only"></i></a>
 
-    <div class="center sliding languagespecificHTML" data-text="mycontactedit">My Contact Edit</div>
+
+
+
+    </div>
+
+
+
+    <div class="center sliding languagespecificHTML" data-text="nav_contact_edit">EDIT NICK NAME</div>
  
  <div class="right sliding">
 
 
- <a href="#" class="form-to-json" class="link">
-
- <span>SAVE</span>
- </a>
-
+   <a href="#" class="form-to-json link next item-content active languagespecificHTML" data-text="SAVE">SAVE</a>
 
  </div>
 
@@ -29,67 +27,77 @@
 </div>
 
 
+<div class="pages navbar-through">
+
+
+  <div data-page="SmyContactEdit" class="page no-tabbar">
+
+
   <div class="backgroundimage"></div>
-    <div class="page-content">
+   <div class="page-content">
 
-          <div class="content-block-inner ">
-        <div class="item-inner infotxt languagespecificHTML" data-text="SmyContactEdittxt" >Edit contact nick.
+<!--            <div class="content-block-inner ">
+            <div class="item-inner infotxt languagespecificHTML" data-text="SmyContactEdittxt" >EDIT NICK NAME
         </div>
 
-</div>
-      <div class="list-block contacts-block">
-
-
-<form id="pidedit" class="list-block inset">
+</div> -->
+      <div class="list-block contacts-block contactadd">
 
 
 
-  <ul>
-   
-
-    <li>
-      <div class="item-content">
-        <div class="item-inner">
-          <div class="item-title label">UID</div>
-          <div class="item-input">
-            <input type="text" name="his_uid" placeholder="his_uid" disabled="">
-          </div>
-        </div>
-      </div>
-    </li>
+  <div class="content-block-title"><i class="icon icons_contacts"></i><span class=" languagespecificHTML" data-text="edit_cntact_detail"> Edit Contacts Details</span></div>      
 
 
-    <!-- Text inputs -->
-    <li>
-      <div class="item-content">
-        <div class="item-inner">
-          <div class="item-title label">Nick</div>
-          <div class="item-input">
-            <input type="text" name="his_nick" placeholder="Nick name">
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li>
-
-
-        <li>
-      <div class="item-content">
-        <div class="item-inner">
-          <div class="item-title label">MyUiD</div>
-          <div class="item-input">
-            <input type="text" name="uid" placeholder="MyUiD" disabled="">
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li>
+<form id="pidedit">
 
 
 
-</ul>
+
+
+
+
+
+
+          <ul>
+           
+           <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label languagespecificHTML" data-text="unique_id">UNIQUE ID</div>
+                  <div class="item-input">
+                    <input type="text" name="his_uid" style="text-transform:uppercase" placeholder="his_uid" disabled="">
+                  </div>
+                </div>
+              </div>
+            </li>
+       </ul>
+          <ul>
+            <!-- Text inputs -->
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label languagespecificHTML" data-text="nickname">NICKNAME</div>
+                  <div class="item-input">
+                    <input type="text" name="his_nick" placeholder="Nick name">
+                  </div>
+                </div>
+              </div>
+            </li>
+
+       </ul>
+        <div class="content-block-title"><i class="icon icons_mycontactdetails"></i><span class="languagespecificHTML" data-text="my_contact_details"> My Contact Details</span></div>
+          <ul>
+                <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">MyUiD</div>
+                  <div class="item-input">
+                    <input type="text" name="uid" placeholder="MyUiD" disabled="">
+                  </div>
+                </div>
+              </div>
+            </li>
+        </ul>
 
 
 <BR>
@@ -121,5 +129,6 @@
       </div>
     </div>
   </div>
+</div>
 
 

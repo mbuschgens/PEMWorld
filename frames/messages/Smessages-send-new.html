@@ -1,79 +1,102 @@
-<div class="pages navbar-fixed">
-
-<div data-page="Smessages-send-new" class="page toolbar-fixed no-tabbar">
-
-
-
 <div class="navbar">
             <div class="navbar-inner">
                 <div class='left'>
-                <a href='frames/messages/Scontactlist.html' class="back " data-force="true" data-reload="true" data-ignoreCache="true">
-                  <i class="icon ion-ios-people-outline"></i>
-                </a>
-                </div>         
+
+                 <a href="frames/contacts/contacts.html" class="back link" data-force="true"><i class="icons_back icon-only"></i></a>
+                
+                </div>    
+
+
 <!--                 <div class="center">
                     <div class="rotate-hisnick-lastseen"></div>
                 </div> -->
-                <div class="right"><a href="#" class="camera">  <i class="icon ion-ios-camera-outline"></i>  </a>
+
+                <div class="center">
+                    <div class="his_nick"></div>
+                </div>
+
+
+                <div class="right">
+<!--                 <a href="#" class="camera link">  <i class="icons_camera icon-only"></i>  </a> -->
                 </div>     
           </div>
-
-
-    <div class="subnavbar">
- <div class="languagespecificHTML" data-text="lastseen">*lastseen</div>
-    </div> 
-
-  </div>
+</div>
 
 
 
-<!-- <div class="pages navbar-through"> -->
 
+
+<div class="pages navbar-through">
+
+    <div data-page="Smessages-send-new" class="page toolbar-fixed no-tabbar">
 
      <div class="backgroundimage"></div>
 
      
-    <div class="toolbar messagebar toolbargrijs" data-max-height="200">
+<!--     <div class="toolbar messagebar toolbargrijs" data-max-height="200">
 
       <div class="toolbar-inner">
           <textarea id="receive" name="message" data-text="yoursecuremessagehere" class="languageSpecificPlaceholder" placeholder="YOUR SECURE MESSAGE HERE"></textarea>
           <div class="sendbuttonmiddle">
-          <a href="#" class="prompt-title-ok-cancel item-link list-button link " data-text="send">
-          <i class="icon ion-android-send "></i>
+          <a href="#" class="prompt-title-ok-cancel item-link list-button link send" data-text="send">
+          <i class="icons_sendmessage"></i>
           </a>
           </div>
       </div>
-    </div>
+    </div> -->
 
 
- 
+   <div class="toolbar messagebar messagebar-init" data-max-height="200" >
 
-
-    <div class="page-content messages-content backgroundimage">
-
-          <div class="messages messages-init" data-auto-layout="true" data-new-messages-first="false">
-              <div class="dotour"></div>   
-              <div class="messages-date messagessendto"></div>
-
-              <div class="message">
-
-              <div id="deleteimage" class="message message-last message-sent message-pic">
-                <a href="#" class="deleteimage">
-
-                  <div id="theimage"></div> 
-
-                </a>
-              </div>
-
-
+    <div class="toolbar-inner"  >
+    
+          <div class="sendbuttonmiddle"> 
+            <a href="#" class="link camera" data-text="camera"> <i class="icons_nav_camera_new icon-only"></i></a>
           </div>
 
 
-     </div> 
-      
+          <textarea id="receive" name="message" data-text="yoursecuremessagehere" class="languageSpecificPlaceholder" placeholder="YOUR SECURE MESSAGE" ></textarea>
 
+          <div class="sendbuttonmiddle"> 
+            <a href="#" class="link send" data-text="send" ><i class="icons_sendmessage icon-only"></i></a>
+          </div>
+
+          <div class="toolbarSupport-inner">
+                <center>
+                    <a href="#" class="item-link HelpRequest">
+                    <i id="iDtoolbarHelp" class="HelpButton icon-only"></i>  
+                    </a>
+                </center>
+          </div> 
+          
     </div>
+
   </div>
 
+
+
+
+<div class="page-content messages-content">
+
+  <div class="messages messages-init" data-auto-layout="true" data-new-messages-first="false">
+  
+              <div class="messages-date messagessendto"></div>
+
+              <div class="message">
+                <div id="deleteimage" class="message message-last message-sent message-pic">
+                  <a href="#" class="deleteimage">
+                    <div id="theimage"></div> 
+                  </a>
+                </div>
+              </div>
+     </div> 
 </div>
+
+
+
+
+  </div>
+
+    </div>
+
 

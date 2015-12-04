@@ -1,70 +1,122 @@
-<div class="pages navbar-fixed">
-
-<div data-page="Smessages-send" class="page toolbar-fixed no-tabbar">
-
-
-
 <div class="navbar">
   <div class="navbar-inner">
         <div class='left'>
 
-            <a href='frames/messages/Scontactlist.html' class="back" data-force="true" data-reload="true" data-ignoreCache="true">
+<!--             <a href='frames/messages/Scontactlist.html' class="back" data-force="true" data-reload="true" data-ignoreCache="true">
             <i class="icon ion-ios-people-outline"></i>
-            </a>
+            
+            </a> -->
+
+<!--  <a href="frames/messages/messages.html" class="back" data-force="true" ><i class="icon icons_back"></i></a>
+ -->
+
+<!--  <a href="frames/messages/messages.html" class="back message-send-back link" data-force="true" ><i class="icons_back icon-only"></i></a>
+ -->
+ <a href="frames/messages/messages.html" class="back message-send-back link" ><i class="icons_back icon-only"></i></a>
+
         </div>
-        <div class="right sub">
-            <a href="#" class="camera">  <i class="icon ion-ios-camera-outline"></i></a>
-            <a href="#" class="changekey" ><i class="icon ion-key"></i></a>   
-            <a href="#" class="newmessage" data-reload="true"><i class="icon ion-ios-compose-outline"></i></a>
-            <a href="#" class="link active Aautodelete" data-reload="true"><i class="icon ion-ios-trash-outline"></i></a>
+
+                <div class="center">
+                    <div class="his_nick"></div>
+                </div>
+
+        <div class="right">
+        
+<a href="#" class="newmessage link" data-reload="true"><i class="icons_nav_newmessage icon-only"></i></a>
+
+<!-- <a href="frames/messages/messages.html" class="link active Aautodelete" data-reload="true"><i class="icons_nav_delete icon-only"></i></a> -->
+
+
         </div>
   </div>
-  
-    <div class="subnavbar">
-
- <div class="contactlistnavbar languagespecificHTML" data-text="lastseen">*lastseen gezien</div>
-    </div>
-
-  </div>
-
-  
-
-<!-- 
-<div class="pages navbar-through"> -->
+</div>
 
 
+
+
+<div class="pages navbar-through">
+
+<div data-page="Smessages-send" class="page toolbar-fixed no-tabbar">
 
 <div class="backgroundimage"></div>
-  
-  <div class="toolbar messagebar toolbargrijs" data-max-height="200" >
-    <div class="toolbar-inner"  >
+
+<!-- <div class="toolbar messagebar messagebar-init" data-max-height="200">
+  <div class="toolbar-inner">
+    <textarea placeholder="Message"></textarea><a href="#" class="link">Send</a>
+  </div>
+</div>   -->
+
+  <!-- toolbargrijs -->
+
+
+
+
+
+  <div class="toolbar messagebar messagebar-init" data-max-height="200" >
+
+    <div class="toolbar-inner">
     
-    <textarea id="receive" name="message" data-text="yoursecuremessagehere" class="languageSpecificPlaceholder" placeholder="YOUR SECURE MESSAGE HERE" ></textarea>
+<!-- <table style="background-color:#00FF00">
+  <tr> -->
 
-    <div class="sendbuttonmiddle"> 
-    <a href="#" class="link" data-text="send" ><i class="icon ion-android-send"></i>
-    </a>
+          <div class="sendbuttonmiddle"> 
+
+            <a href="#" class="link camera" data-text="camera"> <i class="icons_nav_camera_new icon-only"></i></a>
+          </div>
+
+
+          <textarea id="receive" name="message" data-text="yoursecuremessagehere" class="languageSpecificPlaceholder " placeholder="YOUR SECURE MESSAGE" ></textarea>
+
+
+          <div class="sendbuttonmiddle"> 
+            <a href="#" class="link send" data-text="send" ><i class="icons_sendmessage icon-only"></i></a>
+          </div>
+<!-- </tr>
+</table> -->
+
+
+
+
+          <div class="toolbarSupport-inner">
+
+                    <a href="#" class="changekeyMessagesList item-link">
+                    <i class="icons_nav_changekey icon-only"></i>  
+                    </a>
+
+                    <a href="#" class="item-link HelpRequest">
+                    <i id="iDtoolbarHelp" class="HelpButton icon-only"></i>  
+                    </a>
+
+                    <a href="#" class="item-link active Aautodelete">
+                    <i class="icons_nav_delete icon-only"></i>  
+                    </a>
+
+          </div> 
+
+
     </div>
 
-    </div>
+
+
+
+
   </div>
 
 
 
 
   <!-- messages-content -->
-  <div class="page-content messages-content backgroundimage">
+  <div class="page-content messages-content">
    <!--  <div class="messages new-messages-first"> -->
 
 <div class="messages messages-init" data-auto-layout="true" data-new-messages-first="false">
-  
-      <div class="dotour"></div>
+
       
     <div class="messages-date messagessendto"></div>
 
       <div class="message">
 
-    <div class="messageoldsend white">Loading history...</div>
+    <div class="messageoldsend white"></div>
 
 <!--     <div class="white message-pic"> -->
 
@@ -91,6 +143,6 @@
 
     </div>
     
-<!-- </div>  -->
+</div> 
 
-</div>
+

@@ -1,208 +1,308 @@
 {
     "languageSpecifications": [
+
+
         {   
-            "taal": "TAAL",
 
-            "dutch": "Nederlands",
-            "english": "<span class='grey'>Engels</span>",
-            "russische": "<span class='grey'>Russische</span>",
-            "frans": "<span class='grey'>Frans</span>",
-            "spaans": "<span class='grey'>Spaans</span>",
-            "duits": "<span class='grey'>Duits</span>",
-            "chinees": "<span class='grey'>Chinees</span>",
+"nothingfound": "Nothing found",
+"search": "Search",
+"ACCEPT": "ACCEPT",
+"REFUSE": "REFUSE",
+"CHANGE": "CHANGE",
+"SAVE": "SAVE",
+"START": "START",
+"OKE": "OKE",
+"CANCEL": "CANCEL",
+"NEXT": "NEXT",
+"none": "NONE",
+"WIPE": "WIPE",
 
-            "code": "CODE",
+"oke": "OKE",
+"cancel": "CANCEL",
+"accept": "ACCEPT",
+"setkey": "SET KEY",
+"remove": "REMOVE",
+"back": "BACK",
+"home": "HOME",
+"sound": "Sound1",
 
-            "ACTIVATELITE": "ACTIVEREN",
-            "ACTIVATEPRO": "ACTIVEREN</br>PRO",
-            "ACTIVATEPREMIUM": "ACTIVEREN</br>PREMIUM",
-            "already_activate": "ik ben al geactiveerd",
-            "password": "paswoord",
-            "repeat": "herhaal",
-            "createyourpassword": "maak een paswoord",
-            "screenprotect": "SCHERMBEVEILIGING",
-            "screenprotecttxt": "Schermbeveiliging om uw gegevens te verbergen en besparing van batterij.",
-            "1Minutes": "1 Minuut",
-            "2Minutes": "2 Minuten",
-            "3Minutes": "3 Minuten",
-            "4Minutes": "4 Minuten",
-            "5Minutes": "5 Minuten",
-            "6Minutes": "6 Minuten",
-            "7Minutes": "7 Minuten",
-            "8Minutes": "8 Minuten",
-            "9Minutes": "9 Minuten",
-            "10Minutes": "10 Minuten",
-            "60Minutes": "60 Minuten",
-            "none": "NONE",
+"HIDE_SELECTED_STATUS": "HIDE SELECTED",
 
-            "automaticlogofftimer": "AFMELD TIJD",
-            "automaticlogofftimertxt": "Selecteer het aantal minuten dat de app automatische moet afmelden en alle tijdelijke sleutels verwijderd.",
+"WELCOME_TO_PEM": "WELCOME TO PEM!",
+"PERSONAL_ENCRYPTED_MESSAGING_APP": "PERSONAL ENCRYPTED MESSAGING",
 
-            "notificationsound": "BERICHT GELUID",
-            "notificationsoundtxt": "Kies het geluid als er een push bericht binnen komt.",
+"CREATE_NEW_UID": "Create new User ID",
+"I_HAVE_A_UID": "I have a UID",
 
-            "sound": " <span style='color:#FFF'> Geluid </span>",
-             "volume": " Volume",
-              "pushsound": " Push geluid",
-              
+"txt_set_main_password": "Set your password. It must contain at least 14 characters a capital and special character.",
 
-            "createyourpassword": "Maak je paswoord",
-            "youraccountready": "Je account is klaar voor gebruik.",
-            "restart": "START",
+"setup_nav_set_burn_password": "SET BURN PASSWORD",
+"setup_txt_set_burn_password": "PEM also uses a brun password. Using this password will erase all contacts and conversations. This cannot be undone.",
 
 
-            "passwordnotthesame": "Paswoord niet het zelfde",
+"nav_set_pincode": "SET PINCODE",
+"txt_set_pincode": "Set PINCODE. To restore your account later.",
 
-            "passwordcannotbeempty": "Paswoord mag niet leeg zijn.",
-
-            "nosettingsfound": "Geen instellingen gevonden!<BR>Maak een nieuw UID voor U.<BR>Een moment AUB...",
-
-            "authorization": "Controlleren...",
-
-            "updating": "Updating...",
-
-            "collectingdata": "Verzamel data...",
-            "checking": "Controlleren...",
-            "preparing": "Oke voorbereiden...",
-            "loading": "Laden...",
-            "busy": "Bezig...",
-            "createUID": "UID aan het maken...",
-            "deleting": "Verwijderen...",
-            "messageissend": "Je bericht is Crypted en verzonden.",
-
-            "crypting": "Crypting",
-            "oepsaerror": "Oops, a Error. We missing something important. please try again.",
-
-            "contactrequest": "Contact verzoek.",
-            "youhavecontactrequest": "Je heb een contact verzoek.",
-            "on": "Op",
-            "from": "Van",
-            "note": "Bericht",
-
-            "contactlink": "Contact Link",
-
-             "keysettings": "SLEUTEL INSTELLINGEN",
-
-              "keysettingstxt": "Stel een sleutel in om automatische uw berichten te crypten met dit contact.",
-              "whatkeytouse": "Welke sleutel gebruiken voor",
-
-            "oke": "OKE",
-            "cancel": "ANNULEREN",
-            "accept": "ACCEPTEREN",
-            "setkey": "ZET SLEUTEL",
-            "remove": "VERWIJDER",
-            "back": " Terug",
-            "home": "START",
-            "keyremoved": "SLEUTEL Verwijderd!",
-            "keyremovedtxt": "U moet nu handmatig de sleutel invoeren.",
-
-            "keyset": "Je sleutel is opgeslagen.",
-            "keysettxt": "Wees zeker andere kant<BR>gebruikt dezelfde sleutel!",
-
-            "importent": "*** BELANGRIJK ***",
-            "done1": "Noteer je UID = ",
-            "done2": " en HERACTIVATIE code = ",
-            "done3": ". Dit om later te herinstalleren op een ander device. Dit wordt maar een getoond!. U bent nu klaar voor gebruik van PEM ",
-            "done4": ", Met de Lite versie kunt u maar een andere contactpersoon toevoegen, voor meer dan een contactpersoon moet u de Pro version aanschaffen.",
-
-            "settings": "INSTELLINGEN",
-            "contactaddtxt": "Vul hier de gegevens in van het contact dat u wil toevoegen.",
-            "hisuid": "Zijn UID",
-            "hisnick": "Zijn Nick",
-            "extranote": "Mijn Nick",
-            "myuid": "Mijn UID",
-            "sendrequest": "Verstuur verzoek",
-            "addtestcontact": "Voeg TEST contact toe.",
-            "fillin": "*** HIER INVULLEN ***",
-
-            "contacts": "CONTACTEN",
-            "nothingfound": "Niets gevonden",
-            "localsettings": "Locale Instellingen",
-            "logofftimer": "AFMELD TIJD",
-            "designandnotification": "Layout & Berichtgeving",
-
-            "theme": "LAYOUT",
-            "notification": "BERICHT GELUID",
+"setup_nav_logoff_timer": "SET LOG-OFF TIMER",
+"setup_txt_logoff_timer": "This app will log off the app automatically is no action has been registered after:",
+"setup_select_total_minutes": "SELECT LOG-OFF TIMER",
 
 
-            "account": "Account",
-            "nick": "Mijn Nick",
-            "options": "Opties",
-            "contactadd": "CONTACT TOEVOEGEN",
-            "contactaddsmall": "Contact toevoegen",
-            "contactedit": "CONTACT BEWERKEN",
-            "resetpassword": "* HERSTEL PASWOORD",
-            "resetburnpassword": "* HERSTEL BURN PASWOORD",
+"txt_introduction": "INTRODUCTION",
+"swiper-header-1": "HOW DOES THE APP WORK?",
+"swiper-txt-1": "<BR>EVERY USER HAS A UNIQUE ID.<BR><BR>IF YOU WANT TO ADD A CONTACT, YOU NEED HIS/HER UNIQUE ID.",
 
-            "admin": "BEHEERDER",
+"swiper-header-2": "",
+"swiper-txt-2": "<BR>NEXT STEP IS TO SET A SECRET KEY<BR>TO ENCRYPT YOUR CONVERSATION.",
 
-            "premiumprivateserver": "Premium Private Server",
+"swiper-header-3": "",
+"swiper-txt-3": "<BR>THE CONTACTS YOU ARE SENDING<BR>MESSAGE TO, NEED TO KNOW THIS<BR>KEY TO ENCRYPT THE MESSAGES.",
 
-            "edityourserver": "Bewerk Server Instellingen :",
+"swiper-header-4": "",
+"swiper-txt-4": "<BR>YOU START A CONVERSATION,<BR>BY CLICKING ON A CONTACT IN THE<BR>CONTACTSLIST.",
 
-            "createuid": "Maak een UID",
-            "blocklist": "BLOCK LIJST",
-            "uidlist": "UID Lijst",
+"swiper-header-5": "",
+"swiper-txt-5": "<BR>EXPLANATION ABOUT THE SAFETY OF THE APP.<BR><BR>THEREFORE IT IS IMPORTANT TO<BR>SET THE LOG OFF TIMER AND<BR>THE BURN PASSWORD.<BR><BR>",
 
-            "systemstatus": "Systeem status",
+"YOUR_ACCOUNT_READY_TO_USE": "PEM IS READY TO USE.",
 
-            "showtips": "Toon Tips",
-            "removeallsettings": "Verwijder alle instellingen",
-   
-            "activate": "Activeren",
-            "sign_in": "Aanmelden",
-            "here": "hier",
+"nav_language": "LANGUAGE",
+"txt_language": "Choose your language.",
 
-            "tips": "Tips",
-            "learnhowtouse": "Leer hoe PEM te gebruiken<br>met een kleine rondleiding.",
-            "getstarted": "Start nu",
-            "notnow": "Niet nu",
+"dutch": "<span class='grey'>Dutch</span>",
+"english": "English",
+"russische": "<span class='grey'>Russian</span>",
+"frans": "<span class='grey'>French</span>",
+"spaans": "<span class='grey'>Spanish</span>",
+"duits": "<span class='grey'>German</span>",
+"chinees": "<span class='grey'>Chinese</span>",
 
-            "howtogetsupporttext": "Hoe kunt u anoniem support krijgen? Klik op Voeg SUPPORT contact toe en SUPPORT contact zal automatisch in uw contact lijst worden toegevoegd. Stuur als een normaal bericht 'de geheime sleutel is al automatisch ingesteld' op die manier kan support u bericht lezen en beantworden. Als u klaar ben kunt u altijd support contact verwijderen uit u lijst. Support zal u nooit een bericht sturen alleen beantworden!",
-            "howtogetsupportbutton": "Voeg SUPPORT contact toe",
-            "howtogetsupportalert": "SUPPORT TOEGEVOEGD<BR>Nu kunt u veilig en crypted communiceren met support voor vragen - bugs - tipt enz... Als u SUPPORT contact niet meer nodig heeft kunt op op SUPPORT van rechts naar links vegen en dan delete kiezen.",
-            
-            "fillinreceiveddetail": "Vul uw gegevens in",
+"importent": "*** IMPORTANT ***",
+"done1": "Write down and save your UID = ",
+"done2": " and PINCODE = ",
+"done3": ". This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use PEM ",
+"done4": ", With Lite version you can communicate with one other contact, for more contacts you have to upgrade the Pro version.<BR>More details: http://pem.world",
 
-            "yoursecuremessagehere": "UW CRYPTED BERICHT HIER",
-            "send": "Verstuur",
+"nav_contacts": "CONTACTS",
+"add_contacts": "ADD CONTACT",
 
-            "ihavelicensekey": "Ik heb een licentiesleutel",
-            "whatisyourlicensekey": "Wat is uw licentiesleutel?",
-            "licensedontexist": "Ongeldige licentie.",
+"nav_messages": "MESSAGES",
+"yoursecuremessagehere": "YOUR SECURE MESSAGE HERE",
 
-            "yourkeyfor": "UW SLEUTEL VOOR",
-            "decryptmessage": "DECRYPT BERICHT",
-            "encryptmessage": "ENCRYPT BERICHT",
+"nav_settings": "SETTINGS",
+"NOTIFICATIONS": "NOTIFICATIONS",
+"LOG_OFF_TIMER": "LOG-OFF TIMER",
+"LOG_OFF_SHAKE": "LOG-OFF SHAKE",
+"RESET_MAIN_PASSWORD": "RESET MAIN PASSWORD",
+"RESET_BURN_PASSWORD": "RESET BURN PASSWORD",
+"LANGUAGE": "LANGUAGE",
+"ABOUT_THIS_APP": "ABOUT THIS APP",
+"SYNC_CONTACTS_LIST": "SYNC CONTACTS LIST",
+"ADD_CONTACT_WITH_QR_CODE": "ADD CONTACT WITH QR CODE",
+"REMOVEALLSETTINGS": "Remove All Local Settings",
+
+"nav_contact_add": "NEW CONTACT",
+"new_contact_detail": " New Contacts Details",
+"unique_id": "UNIQUE ID",
+"nickname": "NICKNAME",
+"my_contact_details": " My Contact Details",
+"my_unique_id": "MY UNIQUE ID",
+"my_nickname": "MY NICKNAME",
+"secret_key_to_encrypt_your_messages": " Secret key to encrypt your messages",
+"secret_key": "SECRET KEY",
+"remember_secret_key": "REMEMBER SECRET KEY",
+"send_contact_request": "SEND CONTACT REQUEST",
+"add_test_contact": "Add TEST contact",
+
+"nav_containers": "CONTAINERS",
+"txt_containers": "Permission to send messages random through which containers located",
+"RUSSIA": "RUSSIA",
+"PANAMA": "PANAMA",
+"CHINA": "CHINA",
+"EU": "EU",
+
+"nav_logoff_timer": "LOG-OFF TIMER",
+"txt_logoff_timer": "Set your log off time by rolling through the menu. The app will automatically stop is not active for that period of time. Any conversation in concept will be eased after loggin in again.",
+"select_total_minutes": "SELECT LOG-OFF TIMER",
+
+"nav_notifications": "NOTIFICATIONS",
+"txt_notification": "Choose which notifications you want to receive",
+"GENERAL": "GENERAL",
+"NOTIFICATIONS_ON": "NOTIFICATIONS ON",
+"notification_sound": "SOUND",
+"PUSH_MESSAGES": "PUSH MESSAGES",
+"RECEIVED": "RECEIVED",
+"DELIVERED": "DELIVERED",
+"READ": "READ",
+"WIPED": "WIPED",
+"new_contact_invitation": "NEW CONTACT INVITATION",
+
+"nav_reset_burn_password": "RESET BURN PASSWORD",
+"txt_reset_burn_password": "Reset burn password",
+"main_password": "Main Password",
+"SET_NEW_BURN_PASSWORD": "Set your burn password",
+
+"nav_reset_main_password": "SET MAIN PASSWORD",
+"txt_reset_main_password": "Reset main password",
+"SET_NEW_MAIN_PASSWORD": "Set your main password",
+
+"nav_shake_logoff": "SHAKE LOG-OFF",
+"txt_shake_logoff": "Shake your device and the app will stop immediately. After restarting the app changes will be processed.",
+"shake": "Shake log-off on",
+"sensitivity": "Sensitivity",
+
+"nav_notification_sound": "NOTIFICATION SOUND",
+"txt_notification_sound": "CHOOSE YOUR SOUND",
+
+"nav_contact_edit": "EDIT NICK NAME",
+"edit_cntact_detail": " Edit Contacts Details",
 
 
 
-            "messageswiped": "Bericht gewist.",
-            "messagesread": "Bericht gelezen.",
-            "messagesdelivered": "Bericht afgeleverd.",
-            "messagesnew": "Nieuw bericht.",
-
-            
-            "testaccountadded": "TEST UID TOEGEVOEGD<BR>Nu kunt u een bericht sturen naar TEST UID en uw eigen sleutel gebruiken, De server zal u het bericht na een paar seconden terug sturen. U kunt dan met een andere sleutel controlleren of u het bericht kan lezen.",
-            
-
-            "accescodehere": "Uw toegangs code",
-            "loginfails": "Aantal foutive aanmeldingen",
-
-            "loginfailsreset": "Teveel pogingen<BR>Alle instellingen verwijderd",
-            "loginfailswarning": "Toegangs code niet goed<BR>* WAARSCHUWING *<BR>Bij 3 foutive aanmeldingen<BR>zullen alle instellingen worden verwijderd",
-            "lastseen": "Laatst gezien ",
-            "messagereadtxt": "Bericht ",
-            "messagebadgenewtxt": "nieuw",
-            "messagebadgereadtxt": "gelezen",
-            "processing": "Verwerken...",
-            "givenickname": "Geef Nick naam.",
-            "ihaveaaccount": "ik heb een account",
-            "pendingmessages": "Berichten te verzenden",
-            "close": "Sluiten",
 
 
-            "next": "VOLGENDE"
+
+
+
+
+
+"password": "Password",
+"1Minutes": "1 Minut",
+"2Minutes": "2 Minutes",
+"3Minutes": "3 Minutes",
+"4Minutes": "4 Minutes",
+"5Minutes": "5 Minutes",
+"6Minutes": "6 Minutes",
+"7Minutes": "7 Minutes",
+"8Minutes": "8 Minutes",
+"9Minutes": "9 Minutes",
+"10Minutes": "10 Minutes",
+"60Minutes": "60 Minutes",
+
+"sound": "Sound",
+"volume": " Volume",
+"pushsound": " Push sound",
+"repeat": " Repeat",
+
+"updating": "Updating...",
+
+"collectingdata": "Collecting data...",
+"checking": "Checking...",
+"preparing": "Oke preparing...",
+"loading": "Loading...",
+"busy": "Busy...",
+"createUID": "Creating UID...",
+"deleting": "Deleting...",
+"messageissend": "Your messages Crypted and send.",
+
+"crypting": "Crypting",
+"oepsaerror": "Oops, a Error. We missing something important. please try again.",
+
+"contactrequest": "Contact request.",
+"youhavecontactrequest": "You have a contact request.",
+"on": "On",
+"from": "From",
+"note": "Note",
+
+"contactlink": "Contact Link",
+
+"keysettings": "KEY SETTINGS",
+
+"keysettingstxt": "Set a key to encrypt your messages automatic with this user",
+"whatkeytouse": "What key to use for",
+
+"keyremoved": "KEY Removed!",
+"keyremovedtxt": "Key removed!<BR>Now use maual input.",
+
+"keyset": "Your KEY is set.",
+"keysettxt": "Make SURE other site<BR>USE THE SAME KEY!",
+
+"settings": "SETTINGS",
+"contactadd": "Contact Add",
+"contactaddtxt": "If you don't have somebody you can Add TEST contact.",
+
+"hisuid": "His UID",
+"hisnick": "His Nick",
+"extranote": "Extra Note",
+"myuid": "My UID",
+"sendrequest": "Send Request",
+"addtestcontact": "Add TEST contact",
+"fillin": "*** FILL IN HERE ***",
+
+"contacts": "Contacts",
+"nothingfound": "Nothing found",
+"localsettings": "Local Settings",
+"logofftimer": "Logoff timer",
+"designandnotification": "Design & Notification",
+
+"theme": "Theme",
+"notification": "Notification",
+
+"notification": "Notification",
+"account": "Account",
+"nick": "Nick",
+"options": "Options",
+"contactadd": "Contact Add",
+"contactedit": "Contact Edit",
+"resetpassword": "Reset Password",
+
+"admin": "ADMIN",
+
+"premiumprivateserver": "Premium Private Server",
+
+"edityourserver": "Edit Your Server :",
+
+"createuid": "Create UID",
+"blocklist": "BlockList",
+"uidlist": "UIDList",
+
+"systemstatus": "System status",
+
+"showtips": "Show Tips",
+"removeallsettings": "Remove All Local Settings",
+
+"activate": "Activate",
+"sign_in": "Sign in",
+"here": "here",
+
+"notnow": "Not now",
+
+"howtogetsupporttext": "How to get support anonymous? click 'Add support contact' and the support contact will be added to your contact list. Send like a normal message 'the key is set automatic' so support can read and answer to the message. if you done you can remove the support contact from your list. Support will never send you message only will reply!",
+"howtogetsupportbutton": "Add Support contact",
+"howtogetsupportalert": "SUPPORT ADDED SUCCESSFULLY<BR>Now you can chat secure with us if you have some bugs - tips or else. Whene you don't want SUPPORT anymore you can delete the contact to swipe from right to left.",
+
+"fillinreceiveddetail": "Fill in received details",
+
+"yoursecuremessagehere": "YOUR SECURE MESSAGE HERE",
+"send": "Send",
+
+
+"ihavelicensekey": "i have a license key",
+"whatisyourlicensekey": "What is your license key?",
+
+"licensedontexist": "invalide license.",
+
+"yourkeyfor": "YOUR KEY FOR",
+"decryptmessage": "DECRYPT MESSAGE",
+"encryptmessage": "ENCRYPT MESSAGE",
+
+"messageswiped": "Message wiped.",
+"messagesread": "Message read.",
+"messagesdelivered": "Message delivered.",
+"messagesnew": "New message.",
+
+"testaccountadded": "TEST UID ADDED SUCCESSFULLY<BR>Now you can send message and use your oun key the server will automatic send you the message back so you can try to use a other key and see if you still can read the message.",
+
+"accescodehere": "Your access code here",
+"loginfails": "Total wrong logins",
+
+"loginfailsreset": "To much try's<BR>Al settings wiped",
+"loginfailswarning": "Worng access code<BR>* WARNING * <BR> With 3 wrong try's <BR> all settings will be wiped",
+"lastseen": "Last seen",
+"messagereadtxt": "Message ",
+"messagebadgenewtxt": "new",
+"messagebadgereadtxt": "read"
+
 
         }
     ]

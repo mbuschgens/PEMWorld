@@ -4,43 +4,49 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Personal Encrypted Messaging</title>
 
 
-    <title>PEM</title>
-<!--     <link rel="stylesheet" href="css/framework7.ios.min.css"> -->
+    <link rel="stylesheet" href="css/framework7.ios.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/toggle-switch.css">
 
-    <link rel="stylesheet" href="css/framework7.material.min.css">
-    <!-- Path to Framework7 color related styles, Material Theme -->
-    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
 
-    
-<!--     <link rel="stylesheet" href="css/framework7.themes.min.css">
-    <link rel="stylesheet" href="css/framework7.3dpanels.min.css"> -->
-    <link rel="stylesheet" href="css/wodry.css">
+
+<!--     <link rel="stylesheet" href="css/wodry.css"> -->
 
     <link rel="stylesheet" href="css/pem.css">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
 
-<!--     <link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="_style/patternlock.css"/>
  -->
 
-<!--     <link href="Default-568h@2x.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <link href="default@2x.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"> -->
-    
-    <script src="js/jquery.js"></script> 
-    <script src="js/countdown.js"></script>
-   <!--  // <script src="js/jquery-lang.js" charset="utf-8" type="text/javascript"></script> -->
 
+
+
+    <link href="Default-568h@2x.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    
+    <link href="default@2x.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    
+
+
+    <script src="js/jquery.js"></script> 
+
+   <!--  // <script src="js/jquery-lang.js" charset="utf-8" type="text/javascript"></script> -->
+   
+   
+   
 
     <script type="text/javascript" src="js/qrcode.js"></script>
     <script type="text/javascript" src="js/Camera.js"></script>
     <script type="text/javascript" src="js/CameraPopoverHandle.js"></script>
     <script type="text/javascript" src="js/CameraConstants.js"></script>
     <script type="text/javascript" src="js/CameraPopoverOptions.js"></script>
+
+
   </head>
 
 <!--   <body class="ios8"> -->
@@ -50,15 +56,16 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/barcodescanner.js"></script>
+
+
     <script>
         document.addEventListener('deviceready', function ready() {});
 
         function ready(){ 
 
-        //console.log('index onDeviceReady');
-        navigator.splashscreen.hide();
         window.plugins.powerManagement.acquire();
-        //console.log(navigator.camera);
+
+        
 
         }
 
@@ -67,383 +74,364 @@
 
 
     <div class="statusbar-overlay">
+
       <div id="connection" class="connectionHidden">Checking SSL Connection...</div>
+      
     </div>
+
 
 
    
- <div class="views">
+ <div class="views tabs toolbar-through">
+
+    <div id="contactsview" class="view view-main tab"> 
 
 
-<div id="contactsview" class="view view-main"> <!-- contactlist -->
+        <div class="navbar">
+          <div class="navbar-inner">
+                  <div class="left"></div>
+                    <div class="center">
+                    <div class="contactlistnavbar languagespecificHTML" data-text="contacts">CONTACTS</div> 
+                    </div>
+                  <div class="right"></div>
+          </div>
+        </div>
 
-        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages navbar-fixed">
-          <!-- Page, "data-page" contains page name -->
-          <div data-page="index" class="page">
- 
-            <!-- Top Navbar. In Material theme it should be inside of the page-->
+        <div class="pages navbar-through">
 
-    <div class="navbar">
-<!--       <div class="navbar-inner">
- 
-      </div>
-        <div class="subnavbar">
-
-        </div> -->
-    </div>
- 
-            <!-- Scrollable page content -->
-            <div class="page-content">
-
-            </div>
-
-
+          <div class="page" data-page="index-contact">
+      
+          <div class="backgroundimage"></div>
 
           </div>
         </div>
+
+
+</div> <!-- end view -->
+
+
+
+<div id="messagesview" class="view view-messages tab"> 
+
+      <div class="navbar">
+        <div class="navbar-inner">
+                <div class="left"></div>
+                  <div class="center">
+                  <div class="messageslistnavbar languagespecificHTML" data-text="messages">MESSAGES</div> 
+                  </div>
+                <div class="right"></div>
+        </div>
       </div>
-    </div>
+
+        <div class="pages navbar-through">
+          <div class="page" data-page="index-messages">
+
+            <div class="backgroundimage"></div>
+
+          </div> <!-- end page -->
+        </div> <!-- end pages -->
+</div> <!-- end view -->
 
 
 
-
-
-
-<!-- 
-
-<div id="settingsview" class="view view-settings"> 
-
-
-
-        <div class="pages navbar-fixed">
-          <div data-page="index" class="page">
-
-
+<div id="settingsview" class="view view-settings tab"> <!-- settings -->
 
 <div class="navbar ">
   <div class="navbar-inner">
     <div class='left'> 
-
+<!--      <div id="timer">00:00</div> -->
     </div>
-    <div class="center sliding languagespecificHTML" data-text="settings">Settings</div>
+    <div class="center sliding languagespecificHTML" data-text="settings">SETTINGS</div>
     <div class="right sliding">
-
+<!--       <a href="#" data-panel="right" class="open-panel link icon-only klik"><i class="icon ion-navicon-round"></i></a> -->
     </div>
   </div>
 </div>
 
-
+<div class="pages navbar-through">
+     <div class="page" data-page="index-settings">
 
 
   <div class="backgroundimage"></div>
-            <div class="page-content">
 
-
-
-            </div> 
-          </div> 
-        </div> 
-</div> 
+          </div> <!-- end page -->
+        </div> <!-- end pages -->
+</div> <!-- end view -->
 
 
 
 
 
-<div id="setupview" class="view view-setup ">
-
-
-        <div class="pages navbar-fixed">
-          <div data-page="firstsetup" class="page">
-
-
+<div id="setupview" class="view view-setup tab"><!-- setup -->
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"></div>
-        <div class="center"></div>
-        <div class="right"></div>
+        <div class="left sliding"></div>
+        <div class="center sliding"></div>
+        <div class="right sliding"></div>
       </div>
-        <div class="subnavbar">
-
-        </div>
     </div>
 
-
+    <div class="pages navbar-through no-toolbar no-swipeback">
+        <div class="page" data-page="firstsetup" >
+<!--           <div class="backgroundimage"></div> -->
           <div class="page-content login-screen-content loginbackground "></div>
         </div>
     </div>
-</div> 
 
 
+</div> <!-- end view -->
+
+      <!-- Bottom Tabbar-->
 
 
-    <div class="toolbar tabbar tabbar-labels">
-        <div class="toolbar-inner">
+    <div class="toolbar indexbar tabbar tabbar-labels-fixed">
 
-          <a href="#contactsview" class="tab-link active showcontacts">
-          <i class="icon tabbar-demo-icon-2">
+      <div class="toolbar-inner">
 
-            <span class="totalMessages"></span>
-
-          </i> 
-            
-            <span class="tabbar-label">Contacts</span>
-          </a>
+          <div class="toolbar-inner-backgroundcolor">
+          <!-- <div class="tabbuttons"> -->
+                    <a href="#contactsview" class="tab-link showcontacts">
+                    <i class="icon tabbar-contacts"></i>             
+                      <span class="tabbar-label">CONTACTS</span>
+                    </a>
 
 
+                    <a href="#messagesview" class="tab-link showmessages">
+                    <i class="icon tabbar-messages"><span class="totalMessages"></span></i>             
+                      <span class="tabbar-label">MESSAGES</span>
+                    </a>
 
 
-        <a href="#" class="tab-link autologon"> 
+                    <a href="#settingsview" class="tab-link showsettings"> 
+                     <i class="icon tabbar-settings"></i>
+                    <span class="tabbar-label">SETTINGS</span>
+                    </a>
+          </div>
 
-        <i class="icon tabbar-demo-icon-target">
+          <div class="toolbarSupport-inner">
+              <!--   <center> -->
+                    <a href="#" class="item-link HelpRequest"  style="background-color: transparent;">
+                    <i id="iDtoolbarHelp" class="HelpButton icon-only"></i>  
+                    </a>
+           <!--      </center> -->
+          </div>
 
-        </i>
-
-        <span class="tabbar-label">
-
-
-    <div id="countdown_dashboardHide" class="countdown_dashboard autologon">
-
-                          <div class="dash min_dash"> 
-                            <div class="digit">0</div>
-                            <div class="digit">0</div>
-                          </div>
-                          <div class="dash dot">
-                          :
-                          </div>
-                          <div class="dash sec_dash"> 
-                            <div class="digit">0</div>
-                            <div class="digit">0</div>
-                          </div>
+      </div> <!-- end tabs -->
     </div>
 
-        </span>
-
-        </a>
 
 
 
 
 
 
-          <a href="#settingsview" class="tab-link showsettings"> 
-
-           <i class="icon tabbar-demo-icon-3">
-
-          </i>
-
-          <span class="tabbar-label">Settings</span>
-          </a>
 
 
-          </div>
-      </div> 
-</div>  -->
+
+</div> <!-- end views -->
 
 
-<div id="loginpage" class="view login-screen modal-in">
-
-  <div data-page="login-screen" class="page" >
-  
 
 
-        <div class="page-content">
+<div id="loginpage" class="login-screen">
 
-         <div class="login-screen-content loginbackground">
+  <div class="page" data-page="login-screen" >
 
-            <div class="login-screen-title"><i class="icon logopem64"></i></div>   
-
-            <form id="uid">
-
-              <div class="list-block">
-
-                     <div class="loginbox">
-                    
-                      <ul>
-                        <li class="item-content trans">
-                          <div class="item-inner">
-                            <div class="item-input">
-                              <center>
-                                <input id="password" type="password" name="pass" data-text="accescodehere" class="languageSpecificPlaceholder" placeholder="Access code here" onkeyup="checkLoginInput()"/>
-                              </center>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
+    <div class="page-content login-screen-content loginbackground">
+            <div class="login-screen-title"><i class="icons_pem_logo"></i></div>   
 
 
-                      </div>
-             </div>
-
-
-                    <div class="list-block white">
-
-                      <ul>
-                        <li class="trans">
-
-<center>
-                        <a href="#" class="form-to-json link button active languagespecificHTML" data-text="sign_in" >sign_in</a>
-
-</center> 
-
-                        </li>
-                      </ul>
-
-
-<br>
-
-
-                    <ul>
-                      <li class="trans">
-
-
-                        <a href="#" class="firstsetup item-link list-button activate white languagespecificHTML" data-text="SETUP">SETUP</a>
-
-
-                        <a href="#" class="disablerepeatsound item-link list-button "><i class='icon ion-volume-mute mutecolor'></i></a>
-
-                        <br>
-                        <br>
-
-                        <center>
-
-                        <a href="#" class="reset-local-storage ">
-
-                            <div class="loginfails languagespecificHTML" data-text="loginfails">loginfails</div>
-
-                            <div class="loginfailsbadge badge badge-green">0</div>
-
-                        </a>
-                        </center>
-                        
-
-                      </li>
-                    </ul>
-
-                      <div class="sslnoteapp white" >VERSION</div>
-
-                      <div class="sslnoteversion white"></div>
-
-                </div>
-            </form>
-          
-        </div>
-
-        </div>
-
+    </div>
   </div>
-
 </div> 
 
+<!-- end view -->
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<script id="contactmessageslist-template" type="template">
 
 
 
-<script id="contactlist-template" type="template">
-    <ul>
-      <li class="swipeout demo">
+    <li id="li{{his_uid}}{{mdatum}}" class="swipeout remove-callback li{{his_uid}}{{mdatum}}">
 
-         <a href="frames/messages/{{page}}.html?his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&mid={{mid}}&totalmessages={{totalmessages}}"class="swipeout-content item-link item-content " data-id="{{page}}"  data-ignoreCache="true" data-view=".view-main">
+      <div id="A{{his_uid}}{{mdatum}}" style="display: {{showReport}}"  class="swipeout-content item-content"> 
+<div id="showReport" class="showReport">
+        <div class="item-media"><i class="icons_sendstatus {{sendstatus}}"></i></div>
+</div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                  <div class="item-title">{{his_nick}}</div> 
+                  <div class="item-after {{badge}}">{{messagereadnew}}  {{newdatum}} </div>
+              </div>   
 
-            <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
-            <i id="autocrypt{{his_uid}}" class="ion-key {{autocrypt}} "></i>
-            <i id="online{{his_uid}}" class="ion-ios-eye {{his_uid}}online {{online}}"> </i>
-            <i id="linked{{his_uid}}" class="ion-ios-more {{linked}} green"></i> 
-            </div>     
+                  <div class="item-subtitle">{{his_uid}}{{mdatum}}</div>
+
+            </div>
+         </div>
+
+
+
+        <div class="swipeout-actions-right">
+<a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
+        </div>
+
+
+
+
+      <div id="B{{his_uid}}{{mdatum}}" style="display: {{showMessage}}"  class="swipeout-content"> 
+        <a href="frames/messages/Smessages-send.html?mid={{mid}}&his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&totalmessages=1&activeLi={{his_uid}}{{mdatum}}" class="link reply item-link item-content" data-view=".view-messages" data-ignoreCache="true"> 
+
+<div id="floatStatus" class="floatStatus">
+                <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
+                  <i id="autocrypt{{his_uid}}" class="icons_secretkey {{autocrypt}}"></i
+                  <i id="online{{his_uid}}" class="icons_eye {{his_uid}}online {{online}}"> </i>
+                </div>     
+            </div>
 
 
             <div class="item-inner">
-                 <div class="item-title ">{{his_nick}} {{notconfirm}}
-                 <div class="lastseen orange {{his_uid}}active_last"> {{lastseentxt}} : {{lastseen}} </div> 
+
+                <div class="item-title-row">
+                  <div class="item-title">{{his_nick}} </div> 
+                  <div class="item-after {{badge}}">{{messagereadnew}} {{newdatum}}</div>
+                </div>
+
+
+            <div class="item-subtitle decryptmessage">{{AutoDecrypt}}</div>
+
             </div>
 
+        </a>  
 
-                 <div class="item-after  ">
-                  <span><div id="badge{{his_uid}}" class="badge {{badge}}">{{totalmessages}}</div></span>
-                 </div>
+      </div>
 
-
-            </div>
-        </a>
-
-
-        <div class="swipeout-actions-left contactlist">
-            <a href="#" class="contactuid bg-green">{{his_uid}}</a>
-            <a href="#" class="keysettings bg-blue" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="KeySettings(this)" >KEY</a>
-            <a href="frames/settings/mysettings/SmyContactEdit.html?his_uid={{his_uid}}&his_nick={{his_nick}}" data-view=".view-settings" class="bg-red item-link link load-index"  >EDIT</a>
-        </div>
         <div class="swipeout-actions-right">
-            <a href="#" class="swipeout-delete DeleteUidLink" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="DeleteUidLink(this)" >Delete</a>
+          <a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
         </div>
-      </li>
-    </ul>
+
+    </li>
+
 
 </script>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<script id="contactmessageslist-templateorg" type="template">
+
+
+
+    <li id="li{{his_uid}}{{mdatum}}" class="swipeout remove-callback li{{his_uid}}{{mdatum}}">
+
+      <div id="A{{his_uid}}{{mdatum}}" style="display: {{showReport}}"  class="swipeout-content item-content"> 
+<div id="showReport" class="showReport">
+        <div class="item-media"><i class="icons_sendstatus {{sendstatus}}"></i></div>
+</div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                  <div class="item-title">{{his_nick}}</div> 
+                  <div class="item-after {{badge}}">{{messagereadnew}}  {{newdatum}} </div>
+                </div>   
+                  <div class="item-subtitle">{{his_uid}}{{mdatum}}</div>
+            </div>
+         </div>
+        <div class="swipeout-actions-right">
+<a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
+        </div>
+
+      <div id="B{{his_uid}}{{mdatum}}" style="display: {{showMessage}}"  class="swipeout-content"> 
+        <a href="frames/messages/Smessages-send.html?mid={{mid}}&his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&totalmessages=1&activeLi={{his_uid}}{{mdatum}}" class="link reply item-link item-content" data-view=".view-messages" data-ignoreCache="true">  
+<div id="floatStatus" class="floatStatus">
+                <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
+                  <i id="autocrypt{{his_uid}}" class="icons_secretkey {{autocrypt}}"></i
+                  <i id="online{{his_uid}}" class="icons_eye {{his_uid}}online {{online}}"> </i>
+                </div>     
+            </div>
+
+            <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{his_nick}} </div> 
+                  <div class="item-after {{badge}}">{{messagereadnew}}</div>
+                </div>
+
+            <div class="item-subtitle">{{newdatum}}</div>
+            <div class="item-text decryptmessage">{{AutoDecrypt}}</div>
+
+            </div>
+
+        </a>  
+
+      </div>
+
+        <div class="swipeout-actions-right">
+          <a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
+        </div>
+
+    </li>
+
+
+</script>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
 
 
 
 
 <script id="Mycontactlist-template" type="template">
-<ul>
-  <li>
-      <a href="frames/settings/mysettings/SmyContactEdit.html?his_uid={{his_uid}}&his_nick={{his_nick}}" class="list item-link item-content " data-view=".view-settings">
+    <ul>
+      <li>
+          <a href="frames/settings/mysettings/SmyContactEdit.html?his_uid={{his_uid}}&his_nick={{his_nick}}" class="list item-link item-content " data-view=".view-settings">
 
-         <div class="item-media"><i class="fa fa-pencil-square"c></i></div>
-            <div class="item-inner">
-               <div class="item-title">{{his_nick}} ({{his_uid}})</div>
-            </div>
-      </a>
-
-   </li>
-</ul>
-
+             <div class="item-media"><i class="fa fa-pencil-square"c></i></div>
+                <div class="item-inner">
+                   <div class="item-title">{{his_nick}} ({{his_uid}})</div>
+                </div>
+          </a>
+       </li>
+    </ul>
 </script>
 
 
-<script id="contactmessageslist-template" type="template">
-<ul>
-  <li class="swipeout remove-callback">
-    <div class="swipeout-content "> 
-      <a href="frames/messages/Smessages-send.html?mid={{mid}}&his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&totalmessages=1" class="link reply item-link item-content" data-view=".view-main" data-ignoreCache="true">  
-        <div class="item-inner">
-          <div class="item-title-row">
-          <span class="item-title">{{messagereadtxt}}<div class="badge {{badge}}">{{messagereadnew}}</div></span>
-      
-            <div class="item-after mdatesmall">{{mdatum}}</div>
-          </div>
-        </div>
-      </a>  
-    </div>
-      <div class="swipeout-actions-right">
-        <a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
-      </div>
-  </li>
-</ul>
-    
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-</script>
 
      <script type="text/javascript" src="js/framework7.min.js"></script>
 
-<!-- <script type="text/javascript" src="js/framework7.3dpanels.min.js"></script> -->
 
      <script type="text/javascript" src="js/framework7.debug.js"></script>
      <script type="text/javascript" src="js/howler.min.js"></script>
+
      <script type="text/javascript" src="js/can.jquery.js"></script>
+
+
+
      
 <script type="text/javascript" src="js/sslnote.common.js"></script>
-<script type="text/javascript" src="js/sslnote.functions.js"></script>
 
-      <script type="text/javascript" src="js/sslnote.handlers.js"></script>
+<script type="text/javascript" src="js/sslnote.contacts.js"></script>
+
+<script type="text/javascript" src="js/sslnote.messages.js"></script>
+
+<script type="text/javascript" src="js/sslnote.settings.js"></script>
+
+<script type="text/javascript" src="js/sslnote.setup.js"></script>
 
 
      <script type="text/javascript" src="js/aes.js"></script>
      <script type="text/javascript" src="js/md5.js"></script>
      <script type="text/javascript" src="js/sjcl.js"></script>
-     <script type="text/javascript" src="js/lang.js"></script>
-    <script type="text/javascript" src="js/jquery.inlinesvg.js"></script>
-    <script type="text/javascript" src="js/wodry.min.js"></script>
 
-  
+
+      
+<script type="text/javascript" src="js/sslnote.functions.js"></script>
+
+
 
   </body>
   
