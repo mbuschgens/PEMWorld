@@ -16,13 +16,7 @@
 
 
 
-<!--     <link rel="stylesheet" href="css/wodry.css"> -->
-
     <link rel="stylesheet" href="css/pem.css">
-
-
-<!-- <link rel="stylesheet" href="_style/patternlock.css"/>
- -->
 
 
 
@@ -37,9 +31,7 @@
 
    <!--  // <script src="js/jquery-lang.js" charset="utf-8" type="text/javascript"></script> -->
    
-   
-   
-
+  
     <script type="text/javascript" src="js/qrcode.js"></script>
     <script type="text/javascript" src="js/Camera.js"></script>
     <script type="text/javascript" src="js/CameraPopoverHandle.js"></script>
@@ -55,7 +47,18 @@
 
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+
+
+<!--     // <script type="text/javascript" timeout="5000" manifest="manifest.json" src="bootstrap.js"></script> -->
+
+    
     <script type="text/javascript" src="js/barcodescanner.js"></script>
+
+
+<!-- <script type="text/javascript" timeout="5100" manifest="manifest.json" src="bootstrap.js"></script>
+ -->
+
 
 
     <script>
@@ -220,14 +223,6 @@
     </div>
 
 
-
-
-
-
-
-
-
-
 </div> <!-- end views -->
 
 
@@ -256,9 +251,9 @@
     <li id="li{{his_uid}}{{mdatum}}" class="swipeout remove-callback li{{his_uid}}{{mdatum}}">
 
       <div id="A{{his_uid}}{{mdatum}}" style="display: {{showReport}}"  class="swipeout-content item-content"> 
-<div id="showReport" class="showReport">
-        <div class="item-media"><i class="icons_sendstatus {{sendstatus}}"></i></div>
-</div>
+        <div id="showReport" class="showReport">
+                <div class="item-media"><i class="icons_sendstatus {{sendstatus}}"></i></div>
+        </div>
             <div class="item-inner">
               <div class="item-title-row">
                   <div class="item-title">{{his_nick}}</div> 
@@ -270,19 +265,14 @@
             </div>
          </div>
 
-
-
         <div class="swipeout-actions-right">
-<a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
+          <a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
         </div>
-
-
-
 
       <div id="B{{his_uid}}{{mdatum}}" style="display: {{showMessage}}"  class="swipeout-content"> 
         <a href="frames/messages/Smessages-send.html?mid={{mid}}&his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&totalmessages=1&activeLi={{his_uid}}{{mdatum}}" class="link reply item-link item-content" data-view=".view-messages" data-ignoreCache="true"> 
 
-<div id="floatStatus" class="floatStatus">
+        <div id="floatStatus" class="floatStatus">
                 <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
                   <i id="autocrypt{{his_uid}}" class="icons_secretkey {{autocrypt}}"></i
                   <i id="online{{his_uid}}" class="icons_eye {{his_uid}}online {{online}}"> </i>
@@ -316,66 +306,6 @@
 </script>
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-<script id="contactmessageslist-templateorg" type="template">
-
-
-
-    <li id="li{{his_uid}}{{mdatum}}" class="swipeout remove-callback li{{his_uid}}{{mdatum}}">
-
-      <div id="A{{his_uid}}{{mdatum}}" style="display: {{showReport}}"  class="swipeout-content item-content"> 
-<div id="showReport" class="showReport">
-        <div class="item-media"><i class="icons_sendstatus {{sendstatus}}"></i></div>
-</div>
-            <div class="item-inner">
-              <div class="item-title-row">
-                  <div class="item-title">{{his_nick}}</div> 
-                  <div class="item-after {{badge}}">{{messagereadnew}}  {{newdatum}} </div>
-                </div>   
-                  <div class="item-subtitle">{{his_uid}}{{mdatum}}</div>
-            </div>
-         </div>
-        <div class="swipeout-actions-right">
-<a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
-        </div>
-
-      <div id="B{{his_uid}}{{mdatum}}" style="display: {{showMessage}}"  class="swipeout-content"> 
-        <a href="frames/messages/Smessages-send.html?mid={{mid}}&his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&totalmessages=1&activeLi={{his_uid}}{{mdatum}}" class="link reply item-link item-content" data-view=".view-messages" data-ignoreCache="true">  
-<div id="floatStatus" class="floatStatus">
-                <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
-                  <i id="autocrypt{{his_uid}}" class="icons_secretkey {{autocrypt}}"></i
-                  <i id="online{{his_uid}}" class="icons_eye {{his_uid}}online {{online}}"> </i>
-                </div>     
-            </div>
-
-            <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">{{his_nick}} </div> 
-                  <div class="item-after {{badge}}">{{messagereadnew}}</div>
-                </div>
-
-            <div class="item-subtitle">{{newdatum}}</div>
-            <div class="item-text decryptmessage">{{AutoDecrypt}}</div>
-
-            </div>
-
-        </a>  
-
-      </div>
-
-        <div class="swipeout-actions-right">
-          <a href="#" class="swipeout-delete swipeout-overswipe autodelete" id="{{mid}}" data-id="{{mid}}" onclick="goDoSomething(this)" >Delete</a>
-        </div>
-
-    </li>
-
-
-</script>
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 
@@ -399,6 +329,38 @@
 
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- ?his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}} -->
+
+
+<script id="myVcardTemplate" type="text/template7">
+    <ul>
+    {{#each this}}
+                    <li class="vcardId">
+                    <a href="#" class="close-popup item-link item-content" data-his_uid="{{his_uid}}" data-his_nick="{{his_nick}}" data-his_server="{{his_server}}" onclick="insertThisVcard(this)" >
+                    <div id="floatStatus" class="floatStatusContacts">
+                    <div id="{{his_uid}}online" class="DIV{{his_uid}}online {{nuonline}} status">
+                    <div ><i id="autocrypt{{his_uid}}" class="icons_secretkey {{autocrypt}}"></i></div>
+                    </div>
+                    </div>
+                    <div class="item-inner">
+                    <div class="item-title-row">
+                    <div class="item-title">{{his_nick}} {{notconfirm}} </div> 
+                    <div class="item-after"></div>
+                    </div>
+                    <div class="item-subtitle {{his_uid}}active_last"> {{lastseentxt}} : {{lastseen}} </div> 
+                    </div>
+                    </a>
+                    </li>
+    {{/each}}
+    </ul>
+</script>
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 
 
      <script type="text/javascript" src="js/framework7.min.js"></script>
@@ -408,8 +370,6 @@
      <script type="text/javascript" src="js/howler.min.js"></script>
 
      <script type="text/javascript" src="js/can.jquery.js"></script>
-
-
 
      
 <script type="text/javascript" src="js/sslnote.common.js"></script>
@@ -428,8 +388,11 @@
      <script type="text/javascript" src="js/sjcl.js"></script>
 
 
-      
 <script type="text/javascript" src="js/sslnote.functions.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+
+
+
 
 
 

@@ -29,6 +29,61 @@ body {
 .loader__dot:nth-child(2) { animation-delay: 250ms }
 .loader__dot:nth-child(3) { animation-delay: 500ms }*/
 
+  
+
+.popup{
+
+background-color: #000000;
+
+}
+
+.red{
+    color:red;
+}
+
+
+#settings-showMessageStatus .item-title{
+    font-size: 14px;
+}
+
+.block-with-text {
+  /* hide text if it more than N lines  */
+  overflow: hidden;
+  /* for set '...' in absolute position */
+  position: relative; 
+  /* use this value to count block height */
+  line-height: 1.0em;
+  /* max-height = line-height (1.2) * lines max number (3) */
+  max-height: 4em; 
+  /* fix problem when last visible word doesn't adjoin right side  */
+  text-align: justify;
+  
+  /* */
+  margin-right: -1em;
+  padding-right: 1em;
+}
+.block-with-text:before {
+  /* points in the end */
+  content: '...';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 0;
+}
+.block-with-text:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  width: 1em;
+  /* set width and height */
+  height: 1em;
+  margin-top: 0.2em;
+  background: #333333;
+}
 
 i.ion-volume-high {
     width: 24px;
@@ -108,17 +163,18 @@ i.ion-volume-high {
     height: 14px;
 
 }
+
 #invitation {
     width: 100%;
     font-family: pemFontRegular;
     color: #808080;
     background-color: transparent;
-    font-size: 12px;
+    font-size: 18px;
     /*z-index:1;*/
     
     position: absolute;
-    left: 130px;
-    top: 18px;
+    left: 110px;
+    top: 10px;
 
 }
 
@@ -139,13 +195,13 @@ i.ion-volume-high {
 
 #invitationbadge{
 position: absolute;
-height: 10px;
-width: 10px;
+height: 16px;
+width: 16px;
 background-repeat: no-repeat;
 background-image: url(../assets/pem_img-indicator-invitations.svg);  
-font-size: 6px;
+font-size: 10px;
 color: #fff;
-margin: -20px  auto auto 67px;
+margin: -20px  auto auto 110px;
 text-align: center;
 padding-top: 1px;
 }
@@ -234,20 +290,13 @@ padding-top: 1px;
     display: inline-block;
     width: 20px;
     height: 20px;
-    /*  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  */
-    
-    background-image: url('../img/loader.png');
+/*    background-image: url('../img/loader.png');
     background-position: 50%;
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
 }
 .preloader-white {
-    /*  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-*/
-    
     background-image: url('../img/loader.png');
-    /*  background: transparent;*/
 }
 .toolbarhelpspace {
     height: 50px;
@@ -310,34 +359,7 @@ text-shadow:none;*/
     font-size: 12px;
     color: #FFFFFF;
 }
-.checkPass {
-    /*    content: url(../img/online.png);*/
-    
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    z-index: 9999;
-    right: 5px;
-    bottom: 12px;
-}
-.checkPass.ok {
-    content: url(../img/online.png);
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    z-index: 9999;
-    right: 5px;
-    bottom: 12px;
-}
-.checkPass.nok {
-    content: url(../img/offline.png);
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    z-index: 9999;
-    right: 5px;
-    bottom: 12px;
-}
+
 .swiper-container {
     height: 100%;
 }
@@ -1267,7 +1289,7 @@ i.icons_sendstatus.replied {
     -webkit-mask-image: url(../assets/pem_img-lock-open.svg);
     mask-image: url(../assets/pem_img-lock-open.svg);
     -webkit-mask-repeat: no-repeat;*/
-    background-image: url(../assets/shield-unsave.svg);
+    background-image: url(../assets/lock_open.svg);
 }
 
 .showmessagesstatus i.icons_new_message {
@@ -1289,7 +1311,7 @@ i.icons_sendstatus.replied {
     -webkit-mask-image: url(../assets/pem_img-lock.svg);
     mask-image: url(../assets/pem_img-lock.svg);
     -webkit-mask-repeat: no-repeat;*/
-    background-image: url(../assets/shield-save.svg);
+    background-image: url(../assets/lock_close.svg);
 }
 
 
@@ -1371,6 +1393,20 @@ i.icons_sendstatus.replied {
     mask-image: url(../assets/pem_img-addcontact.svg);
     -webkit-mask-repeat: no-repeat;
 }
+
+.navbar i.icons_add_vcard {
+    margin-bottom: 18px;
+    margin-right: -80px;
+    width: 12px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-color: #f64f02;
+    -webkit-mask-image: url(../assets/pem_img-addcontact.svg);
+    mask-image: url(../assets/pem_img-addcontact.svg);
+    -webkit-mask-repeat: no-repeat;
+}
+
+
 .navbar .add_contact {
     font-family: pemFontBold;
     margin-top: 10px;
@@ -1378,6 +1414,16 @@ i.icons_sendstatus.replied {
     font-weight: bold;
     color: #f64f02;
 }
+
+.navbar .add_vcard{
+    font-family: pemFontBold;
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #f64f02;
+}
+
+
 .navbar i.icons_camera {
 /*    font-size: 36px;
     width: 26px;
@@ -1392,6 +1438,8 @@ i.icons_sendstatus.replied {
     mask-image: url(../assets/pem_img-camera.svg);
     -webkit-mask-repeat: no-repeat;
 }
+
+
 
 .navbar .qr_scanner {
     font-family: pemFontBold;
@@ -1511,14 +1559,18 @@ i.icons_searchcancel {
 i.icons_edit {
     width: 14px;
     height: 14px;
-/*    background: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 511.995 511.995'>  <path style='fill:#FFFFFF;' d='M497.941,14.057c18.75,18.75,18.719,49.141,0,67.891l-22.625,22.625L407.41,36.682l22.625-22.625C448.784-4.677,479.191-4.693,497.941,14.057z M158.534,285.588l-22.609,90.5l90.5-22.625l226.266-226.266l-67.906-67.891L158.534,285.588z M384.003,241.15v206.844h-320v-320h206.859l63.983-64H0.003v448h448v-334.86L384.003,241.15z'/></svg>")no-repeat center;
-    */
     display: block;
-    background: url(../assets/pem_img-contacts.svg)no-repeat center;
-    
-
-
+    background: url(../assets/pem_img-contacts.svg)no-repeat center;   
 }
+
+i.icons_send {
+    width: 14px;
+    height: 14px;
+    display: block;
+    background: url(../assets/pem_img-eye.svg)no-repeat center; 
+}
+
+
 i.icons_setkey {
     width: 14px;
     height: 14px;
@@ -1539,6 +1591,7 @@ i.icons_keysave {
     display: block;
     margin-top: 5px;
 }
+
 i.icons_keydelete {
     font-size: 32px;
     width: 32px;
@@ -1547,6 +1600,7 @@ i.icons_keydelete {
     display: block;
     margin-top: 5px;
 }
+
 i.icons_modalcancel {
     font-size: 32px;
     width: 32px;
@@ -1764,7 +1818,7 @@ i.icons_password_eye.active {
     width: 20px;
     height: 15px;
     margin-left: 5px;
-    background-image: url(../assets/shield-save.svg);
+    background-image: url(../assets/lock_close.svg);
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -1779,9 +1833,11 @@ i.icons_password_eye.active {
     width: 20px;
     height: 15px;
     margin-left: 5px;
-    background-image: url(../assets/shield-unsave.svg);
+    background-image: url(../assets/lock_open.svg);
     margin-top: 4px;
     margin-bottom: 4px;
+
+
 }
 /*KEY STORE LOCK OPEN*/
 
@@ -2258,6 +2314,10 @@ textarea#uid {
     color: #000;
     -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' width='48' xmlns='http://www.w3.org/2000/svg'><path d='m96 35c1 7-5 37-42 35-37 2-43-28-42-35-1-7 5-37 42-35 37-2 43 28 42 35z'/></svg>") 50% 42% 46% 56%;
 }
+
+
+
+
 i.ion-load-a {
     -webkit-animation-name: rotate;
     -webkit-animation-duration: 1s;
@@ -2512,6 +2572,7 @@ div.progress-bar div.inner-progress {
     height: auto;
     max-width: 100%;
     border-radius: 16px;
+    margin-bottom: 10px;
 }
 .message-name {
     font-size: 12px;
@@ -2579,6 +2640,10 @@ div.progress-bar div.inner-progress {
     margin-left: auto;
     -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' width='48' xmlns='http://www.w3.org/2000/svg'><path d='m84 35c1 7-5 37-42 35-37 2-43-28-42-35-1-7 5-37 42-35 37-2 43 28 42 35z'/></svg>") 50% 56% 46% 42%;
 }
+
+
+
+
 .message-send.message-last .message-text,
 .message-send.message-with-tail .message-text {
     /*  border-radius: 16px 16px 0 16px;*/
@@ -2656,6 +2721,15 @@ div.progress-bar div.inner-progress {
 .messages-auto-layout .message-last .message-label {
     display: block;
 }
+
+
+
+
+
+
+
+
+
 html.retina.ios-6 .message,
 html.retina.ios-6 .message.message-pic img {
     -webkit-mask-box-image: none;
@@ -2735,10 +2809,16 @@ list-style: none;
 */
 
 .systemalert {
-    background-color: red;
+/*    background-color: red;*/
+    background-color: #f64f02;
+    
     list-style: none;
-    font-size: 12px;
+    font-size: 10px;
+    text-align: center;
 }
+
+
+
 .ion-alert-circled {
     font-size: 12px;
     color: yellow;
@@ -3067,7 +3147,7 @@ a.bg-yellow,
 .list-block .swipeout-actions-left a.bg-yellow,
 .list-block .swipeout-actions-right a.bg-yellow {
     background-color: #f68100;
-    font-size: 6px;
+    font-size: 8px;
     text-shadow: none;
 }
 .border-yellow {
@@ -3087,7 +3167,7 @@ a.bg-orange,
 .list-block .swipeout-actions-left a.bg-orange,
 .list-block .swipeout-actions-right a.bg-orange {
     background-color: #f64f02;
-    font-size: 6px;
+    font-size: 8px;
     text-shadow: none;
 }
 .border-orange {
@@ -3107,7 +3187,7 @@ a.bg-red,
 .list-block .swipeout-actions-left a.bg-red,
 .list-block .swipeout-actions-right a.bg-red {
     background-color: #f62302;
-    font-size: 6px;
+    font-size: 8px;
     text-shadow: none;
 }
 .border-red {
@@ -4072,11 +4152,41 @@ font-size: 20px;
 }
 
 
+.message-vcard{
+margin-bottom: 10px;
+
+}
 
 
+.message-vcardicon{
+    color: #808080;
+    background-color: #808080;
+    background: url(../assets/pem_img-business.svg) no-repeat;
+    height: 28px;
+    width: 28px;
+
+}
+
+.message-vcard span{
+    /*border-bottom: 0.5px solid #fff;*/
+    height: 60px;
+    width: 120px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    font-family: pemFontLight;
+    font-size: 14px;
+    background-color: #212121;
+    color: #808080;
+    border-radius: 4px;
+
+}
 
 
+.expire{
 
-
+    color: #f64f02;
+    margin-bottom: 10px;
+}
 
 

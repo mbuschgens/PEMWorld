@@ -28,76 +28,68 @@ function DateTimeNow() {
 var myMessagesList;
 
 
-var messagesCallback = sslnote.onPageInit('messages', function(page) {
+var messagesCallback = myApp.onPageInit('messages', function(page) {
 
-    console.log('page.name messages');
+    //console.log('page.name messages');
 
     $("#connection").removeClass("connectionHidden");
 
-    sslnote.showToolbar('.tabbar');
+    myApp.showToolbar('.tabbar');
     localStorage.setItem('showalert', 1);
 
-    sslnote.showTab('#messagesview');
+    myApp.showTab('#messagesview');
 
     clearTimeout(loop);
 
     document.activeElement.blur();
 
-    sslnote.hideIndicator();
+    myApp.hideIndicator();
 
 
-    console.log('++++ MAKE NEW myMessagesList INIT');
+    //console.log('++++ MAKE NEW myMessagesList INIT');
 
-    myMessagesList = sslnote.virtualList($$(page.container).find('.messages-list.list-block.virtual-list'), {
+    myMessagesList = myApp.virtualList($$(page.container).find('.messages-list.list-block.virtual-list'), {
         items: JSON.parse(localStorage.myMessagesList),
         template:
 
-            '<li mid="{{mid}}" mdatum="{{mdatum}}" his_uid="{{his_uid}}" id="li{{his_uid}}{{mdatum}}" class="swipeout li{{his_uid}}{{mdatum}}  selectMessageItem">' +
+            '<li mid="{{mid}}" mdatum="{{mdatum}}" his_uid="{{his_uid}}" id="li{{his_uid}}{{mdatum}}" class="swipeout li{{his_uid}}{{mdatum}}  selectMessageItem swipe-click">' +
 
 
-            ' <div id="A{{his_uid}}{{mdatum}}" style="display: {{showReport}}" class="swipeout-content"> ' +
+            ' <div id="A{{his_uid}}{{mdatum}}" style="display: {{showReport}}"> ' +
 
-            ' <a href="#" data-confirm="Wipe message from {{his_nick}} device" data-confirm-title="ARE YOU SURE?" class="link item-link item-content swipeout-delete" id="{{mid}}" mid="{{mid}}" data-id="{{mid}}" data-mdatum="{{mdatum}}" data-his_uid="{{his_uid}}" data-sendPushMessage="{{sendPushMessage}}"  >' +
-
-
-            // ' <a href="frames/messages/Smessages-send.html?mid={{mid}}&his_uid={{his_uid}}&his_nick={{his_nick}}&his_server={{his_server}}&totalmessages=1&activeLi={{his_uid}}{{mdatum}}" class="link reply item-link item-content">  '+       
+            // ' <a href="#" data-confirm="Wipe message from {{his_nick}} device" data-confirm-title="ARE YOU SURE?" class="link item-link item-content swipeout-delete" id="{{mid}}" mid="{{mid}}" data-id="{{mid}}" data-mdatum="{{mdatum}}" data-his_uid="{{his_uid}}" data-sendPushMessage="{{sendPushMessage}}"  >' +
 
 
+            ' <a href="#" class="item-content item-link no-link swipeout-content" id="{{mid}}" mid="{{mid}}" data-id="{{mid}}" data-mdatum="{{mdatum}}" data-his_uid="{{his_uid}}" data-sendPushMessage="{{sendPushMessage}}"  >' +
 
-            ' <div id="showReport" class="showReport">' +
+                ' <div id="showReport" class="showReport">' +
 
+                    ' <div class="item-media"><i id="icon{{his_uid}}{{mdatum}}" class="icons_sendstatus {{sendstatus}}"></i></div>' +
+               
+                ' </div>' +
 
-            ' <div class="item-media"><i id="icon{{his_uid}}{{mdatum}}" class="icons_sendstatus {{sendstatus}}"></i></div>' +
-            ' </div>' +
+                ' <div class="item-inner">' +
 
+                    ' <div class="showRow item-title-row">' +
 
-            ' <div class="item-inner">' +
+                    '     <div class="item-title">{{his_nick}}</div> ' +
+                        ' <div id="status{{his_uid}}{{mdatum}}" class="item-after">{{newdatum}} {{showButton}}</div>' +
+                    ' </div> ' +
 
+                '   <div class="showRowNoMessage item-text decryptmessage"><span>Press for options.</span></div>' +
 
-
-
-            ' <div class="showRow item-title-row">' +
-
-
-            ' <div class="item-title">{{his_nick}}</div> ' +
-
-
-                ' <div id="status{{his_uid}}{{mdatum}}" class="item-after">{{newdatum}} {{showButton}}</div>' +
-
-            ' </div> ' +
-
-
-            ' </div>' +
-
+                ' </div>' +
 
             '  </a>  ' +
 
 
-            // ' <div class="swipeout-actions-right">'+
+            ' <div class="swipeout-actions-right">'+
 
-            // ' <a href="#" data-confirm="Wipe message from {{his_nick}} device" data-confirm-title="ARE YOU SURE?"  class="swipeout-delete  bg-red" id="{{mid}}" mid="{{mid}}" data-id="{{mid}}" data-mdatum="{{mdatum}}" data-his_uid="{{his_uid}}" data-sendPushMessage="{{sendPushMessage}}"  ><table style="width:100%"><tr><td><center><i class="icons_delete"></i></center></td></tr><tr><td>DELETE</td></tr></table></a>'+
+                ' <a href="#" class="item-content bg-gray" > <table style="width:100%"><tr><tr><td><p class="block-with-text" style="width: 180px;">...{{message}}</p></td></tr></table></a>' +
+                // ' <a href="#" class="link item-link item-content bg-orange" > <table style="width:100%" class=""><tr><td><center><i class="icons_edit"></i></center></td></tr><tr><td><center>EDIT NICKNAME</center></td></tr></table></a>'+
+                ' <a href="#" data-confirm="Wipe message from<BR>{{his_nick}} device" data-confirm-title="ARE YOU SURE?"  class="link item-link item-content swipeout-delete bg-red" id="{{mid}}" mid="{{mid}}" data-id="{{mid}}" data-mdatum="{{mdatum}}" data-his_uid="{{his_uid}}" data-sendPushMessage="{{sendPushMessage}}" ><table style="width:100%"><tr><td><center><i class="icons_delete"></i></center></td></tr><tr><td><center>WIPE REMOTE</center></td></tr></table></a>'+
 
-            // ' </div>'+
+            ' </div>'+
 
 
             '</div>' +
@@ -132,6 +124,10 @@ var messagesCallback = sslnote.onPageInit('messages', function(page) {
             ' </div>' +
 
 
+
+
+
+
             '  <div class="item-inner">' +
             '  <div class="item-title-row">' +
 
@@ -163,43 +159,57 @@ var messagesCallback = sslnote.onPageInit('messages', function(page) {
     SQLiteUpdateMessagesTotal();
 
 
-    sslnote.hideIndicator();
+    myApp.hideIndicator();
 
-    console.log('page.name messages DONE');
+    //console.log('page.name messages DONE');
 
 
 if(sessionStorage.noMessages === 'yes'){
 
     $('.showRow').removeClass('item-title-row');
 
+        $('.showRowNoMessage').hide();
+
+
 }
 
 
 
-    $$("body").on('click', '.selectMessageItem', function(e) {
+    // $$("body").on("click",".swipe-click", function(){
+    //     if(!$$(this).hasClass('swipeout-opened')) {
+    //         myApp.swipeoutOpen($$(this), 'right');
+    //     } else {
+    //         myApp.swipeoutClose($$(this));
+    //     }
+    // });
 
-        console.log('!!!!!!!!  event.alert selectMessageItem');
 
-        //var index = $(e.target).index();
 
-         var selectItemId = $(this).index();
 
-        console.log('selectItemId = ' + selectItemId);
+    // $$("body").on('click', '.selectMessageItem', function(e) {
 
-        sessionStorage.setItem('selectItemId', JSON.stringify(selectItemId));
+    //     //console.log('!!!!!!!!  event.alert selectMessageItem');
 
-    });
+    //     //var index = $(e.target).index();
+
+    //      var selectItemId = $(this).index();
+
+    //     //console.log('selectItemId = ' + selectItemId);
+
+    //     sessionStorage.setItem('selectItemId', JSON.stringify(selectItemId));
+
+    // });
 
 
     $$("body").on('deleted', '.swipeout-delete', function(e) {
-        console.log('!!!!!!!!  event.alert swipeout-delete deleted');
+        //console.log('!!!!!!!!  event.alert swipeout-delete deleted');
 
         //    var id = $$(this).attr('id');
         //    //Do the post somewhere
 
-        // console.log('!!!!!!!!  id = ' +id);
+        // //console.log('!!!!!!!!  id = ' +id);
 
-        console.log('!!!!!!!!  event.alert body deleted deleted');
+        //console.log('!!!!!!!!  event.alert body deleted deleted');
 
     });
 
@@ -219,6 +229,37 @@ if(sessionStorage.noMessages === 'yes'){
     });
 
 
+// $$('.create-picker').on('click', function () {
+//   // Check first, if we already have opened picker
+//   if ($$('.picker-modal.modal-in').length > 0) {
+//     myApp.closeModal('.picker-modal.modal-in');
+//   }
+//   myApp.pickerModal(
+//     '<div class="picker-modal">' +
+
+//       '<div class="toolbar">' +
+//         '<div class="toolbar-inner">' +
+        
+//           '<div class="left"></div>' +
+//           '<div class="right"><a href="#" class="close-picker">Close</a></div>' +
+//         '</div>' +
+//       '</div>' +
+
+//       '<div class="picker-modal-inner">' +
+//         '<div class="content-block">' +
+//           '<p>Lorem ipsum dolor ...</p>' +
+//         '</div>' +
+//       '</div>' +
+
+//     '</div>'
+//   )
+// }); 
+
+
+
+
+
+
 
 
 var ptrContent = $$('.pull-to-refresh-content.messages-page-list');
@@ -228,13 +269,13 @@ var ptrContent = $$('.pull-to-refresh-content.messages-page-list');
         setTimeout(function() {
             sessionStorage.JsonMessagesToReceive = '';
             makeNewMessageList('reFreshYes');
-            console.log(' pull to refresh');
-            sslnote.pullToRefreshDone();
+            //console.log(' pull to refresh');
+            myApp.pullToRefreshDone();
         }, 2000);
-    }); //sslnote.pullToRefreshTrigger('.pull-to-refresh-content.messages-page-list');
+    }); //myApp.pullToRefreshTrigger('.pull-to-refresh-content.messages-page-list');
 
 
-var mySearchbar = sslnote.searchbar('.searchbar', {
+var mySearchbar = myApp.searchbar('.searchbar', {
         searchList: '.list-block-search',
         searchIn: '.item-title'
     });
@@ -248,6 +289,73 @@ var mySearchbar = sslnote.searchbar('.searchbar', {
                             // $$('.searchbar').html(contactrequestHTML);
                             // $$('.subbar').html(contactrequestHTML);
 
+$('.messagesinvitation').hide(); // hide messagesinvitation onload page
+
+
+var future = moment(localStorage.getItem('date_expire'),"YYYY-MM-DD");
+var start = moment();  
+var d = future.diff(start, 'days'); // 9
+
+//console.log('!!! DATE DIFF', d);
+
+
+if(d <= '3')
+{
+    //Your Pro license is expired on [date]
+$$('.systemalert').html("Your " + localStorage.getItem('myAppapp') + " license expire in " + d + " day\'s on " + localStorage.getItem('date_expire_txt'));
+//console.log('!!! SHOW ALERT A', d);
+}
+
+if(d <= '0')
+{
+
+$$('.systemalert').html("Your " + localStorage.getItem('myAppapp') + " license is expired on " + localStorage.getItem('date_expire_txt'));
+
+
+setTimeout(function(){ 
+
+// License Expired!
+
+// Your Pro license is expired on [date]. To continue using PEM you can buy a new license, anonymous and secure, with Bitcoins. For more info check http://pem.world
+
+        myApp.modal({
+            title: 'License Expired',
+            text: 'Your '+ localStorage.getItem('myAppapp')+  ' license is expired on '+ localStorage.getItem('date_expire_txt') + '. To continue using PEM you can buy a new license, anonymous and secure, with Bitcoins. For more info check<BR>http://pem.world',
+            buttons: [{
+                text: localStorage.getItem('OKE'),
+                onClick: function() {
+
+            //console.log('+++!!! COUNTER STOP');
+
+            sessionStorage.clear();
+
+            clearTimeout(loop);
+
+            //updateCounter(totalSeconds, 'stop');
+
+            //console.log('+++!!! COUNTER STOP Page loaded');
+
+            $("#connection").addClass("connectionHidden");
+
+            $(".statusbar-overlay").addClass("black");
+  
+            localStorage.setItem('reLoggin', '1');
+
+            var userLoggedIn = sessionStorage.getItem('userLoggedIn');
+            //console.log('+++!!! COUNTER STOP userLoggedIn = ' + userLoggedIn);
+
+window.location.reload();
+
+                }
+            }]
+        });
+ },1000);
+
+//console.log('!!! SHOW ALERT B', d);
+}
+
+
+
 
 
 clearTimeout(loop);
@@ -257,7 +365,7 @@ iAmOnlineLoop();
 
 
 
-    sslnote.hidePreloader();
+    myApp.hidePreloader();
 
 
     var selectItemId = sessionStorage.getItem('selectItemId');
@@ -265,14 +373,14 @@ iAmOnlineLoop();
 
     // if(selectItemId != null ){ 
 
-    //     console.log('+++++++ selectItemId =' + selectItemId); 
+    //     //console.log('+++++++ selectItemId =' + selectItemId); 
     //     //var itemid = number(item) + 1;
 
     //     sessionStorage.removeItem('selectItemId');
 
     //     myMessagesList.deleteItem(selectItemId);
 
-    //     console.log('+++++++ myMessagesList.deleteItem(selectItemId) '+ selectItemId); 
+    //     //console.log('+++++++ myMessagesList.deleteItem(selectItemId) '+ selectItemId); 
 
     // }
 
@@ -282,7 +390,7 @@ iAmOnlineLoop();
 
     app.selectAllRecordsToDecrypt = function(fn) {
 
-        console.log('selectAllRecordsToDecrypt Started');
+        //console.log('selectAllRecordsToDecrypt Started');
         app.db.transaction(function(tx) {
             tx.executeSql(selectAlleMessages, [], fn, onError);
         });
@@ -290,7 +398,7 @@ iAmOnlineLoop();
 
     var render = function(tx, rs) {
 
-        //console.log('onPageAfterAnimation messages Render');
+        ////console.log('onPageAfterAnimation messages Render');
         //console.log(rs); 
 
         if (rs.rows.length) {
@@ -332,15 +440,15 @@ iAmOnlineLoop();
 
 
 
-sslnote.onPageAfterAnimation('messages', function(page) {
+myApp.onPageAfterAnimation('messages', function(page) {
 
 
-    //console.log('page.name onPageAfterAnimation messages');
+    ////console.log('page.name onPageAfterAnimation messages');
 
 
     if (sessionStorage.getItem('messagesReadStatus')) {
 
-        console.log('WE HAVE MESSAGES READ STATUS');
+        //console.log('WE HAVE MESSAGES READ STATUS');
 
         var mid = sessionStorage.getItem('messagesReadStatus');
 
@@ -348,7 +456,7 @@ sslnote.onPageAfterAnimation('messages', function(page) {
         $$('#readstatus' + mid).removeClass('new').addClass('read');
         // $$('#readstatus'+ mid).addClass('read');      
 
-        console.log('WE HAVE MESSAGES READ STATUS mid = ' + mid);
+        //console.log('WE HAVE MESSAGES READ STATUS mid = ' + mid);
 
     }
 
@@ -370,9 +478,11 @@ sslnote.onPageAfterAnimation('messages', function(page) {
 
 function makeNewMessageList(doReload) {
 
-    // console.log('+++ Fn makeNewMessageList');
+    // //console.log('+++ Fn makeNewMessageList');
 
-    // console.log('+++ Fn makeNewMessageList doReload = ' + doReload);
+    // //console.log('+++ Fn makeNewMessageList doReload = ' + doReload);
+
+
 
 
     var uid = localStorage.getItem('UID');
@@ -385,19 +495,19 @@ function makeNewMessageList(doReload) {
 
     var render = function(tx, rs) {
 
-        //console.log('start render makeNewMessageList'); 
+        ////console.log('start render makeNewMessageList'); 
         //console.log(rs); 
 
         if (rs.rows.length) {
 
-            //console.log('TOTAL RECORD EXIST makeNewMessageList');
+            ////console.log('TOTAL RECORD EXIST makeNewMessageList');
             //console.log(rs.rows.length);
 
             sessionStorage.totalMessagesList = Number(rs.rows.length);
             //  var messagesItems = sessionStorage.getItem('messagesItems');
 
             // localStorage.setItem('myContactListItems',JSON.stringify(items));
-            // console.log('!!! sessionStorage.totalMessagesList = ' + sessionStorage.totalMessagesList);
+            // //console.log('!!! sessionStorage.totalMessagesList = ' + sessionStorage.totalMessagesList);
 
 
             // sessionStorage.setItem('messagesItems', JSON.stringify(rs.rows.length));
@@ -408,7 +518,7 @@ function makeNewMessageList(doReload) {
 
             {
 
-                //console.log('RECORD HAVE VAR makeNewMessageList');
+                ////console.log('RECORD HAVE VAR makeNewMessageList');
                 var contactmessagesItem = rs.rows.item(i);
 
                 reggie = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/g;
@@ -425,18 +535,18 @@ function makeNewMessageList(doReload) {
 
                 mdatum2 = new Date((+dateArray[1]), (+dateArray[2]) - 1, (+dateArray[3]), (+dateArray[4]), (+dateArray[5]), (+dateArray[6]));
 
-                //console.log('mdatum2 = ' +mdatum2);
+                ////console.log('mdatum2 = ' +mdatum2);
 // MONTH                
                 var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
                 newdatum = mdatum2.getDate() + '-' + monthNames[mdatum2.getMonth()] + ' ' + (mdatum2.getHours() < 10 ? '0' : '') + mdatum2.getHours() + ':' + (mdatum2.getMinutes() < 10 ? '0' : '') + mdatum2.getMinutes();
-                //console.log('mdatum = ' +mdatum);
+                ////console.log('mdatum = ' +mdatum);
 
                 contactmessagesItem.newdatum = newdatum;
 
                 //mdatum = 'date:';
 
-                //console.log('contactmessagesItem.read = ' +contactmessagesItem.read);
+                ////console.log('contactmessagesItem.read = ' +contactmessagesItem.read);
 
                 var decryptMid = contactmessagesItem.mid;
                 var his_uid = contactmessagesItem.his_uid;
@@ -461,7 +571,7 @@ function makeNewMessageList(doReload) {
                     var show = localStorage.getItem('showMessageStatus');
 
                     if (show == null) {
-                        console.log('show = null we update');
+                        //console.log('show = null we update');
                         localStorage.setItem('showMessageStatus', '{"show":["99"]}');
                         var show = localStorage.getItem('showMessageStatus');
 
@@ -608,7 +718,7 @@ function makeNewMessageList(doReload) {
 
                 items.push(contactmessagesItem);
 
-                // console.log('items : a ');
+                // //console.log('items : a ');
                 // console.log(items);
 
             } // end for
@@ -621,7 +731,7 @@ sessionStorage.noMessages = 'no';
 
         {
 
-            console.log('++++ RECORD EMPTY');
+            //console.log('++++ RECORD EMPTY');
 
             var items = [{
                 showReport: 'show',
@@ -633,29 +743,29 @@ sessionStorage.noMessages = 'no';
 
 sessionStorage.noMessages = 'yes';
 
-            console.log('++++ HIDE BUTTON');
+            //console.log('++++ HIDE BUTTON');
 
 
 
         }
 
-        // console.log('++++ SET localStorage.myMessagesList');
+        // //console.log('++++ SET localStorage.myMessagesList');
 
         localStorage.myMessagesList = JSON.stringify(items);
 
         if (doReload === 'reloadYes') {
-            //console.log('++++ makeNewMessageList doReload = yes = ' + doReload);
+            ////console.log('++++ makeNewMessageList doReload = yes = ' + doReload);
             setTimeout(function() {
                 messagesview.router.reload();
             }, 300);
         } else
 
         if (doReload === 'reFreshYes') {
-            //console.log('++++ makeNewMessageList doReload = yes = ' + doReload);
+            ////console.log('++++ makeNewMessageList doReload = yes = ' + doReload);
 
             myMessagesList.update();
             setTimeout(function() {
-                console.log('+++++ makeNewMessageList reload = no = ' + doReload);
+                //console.log('+++++ makeNewMessageList reload = no = ' + doReload);
                 messagesview.router.load({
                     url: 'frames/messages/messages.html',
                     ignoreCache: true,
@@ -666,12 +776,12 @@ sessionStorage.noMessages = 'yes';
         } else
 
         if (doReload === 'noLoad') {
-            //console.log('++++ makeNewMessageList doReload = no = ' + doReload);
+            ////console.log('++++ makeNewMessageList doReload = no = ' + doReload);
 
         } else
 
         {
-            //console.log('+++++ trigger makeNewMessageList reload = no = ' + doReload);
+            ////console.log('+++++ trigger makeNewMessageList reload = no = ' + doReload);
             messagesCallback.trigger();
         }
 
@@ -686,13 +796,13 @@ sessionStorage.noMessages = 'yes';
 
 
 function makeContactMessages(mdatum, his_uid, status, playSound) {
-        // console.log('!!! Fn makeContactMessages :',mdatum, his_uid, status, playSound);
-        // console.log('!ADD LOG TO LIST A ' +status);
+        // //console.log('!!! Fn makeContactMessages :',mdatum, his_uid, status, playSound);
+        // //console.log('!ADD LOG TO LIST A ' +status);
         // console.log(mdatum);
         // console.log(his_uid);
         // console.log(status);
         // console.log(playSound);
-        // console.log('!ADD LOG TO LIST B');
+        // //console.log('!ADD LOG TO LIST B');
 
         var sdatum = mdatum.replace(/ /g, "");
         var sdatum = sdatum.replace(/-/g, "");
@@ -700,26 +810,26 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
         if (status > sessionStorage.getItem('lastStatusUpdate' + his_uid + sdatum) || status === undefined) {
 
-            //console.log('STATUS UPDATE GROTER DAN LAATSTE '+his_uid+sdatum+' NU = ' + status + ' Storage = ' +sessionStorage.getItem('lastStatusUpdate'+his_uid+sdatum)); 
+            ////console.log('STATUS UPDATE GROTER DAN LAATSTE '+his_uid+sdatum+' NU = ' + status + ' Storage = ' +sessionStorage.getItem('lastStatusUpdate'+his_uid+sdatum)); 
 
             var items = new Array();
 
             var uid = localStorage.getItem('UID');
             app.selectAllRecords = function(fn) {
                 app.db.transaction(function(tx) {
-                    //console.log('selectMID');
+                    ////console.log('selectMID');
                     //console.log(his_uid);
                     tx.executeSql(selectMessages, [mdatum, his_uid], fn, onError);
                 });
             }
 
             var render = function(tx, rs) {
-                //console.log('start render makeContactMessages'); 
+                ////console.log('start render makeContactMessages'); 
 
                 for (var i = 0; i < rs.rows.length; i++)
 
                     if (rs.rows.length) {
-                        //console.log('RECORD EXIST makeContactMessages');
+                        ////console.log('RECORD EXIST makeContactMessages');
                         contactmessageslistTemplate = $$('#contactmessageslist-template').html();
 
                         var contactmessageslisthtml = '';
@@ -727,10 +837,10 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                         for (
                             var i = 0; i < rs.rows.length; i++) {
 
-                            //console.log('RECORD HAVE VAR makeContactMessages');
+                            ////console.log('RECORD HAVE VAR makeContactMessages');
                             var contactmessagesItem = rs.rows.item(i);
                             //console.log(contactmessagesItem);
-                            ////console.log('contactItem.autocrypt = ' );
+                            //////console.log('contactItem.autocrypt = ' );
                             //console.log(contactmessagesItem.autocrypt);
                             reggie = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/g;
                             dateArray = reggie.exec(contactmessagesItem.mdatum);
@@ -738,18 +848,18 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                             var mdatum = mdatum.replace(/ /g, "");
                             var mdatum = mdatum.replace(/-/g, "");
                             var mdatum = mdatum.replace(/:/g, "");
-                            // console.log('mdatum');
+                            // //console.log('mdatum');
                             // console.log(mdatum);
                             contactmessagesItem.mdatum = mdatum;
                             mdatum2 = new Date((+dateArray[1]), (+dateArray[2]) - 1, (+dateArray[3]), (+dateArray[4]), (+dateArray[5]), (+dateArray[6]));
-                            //console.log('mdatum2 = ' +mdatum2);
+                            ////console.log('mdatum2 = ' +mdatum2);
 // MONTH                            
                             var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                             newdatum = mdatum2.getDate() + '-' + monthNames[mdatum2.getMonth()] + ' ' + (mdatum2.getHours() < 10 ? '0' : '') + mdatum2.getHours() + ':' + (mdatum2.getMinutes() < 10 ? '0' : '') + mdatum2.getMinutes();
-                            //console.log('newdatum = ' +newdatum);
+                            ////console.log('newdatum = ' +newdatum);
                             contactmessagesItem.newdatum = newdatum;
                             //mdatum = 'date:';
-                            //console.log('contactmessagesItem.read = ' +contactmessagesItem.read);
+                            ////console.log('contactmessagesItem.read = ' +contactmessagesItem.read);
                             var decryptMid = contactmessagesItem.mid;
                             var his_uid = contactmessagesItem.his_uid;
 
@@ -759,7 +869,7 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
                             {
 
-                                //console.log('WE HAVE STATUS UPDATE ' +status);
+                                ////console.log('WE HAVE STATUS UPDATE ' +status);
 
                                 if (status === '0' || status === '2') {
                                     var showReport = "none";
@@ -796,7 +906,7 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
                                 }
 
-                                //console.log('WE HAVE STATUS UPDATE a ');
+                                ////console.log('WE HAVE STATUS UPDATE a ');
 
                                 if (status === '1') {
                                     var badge = "badge badge-gray";
@@ -836,7 +946,7 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                                     contactmessagesItem.sendstatus = sendstatus;
                                 } else if (status === '40') {
 
-                                    //console.log('WE HAVE STATUS UPDATE b ');
+                                    ////console.log('WE HAVE STATUS UPDATE b ');
 
                                     var badge = "";
                                     // var messagereadnew = localStorage.getItem('messagebadgeSendReadtxt');
@@ -869,12 +979,12 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                                     contactmessagesItem.messagereadnew = messagereadnew;
                                     contactmessagesItem.sendstatus = sendstatus;
                                 }
-                                //console.log('WE HAVE STATUS UPDATE c ');
+                                ////console.log('WE HAVE STATUS UPDATE c ');
                             } else
 
                             {
 
-                                //console.log('WE HAVE -NO- STATUS UPDATE');
+                                ////console.log('WE HAVE -NO- STATUS UPDATE');
 
                                 if (contactmessagesItem.read === 0 || contactmessagesItem.read === 2) {
                                     var showReport = "none";
@@ -885,7 +995,7 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                                     contactmessagesItem.showMessage = showMessage;
                                     contactmessagesItem.sendPushMessage = sendPushMessage;
                                     contactmessagesItem.swipeoutoverswipe = swipeoutoverswipe;
-                                    //console.log('read = groter dan 0 kleiner dan 10');
+                                    ////console.log('read = groter dan 0 kleiner dan 10');
                                 } else
 
                                 {
@@ -1028,9 +1138,9 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                                 }
                             }
 
-                            //console.log('WE HAVE STATUS UPDATE x ');
+                            ////console.log('WE HAVE STATUS UPDATE x ');
                             items.push(contactmessagesItem);
-                            //console.log('WE HAVE STATUS UPDATE x x');
+                            ////console.log('WE HAVE STATUS UPDATE x x');
 
                         }
 
@@ -1049,26 +1159,26 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
                             //myMessagesList.update();
 
-                            //console.log('HAVE STATUS DO UPDATE DIV A = '+ status); 
+                            ////console.log('HAVE STATUS DO UPDATE DIV A = '+ status); 
                             var show = localStorage.getItem('showMessageStatus');
                             if (show.indexOf(status) != 0) {
-                                //console.log('HAVE STATUS DO UPDATE DIV = ' + his_uid+mdatum + ' = '+ status);  
+                                ////console.log('HAVE STATUS DO UPDATE DIV = ' + his_uid+mdatum + ' = '+ status);  
                                 sessionStorage.setItem('lastStatusUpdate' + his_uid + mdatum, status);
-                                //console.log('sessionStorage.setItem' + his_uid+mdatum+' : DATA = ' +sessionStorage.getItem('lastStatusUpdate'+his_uid+mdatum));  
+                                ////console.log('sessionStorage.setItem' + his_uid+mdatum+' : DATA = ' +sessionStorage.getItem('lastStatusUpdate'+his_uid+mdatum));  
 
                                 if (['60'].indexOf(status) + 1) {
-                                    //console.log('UPDATE DIV REPLIED = ' +his_uid+mdatum); 
+                                    ////console.log('UPDATE DIV REPLIED = ' +his_uid+mdatum); 
                                     // $('#'+his_uid+decryptMid+'SendStatus').html($(messagereadnew).fadeIn(1000));
                                     // $('#icon'+his_uid+mdatum).removeClass();
                                     // $('#icon'+his_uid+mdatum).addClass('icons_sendstatus');
                                     // $('#icon'+his_uid+mdatum).addClass(sendstatus);
-                                    // console.log('UPDATE loadContent = ' +status); 
+                                    // //console.log('UPDATE loadContent = ' +status); 
                                     // playNotificationSound('plop.mp3');
                                     //$('#'+his_uid+mdatum).remove();
                                     //$('#li'+his_uid+mdatum).remove();
                                 }
                                 if (['50'].indexOf(status) + 1) {
-                                    //console.log('UPDATE DIV WIPED = ' +status);  
+                                    ////console.log('UPDATE DIV WIPED = ' +status);  
                                     // $('#'+his_uid+decryptMid+'SendStatus').html($(messagereadnew).fadeIn(1000));
                                     // $('#icon'+his_uid+mdatum).removeClass();
                                     // $('#icon'+his_uid+mdatum).addClass('icons_sendstatus');
@@ -1078,29 +1188,29 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
                                 }
                                 // read 
                                 if (['40'].indexOf(status) + 1) {
-                                    //console.log('UPDATE DIV READ  = ' +status);  
+                                    ////console.log('UPDATE DIV READ  = ' +status);  
                                     $('#' + his_uid + decryptMid + 'SendStatus').html($(messagereadnew).fadeIn(1000));
                                     $('#icon' + his_uid + mdatum).removeClass();
                                     $('#icon' + his_uid + mdatum).addClass('icons_sendstatus');
                                     $('#icon' + his_uid + mdatum).addClass(sendstatus);
                                     if (playSound !== 'playSoundNO') {
                                         playNotificationSound('plop.mp3');
-                                        //console.log('playNotificationSound status = ' + stastus + ' - '+ sessionStorage.getItem('playNotificationSound'));  
+                                        ////console.log('playNotificationSound status = ' + stastus + ' - '+ sessionStorage.getItem('playNotificationSound'));  
                                     }
                                 }
 
                                 // delivered
                                 if (['30'].indexOf(status) + 1) {
                                     setTimeout(function() {
-                                        //console.log('UPDATE DIV DELIVERED = ' +his_uid+mdatum); 
+                                        ////console.log('UPDATE DIV DELIVERED = ' +his_uid+mdatum); 
                                         $('#' + his_uid + decryptMid + 'SendStatus').html($(messagereadnew).fadeIn(1000));
                                         $('#icon' + his_uid + mdatum).removeClass();
                                         $('#icon' + his_uid + mdatum).addClass('icons_sendstatus');
                                         $('#icon' + his_uid + mdatum).addClass(sendstatus);
-                                        //console.log('UPDATE loadContent = ' + status);
+                                        ////console.log('UPDATE loadContent = ' + status);
                                         if (playSound !== 'playSoundNO') {
                                             playNotificationSound('plop.mp3');
-                                            //console.log('playNotificationSound status = ' + stastus + ' - '+ sessionStorage.getItem('playNotificationSound'));  
+                                            ////console.log('playNotificationSound status = ' + stastus + ' - '+ sessionStorage.getItem('playNotificationSound'));  
                                         }
                                     }, 1000);
                                 }
@@ -1109,27 +1219,27 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
                                 if (['20'].indexOf(status) + 1) {
                                     setTimeout(function() {
-                                        console.log('UPDATE DIV SEND = ' +his_uid+mdatum); 
+                                        //console.log('UPDATE DIV SEND = ' +his_uid+mdatum); 
                                         $('#' + his_uid + decryptMid + 'SendStatus').html($(messagereadnew).fadeIn(1000));
                                         $('#icon' + his_uid + mdatum).removeClass();
                                         $('#icon' + his_uid + mdatum).addClass('icons_sendstatus');
                                         $('#icon' + his_uid + mdatum).addClass(sendstatus);
-                                        console.log('UPDATE loadContent = ' + status);
+                                        //console.log('UPDATE loadContent = ' + status);
                                         if (playSound !== 'playSoundNO') {
                                             playNotificationSound('plop.mp3');
-                                            //console.log('playNotificationSound status = ' + stastus + ' - '+ sessionStorage.getItem('playNotificationSound'));  
+                                            ////console.log('playNotificationSound status = ' + stastus + ' - '+ sessionStorage.getItem('playNotificationSound'));  
                                         }
                                     }, 1000);
                                 }
 
                                 // pending
                                 if (['10'].indexOf(status) + 1) {
-                                    console.log('PREPEND MESSAGE PENDING items = ' +items); 
+                                    //console.log('PREPEND MESSAGE PENDING items = ' +items); 
 
 
 // var selectItemId = sessionStorage.getItem('selectItemId');
 
-// console.log('+++++++ selectItemId: ', selectItemId); 
+// //console.log('+++++++ selectItemId: ', selectItemId); 
 // //var itemid = number(item) + 1;
 // myMessagesList.deleteItem(selectItemId);
 
@@ -1141,7 +1251,7 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
                                     myMessagesList.prependItems(items);
                                     sessionStorage.totalMessagesList = Number(sessionStorage.totalMessagesList) + 1;
-                                    //console.log('PREPEND MESSAGE PENDING SUCCESFULL DONE ! items = ' +items);  
+                                    ////console.log('PREPEND MESSAGE PENDING SUCCESFULL DONE ! items = ' +items);  
 // myMessagesList.update();
 //                                   // JsonMessagesToSend();
 // myMessagesList.clearCache();
@@ -1157,8 +1267,8 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 
                         {
 
-                            console.log('------- NO STATUS = ');
-                            console.log('------- New items ' + items);
+                            //console.log('------- NO STATUS = ');
+                            //console.log('------- New items ' + items);
 
                             
 
@@ -1170,7 +1280,7 @@ function makeContactMessages(mdatum, his_uid, status, playSound) {
 myMessagesList.update();
                             sessionStorage.totalMessagesList = Number(sessionStorage.totalMessagesList) + 1;
 
-                            console.log('------- New Message myMessagesList.prependItems ' + items);
+                            //console.log('------- New Message myMessagesList.prependItems ' + items);
 
                             totalMessageUpdate();
 
@@ -1200,7 +1310,7 @@ myMessagesList.update();
                     else
 
                     {
-                        console.log('RECORD DONT EXIST');
+                        //console.log('RECORD DONT EXIST');
                         // alert user dont exist 
                     }
 
@@ -1214,7 +1324,7 @@ myMessagesList.update();
 function autoDecryptMessage(decryptMid, setkey, message, callback) {
 
 
-    // console.log('autoDecryptMessage = ' + decryptMid);  
+    // //console.log('autoDecryptMessage = ' + decryptMid);  
 
 
     var message_old = "";
@@ -1222,29 +1332,30 @@ function autoDecryptMessage(decryptMid, setkey, message, callback) {
     var message = message.replace(/ /g, '+');
 
 
-    // console.log('decryptMid = ' +decryptMid); 
-    // console.log('message = ' +message); 
+    // //console.log('decryptMid = ' +decryptMid); 
+    // //console.log('message = ' +message); 
 
-    //console.log('setkey = ' + setkey);
+    ////console.log('setkey = ' + setkey);
 
     try {
 
         var message_old = sjcl.decrypt(setkey, message);
 
         var n = message_old.lastIndexOf("message-text");
-        //console.log('message-text = ' + n);
+        ////console.log('message-text = ' + n);
         nstart = n + 14;
         var callbackDecryptMessage = message_old.slice(nstart, -12);
-        //console.log('message-text = ' +  callbackDecryptMessage);
+        ////console.log('message-text = ' +  callbackDecryptMessage);
         setTimeout(function() {
             callback(decryptMid, callbackDecryptMessage);
         }, 300);
     } catch (err) {
         setTimeout(function() {
 
-            console.log('!!! CATCH ERROR WRONG setkey');
+            //console.log('!!! CATCH ERROR WRONG setkey');
 
             callback(decryptMid, 'Error...Wrong key?');
+
         }, 300);
     }
     return autoDecryptMessage;
@@ -1252,21 +1363,21 @@ function autoDecryptMessage(decryptMid, setkey, message, callback) {
 
 
 // //////////////////////////////////////////////////////////////////////
-sslnote.onPageInit('Smessages-send-new', function(e) {
+myApp.onPageInit('Smessages-send-new', function(e) {
     localStorage.setItem('activePage', 'messages-send-new');
 
-    console.log('page.name Smessages-send-new');
-    sslnote.hideIndicator();
+    //console.log('page.name Smessages-send-new');
+    myApp.hideIndicator();
     localStorage.setItem('showalert', 0);
-    sslnote.showTab('#contactsview');
-    console.log('------------------------------');
-    console.log('INIT MESSAGES-SEND-NEW');
+    myApp.showTab('#contactsview');
+    //console.log('------------------------------');
+    //console.log('INIT MESSAGES-SEND-NEW');
 //    console.log(e.query);
-    console.log('------------------------------');
+    //console.log('------------------------------');
     document.activeElement.blur();
 
     var conversationStarted = false;
-    var myMessages = sslnote.messages('.messages', {
+    var myMessages = myApp.messages('.messages', {
         autoLayout: true
     });
 
@@ -1283,11 +1394,44 @@ sslnote.onPageInit('Smessages-send-new', function(e) {
 
         // show alert first wait on confimation
 
-        sslnote.modal({
+
+        var data = {
+            "his_uid": his_uid,
+            "my_uid": localStorage.getItem('UID'),
+            "his_nick": his_nick
+        };
+
+                    $$.ajax({
+                        method: 'POST',
+                        dataType: 'jsonp',
+                        url: localStorage.getItem('connection') + '/appie/php/include/Ccontactadd.php?',
+                        crossDomain: true,
+                        data: data,
+                        success: function(responseData, textStatus, jqXHR) {
+                            console.log(responseData);
+                            var jsonObject = new Function('return ' + responseData)();
+                            console.log(jsonObject);
+                            console.log(jsonObject.contactfound);
+                            console.log(jsonObject.msg);
+                            // myApp.alert(jsonObject.id);//     does nothing
+
+                        },
+                        error: function(responseData, textStatus, errorThrown) {
+                            ////console.log('something went wrong!! Error: ' +textStatus);
+                            myApp.hidePreloader();
+                            myApp.alert('Error. please try again.', function() {
+                                PushErrorToSupport(errorThrown);
+                            });
+                        }
+                    }); // end ajax
+
+
+
+        myApp.modal({
             title: 'CONTACT NOT CONFIRM',
-            text: 'Please wait for contact to confim your contact reqeust.',
+            text: 'We resend your request, Please wait for contact to confim your contact reqeust.',
             buttons: [{
-                text: 'OKE',
+                text: localStorage.getItem('OKE'),
                 onClick: function() {
 
                         contactsview.router.back({
@@ -1301,15 +1445,68 @@ sslnote.onPageInit('Smessages-send-new', function(e) {
 
     }
 
-//    console.log('!!!!!');
+//    //console.log('!!!!!');
     
 
-    $$('.his_nick').html(his_nick);
+$$('.his_nick').html(his_nick);
+
+
+
+
+
+
+
+
+$$('.vcard').on('click', function() {
+        //console.log('vcard Pressed 3');
+
+
+        var prepair = '<div class="message message-send message-vcard"><span>INSERT VCARD (.........)</span></DIV>';
+        
+        // var old = '<img src="img/loader.png" alt="Busy" height="15" width="15">INSERT VCARD PLEASE WAIT...';
+
+        $$('#thevcard').html(prepair);
+
+        var popupHTML = '<div class="popup">'+
+
+                    '<div class="content-block">'+
+
+
+                    '  <div class="row">'+
+                    '    <div class="col-80"><p>SELECT CONTACT TO SHARE</p></div>'+
+                    '    <div class="col-20"><p><a href="#" onclick="cancelThisVcard(this)" >CANCEL</a></p></div>'+
+                    '  </div>'+
+
+                        '<div class="vcardList media-list list-block virtual-list"></div>'+
+
+                    '</div>'+
+                  '</div>';
+
+      myApp.popup(popupHTML);
+
+      //console.log('OPEN myVcard = ');
+
+    makeVcard();
+
+    });
+
+
+
+
+
+
+
     $$('.camera').on('click', function() {
-        console.log('camera Pressed');
-        var prepair = '<div class="message message-sent message-pic theimage"><img src="img/loader.png" alt="Busy" height="15" width="15">INSERT PHOTO PLEASE WAIT...';
-        var old = '<img src="img/loader.png" alt="Busy" height="15" width="15">INSERT PHOTO PLEASE WAIT...';
+        //console.log('camera Pressed 3');
+
+
+        var prepair = '<div class="message message-sent message-pic theimage">INSERT PHOTO ...';
+        
+        // var old = '<img src="img/loader.png" alt="Busy" height="15" width="15">INSERT PHOTO PLEASE WAIT...';
+
         $$('#theimage').html(prepair);
+
+
         setTimeout(function() {
             navigator.camera.getPicture(onSuccess,
                 onFail, {
@@ -1320,54 +1517,198 @@ sslnote.onPageInit('Smessages-send-new', function(e) {
                 });
 
             function onSuccess(base64Img) {
-                console.log('-- THE IMAGE onSuccess');
+                //console.log('-- THE IMAGE onSuccess');
+
                 var theimage = '<div class="message message-sent message-pic message-last"><img src="data:image/jpeg;base64,' + base64Img + '"></div>';
+
                 $$('#theimage').html(theimage);
-                var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;base64,' + base64Img + '"></div>';
-                sessionStorage.setItem('imageURL', theimagestore);
-                console.log('-- THE IMAGE onSuccess DONE');
-                console.log('page.name Smessages-send-new B');
+
+
+
+var conversationStarted = false;
+var myMessages = myApp.messages('.messages', {
+  autoLayout:true
+});
+var avatar, name;
+
+var messageType = 'sent';
+
+//var messageText = '<div class="message message-sent message-pic message-last"><img src="data:image/jpeg;base64,' + base64Img + '"></div>';
+
+// var messageText = 'New contact';
+
+
+// //console.log('myMessages.addMessage ');
+
+// myMessages.addMessage({
+//     // Message text
+//     text: messageText,
+//     // Random message type
+//     type: messageType,
+//     // Avatar and name:
+//     avatar: avatar,
+//     name: name,
+//     // Day
+//     day: !conversationStarted ? 'Today' : false,
+//     time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
+//   })
+
+// //console.log('myMessages.addMessage DONE');
+
+//   // Update conversation flag
+//   conversationStarted = true;
+
+//   var myMessages = $$('.messages')[0].f7Messages;
+
+// myMessages.scrollMessages();
+
+
+
+               
+var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;base64,' + base64Img + '"></div>';
+
+sessionStorage.setItem('imageURL', theimagestore);
+
+
+
+
+
+
+
+                //console.log('-- THE IMAGE onSuccess DONE');
+                //console.log('page.name Smessages-send-new B');
+                
                 var myMessages = $$('.messages')[0].f7Messages;
 
                 myMessages.scrollMessages();
             }
 
             function onFail(message) {
-                sslnote.alert('Failed because: ' + message);
+                //myApp.alert('Failed because: ' + message);
+                $$('#theimage').html('');
             }
         }, 10);
     });
 
-    console.log('page.name Smessages-send-new 1');
+    //console.log('page.name Smessages-send-new 1');
 
 
     $$('.messagebar .link.send').on('click', function() {
+
+
         var message_new = $$('textarea#receive').val();
 
-        if (message_new.length === 0) {
+
+
+var sendMessage = 'no';
+
+
+// if(sessionStorage.getItem('imageURL') || sessionStorage.getItem('vCardstore') ) { 
+//     //console.log('have session image or vcard sendMessage = yes');
+//     var sendMessage = 'yes'; 
+// }
+
+
+if(message_new.length !== 0) { 
+    //console.log('message_new.length sendMessage = yes');
+    var sendMessage = 'yes'; 
+} 
+
+if(sessionStorage.getItem('imageURL') || sessionStorage.getItem('vCardstore') ) { 
+    //console.log('2314 have session image or vcard sendMessage = yes');
+    var sendMessage = 'yes'; 
+
+    if (message_new.length === 0) {
+        if( sessionStorage.getItem('imageURL')) {     
+            //console.log('have session image');
+            var message_new = 'New picture';  
+        }
+        if( sessionStorage.getItem('vCardstore') ) {     
+            //console.log('have session vCardstore');
+            var message_new = 'New contact';  
+        }
+
+   } 
+}
+
+
+
+        // if (message_new.length === 0) {
+        //     document.activeElement.blur();
+        //     myApp.alert('Messages cannot be empty!');
+        // } 
+
+
+        if (sendMessage === 'no') {
             document.activeElement.blur();
-            sslnote.alert('Messages cannot be empty!');
-        } else
+            myApp.alert('Messages cannot be empty!');
+        } 
+
+        else
 
         {
 
             var messages_old = '';
 
+
+
+
+var conversationStarted = false;
+var myMessages = myApp.messages('.messages', {
+  autoLayout:true
+});
+var avatar, name;
+
+var messageType = 'sent';
+
+var messageText = message_new;
+
+//console.log('myMessages.addMessage ');
+
+myMessages.addMessage({
+    // Message text
+    text: messageText,
+    // Random message type
+    type: messageType,
+    // Avatar and name:
+    avatar: avatar,
+    name: name,
+    // Day
+    day: !conversationStarted ? 'Today' : false,
+    time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
+  })
+
+//console.log('myMessages.addMessage DONE');
+
+  // Update conversation flag
+  conversationStarted = true;
+
+  var myMessages = $$('.messages')[0].f7Messages;
+
+myMessages.scrollMessages();
+
+
+
+
+
             if (localStorage.getItem(his_uid + 'encryptkey')) {
 
 
 
-                // console.log('-------------------------------------------------');
-                // console.log('localStorage KEY + ' + localStorage.getItem(his_uid + 'encryptkey'));
-                // console.log('localStorage his_uid + ' + his_uid);
-                // console.log('-------------------------------------------------');
+                // //console.log('-------------------------------------------------');
+                // //console.log('localStorage KEY + ' + localStorage.getItem(his_uid + 'encryptkey'));
+                // //console.log('localStorage his_uid + ' + his_uid);
+                // //console.log('-------------------------------------------------');
 
 
 
                 sessionStorage.setItem(his_uid + 'encryptkey', localStorage.getItem(his_uid + 'encryptkey'));
-                //console.log('sessionkey maked');
+                ////console.log('sessionkey maked');
             }
 
+                //console.log('-------------------------------------------------');
+                //console.log('sessionStorage his_uid ' + his_uid + ' KEY + ' + sessionStorage.getItem(his_uid + 'encryptkey'));
+                //console.log('-------------------------------------------------');
 
 
             if (sessionStorage.getItem(his_uid + 'encryptkey')) {
@@ -1375,9 +1716,7 @@ sslnote.onPageInit('Smessages-send-new', function(e) {
                 cryptingStart();
 
 
-                // console.log('-------------------------------------------------');
-                // console.log('sessionStorage KEY + ' + sessionStorage.getItem(his_uid + 'encryptkey'));
-                // console.log('-------------------------------------------------');
+
 
 
 
@@ -1387,89 +1726,205 @@ sslnote.onPageInit('Smessages-send-new', function(e) {
 
                 var message_old = '';
 
+
+
+//var myMessages = $$('.messages')[0].f7Messages;
+
+var data =[];
+$('.message').each(function(){
+
+   data.push({text: $(this).find('.message-text').html()});
+
+});
+
+
+
+
+// // Init Messages
+// var myMessages = myApp.messages('.messages', {
+//   autoLayout:true
+// });
+
+                //console.log('-------------------------------------------------');
+                //console.log('f7Messages + ' + myMessages);
+                console.log(data);
+                //console.log('-------------------------------------------------');
+
+
+
+
+
                 insertMessageSQLite('', thekey, his_uid, his_server, message_new, message_old);
 
 
-                console.log('-------------------------------------------------');
-                console.log('loadPage');
-                console.log('-------------------------------------------------');
+                //console.log('-------------------------------------------------');
+                //console.log('loadPage');
+                //console.log('-------------------------------------------------');
 
-                sslnote.showTab('#messagesview');
+                
 
                 setTimeout(function() {
+
+myApp.showTab('#messagesview');
+
+
                     contactsview.router.back({
                         url: 'frames/contacts/contacts.html',
                         animatePages: false,
                         reload: true
                     });
-                }, 400);
+
+
+
+                }, 500);
 
             } // end session exist
-            else {
-                //console.log('KEY BESTAAT NIET');
+            
+            else 
+            
+            {
+                ////console.log('KEY BESTAAT NIET');
                 document.activeElement.blur();
 
-                console.log('NO KEY SET KEY !');
+                //console.log('NO KEY SET KEY B!');
 
                 $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') + "/strings.json",
                     function(languageSpecificObject) {
-                        sslnote.prompt(
-                            languageSpecificObject.languageSpecifications[0]['yourkeyfor'] + '<BR>' + his_uid + ' (' + his_nick + ')',
-                            languageSpecificObject.languageSpecifications[0]['encryptmessage'],
-                            function(value) {
+
+
+
+var inputKeyValue = myApp.modal({
+            title:  languageSpecificObject.languageSpecifications[0]['encryptmessage'],
+            text: languageSpecificObject.languageSpecifications[0]['yourkeyfor'] + '<BR>' + his_uid + ' (' + his_nick + ')',
+        afterText: '<input type="text" class="modal-text-input">',
+        buttons: [
+            {
+                text: localStorage.getItem('CANCEL')
+            },
+            {
+                text: localStorage.getItem('OKE'),
+                close: false
+            }
+        ],
+        onClick: function (modal, index) {
+            if (index === 0 ) {
+
+                var value = $(modal).find('.modal-text-input').val();
+
+                //console.log('inputvalue 0:',value);
+
+            }
+
+
+            if (index === 1 ) {
+
+                var value = $(modal).find('.modal-text-input').val();
+
+                //console.log('inputvalue 1:',value);
+
+                if(value.length < 4) {
+
+                    //console.log('inputvalue EMPTY:',value);
+
+                    window.plugins.toast.show('please enter at least 4 characters', 'short', 'center');
+
+                    return false;
+                    
+                }
+                else
+                {
+                    myApp.closeModal();
 
                                 var newkey = value;
                                 var thekey = newkey.toLowerCase();
                                 var thekey = calcMD5(thekey);
 
-                                // console.log('SET SESSION = ' + his_uid + 'encryptkey = ' + thekey);
+                                //console.log('SET SESSION = ' + his_uid + 'encryptkey = ' + thekey);
 
                                 sessionStorage.setItem(his_uid + 'encryptkey', thekey);
+
                                 var message_old = '';
 
                                 insertMessageSQLite('', thekey, his_uid, his_server, message_new, message_old, activeLi);
 
-                                if (!localStorage.dotourfirstmessage) {
-                                    sessionStorage.removeItem(his_uid + 'encryptkey');
-                                    localStorage.dotourfirstmessagesend = 'showsend';
-                                    localStorage.dotourfirstmessage = 'Done';
-                                }
-
-                                // console.log('-------------------------------------------------');
-                                // console.log('loadPage input');
-                                // console.log('-------------------------------------------------');
-
-
-                                // makeNewMessageList('reFreshYes');
-                                // myMessagesList.update();      
-
-                                sslnote.showTab('#messagesview');
-
-
-                                // makeNewMessageList('reFreshYes');
-
-
+                               
 
                                 setTimeout(function() {
+
+
                                     contactsview.router.back({
                                         url: 'frames/contacts/contacts.html',
                                         animatePages: false,
                                         reload: true
                                     });
-                                }, 400);
-                            },
-                            function(value) {
 
-                                // contactsview.router.back();
+ myApp.showTab('#messagesview');
 
-                            }); // end promt
+                                }, 500);
+
+                }
+
+            }
+
+        }
+});
+
+
+//                         myApp.prompt(
+//                             languageSpecificObject.languageSpecifications[0]['yourkeyfor'] + '<BR>' + his_uid + ' (' + his_nick + ')',
+//                             languageSpecificObject.languageSpecifications[0]['encryptmessage'],
+//                             function(value) {
+
+// if(value.length >= 4) {
+
+//                                 var newkey = value;
+//                                 var thekey = newkey.toLowerCase();
+//                                 var thekey = calcMD5(thekey);
+
+//                                 //console.log('SET SESSION = ' + his_uid + 'encryptkey = ' + thekey);
+
+//                                 sessionStorage.setItem(his_uid + 'encryptkey', thekey);
+
+//                                 var message_old = '';
+
+//                                 insertMessageSQLite('', thekey, his_uid, his_server, message_new, message_old, activeLi);
+
+//                                 myApp.showTab('#messagesview');
+
+
+//                                 setTimeout(function() {
+//                                     contactsview.router.back({
+//                                         url: 'frames/contacts/contacts.html',
+//                                         animatePages: false,
+//                                         reload: true
+//                                     });
+//                                 }, 400);
+
+// }
+
+// else
+
+
+// {
+
+// return;
+
+
+// }
+
+
+
+
+                            // }); // end promt
+
                     });
+
             } // end else
         } // end if messages == empty
 
     }); // end page.container 
 
-    console.log('page.name Smessages-send-new END');
+    //console.log('page.name Smessages-send-new END');
 
 }); // end page.name
 
@@ -1479,22 +1934,24 @@ sslnote.onPageInit('Smessages-send-new', function(e) {
 //*************************************************************************************************************
 //********************** END PAGE INIT ****************************************************************************
 //*************************************************************************************************************
-sslnote.onPageInit('Smessages-send', function(e) {
+myApp.onPageInit('Smessages-send', function(e) {
     localStorage.setItem('activePage', 'messages-send');
 
-    console.log('page.name Smessages-send');
+    //console.log('page.name Smessages-send');
     localStorage.setItem('showalert', 0);
 
-    sslnote.showTab('#messagesview');
+    myApp.showTab('#messagesview');
+
+
     document.activeElement.blur();
-    sslnote.showIndicator();
-    console.log('------------------------------');
-    console.log('INIT MESSAGES-SEND');
+    myApp.showIndicator();
+    //console.log('------------------------------');
+    //console.log('INIT MESSAGES-SEND');
  //   console.log(e.query);
-    console.log('------------------------------');
+    //console.log('------------------------------');
     var conversationStarted = false;
 
-    var myMessages = sslnote.messages('.messages', {
+    var myMessages = myApp.messages('.messages', {
         autoLayout: true
     });
 
@@ -1519,12 +1976,50 @@ sslnote.onPageInit('Smessages-send', function(e) {
     sessionStorage.setItem('messagesReadStatus', mid);
 
 $$('.his_nick').html(his_nick);
+
+
+$$('.vcard').on('click', function() {
+        //console.log('vcard Pressed 3');
+
+
+        var prepair = '<div class="message message-send message-vcard"><span>INSERT VCARD (.........)</span></DIV>';
+
+        
+        // var old = '<img src="img/loader.png" alt="Busy" height="15" width="15">INSERT VCARD PLEASE WAIT...';
+
+        $$('#thevcard').html(prepair);
+
+        var popupHTML = '<div class="popup">'+
+
+                    '<div class="content-block">'+
+
+
+                    '  <div class="row">'+
+                    '    <div class="col-80"><p>SELECT CONTACT TO SHARE</p></div>'+
+                    '    <div class="col-20"><p><a href="#" onclick="cancelThisVcard(this)" >CANCEL</a></p></div>'+
+                    '  </div>'+
+
+                        '<div class="vcardList media-list list-block virtual-list"></div>'+
+
+                    '</div>'+
+                  '</div>';
+
+      myApp.popup(popupHTML);
+
+      //console.log('OPEN myVcard = ');
+
+    makeVcard();
+
+    });
+
+
+
     $$('.camera').on('click', function() {
-        console.log('camera Pressed');
+        //console.log('camera Pressed 2');
 
-        var prepair = '<div class="message message-sent message-pic"><img src="img/loader.png" alt="Busy" height="15" width="15">INSERT PHOTO PLEASE WAIT...';
+        var prepair = '<div class="message message-sent message-pic">INSERT PHOTO PLEASE WAIT...';
 
-        var old = '<img src="img/loader.png" alt="Busy" height="15" width="15">INSERT PHOTO PLEASE WAIT...';
+        // var old = '<img src="img/loader.png" alt="Busy" height="15" width="15">INSERT PHOTO PLEASE WAIT...';
 
 
         $$('#theimage').html(prepair);
@@ -1540,12 +2035,13 @@ $$('.his_nick').html(his_nick);
                 });
 
             function onSuccess(base64Img) {
-                console.log('-- THE IMAGE onSuccess');
+                //console.log('-- THE IMAGE onSuccess');
                 var theimage = '<div class="message message-sent message-pic message-last"><img src="data:image/jpeg;base64,' + base64Img + '"></div>';
                 $$('#theimage').html(theimage);
                 var theimagestore = '<div class="message message-pic"><img src="data:image/jpeg;base64,' + base64Img + '"></div>';
+
                 sessionStorage.setItem('imageURL', theimagestore);
-                console.log('-- THE IMAGE onSuccess DONE');
+                //console.log('-- THE IMAGE onSuccess DONE');
                 var myMessages = $$('.messages')[0].f7Messages;
 
 
@@ -1556,7 +2052,8 @@ $$('.his_nick').html(his_nick);
             }
 
             function onFail(message) {
-                sslnote.alert('Failed because: ' + message);
+               // myApp.alert('Failed because: ' + message);
+                $$('#theimage').html('');
             }
 
         }, 10);
@@ -1571,13 +2068,13 @@ $$('.his_nick').html(his_nick);
     app.selectAllRecords = function(fn) {
         app.db.transaction(function(tx) {
 
-            console.log('app.db.transaction');
+            //console.log('app.db.transaction');
 
             if (sessionStorage.getItem('mid') != 'undefined') {
-                console.log('selectMIDByMid 1 from mid = ' + sessionStorage.getItem('mid'));
+                //console.log('selectMIDByMid 1 from mid = ' + sessionStorage.getItem('mid'));
                 tx.executeSql(selectMIDByMid, [sessionStorage.getItem('mid')], fn, app.onError);
             } else {
-                console.log('selectMID 1 available message. for his_uid = ' + sessionStorage.getItem('his_uid'));
+                //console.log('selectMID 1 available message. for his_uid = ' + sessionStorage.getItem('his_uid'));
                 tx.executeSql(selectMID, [localStorage.getItem('UID'), sessionStorage.getItem('his_uid')], fn, app.onError);
             }
         });
@@ -1587,7 +2084,7 @@ $$('.his_nick').html(his_nick);
     var render = function(tx, rs) {
         for (var i = 0; i < rs.rows.length; i++) {
             var data = rs.rows.item(i);
-            console.log('data READ = ' + data);
+            //console.log('data READ = ' + data);
 
             var mid = data.mid;
             var message = data.message;
@@ -1596,17 +2093,17 @@ $$('.his_nick').html(his_nick);
             var mdatum = data.mdatum;
 
 
-            console.log('mdatum DBASE = ' + mdatum);
+            //console.log('mdatum DBASE = ' + mdatum);
             sessionStorage.setItem('Pushmdatum', mdatum);
-            console.log('mdatum READ = ' + sessionStorage.getItem('Pushmdatum'));
+            //console.log('mdatum READ = ' + sessionStorage.getItem('Pushmdatum'));
 
 
             var setkey = sessionStorage.getItem(his_uid + 'encryptkey');
 
 
-            // console.log('+++ setkey = ' + sessionStorage.getItem(his_uid + 'encryptkey'));
+            // //console.log('+++ setkey = ' + sessionStorage.getItem(his_uid + 'encryptkey'));
 
-            sslnote.showIndicator();
+            myApp.showIndicator();
 
             var message_old = "";
             var message = message.replace(/ /g, '+');
@@ -1614,68 +2111,85 @@ $$('.his_nick').html(his_nick);
             try {
                 var message_old = sjcl.decrypt(setkey, message);
 
-                console.log('INTERNAL DECRYPT');
+                //console.log('INTERNAL DECRYPT');
 
                 if (message_old == '') {
-                    sslnote.modal({
+                    myApp.modal({
                         title: 'Crypting',
                         text: 'Oops, a Error. maybe key wrong?',
-                        buttons: [{
-                            text: 'RESET KEY',
+
+
+
+                        buttons: [
+
+                        {
+                            text: 'TRY AGAIN',
                             onClick: function() {
                                 sessionStorage.removeItem(his_uid + 'encryptkey', '');
                                 sessionStorage.removeItem('mid');
-                                sslnote.alert('KEY resetted!');
+                                myApp.alert('KEY resetted!');
                                 messagesview.router.back({
                                     url: 'frames/contacts/Scontactlist.html',
                                     reload: true
                                 });
                             }
-                        }, {
-                            text: 'WIPE',
-                            onClick: function() {
-                                var lastTime = 0;
-                                if (mid) {
-                                    app.db.transaction(function(tx) {
-                                        tx.executeSql(removeMessagesToReceive, [mid], onRemovedSuccess, onError);
-                                        var now = new Date().getTime();
-                                        if (now - lastTime > 1000) {
-                                            $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
-                                                "/strings.json",
-                                                function(languageSpecificObject) {
-                                                    var themessage = languageSpecificObject.languageSpecifications[0]['messageswiped']; // TRANSLATE
-                                                    $$.ajax({
-                                                        method: 'POST',
-                                                        dataType: 'jsonp',
-                                                        url: localStorage.getItem('pushserver'),
-                                                        crossDomain: true,
-                                                        data: {
-                                                            my_uid: localStorage.getItem('UID'),
-                                                            his_uid: his_uid,
-                                                            themessage: themessage
-                                                        },
-                                                        success: function(responseData, textStatus, jqXHR) {
-                                                            sessionStorage.removeItem('mid');
-                                                        }
-                                                    });
-                                                }
-                                            );
-                                        }
-                                        lastTime = now;
-                                        SQLiteUpdateMessagesTotal();
-                                    });
-                                }
-                                contactview.router.back({
-                                    url: 'frames/contacts/Scontactlist.html',
-                                    reload: true
-                                });
-                            }
-                        }, {
-                            text: 'HOME',
-                            onClick: function() {
-                                messagesview.router.back()
-                            }
-                        }, ]
+                        }, 
+
+                        // {
+                        //     text: 'DELETE',
+                        //     onClick: function() {
+                        //         var lastTime = 0;
+                        //         if (mid) {
+                        //             app.db.transaction(function(tx) {
+                        //                 tx.executeSql(removeMessagesToReceive, [mid], onRemovedSuccess, onError);
+                        //                 var now = new Date().getTime();
+                        //                 if (now - lastTime > 1000) {
+                        //                     $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
+                        //                         "/strings.json",
+                        //                         function(languageSpecificObject) {
+                        //                             var themessage = languageSpecificObject.languageSpecifications[0]['messageswiped']; // TRANSLATE
+                        //                             $$.ajax({
+                        //                                 method: 'POST',
+                        //                                 dataType: 'jsonp',
+                        //                                 url: localStorage.getItem('pushserver'),
+                        //                                 crossDomain: true,
+                        //                                 data: {
+                        //                                     my_uid: localStorage.getItem('UID'),
+                        //                                     his_uid: his_uid,
+                        //                                     themessage: themessage
+                        //                                 },
+                        //                                 success: function(responseData, textStatus, jqXHR) {
+                        //                                     sessionStorage.removeItem('mid');
+                        //                                 }
+                        //                             });
+                        //                         }
+                        //                     );
+                        //                 }
+                        //                 lastTime = now;
+                        //                 SQLiteUpdateMessagesTotal();
+                        //             });
+                        //         }
+                        //         contactview.router.back({
+                        //             url: 'frames/contacts/Scontactlist.html',
+                        //             reload: true
+                        //         });
+                        //     }
+                        // }, 
+
+                        // {
+                        //     text: 'TRY AGAIN',
+                        //     onClick: function() {
+
+                        //         sessionStorage.removeItem(his_uid + 'encryptkey', '');
+                        //         sessionStorage.removeItem('mid');
+
+                        //         messagesview.router.back()
+                        //     }
+                        // }, 
+
+
+
+                        ]
                     })
 
 
@@ -1689,18 +2203,18 @@ $$('.his_nick').html(his_nick);
                 var isaid = new RegExp(localStorage.getItem('UID'), 'g');
                 message_old = message_old.replace(isaid, 'Me');
 
-                var sslnotetemp = new RegExp('message-send', 'g');
-                message_old = message_old.replace(sslnotetemp, 'sslnotetemp');
+                var myApptemp = new RegExp('message-send', 'g');
+                message_old = message_old.replace(myApptemp, 'myApptemp');
                 // message-received > message-sent
                 var receivedtemp = new RegExp('message-received', 'g');
                 message_old = message_old.replace(receivedtemp, 'message-send');
-                // sslnotetemp > message-received
-                var sendtemp = new RegExp('sslnotetemp', 'g');
+                // myApptemp > message-received
+                var sendtemp = new RegExp('myApptemp', 'g');
                 message_old = message_old.replace(sendtemp, 'message-received');
-                //console.log('**********************************************');
-                //console.log('*************** MESSAGE OLD AFTER *******************');
+                ////console.log('**********************************************');
+                ////console.log('*************** MESSAGE OLD AFTER *******************');
                 //console.log(message_old);
-                //console.log('**********************************************');
+                ////console.log('**********************************************');
                 sessionStorage.setItem('message_old', message_old);
                 $$('.hisnickinfonavbar').html('');
                 $$('.hisuidlastseen').html('');
@@ -1710,10 +2224,12 @@ $$('.his_nick').html(his_nick);
                     tx.executeSql(updateBadgeTo, [], onUpdateSuccess, onError);
                 });
 
+                totalMessageUpdate();
+
                 $$('.messageoldsend').html(sessionStorage.getItem('message_old'));
 
-                sslnote.hideIndicator();
-                sslnote.hidePreloader();
+                myApp.hideIndicator();
+                myApp.hidePreloader();
 
                 var myMessages = $$('.messages')[0].f7Messages;
 
@@ -1728,8 +2244,8 @@ $$('.his_nick').html(his_nick);
                     function(languageSpecificObject) {
                         var themessage = languageSpecificObject.languageSpecifications[0]['messagesread']; // TRANSLATE
 
-                        console.log('PushNotification = Read');
-                        console.log('PushDatum = ' + sessionStorage.getItem('Pushmdatum'))
+                        //console.log('PushNotification = Read');
+                        //console.log('PushDatum = ' + sessionStorage.getItem('Pushmdatum'))
 
                         $$.ajax({
                             method: 'POST',
@@ -1745,7 +2261,7 @@ $$('.his_nick').html(his_nick);
                             },
                             success: function(responseData, textStatus, jqXHR) {
                                 console.log(responseData);
-                                console.log('------------------------------');
+                                //console.log('------------------------------');
                             }
                         });
                     });
@@ -1760,7 +2276,7 @@ $$('.his_nick').html(his_nick);
 
 
                     if (mid) {
-                        console.log('A CLICK AUTODELETE ');
+                        //console.log('A CLICK AUTODELETE ');
                         app.db.transaction(function(tx) {
                             tx.executeSql(removeMessagesToReceive, [mid], onRemovedSuccess, onError);
 
@@ -1773,8 +2289,8 @@ $$('.his_nick').html(his_nick);
                                     function(languageSpecificObject) {
                                         var themessage = languageSpecificObject.languageSpecifications[0]['messageswiped']; // TRANSLATE
 
-                                        console.log('PushNotification = Wiped');
-                                        console.log('PushDatum = ' + sessionStorage.getItem('Pushmdatum'));
+                                        //console.log('PushNotification = Wiped');
+                                        //console.log('PushDatum = ' + sessionStorage.getItem('Pushmdatum'));
 
                                         $$.ajax({
                                             method: 'POST',
@@ -1816,23 +2332,23 @@ $$('.his_nick').html(his_nick);
 
                 $$('.message-send-back').on('click', function() {
 
-                    console.log('.message-send-back');
+                    //console.log('.message-send-back');
                     sessionStorage.removeItem('selectItemId');
                     // makeNewMessageList('reFreshYes');
                 })
 
 
                 $$('.newmessage').on('click', function() {
-                    console.log('CLICK newmessage2');
+                    //console.log('CLICK newmessage2');
                     sessionStorage.removeItem('mid');
                 });
 
 
                 $$('.changekey').on('click', function() {
-                    sslnote.confirm('RESET KEY?', function() {
+                    myApp.confirm('RESET KEY?', function() {
                         sessionStorage.removeItem(his_uid + 'encryptkey', '');
                         sessionStorage.removeItem('mid');
-                        sslnote.alert('KEY resetted!');
+                        myApp.alert('KEY resetted!');
 
                         localStorage.removeItem(his_uid + 'encryptkey');
                         app.db.transaction(function(tx) {
@@ -1843,16 +2359,16 @@ $$('.his_nick').html(his_nick);
                         messagesview.router.back();
 
                     }, function() {
-                        sslnote.alert('You clicked Cancel button');
+                        myApp.alert('You clicked Cancel button');
                     });
                 });
 
 
                 $$('.changekeyMessagesList').on('click', function() {
-                    sslnote.confirm('RESET KEY?', function() {
+                    myApp.confirm('RESET KEY?', function() {
                             sessionStorage.removeItem(his_uid + 'encryptkey', '');
                             sessionStorage.removeItem('mid');
-                            sslnote.alert('KEY resetted!');
+                            myApp.alert('KEY resetted!');
                             localStorage.removeItem(his_uid + 'encryptkey');
                             app.db.transaction(function(tx) {
                                 tx.executeSql(updateKey, ['0', '', his_uid], onUpdateKeySuccess, onError);
@@ -1871,15 +2387,101 @@ $$('.his_nick').html(his_nick);
                 // -----------------------------------------------------------------------------
                 $$('.messagebar .link.send').on('click', function() {
                     var message_new = $$('textarea#receive').val();
-                    if (message_new.length === 0) {
-                        document.activeElement.blur();
-                        sslnote.alert('Messages cannot be empty!');
-                    } 
+
+var sendMessage = 'no';
+
+
+
+
+
+if(message_new.length !== 0) { 
+    //console.log('message_new.length sendMessage = yes');
+    var sendMessage = 'yes'; 
+} 
+
+
+if(sessionStorage.getItem('imageURL') || sessionStorage.getItem('vCardstore') ) { 
+    //console.log('2314 have session image or vcard sendMessage = yes');
+    var sendMessage = 'yes'; 
+
+    if (message_new.length === 0) {
+        if( sessionStorage.getItem('imageURL')) {     
+            //console.log('have session image');
+            var message_new = 'New picture';  
+        }
+        if( sessionStorage.getItem('vCardstore') ) {     
+            //console.log('have session vCardstore');
+            var message_new = 'New contact';  
+        }
+
+   } 
+}
+
+
+
+
+
+
+        // if (message_new.length === 0) {
+        //     document.activeElement.blur();
+        //     myApp.alert('Messages cannot be empty!');
+        // } 
+
+
+        if (sendMessage === 'no') {
+            document.activeElement.blur();
+            myApp.alert('Messages cannot be empty!');
+        } 
+
+
+
+
+
+
+
+
+                    // if (message_new.length === 0) {
+                    //     document.activeElement.blur();
+                    //     myApp.alert('Messages cannot be empty!');
+                    // } 
 
                     else
 
                     {
 
+var conversationStarted = false;
+var myMessages = myApp.messages('.messages', {
+  autoLayout:true
+});
+var avatar, name;
+
+var messageType = 'sent';
+
+var messageText = message_new;
+
+//console.log('myMessages.addMessage ');
+
+myMessages.addMessage({
+    // Message text
+    text: messageText,
+    // Random message type
+    type: messageType,
+    // Avatar and name:
+    avatar: avatar,
+    name: name,
+    // Day
+    day: !conversationStarted ? 'Today' : false,
+    time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
+  })
+
+//console.log('2410 myMessages.addMessage DONE');
+
+  // Update conversation flag
+  conversationStarted = true;
+
+  var myMessages = $$('.messages')[0].f7Messages;
+
+myMessages.scrollMessages();
 
 
 
@@ -1905,7 +2507,7 @@ $$('.his_nick').html(his_nick);
                             // },300);
 
 
-                // sslnote.showTab('#messagesview');
+                // myApp.showTab('#messagesview');
 
                 // setTimeout(function() {
                 //     messagesview.router.back({
@@ -1919,103 +2521,186 @@ $$('.his_nick').html(his_nick);
 
 
 
+                //console.log('-------------------------------------------------');
+                //console.log('loadPage');
+                //console.log('-------------------------------------------------');
 
+                
+
+                setTimeout(function() {
+
+myApp.showTab('#messagesview');
+
+
+                    contactsview.router.back({
+                        url: 'frames/contacts/contacts.html',
+                        animatePages: false,
+                        reload: true
+                    });
+
+
+
+                }, 500);
 
                         } // end session exist
+
+
+
+
                         //             } // end else
                     } // end if messages == empty
                 }); // end page.container 
             } catch (err) {
-                sslnote.hidePreloader();
-                console.log('Oops, a Error. maybe key wrong?');
-                sslnote.modal({
+                myApp.hidePreloader();
+                //console.log('Oops, a Error. maybe key wrong?');
+                myApp.modal(
+
+                {
                     title: 'Crypting',
                     text: 'Oops, a Error. maybe key wrong?',
-                    buttons: [{
-                        text: 'RESET KEY',
+                    buttons: [
+
+
+                    {
+                        text: 'TRY AGAIN',
                         onClick: function() {
                             sessionStorage.removeItem(his_uid + 'encryptkey');
                             sessionStorage.removeItem('mid');
-                            sslnote.alert('KEY resetted!');
-                            sslnote.hideIndicator();
+                            myApp.alert('KEY resetted!');
+                            myApp.hideIndicator();
                             messagesview.router.back({
                                 url: 'frames/messages/messages.html',
                                 reload: true
                             });
                         }
-                    }, {
-                        text: 'WIPE',
-                        onClick: function() {
-                            console.log('D CLICK WIPE ');
-                            if (sessionStorage.getItem('mid')) {
-                                app.db.transaction(
-                                    function(tx) {
-                                        tx.executeSql(removeMessagesToReceive, [mid], onRemovedSuccess, onError);
-                                        $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') + "/strings.json",
-                                            function(languageSpecificObject) {
-                                                var themessage = languageSpecificObject.languageSpecifications[0]['messageswiped']; // TRANSLATE
-                                                $$.ajax({
-                                                    method: 'POST',
-                                                    dataType: 'jsonp',
-                                                    url: localStorage.getItem('pushserver'),
-                                                    crossDomain: true,
-                                                    data: {
-                                                        my_uid: localStorage.getItem('UID'),
-                                                        his_uid: his_uid,
-                                                        themessage: themessage
-                                                    },
-                                                    success: function(responseData, textStatus, jqXHR) {
-                                                        sessionStorage.removeItem('mid');
-                                                    }
-                                                });
-                                            }
-                                        );
-                                        SQLiteUpdateMessagesTotal();
-                                    });
-                            }
-                            sslnote.hideIndicator();
-                            messagesview.router.back();
-                        }
-                    }, {
-                        text: 'HOME',
-                        onClick: function() {
-                            sslnote.hideIndicator();
-                            messagesview.router.back();
-                        }
-                    }, ]
+                    }, 
+
+
+                    // {
+                    //     text: 'WIPE',
+                    //     onClick: function() {
+                    //         //console.log('D CLICK WIPE ');
+                    //         if (sessionStorage.getItem('mid')) {
+                    //             app.db.transaction(
+                    //                 function(tx) {
+                    //                     tx.executeSql(removeMessagesToReceive, [mid], onRemovedSuccess, onError);
+                    //                     $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') + "/strings.json",
+                    //                         function(languageSpecificObject) {
+                    //                             var themessage = languageSpecificObject.languageSpecifications[0]['messageswiped']; // TRANSLATE
+                    //                             $$.ajax({
+                    //                                 method: 'POST',
+                    //                                 dataType: 'jsonp',
+                    //                                 url: localStorage.getItem('pushserver'),
+                    //                                 crossDomain: true,
+                    //                                 data: {
+                    //                                     my_uid: localStorage.getItem('UID'),
+                    //                                     his_uid: his_uid,
+                    //                                     themessage: themessage
+                    //                                 },
+                    //                                 success: function(responseData, textStatus, jqXHR) {
+                    //                                     sessionStorage.removeItem('mid');
+                    //                                 }
+                    //                             });
+                    //                         }
+                    //                     );
+                    //                     SQLiteUpdateMessagesTotal();
+                    //                 });
+                    //         }
+                    //         myApp.hideIndicator();
+                    //         messagesview.router.back();
+                    //     }
+                    // }, 
+
+
+                    //     {
+                    //         text: 'TRY AGAIN',
+                    //         onClick: function() {
+
+                    //             sessionStorage.removeItem(his_uid + 'encryptkey', '');
+                    //             sessionStorage.removeItem('mid');
+                                
+                    //             messagesview.router.back()
+                    //         }
+                    //     }, 
+
+
+                    ]
                 })
             }
             return decrypted;
         }
     }
 
-
+        //console.log('Have session key render Mesaages');
+        //console.log('Have session key render Mesaages = ' + sessionStorage.getItem(his_uid + 'encryptkey'));
+        //console.log('Have session key render Mesaages');
 
 
     if (sessionStorage.getItem(his_uid + 'encryptkey'))
 
     {
-        // console.log('Have session key render Mesaages');
-        // console.log('Have session key render Mesaages = ' + sessionStorage.getItem(his_uid + 'encryptkey'));
-        // console.log('Have session key render Mesaages');
+
 
         app.selectAllRecords(render);
 
-    } else // ask key
+    } 
+
+    else // ask key
 
     {
 
 
-        console.log('NO KEY');
+        //console.log('NO KEY SET KEY A!');
+
         document.activeElement.blur();
         localStorage.setItem('showalert', 0);
 
         $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
             "/strings.json",
             function(languageSpecificObject) {
-                sslnote.prompt(languageSpecificObject.languageSpecifications[0]['yourkeyfor'] + '<BR>' + his_uid + ' (' + his_nick + ')',
-                    languageSpecificObject.languageSpecifications[0]['decryptmessage'],
-                    function(value) {
+
+
+var inputKeyValue = myApp.modal({
+            title:  languageSpecificObject.languageSpecifications[0]['decryptmessage'],
+            text: languageSpecificObject.languageSpecifications[0]['yourkeyfor'] + '<BR>' + his_uid + ' (' + his_nick + ')',
+        afterText: '<input type="text" class="modal-text-input">',
+        buttons: [
+            {
+                text: localStorage.getItem('CANCEL')
+            },
+            {
+                text: localStorage.getItem('OKE'),
+                close: false
+            }
+        ],
+        onClick: function (modal, index) {
+            if (index === 0 ) {
+
+                var value = $(modal).find('.modal-text-input').val();
+
+                //console.log('inputvalue 0:',value);
+
+            }
+
+
+            if (index === 1 ) {
+
+                var value = $(modal).find('.modal-text-input').val();
+
+                //console.log('inputvalue 1:',value);
+
+                if(value.length < 4) {
+
+                    //console.log('inputvalue EMPTY:',value);
+
+                    window.plugins.toast.show('please enter at least 4 characters', 'short', 'center');
+
+                    return false;
+                    
+                }
+                else
+                {
+                    myApp.closeModal();
 
                         var newkey = value;
                         var setkey = newkey.toLowerCase();
@@ -2023,7 +2708,10 @@ $$('.his_nick').html(his_nick);
 
                         sessionStorage.setItem(his_uid + 'encryptkey', setkey);
 
-                        console.log('render Mesaages');
+                        //console.log('SET SESSION = ' + his_uid + 'encryptkey = ' + setkey);
+
+
+                        //console.log('render Mesaages');
 
                         messagesview.router.refreshPage({
                             url: 'frames/messages/Smessages-send.html',
@@ -2033,14 +2721,213 @@ $$('.his_nick').html(his_nick);
 
                         myMessagesList.update();
 
-                        console.log('render Mesaages loaded');
+                        //console.log('render Mesaages loaded');
 
-                    },
-                    function(value) {
-                        messagesview.router.back();
-                    }); // end prompt
+                }
+
+            }
+
+        }
+});
+
+
+
+
+
+                // myApp.prompt(languageSpecificObject.languageSpecifications[0]['yourkeyfor'] + '<BR>' + his_uid + ' (' + his_nick + ')',
+                //     languageSpecificObject.languageSpecifications[0]['decryptmessage'],
+                //     function(value) {
+
+
+
+                //         var newkey = value;
+                //         var setkey = newkey.toLowerCase();
+                //         var setkey = calcMD5(setkey);
+
+                //         sessionStorage.setItem(his_uid + 'encryptkey', setkey);
+
+                //         //console.log('SET SESSION = ' + his_uid + 'encryptkey = ' + setkey);
+
+
+                //         //console.log('render Mesaages');
+
+                //         messagesview.router.refreshPage({
+                //             url: 'frames/messages/Smessages-send.html',
+                //             reload: true
+                //         });
+
+
+                //         myMessagesList.update();
+
+                //         //console.log('render Mesaages loaded');
+
+                //     }); // end prompt
+
+
+
             });
     } // end else
-console.log('INIT MESSAGES-SEND END');
+//console.log('INIT MESSAGES-SEND END');
 
 }); // end page.name
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+function makeVcard() {
+
+
+//console.log('+++ Fn makeVcard :',localStorage.getItem('UID'));
+
+var uid = localStorage.getItem('UID');
+
+    app.selectAllRecords = function(fn) {
+            app.db.transaction(function(tx) {
+                tx.executeSql(selectUIDLinks, [uid], fn, onError);
+            });
+        }
+
+    var render = function(tx, rs) {
+
+                    var uid = localStorage.getItem('UID');
+
+                    if (rs.rows.length) {
+
+                      //console.log(rs);
+
+                        //console.log('RECORD EXIST makeVcard');
+
+                    var items = new Array(); 
+
+                        for (var i = 0; i < rs.rows.length; i++) {
+                       
+                            var contactItem = rs.rows.item(i);
+// //console.log('------------------------------------------');
+//                             console.log(contactItem);
+// //console.log('------------------------------------------');
+                            if (contactItem.autocrypt === 1) {
+                                contactItem.autocrypt  = "active";
+
+
+
+                                // var tempkey =str.toLowerCase();
+                                // var tempkey =calcMD5(tempkey);
+                                
+localStorage.setItem(contactItem.his_uid +'encryptkey',contactItem.autocryptkey);
+
+//console.log(contactItem.his_uid + '!!!!!!!! encryptkey SET');
+
+
+
+                            }                         
+                            else 
+                            {
+                                contactItem.autocrypt = "";
+
+localStorage.removeItem(contactItem.his_uid +'encryptkey');
+//console.log(contactItem.his_uid + '!!!!!!!!!! encryptkey REMOVED');
+
+                            } 
+
+                            if (contactItem.nuonline === '1') {
+
+                            } 
+                            else 
+                            {
+                       //         items['online'] = "";
+                            }
+
+                            if (contactItem.badge >= '1') {
+                                contactItem.badge = "badge-green";
+                            } else {
+                                contactItem.badge = "badge-grey";
+                            }
+
+
+                            if (contactItem.his_server === '0000') {
+
+
+                                contactItem.his_server = "0000";
+                                contactItem.page = "";
+                                contactItem.notconfirm = " ( Not Confirm )";
+
+
+
+
+                            } else {
+                                contactItem.his_server = contactItem.his_server;
+                                contactItem.notconfirm = "";
+                            }
+
+
+                            if (contactItem.totalmessages >= 2) {
+                                contactItem.page = "messages/messages";
+                            }
+
+                            if (contactItem.his_nick == 'EX5L9271J1') {
+                                contactItem.his_nick = "SUPPORT";
+
+                            } else if (contactItem.his_nick == 'EMD7LDAV5X') {
+                                contactItem.his_nick = "TEST ACCOUNT";
+                            } 
+
+                            reggie = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/g;
+
+                            dateArray = reggie.exec(contactItem.online);
+
+                            mdatum2 = new Date(
+                                (+dateArray[1]), (+dateArray[2]) - 1, // Careful, month starts at 0!
+                                (+dateArray[3]), (+dateArray[4]), 
+                                (+dateArray[5]), (+dateArray[6]));
+
+                            //////console.log('mdatum2 = ' +mdatum2);
+// MONTH                            
+                            var monthNames = ["Jan", "Feb", "Mar", "Apr",
+                                "May", "Jun", "Jul", "Aug", "Sep",
+                                "Oct", "Nov", "Dec"
+                            ];
+
+                            contactItem.lastseen = mdatum2.getDate() + '-' + monthNames[mdatum2.getMonth()] + ' ' 
+                                                    + (mdatum2.getHours() < 10 ? '0' : '') + mdatum2.getHours() + ':' 
+                                                    + (mdatum2.getMinutes() < 10 ? '0' : '') + mdatum2.getMinutes();
+                                                    
+                            contactItem.lastseentxt = localStorage.getItem('lastseentxt');
+
+                            items.push(contactItem);
+
+                        } // end for
+
+          // //console.log('items : b contacts ');
+          // console.log(items);
+
+  //            localStorage.myVcard = JSON.stringify(items);
+
+
+
+
+var myVcard = Template7.templates.myVcardTemplate(items);
+
+
+$$('.vcardList').html(myVcard);
+
+// $$('.closeButton').html('<p><a href="#" onclick="cancelThisVcard(this)" >CANCEL</a></p>');
+
+
+// //console.log('test DONE = ',myVcard);
+
+
+
+             // //console.log('+++ loadContent contacts.js');
+          } // end   if (rs.rows.length
+
+
+               
+
+    } // end render
+
+app.selectAllRecords(render);
+
+}
+
+

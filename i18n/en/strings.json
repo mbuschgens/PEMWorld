@@ -6,22 +6,22 @@
 "PAGE": "************************************************************************************************************", 
  	
 "GLOBALBUTTONS": "----------------------------------- GLOBAL BUTTONS ----------------------------------- ", 
-
+"CREATE_NEW": "CREATE NEW",
+"REBUILD": "REBUILD",
+"LOGIN": "LOGIN",
+"BACK": "BACK",
+"CHECK": "CHECK",
 "ACCEPT": "ACCEPT",
-"accept": "ACCEPT",
-"back": "BACK",
 "CHANGE": "CHANGE",
 "CANCEL": "CANCEL",
-"cancel": "CANCEL",
+"DELETE": "DELETE",
 "from": "From",
 "home": "HOME",
 "NEXT": "NEXT",
 "notnow": "Not now",
 "none": "NONE",
 "note": "Note",
-"OKE": "OKE",
-"oke": "OKE",
-"on": "On",
+"OKE": "OK",
 "remove": "REMOVE",
 "removeallsettings": "Remove All Local Settings",
 "REFUSE": "REFUSE",
@@ -30,9 +30,31 @@
 "search": "Search",
 "SAVE": "SAVE",
 "START": "START",
-"send": "Send",
+"send": "Sent",
 "volume": " Volume",
 "WIPE": "WIPE",
+"ON": "ON",
+"OFF": "OFF",
+"NO": "NO",
+"YES": "YES",
+"PASSWORD": "PASSWORD",
+"MAIN_PASSWORD": "MAIN PASSWORD",
+"BURN_PASSWORD": "BURN PASSWORD",
+"YOUR_PINCODE": "YOUR PINCODE",
+"minutes": "3 minutes,4 minutes,5 minutes,6 minutes,7 minutes,8 minutes,9 minutes",
+"LAST_ATTEMPT": "Your LAST attempt at illegal entry,<BR>the App will be erased!",
+"INVALID_PASSWORD": "INVALID PASSWORD",
+"TEMPERY_BLOCK": "Temporary block.<BR>Please write -pemworld- to unblock.",
+"TEMPERY_BLOCK_OKE": "-PEMWORLD- Fill in ok, Try your password",
+
+"passwordnotthesame": "Passwords not the same.",
+
+"passwordcannotbeempty": "Password cannot be empty",
+
+"passwordcannotbesameasmain": "Cannot be the same as Main",
+
+
+
 
 "GLOBALTXT": "----------------------------------- GLOBAL TXT ----------------------------------- ",  
 
@@ -48,17 +70,17 @@
 "nav_contacts": "CONTACTS",
 "add_contacts": "ADD CONTACT",
 
-"messageissend": "Your messages Crypted and send.",
+"messageissend": "Your messages Encrypted and sent.",
 "messageswiped": "Message wiped.",
 "messagesread": "Message read.",
 "messagesdelivered": "Message delivered.",
 "messagesnew": "New message.",
 
 "keysettings": "KEY SETTINGS",
-"keysettingstxt": "Set a key to encrypt your messages automatic with this user",
+"keysettingstxt": "<img src='assets/pem_img-secretkey.svg' width='14' height='14'> Set a key to automatic encrypt your messages with this user. <img src='assets/pem_img-delete.svg' width='14' height='14'> for delete stored key. <img src='assets/cancel.svg' width='14' height='14'> for cancel",
 "whatkeytouse": "What key to use for",
 "keyremoved": "KEY Removed!",
-"keyremovedtxt": "Key removed!<BR>Now use manual input.",
+"keyremovedtxt": "Now use manual input.",
 "keyset": "Your KEY is set.",
 "keysettxt": "Make SURE other site<BR>USE THE SAME KEY!",
 "myuid": "My UID",
@@ -115,16 +137,16 @@
 "swiper-txt-1": "<BR>EVERY USER HAS A UNIQUE ID.<BR><BR>IF YOU WANT TO ADD A CONTACT, YOU NEED HIS/HER UNIQUE ID.",
 
 "swiper-header-2": "",
-"swiper-txt-2": "<BR>NEXT STEP IS TO SET A SECRET KEY<BR>TO ENCRYPT YOUR CONVERSATION.",
+"swiper-txt-2": "<BR>NEXT STEP IS TO DEFINE A UNIQUE SECRET KEY WITH YOUR CONTACT AND USE IT TO ENCRYPT YOUR MESSAGE.",
 
 "swiper-header-3": "",
-"swiper-txt-3": "<BR>THE CONTACTS YOU ARE SENDING<BR>MESSAGE TO, NEED TO KNOW THIS<BR>KEY TO ENCRYPT THE MESSAGES.",
+"swiper-txt-3": "<BR>THE CONTACTS YOU ARE SENDING<BR>MESSAGE TO, NEED TO KNOW THIS<BR>KEY TO DECRYPT THE MESSAGES.",
 
 "swiper-header-4": "",
-"swiper-txt-4": "<BR>YOU START A CONVERSATION,<BR>BY CLICKING ON A CONTACT IN THE<BR>CONTACTSLIST.",
+"swiper-txt-4": "<BR>START YOUR CONVERSATION<BR>BY CLICKING ON A<BR>CONTACT’S NICKNAME<BR>IN YOUR CONTACTSLIST.",
 
 "swiper-header-5": "",
-"swiper-txt-5": "<BR>EXPLANATION ABOUT THE SAFETY OF THE APP.<BR><BR>THEREFORE IT IS IMPORTANT TO<BR>SET THE LOG OFF TIMER AND<BR>THE BURN PASSWORD.<BR><BR>",
+"swiper-txt-5": "PEM is the best secured personal messaging app available for your smartphone. Designed and coded to send confidential messages really confidential. PEM does so with a so-called double encryption. In addition to the app-generated encryption you can also add a personal encryption which you agree with your contact. This combination ensures the best possible encryption of messages at this time.<BR>PEM is 100% anonymous.",
 
 "PAGE": "************************************************************************************************************", 
 "PAGELOGOFFTIMER": "----------------------------------- PAGE SETUP SET LOG-OFF TIMER -----------------------------------", 
@@ -135,21 +157,29 @@
 "PAGE": "************************************************************************************************************", 
 "PAGESETPASSBURM": "----------------------------------- PAGE SETUP SET-BURN PASS -----------------------------------", 
 "setup_nav_set_burn_password": "SET BURN PASSWORD",
-"setup_txt_set_burn_password": "PEM also uses a brun password. Using this password will erase all contacts and conversations. This cannot be undone.",
+"setup_txt_set_burn_password": "PEM also uses a burn password. Using this password will erase all contacts and conversations. This cannot be undone.",
 
 "PAGE": "************************************************************************************************************", 
 "PAGESETPINCODE": "----------------------------------- PAGE SETUP SET-PINCODE -----------------------------------", 
 "nav_set_pincode": "SET PINCODE",
-"txt_set_pincode": "Set PINCODE. To restore your account later.",
+"txt_set_pincode": "To restore your account later.",
 
 "PAGE": "************************************************************************************************************", 
 "PAGEDONE": "----------------------------------- PAGE SETUP DONE -----------------------------------", 
 "YOUR_ACCOUNT_READY_TO_USE": "PEM IS READY TO USE.",
-"importent": "*** IMPORTANT ***",
-"done1": "Write down and save your UID = ",
-"done2": " and PINCODE = ",
-"done3": ". This is for later if you will reinstall on a new device. it show only one time!. Now you ready to use PEM ",
-"done4": ", With Lite version you can communicate with one other contact, for more contacts you have to upgrade the Pro version.<BR>More details: http://pem.world",
+"importent": "*** IMPORTANT ***<BR>THIS MESSAGE WILL ONLY SHOW ONCE!",
+"done1": "Please write down your<br><b>UID = ",
+"done2": " and<br>PINCODE = ",
+"done3": "</b><br>and keep it somewhere safe.<br>You'll need there for reinstall or using PEM on another device.",
+
+"done4Lite": "Now you are ready to use PEM.<BR><BR>Your account is Lite.<br>You can communicate with one other contact.<BR><BR>For more contacts you need<BR>top upgrade to PEM Pro.<BR><BR>More details: http://pem.world",
+
+"done4Pro": "Now you are ready to use PEM.<BR><BR>Your account is PRO.<br>You can communicate with infinite contact also using PEM.<BR><BR>More details: http://pem.world",
+
+"done4Primium": "Now you are ready to use PEM.<BR><BR>Your account is Premium. You can communicate with infinite contact also using PEM.<BR><BR>More details: http://pem.world",
+
+
+
 
 "PAGE": "************************************************************************************************************", 
 "PAGENEWCONTACT": "----------------------------------- PAGE NEW CONTACT -----------------------------------", 
@@ -165,6 +195,9 @@
 "remember_secret_key": "REMEMBER SECRET KEY",
 "send_contact_request": "SEND CONTACT REQUEST",
 "add_test_contact": "Add TEST contact",
+"HELP_CONTACTS": "HELP CONTACTS",
+"HELP_CONTACTS_TXT": "You can add contacts bij pressing ‘ADD CONTACT’ in the upper right of your screen.If you want to send a message to one of your contacts, press the contact.Swipe contact to the right: check user ID.Swipe contact to the left: you can edit contact’s nickname, set your secret key or delete the contact.<img src='assets/lock_close.svg' width='14' height='14'> secret key is not set (THE SAVE WAY) <img src='assets/lock_open.svg' width='14' height='14'> secret key is set and remembered (automatic decrypt but less safe)",
+
 
 "PAGE": "************************************************************************************************************", 
 "PAGECONTACTEDIT": "----------------------------------- PAGE CONTACT EDIT -----------------------------------", 
@@ -176,9 +209,22 @@
 
 "HIDE_SELECTED_STATUS": "HIDE SELECTED",
 
-"HELP_MESSAGES": "HELP MESSAGES",
+"HELP_MESSAGES": "HELP MESSAGE",
+
+"HELP_MESSAGES_SEND": "HELP READ MESSAGE",
+"HELP_MESSAGES_SEND_TXT": "Write your message in the messagebar and press <img src='assets/send.svg' width='14' height='14'> to send it. If no personal secretkey is stored PEM ask you for the secretkey to use with this contact. Use <img src='assets/pem_img-camera.svg' width='14' height='14'> to make one secure photo, this action have no access to your device and won't store/save anything!",
+
+
+"HELP_MESSAGES_SEND_NEW": "HELP NEW MESSAGE",
+"HELP_MESSAGES_SEND_NEW_TXT": "Write your message in the messagebar and press <img src='assets/send.svg' width='14' height='14'> to send it. If no personal secretkey is stored PEM ask you for the secretkey to use with this contact. Use <img src='assets/pem_img-camera.svg' width='14' height='14'> to make one secure photo, this action have no access to your device and won't store/save anything!",
+
+
+
 "nav_messages": "MESSAGES",
 "yoursecuremessagehere": "YOUR SECURE MESSAGE",
+
+
+
 
 "PAGE": "************************************************************************************************************", 
 "PAGESETTINGSMAIN": "----------------------------------- PAGE SETTINGS MAIN -----------------------------------", 
@@ -193,6 +239,12 @@
 "SYNC_CONTACTS_LIST": "SYNC CONTACTS LIST",
 "ADD_CONTACT_WITH_QR_CODE": "ADD CONTACT WITH QR CODE",
 "REMOVEALLSETTINGS": "Remove All Local Settings",
+
+
+
+"HELP_SETTINGS": "HELP SETTINGS",
+"HELP_SETTINGS_TXT": "Make a choose to change different settings like, Notifications, Log-Off Timer, Log-Off Shake, Main / Burn Password reset, or you language. You can add a contact by scanning his QR code with your camera.",
+
 
 "PAGE": "************************************************************************************************************", 
 "PAGELANGUAGE": "----------------------------------- PAGE SETTINGS LANGUAGE -----------------------------------", 
@@ -210,9 +262,8 @@
 "PAGE": "************************************************************************************************************", 
 "PAGESETTINGSSUB": "----------------------------------- PAGE SETTINGS NOTIFICATIONS -----------------------------------", 
 "nav_notifications": "NOTIFICATIONS",
-"txt_notification": "Choose which notifications you want to receive",
+"txt_notification": "Choose which notifications<BR>you want to receive.",
 "GENERAL": "GENERAL",
-"NOTIFICATIONS_ON": "NOTIFICATIONS ON",
 "notification_sound": "SOUND",
 "PUSH_MESSAGES": "PUSH MESSAGES",
 "RECEIVED": "RECEIVED",
@@ -220,6 +271,7 @@
 "READ": "READ",
 "WIPED": "WIPED",
 "new_contact_invitation": "NEW CONTACT INVITATION",
+"repeat_push_notification": "REPEAT PUSH",
 
 "PAGE": "************************************************************************************************************", 
 "PAGESETTINGSSUB": "----------------------------------- PAGE SETTINGS NOTIFICATION SOUND -----------------------------------", 
@@ -229,7 +281,7 @@
 "PAGE": "************************************************************************************************************", 
 "PAGESETTINGSSUB": "----------------------------------- PAGE SETTINGS LOG-OFF TIMER -----------------------------------", 
 "nav_logoff_timer": "LOG-OFF TIMER",
-"txt_logoff_timer": "Set your log off time by rolling through the menu. The app will automatically stop is not active for that period of time. Any conversation in concept will be eased after loggin in again.",
+"txt_logoff_timer": "The app will stop automatically if not active within the set time. Any conversation in concept will be erased after logging out.",
 "select_total_minutes": "SELECT LOG-OFF TIMER",
 
 "PAGE": "************************************************************************************************************", 

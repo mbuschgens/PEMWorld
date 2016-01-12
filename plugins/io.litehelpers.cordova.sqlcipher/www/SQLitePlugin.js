@@ -102,7 +102,7 @@ cordova.define("io.litehelpers.cordova.sqlcipher.SQLitePlugin", function(require
       this.startNextTransaction();
     } else {
       if (this.dbname in this.openDBs) {
-        console.log('+ new transaction is waiting for open operation');
+        console.log('new transaction is waiting for open operation');
       } else {
         console.log('database is closed, new transaction is [stuck] waiting until db is opened again!');
       }
@@ -171,7 +171,7 @@ cordova.define("io.litehelpers.cordova.sqlcipher.SQLitePlugin", function(require
         };
       })(this));
     } else {
-      console.log('+ OPEN database: ' + this.dbname);
+      console.log('OPEN database: ' + this.dbname);
       opensuccesscb = (function(_this) {
         return function() {
           var txLock;
@@ -192,7 +192,16 @@ cordova.define("io.litehelpers.cordova.sqlcipher.SQLitePlugin", function(require
       })(this);
       openerrorcb = (function(_this) {
         return function() {
-          console.log('+ OPEN database: ' + _this.dbname + ' failed, aborting any pending transactions');
+
+
+          console.log('OPEN database: ' + _this.dbname + ' failed, aborting any pending transactions');
+
+
+console.log('noDatabase: corrupt');
+
+   sessionStorage.setItem('noDatabase','corrupt'); 
+
+
           if (!!error) {
             error(newSQLError('Could not open database'));
           }

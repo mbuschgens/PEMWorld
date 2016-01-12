@@ -1,12 +1,12 @@
 
-sslnote.onPageInit('contacts', function() {
-    console.log('!!! page.name contacts');    
+myApp.onPageInit('contacts', function() {
+    //console.log('!!! page.name contacts');    
 
-    sslnote.showToolbar('.tabbar');
+    myApp.showToolbar('.tabbar');
 
     localStorage.setItem('showalert', 1);
 
-    sslnote.showTab('#contactsview');
+    myApp.showTab('#contactsview');
 
    clearTimeout(loop);
 
@@ -25,14 +25,14 @@ sslnote.onPageInit('contacts', function() {
             // contactsview.router.refreshPage();
             // },1000);
 
-            sslnote.pullToRefreshDone();
+            myApp.pullToRefreshDone();
         }, 2000);
-    }); //sslnote.pullToRefreshTrigger(ptrContent);
+    }); //myApp.pullToRefreshTrigger(ptrContent);
 
-    sslnote.hideIndicator();
+    myApp.hideIndicator();
 
 
-      myContactList = sslnote.virtualList('.contacts-list.list-block.virtual-list', {
+      myContactList = myApp.virtualList('.contacts-list.list-block.virtual-list', {
           items: JSON.parse(localStorage.myContactList),
           template: '<li class="swipeout">' +
           
@@ -72,9 +72,9 @@ sslnote.onPageInit('contacts', function() {
 
                     '<a href="frames/settings/mysettings/SmyContactEdit.html?his_uid={{his_uid}}&his_nick={{his_nick}}"  class="bg-yellow"> <table style="width:100%" class=""><tr><td><center><i class="icons_edit"></i></center></td></tr><tr><td><center>EDIT NICKNAME</center></td></tr></table></a>'+
 
-                    '<a href="#" class="keysettings bg-orange" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="KeySettings(this)"><table style="width:100%"><tr><td><center><i class="icons_setkey"></i></center></td></tr><tr><td><center>SET SECRET KEY</center></td></tr></table></a>'+       
+                    '<a href="#" class="keysettings bg-orange" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="KeySettings(this)"><table style="width:100%"><tr><td><center><i class="icons_setkey"></i></center></td></tr><tr><td><center>SET SECRETKEY</center></td></tr></table></a>'+       
 
-                    '<a href="#" class="bg-red" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="DeleteUidLink(this)"><table style="width:100%"><tr><td><center><i class="icons_delete"></i></center></td></tr><tr><td><center>DELETE</center></td></tr></table></a>'+     
+                    '<a href="#" class="bg-red" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="DeleteUidLink(this)"><table style="width:100%"><tr><td><center><i class="icons_delete"></i></center></td></tr><tr><td><center>DELETE CONTACT</center></td></tr></table></a>'+     
 
                     // '<a href="#" class="swipeout-delete DeleteUidLink bg-red" id="{{his_uid}}" data-id="{{his_uid}}" his_nick="{{his_nick}}" onclick="DeleteUidLink(this)"><table style="width:100%"><tr><td><center><i class="icons_delete"></i></center></td></tr><tr><td><center>DELETE</center></td></tr></table></a>'+     
 
@@ -84,9 +84,11 @@ sslnote.onPageInit('contacts', function() {
       });  
 
 
+// //console.log('myContactList = ');
+// console.log(myContactList);
 
 
-    var mySearchbar = sslnote.searchbar('.searchbar', {
+    var mySearchbar = myApp.searchbar('.searchbar', {
         searchList: '.list-block-search',
         searchIn: '.item-title'
     });
@@ -107,7 +109,7 @@ iAmOnlineLoop();
 function makeNewContactList() {
 
 
-console.log('+++ Fn makeNewContactList :',localStorage.getItem('UID'));
+//console.log('+++ Fn makeNewContactList :',localStorage.getItem('UID'));
 
 var uid = localStorage.getItem('UID');
 
@@ -125,16 +127,16 @@ var uid = localStorage.getItem('UID');
 
                       //console.log(rs);
 
-                        console.log('RECORD EXIST makeNewContactList');
+                        //console.log('RECORD EXIST makeNewContactList');
 
                     var items = new Array(); 
 
                         for (var i = 0; i < rs.rows.length; i++) {
                        
                             var contactItem = rs.rows.item(i);
-// console.log('------------------------------------------');
+// //console.log('------------------------------------------');
 //                             console.log(contactItem);
-// console.log('------------------------------------------');
+// //console.log('------------------------------------------');
                             if (contactItem.autocrypt === 1) {
                                 contactItem.autocrypt  = "active";
 
@@ -210,7 +212,7 @@ localStorage.removeItem(contactItem.his_uid +'encryptkey');
                                 (+dateArray[3]), (+dateArray[4]), 
                                 (+dateArray[5]), (+dateArray[6]));
 
-                            ////console.log('mdatum2 = ' +mdatum2);
+                            //////console.log('mdatum2 = ' +mdatum2);
 // MONTH                            
                             var monthNames = ["Jan", "Feb", "Mar", "Apr",
                                 "May", "Jun", "Jul", "Aug", "Sep",
@@ -227,19 +229,19 @@ localStorage.removeItem(contactItem.his_uid +'encryptkey');
 
                         } // end for
 
-          // console.log('items : b contacts ');
+          // //console.log('items : b contacts ');
           // console.log(items);
 
               localStorage.myContactList = JSON.stringify(items);
 
-             // console.log('+++ loadContent contacts.js');
+             // //console.log('+++ loadContent contacts.js');
           } // end   if (rs.rows.length
 
 
           else
 
           {
-            console.log('Fn importNewUIDLinks')
+            //console.log('Fn importNewUIDLinks')
 
             importNewUIDLinks();
 

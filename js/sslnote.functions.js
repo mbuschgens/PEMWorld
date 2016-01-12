@@ -1,6 +1,6 @@
 function startCounter(totalSeconds) {
 
-    console.log('+++ Fn StartCounter = ' + totalSeconds);
+    ////console.log('+++ Fn StartCounter = ' + totalSeconds);
     if (!counterStart) {
         var counterStart = updateCounter(totalSeconds, 'start');
         sessionStorage.counterStarted = 'yes';
@@ -16,7 +16,7 @@ function updateCounter(totalSeconds, action) {
 
     if (action === 'update') {
         clearTimeout(updateCounterTimer);
-        console.log('+++ updateCounter update = ' + totalSeconds);
+        ////console.log('+++ updateCounter update = ' + totalSeconds);
         updateCounterTimer = '';
         updateCounter(totalSeconds, 'start');
     }
@@ -24,10 +24,10 @@ function updateCounter(totalSeconds, action) {
 
     if (action === 'start') {
 
-        if(totalSeconds <= 2){
+        if(totalSeconds >= 1 && totalSeconds <= 10){
 
             // play alert sound
-        console.log('+++ play alert sound = ' + totalSeconds);
+        ////console.log('+++ play alert sound = ' + totalSeconds);
 
         playNotificationSound('closed.mp3');
 
@@ -36,7 +36,7 @@ function updateCounter(totalSeconds, action) {
 
         if (localStorage.debugging == 'true') {
 
-            console.log('+++ Fn updateCounter start = ' + totalSeconds);
+            ////console.log('+++ Fn updateCounter start = ' + totalSeconds);
 
         }
 
@@ -52,10 +52,10 @@ function updateCounter(totalSeconds, action) {
 
         if (totalSeconds == 0) {
 
-            console.log('+++!!! COUNTER STOP');
-            sslnote.hideIndicator();
-            sslnote.hidePreloader();
-            sslnote.closeModal();
+            ////console.log('+++!!! COUNTER STOP');
+            myApp.hideIndicator();
+            myApp.hidePreloader();
+            myApp.closeModal();
 
 
             sessionStorage.clear();
@@ -64,25 +64,16 @@ function updateCounter(totalSeconds, action) {
 
             updateCounter(totalSeconds, 'stop');
 
-            console.log('+++!!! COUNTER STOP Page loaded');
+            ////console.log('+++!!! COUNTER STOP Page loaded');
 
             $("#connection").addClass("connectionHidden");
 
             $(".statusbar-overlay").addClass("black");
-
-
-
-            // sslnote.loginScreen();
-
-            // setTimeout(function(){
-
-            // },500);    
+  
             localStorage.setItem('reLoggin', '1');
 
-
-
             var userLoggedIn = sessionStorage.getItem('userLoggedIn');
-            console.log('+++!!! COUNTER STOP userLoggedIn = ' + userLoggedIn);
+            ////console.log('+++!!! COUNTER STOP userLoggedIn = ' + userLoggedIn);
 
 window.location.reload();
 
@@ -99,42 +90,13 @@ window.location.reload();
 
 
     if (action === 'stop') {
-        console.log('+++ Fn updateCounter stop = ' + totalSeconds);
+        ////console.log('+++ Fn updateCounter stop = ' + totalSeconds);
         clearTimeout(updateCounterTimer);
-        console.log('+++ updateCounter = stop');
+        ////console.log('+++ updateCounter = stop');
         updateCounterTimer = '';
         sessionStorage.counterStarted = 'no';
 
     }
-}
-
-
-
-
-//------------------------------------------------------------//  
-
-
-function checkPass(passId) {
-    // console.log('checkPass(passId)' + passId);
-    // var pwd = document.getElementById("pass" + passId).value;
-    // console.log('pwd = ' + pwd);
-    // console.log('pwd.length = ' + pwd.length);
-
-    // if (pwd.length > 1) {
-    //     $$('#check' + passId).removeClass('nok');
-    //     $$('#check' + passId).addClass('ok');
-    // }
-
-    // if (pwd.length <= 1) {
-    //     $$('#check' + passId).removeClass('ok');
-    //     $$('#check' + passId).addClass('nok');
-    // }
-
-    // if (pwd.length <= 1) {
-    //     $$('#check' + passId).removeClass('nok');
-    //     $$('#check' + passId).removeClass('ok');
-    // }
-
 }
 
 //------------------------------------------------------------//  
@@ -142,13 +104,6 @@ function checkPass(passId) {
 
 function messageSendSuccesFul() {
 
-    // document.getElementById("divtoBlink").innerHTML = '';
-
-
-    // clearInterval(backgroundInterval);
-
-
-    // backgroundInterval = setInterval(function() {
     $$(".statusbar-overlay").removeClass("backgroundRed");
     $$(".statusbar-overlay").addClass("backgroundGreen");
 
@@ -160,35 +115,6 @@ function messageSendSuccesFul() {
         cryptingStop();
     }, 8000)
 
-    // }, 1000);
-
-
-}
-
-
-function importContactListSuccesFul() {
-
-    // document.getElementById("divtoBlink").innerHTML = '';
-
-
-    // clearInterval(backgroundInterval);
-
-
-    // backgroundInterval = setInterval(function() {
-    $$(".statusbar-overlay").removeClass("backgroundRed");
-    $$(".statusbar-overlay").addClass("backgroundGreen");
-
-    var importContactListSuccesFul = 'Import Contact List SuccesFul.';
-
-    $$("#divtoBlink").html(importContactListSuccesFul);
-
-    setTimeout(function() {
-        cryptingStop();
-    }, 6000)
-
-    // }, 1000);
-
-
 }
 
 
@@ -197,11 +123,9 @@ function importContactListSuccesFul() {
 
 function cryptingStart() {
 
-    console.log('cryptingStart = START');
+    ////console.log('cryptingStart = START');
 
     $$("#divtoBlink").html('');
-
-    // backgroundInterval = setInterval(function() {
 
     $$(".statusbar-overlay").addClass("backgroundRed");
 
@@ -209,79 +133,43 @@ function cryptingStart() {
 
     $$("#divtoBlink").html(busyCryptingAndSendingBusy);
 
-    // }, 1000)
-
-
-
-    // setTimeout(function() {
-
-    // cryptingStop();
-
-    // },10000);
-
 }
 
 //------------------------------------------------------------//  
 
 function cryptingStop() {
 
-        // document.getElementById("divtoBlink").innerHTML = '';
-
-        // $$("#divtoBlink").html('');
-
-        // clearInterval(backgroundInterval);
-
-        // backgroundInterval = '';
-        // if(alertShowBusy !== '1') {  
-
-        console.log('cryptingStop = STOP');
+        ////console.log('cryptingStop = STOP');
 
         var busyCryptingAndSendingStop = '<i class="statusbar icons_locked"></i> SECURE CONNECTION</div>';
-
-        //$$(page.container).find('#divtoBlink').html();
-
-        // $$("#divtoBlink").html();
 
         $$("#divtoBlink").html(busyCryptingAndSendingStop);
         $$(".statusbar-overlay").removeClass("backgroundRed");
         $$(".statusbar-overlay").removeClass("backgroundGreen");
 
-        // cryptingStarted = 'no';
-        // }
     }
-    //------------------------------------------------------------//  
+//------------------------------------------------------------//  
 
 function alertShow(theAlertMesaages) {
-    console.log('alertShow = ' + theAlertMesaages);
+    ////console.log('alertShow = ' + theAlertMesaages);
 
     cryptingStop();
 
-    // var alertShowBusy = '1';
-
-    // backgroundInterval = setInterval(function() {
     $$(".statusbar-overlay").toggleClass("backgroundRed");
 
     var alertShowNotification = '...' + theAlertMesaages + '...';
 
     $$("#divtoBlink").html(alertShowNotification);
 
-    // }, 1000)
-
-    // alertStop fter 3 sec
-
     setTimeout(function() {
 
-        console.log('alertShow = STOP');
+        ////console.log('alertShow = STOP');
         // var alertShowBusy = '';
         cryptingStop();
 
     }, 8000);
 
 }
-
-//------------------------------------------------------------//  
-
-
 
 
 //------------------------------------------------------------//  
@@ -308,10 +196,6 @@ function updateConnectionStatus(msg, connected) {
         }
         el.innerHTML = msg + '<div></div>';
     }
-    // ORG  updateConnectionStatus('<i class="statusbar icons_locked"></i> SSL Connection',true); //Online
-    // var cryptingAndSendingBase =
-    //     '<div id="timer">00:00</div> <div id="divtoBlink" class="busyCryptingAndSending"> <i class="statusbar icons_locked"></i> 2Secure Connection</div> <div id="statusBarRight">00:00</div> ';
-
 
 
 var cryptingAndSendingBase =
@@ -338,15 +222,6 @@ var cryptingAndSendingBase =
     '</tr></table>';
 
 
-// '<table style="width:100%"><tr><td class="timerBlock"><div class="showHideTimer"> <i class="icons_eye"> <div id="timer" class="timer">00:00</div> </i> </div> </td> <td><div id="divtoBlink" class="busyCryptingAndSending"> <i class="statusbar ion-ios-locked-outline"></i> Secure Connection </div></td> <td class="timerBlock"><div class="running"></div></td></tr></table>';
-
-
-// var cryptingAndSendingBase =
-//     '<table style="width:100%"><tr><td style="width:30px"><div id="timer">00:00</div></td> <td><div id="divtoBlink" class="busyCryptingAndSending"> <i class="statusbar icons_locked"></i> Secure Connection</div></td> <td style="width:50px"></td></tr></table>';
-
-
-
-//var cryptingAndSending = '<div id="divtoBlink" class="busyCryptingAndSending"><img src="img/connecting-white.png" width="11" height="11"> Crypting and sending...</div>';
 window.addEventListener('load', function(e) {
     if (navigator.onLine) {
         updateConnectionStatus(cryptingAndSendingBase, true); //Online
@@ -356,10 +231,12 @@ window.addEventListener('load', function(e) {
             false); //Offline
     }
 }, false);
+
 window.addEventListener('online', function(e) {
     updateConnectionStatus(cryptingAndSendingBase, true); //Online
     // Get updates from server.
 }, false);
+
 window.addEventListener('offline', function(e) {
     //logger.log("Connection is flaky.");
     updateConnectionStatus(
@@ -368,109 +245,13 @@ window.addEventListener('offline', function(e) {
     // Use offine mode.
 }, false);
 
-//------------------------------------------------------------//  
-
-
-
-//------------------------------------------------------------//  
-
-function submitLog(msg) {
-    $$.ajax({
-        method: 'POST',
-        dataType: 'json',
-        url: localStorage.getItem('connection') + '/appie/php/include/debug.php?',
-        crossDomain: true,
-        data: {
-            msg: msg,
-            log: 'LOG',
-            uid: localStorage.getItem('UID')
-        }
-    });
-}
-
-//------------------------------------------------------------//  
-
-function submitWarn(msg) {
-    $$.ajax({
-        method: 'POST',
-        dataType: 'json',
-        url: localStorage.getItem('connection') + 'appie/php/include/debug.php?',
-        crossDomain: true,
-        data: {
-            msg: msg,
-            log: 'WARN',
-            uid: localStorage.getItem('UID')
-        }
-    });
-}
-
-//------------------------------------------------------------//  
-
-function submitInfo(msg) {
-    $$.ajax({
-        method: 'POST',
-        dataType: 'json',
-        url: localStorage.getItem('connection') + '/appie/php/include/debug.php?',
-        crossDomain: true,
-        data: {
-            msg: msg,
-            log: 'INFO',
-            uid: localStorage.getItem('UID')
-        }
-    });
-}
-
-//------------------------------------------------------------//  
-
-function submitError(msg) {
-    $$.ajax({
-        method: 'POST',
-        dataType: 'json',
-        url: localStorage.getItem('connection') + '/appie/php/include/debug.php?',
-        crossDomain: true,
-        data: {
-            msg: msg,
-            log: 'ERROR',
-            uid: localStorage.getItem('UID')
-        }
-    });
-}
-
-
-window.console.log = submitLog;
-window.console.warn = submitWarn;
-window.console.info = submitInfo;
-window.console.error = submitError;
-
-//------------------------------------------------------------//  
-
-// function updateUIDLinksTable() {
-//     //console.log('Fn updateUIDLinksTable Start');
-//     app.db.transaction(function(tx) {
-//         tx.executeSql(dropUIDLinks, [], onRemovedSuccess, onError);
-//         //console.log('dropUIDLinks OK');
-//         tx.executeSql(createUIDLinks, [], onUpdateSuccess, onError);
-//         //console.log('createUIDLinks OK');
-//         //  localStorage.setItem('dataBaseUIDLinksUpdated',true);
-
-//         setTimeout(function() {
-//             importNewUIDLinks();
-//         }, 0);
-
-
-//     });
-// }
-
-//------------------------------------------------------------//  
-
-
 
 //------------------------------------------------------------//  
 
 function syncUILinks() {
-        console.log('-----------------------------------'); 
-        console.log('Fn syncUILinks');
-        console.log('-----------------------------------'); 
+        ////console.log('-----------------------------------'); 
+        ////console.log('Fn syncUILinks');
+        ////console.log('-----------------------------------'); 
         app.selectAllRecords = function(fn) {
             app.db.transaction(function(tx) {
                 tx.executeSql(syncUIDLinks, [localStorage.getItem('UID')], fn, onError);
@@ -479,16 +260,16 @@ function syncUILinks() {
         var render = function(tx, rs) {
             // rs contains our SQLite recordset, at this point you can do anything with it
             // in this case we'll just loop through it and output the results to the console
-            console.log('............................................');
+            ////console.log('............................................');
             console.log(rs.rows.length);
-            console.log('............................................');
+            ////console.log('............................................');
             for (var i = 0; i < rs.rows.length; i++) {
                 // //console.log(rs.rows.item(i)); 
                 var data = rs.rows.item(i);
                 if (data) {
-                    console.log('............................................');
+                    ////console.log('............................................');
                     console.log(data);
-                    console.log('............................................');
+                    ////console.log('............................................');
                     $$.ajax({
                         method: 'POST',
                         dataType: 'jsonp',
@@ -496,18 +277,18 @@ function syncUILinks() {
                         crossDomain: true,
                         data: data,
                         success: function(responseData, textStatus, jqXHR) {
-                            console.log('............................................');
-                            console.log('+++ syncUILinks responseData = '+responseData); 
-                            console.log('............................................');
+                            ////console.log('............................................');
+                            ////console.log('+++ syncUILinks responseData = '+responseData); 
+                            ////console.log('............................................');
                         },
                         error: function(responseData, textStatus, jqXHR) {
-                            //console.log('............................................');
-                            //console.log('+++ syncUILinks error = '+responseData); 
-                            //console.log('............................................');
+                            //////console.log('............................................');
+                            //////console.log('+++ syncUILinks error = '+responseData); 
+                            //////console.log('............................................');
                         }
                     });
                 } else {
-                    //console.log('Fn syncUILinks NOTHING TO DO.......');
+                    //////console.log('Fn syncUILinks NOTHING TO DO.......');
                 }
             }
         }
@@ -520,7 +301,7 @@ function syncUILinks() {
 
 function PushErrorToSupport(themessage) {
 
-    console.log('PUSH Error To Support..');
+    ////console.log('PUSH Error To Support..');
 
     $$.ajax({
         method: 'POST',
@@ -533,27 +314,19 @@ function PushErrorToSupport(themessage) {
             themessage: themessage
         },
         success: function(responseData, textStatus, jqXHR) {
-            console.log('PUSH Error MESSAGE SEND..');
+            ////console.log('PUSH Error MESSAGE SEND..');
         },
         error: function(responseData, textStatus, jqXHR) {
-            console.log('Error Ajax: ',responseData, textStatus, jqXHR);
+            ////console.log('Error Ajax: ',responseData, textStatus, jqXHR);
         }
     });
-    sslnote.hidePreloader();
-    sslnote.hideIndicator();
+    myApp.hidePreloader();
+    myApp.hideIndicator();
     //mainView.loadPage('frames/contacts/Scontactlist.html');
 }
 
 //------------------------------------------------------------//  
 
-
-function progressBar(percent, $element) {
-    console.log('Fn progressBar');
-    // var progressBarWidth = percent * $element.width() / 100;
-    // $element.find('div').animate({
-    //     width: progressBarWidth
-    // }, 500).html(percent + "%&nbsp;");
-}
 
 var lastTime = 0;
 
@@ -562,7 +335,7 @@ var lastTime = 0;
 
 
 function JsonMessagesToSend() {
-    console.log('Fn JsonMessagesToSend Start');
+    ////console.log('Fn JsonMessagesToSend Start');
 
     var functionJsonMessagesToSendBusy = sessionStorage.getItem('functionJsonMessagesToSendBusy');
 
@@ -571,7 +344,7 @@ function JsonMessagesToSend() {
         var uid = localStorage.getItem('UID');
         app.selectAllRecords = function(fn) {
             app.db.transaction(function(tx) {
-                //console.log('Fn JsonUIDMessagesToSend');
+                //////console.log('Fn JsonUIDMessagesToSend');
                 tx.executeSql(JsonUIDMessagesToSend, [uid], fn, onError);
             });
         }
@@ -590,8 +363,8 @@ function JsonMessagesToSend() {
                 // var MidSendIs = '0';
                 var MidSendIs = data.mid;
 
-                console.log('.......lastMidSendIs = ' + lastMidSendIs);
-                console.log('.......MidSendIs = ' + MidSendIs);
+                ////console.log('.......lastMidSendIs = ' + lastMidSendIs);
+                ////console.log('.......MidSendIs = ' + MidSendIs);
 
 
                 // if (now - lastTime > 1500) {
@@ -599,7 +372,7 @@ function JsonMessagesToSend() {
 
                 if (MidSendIs !== lastMidSendIs) {
 
-                    console.log('.......not busy functionJsonMessagesToSendBusy = 0');
+                    ////console.log('.......not busy functionJsonMessagesToSendBusy = 0');
 
 
                     if (data) {
@@ -607,32 +380,32 @@ function JsonMessagesToSend() {
                         cryptingStart();
                         sessionStorage.setItem('functionJsonMessagesToSendBusy', '1');
 
-                        console.log('.......set to busy functionJsonMessagesToSendBusy = 1');
+                        ////console.log('.......set to busy functionJsonMessagesToSendBusy = 1');
 
-                        console.log('Fn JsonMessagesToSend SOMETHING TO SEND.!.....');
-                        //console.log('............................................');
+                        ////console.log('Fn JsonMessagesToSend SOMETHING TO SEND.!.....');
+                        //////console.log('............................................');
                         //console.log(data);
-                        //console.log('............................................');
-                        //console.log('............................................');
-                        //console.log('...DELIVERY SERVER ...' +data.his_server);
-                        console.log('...DELIVERY MID ...' +data.mid);
+                        //////console.log('............................................');
+                        //////console.log('............................................');
+                        //////console.log('...DELIVERY SERVER ...' +data.his_server);
+                        ////console.log('...DELIVERY MID ...' +data.mid);
 
 
                         if (data.his_server === 'undefined' || data.his_server === '0000' ) {
-                            console.log('Ooeps no server to deliver the mess. mess will be wiped. midid = ' + data.mid);
+                            ////console.log('Ooeps no server to deliver the mess. mess will be wiped. midid = ' + data.mid);
                             console.log(data);
 
-                            //sslnote.alert('Ooeps a Error with last message to ' + data.his_uid + ' Messages wiped, Please send again.');
+                            //myApp.alert('Ooeps a Error with last message to ' + data.his_uid + ' Messages wiped, Please send again.');
                             app.db.transaction(function(tx) {
                                 tx.executeSql(removeMessagesToSend, [data.mid], onRemovedSuccess, onError);
                             });
                             //sessionStorage.setItem('functionJsonMessagesToSendBusy','0');
                             cryptingStop();
-        sslnote.modal({
+        myApp.modal({
             title: 'Ooeps a Error',
             text: 'with last message to ' + data.his_uid + ' Messages wiped, Please send again.',
             buttons: [{
-                text: 'OKE',
+                text: localStorage.getItem('OKE'),
                 onClick: function() {
                     // updateUIDLinksTable();
                 }
@@ -645,22 +418,22 @@ function JsonMessagesToSend() {
                         else 
 
                         {
-                            //console.log('............................................');
+                            //////console.log('............................................');
                             // $$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
                             var themessage = localStorage.getItem('messagesnew'); // TRANSLATE
-                            //console.log('--- themessage = ' +themessage);
+                            //////console.log('--- themessage = ' +themessage);
                             //});
 
 
                             var PostUrl = 'http://' + data.his_server +
-                                '.sslnoteserver.com/appie/php/include/JsonMessagesToSend.php?sslnoteapp=' +
-                                localStorage.getItem('sslnoteapp') +
+                                '.sslnoteserver.com/appie/php/include/JsonMessagesToSend.php?myAppapp=' +
+                                localStorage.getItem('myAppapp') +
                                 '&themessage=' + themessage +
                                 '&callback=?';
 
-                            //console.log('PostUrl = '+ PostUrl);
+                            //////console.log('PostUrl = '+ PostUrl);
 
-                            //console.log('data = '+ data);
+                            //////console.log('data = '+ data);
 
                             //console.log(data);
 
@@ -668,7 +441,7 @@ function JsonMessagesToSend() {
 if(sessionStorage.getItem('lastAlertMIDSend') !== data.mid){
     sessionStorage.setItem('lastAlertMIDSend',data.mid);
 
-window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
+//window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
 
 }
 
@@ -680,12 +453,12 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
                                 crossDomain: true,
                                 data: data,
                                 success: function(responseData, textStatus, jqXHR) {
-                                    console.log('success : JsonMessagesToSend');
+                                    ////console.log('success : JsonMessagesToSend');
                                     console.log(responseData, textStatus, jqXHR);
                                     //console.log(jqXHR);
 
                                     if (responseData === '') {
-                                        console.log('Ooeps no mid to deliver the mess. mess will be wiped. midid = ' + data.mid);
+                                        ////console.log('Ooeps no mid to deliver the mess. mess will be wiped. midid = ' + data.mid);
                                         //console.log(data);
 
                                         app.db.transaction(function(tx) {
@@ -697,23 +470,23 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
 
 
                                     if (responseData.indexOf('Error') >= 0) {
-                                        console.log('Error');
+                                        ////console.log('Error');
 
-                                        sslnote.closeModal();
+                                        myApp.closeModal();
 
                                         console.log(localStorage.debugging);
 
                                         if (localStorage.debugging === 'true') {
                                             cryptingStop();
-                                            sslnote.hideIndicator();
-                                            sslnote.alert('Sorry some Error, <BR>' + responseData);
+                                            myApp.hideIndicator();
+                                            myApp.alert('Sorry some Error, <BR>' + responseData);
                                             console.log(PostUrl);
 
                                         } else {
                                             cryptingStop();
                                             console.log(PostUrl);
-                                            sslnote.hideIndicator();
-                                            sslnote.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
+                                            myApp.hideIndicator();
+                                            myApp.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
                                                 window.location.reload();
                                             });
                                         }
@@ -724,7 +497,7 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
 
 
                                     {
-                                        console.log('NO Error Send SuccesFul');
+                                        ////console.log('NO Error Send SuccesFul');
 
 // window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
 
@@ -736,19 +509,19 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
                                         makeContactMessages(data.mdatum, data.his_uid, '20');
 
                                         app.db.transaction(function(tx) {
-                                            console.log('............................................');
-                                            console.log('removeMessagesToSend = ' + responseData);
-                                            console.log('............................................');
+                                            ////console.log('............................................');
+                                            ////console.log('removeMessagesToSend = ' + responseData);
+                                            ////console.log('............................................');
 
                                             tx.executeSql(removeMessagesToSend, [responseData], onRemovedSuccess, onError);
 
                                             sessionStorage.setItem('lastMidSendIs', responseData);
 
-                                            console.log('............................................');
-                                            console.log('updateMessagesSendStatus = ' + data);
+                                            ////console.log('............................................');
+                                            ////console.log('updateMessagesSendStatus = ' + data);
                                             // console.log(data);
 
-                                            console.log('............................................');
+                                            ////console.log('............................................');
 
                                             tx.executeSql(updateMessagesSendStatus, ['20', localStorage.getItem('UID'), data.his_uid, data.mdatum], onUpdateSuccessUpdateStatus(), onError);
 
@@ -769,20 +542,20 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
 
                                 },
                                 error: function(responseData, textStatus, jqXHR) {
-                                    console.log('Error : JsonMessagesToSend');
+                                    ////console.log('Error : JsonMessagesToSend');
                                     console.log(textStatus, jqXHR);
                                     console.log(PostUrl);
                                     cryptingStop();
                                     //        JsonMessagesToSend();
                                 },
                                 complete: function(responseData, textStatus, jqXHR) {
-                                    console.log('complete : JsonMessagesToSend');
+                                    ////console.log('complete : JsonMessagesToSend');
 
                                     sessionStorage.setItem('functionJsonMessagesToSendBusy', '0');
                                 }
 
                             }); //end ajax
-                            //console.log('AJAX Done!');
+                            //////console.log('AJAX Done!');
                         }
 
 
@@ -790,12 +563,12 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
                     else
 
                     {
-                        console.log('Fn JsonMessagesToSend NOTHING TO DO.......1');
+                        ////console.log('Fn JsonMessagesToSend NOTHING TO DO.......1');
                         // alert user dont exist 
                         cryptingStop();
                     }
 
-                    //console.log('Fn JsonMessagesToSend NOTHING TO SEND.......2');
+                    //////console.log('Fn JsonMessagesToSend NOTHING TO SEND.......2');
                 }
 
             }
@@ -803,7 +576,7 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
         }
 
 
-    console.log('Fn JsonMessagesToSend End');
+    ////console.log('Fn JsonMessagesToSend End');
 
     }
 
@@ -818,22 +591,28 @@ window.plugins.toast.show('Message send SuccesFully', 'short', 'top');
 //------------------------------------------------------------//  
 
 function insertmessageintodbase(dmy_uid, dhis_uid, dmessage, dmdatum) {
-    console.log('!!!  Fn insertmessageintodbase =' + dmdatum);
+    ////console.log('!!!  Fn insertmessageintodbase =' + dmdatum);
 
     if (sessionStorage.getItem('lastInsertmessageintodbase') !== dmdatum) {
 
         sessionStorage.setItem('lastInsertmessageintodbase', dmdatum);
 
-        console.log('!!!  Fn lastInsertmessageintodbase not the same =' + dmdatum);
+        ////console.log('!!!  Fn lastInsertmessageintodbase not the same =' + dmdatum);
 
         app.db.transaction(function(tx) {
-            //console.log('+++ Fn insertmessageintodbase = ' +dmy_uid + ' - ' +dhis_uid + ' - ' +dmessage+ ' - ' +dmdatum); 
+            //////console.log('+++ Fn insertmessageintodbase = ' +dmy_uid + ' - ' +dhis_uid + ' - ' +dmessage+ ' - ' +dmdatum); 
             tx.executeSql(insertMessagesToReceive, [dmy_uid, dhis_uid, dmessage, dmdatum, '0'], makeContactMessages(dmdatum, dhis_uid), onError);
+       
+
         });
 
 
-    } else {
-        console.log('!!!  Fn lastInsertmessageintodbase SAME SKIP=' + dmdatum);
+    } 
+
+    else 
+
+    {
+        ////console.log('!!!  Fn lastInsertmessageintodbase SAME SKIP=' + dmdatum);
     }
 
 
@@ -844,7 +623,7 @@ var idListToRemove = [];
 //------------------------------------------------------------//  
 function JsonMessagesSendStatus() {
     var uid = localStorage.getItem('UID');
-    console.log('Fn JsonMessagesSendStatus Start');
+    ////console.log('Fn JsonMessagesSendStatus Start');
 
 
 
@@ -853,17 +632,17 @@ function JsonMessagesSendStatus() {
         method: 'POST',
         dataType: 'jsonp',
         url: 'http://' + localStorage.getItem('server') +
-            '.sslnoteserver.com/appie/php/include/JsonMessagesSendStatus.php?sslnoteapp=' +
-            localStorage.getItem('sslnoteapp') + '&callback=?',
+            '.sslnoteserver.com/appie/php/include/JsonMessagesSendStatus.php?myAppapp=' +
+            localStorage.getItem('myAppapp') + '&callback=?',
         crossDomain: true,
         data: {
             uid: uid
         },
 
         success: function(responseData, textStatus, jqXHR) {
-                // console.log('............................................');
-                // console.log('responseData JsonMessagesSendStatus = '+responseData); 
-                // console.log('............................................');
+                // ////console.log('............................................');
+                // ////console.log('responseData JsonMessagesSendStatus = '+responseData); 
+                // ////console.log('............................................');
 
                 //var deletemid = [];
 
@@ -871,11 +650,11 @@ function JsonMessagesSendStatus() {
 
                     // if(responseData !== sessionStorage.lastMessagesSendStatusList) {
 
-                    // console.log('SOMETHING TO UPDATE lastMessagesSendStatusList UPDATE');
+                    // ////console.log('SOMETHING TO UPDATE lastMessagesSendStatusList UPDATE');
 
-                    // console.log('............................................');
-                    // console.log('responseData JsonMessagesSendStatus = '+responseData); 
-                    // console.log('............................................');
+                    // ////console.log('............................................');
+                    // ////console.log('responseData JsonMessagesSendStatus = '+responseData); 
+                    // ////console.log('............................................');
 
                     sessionStorage.lastMessagesSendStatusList = responseData;
 
@@ -910,7 +689,7 @@ function JsonMessagesSendStatus() {
 
     if (sessionStorage.idListToRemove) {
 
-        console.log('SEND TO SERVER TO DELETE sessionStorage.idListToRemove');
+        ////console.log('SEND TO SERVER TO DELETE sessionStorage.idListToRemove', sessionStorage.idListToRemove);
 
         $$.ajax({
             method: 'POST',
@@ -922,11 +701,11 @@ function JsonMessagesSendStatus() {
                 id: sessionStorage.idListToRemove
             },
             success: function(responseData, textStatus, jqXHR) {
-                // console.log('............................................');
-                console.log('responseData JsonStatusToDelete = '+responseData ); 
-                // console.log('responseData JsonStatusToDelete = '+textStatus ); 
-                // console.log('responseData JsonStatusToDelete = '+jqXHR ); 
-                // console.log('............................................');
+                // ////console.log('............................................');
+                ////console.log('responseData JsonStatusToDelete = '+responseData ); 
+                // ////console.log('responseData JsonStatusToDelete = '+textStatus ); 
+                // ////console.log('responseData JsonStatusToDelete = '+jqXHR ); 
+                // ////console.log('............................................');
 
                 sessionStorage.idListToRemove = '';
 
@@ -936,7 +715,7 @@ function JsonMessagesSendStatus() {
 
     }
 
-console.log('Fn JsonMessagesSendStatus End');
+////console.log('Fn JsonMessagesSendStatus End');
 
 }
 
@@ -945,13 +724,13 @@ console.log('Fn JsonMessagesSendStatus End');
 
 
 function fnUpdateMessagesSendStatus(id, dmy_uid, dhis_uid, dsendStatus, dmdatum) {
-    //console.log('!!!  fnUpdateMessagesSendStatus: ',id, dmy_uid, dhis_uid, dsendStatus, dmdatum);
+    //////console.log('!!!  fnUpdateMessagesSendStatus: ',id, dmy_uid, dhis_uid, dsendStatus, dmdatum);
 
     app.db.transaction(function(tx) {
 
 
         if (dsendStatus <= '40') {
-            //console.log('!!!  fnUpdateMessagesSendStatus = ',dsendStatus);
+            //////console.log('!!!  fnUpdateMessagesSendStatus = ',dsendStatus);
             tx.executeSql(updateMessagesSendStatus, [dsendStatus, dmy_uid, dhis_uid, dmdatum], onUpdateMessagesSendStatusSuccesFull, onError);
 
             // var rdatum = dmdatum.replace(/ /g, "");
@@ -964,7 +743,7 @@ function fnUpdateMessagesSendStatus(id, dmy_uid, dhis_uid, dsendStatus, dmdatum)
         }
 
         if (dsendStatus >= '50') {
-            //console.log('!!!  fnUpdateMessagesSendStatus = ',dsendStatus);
+            //////console.log('!!!  fnUpdateMessagesSendStatus = ',dsendStatus);
 
             tx.executeSql(removeMessagesByTmeDate, [dhis_uid, dmdatum], onUpdateMessagesSendStatusSuccesFull, onError);
 
@@ -974,11 +753,11 @@ function fnUpdateMessagesSendStatus(id, dmy_uid, dhis_uid, dsendStatus, dmdatum)
 
             myMessagesList.update();
 
-            sslnote.swipeoutDelete('.li' + dhis_uid + rdatum);
+            myApp.swipeoutDelete('.li' + dhis_uid + rdatum);
 
             sessionStorage.totalMessagesList = Number(sessionStorage.totalMessagesList) - 1;
 
-            //console.log('!!!  swipeoutDelete = .li' + dhis_uid + rdatum);
+            //////console.log('!!!  swipeoutDelete = .li' + dhis_uid + rdatum);
 
         }
 });
@@ -991,16 +770,16 @@ function fnUpdateMessagesSendStatus(id, dmy_uid, dhis_uid, dsendStatus, dmdatum)
 
             var ProwsAffected = JSON.stringify(succes.rowsAffected);
 
-            //console.log('ProwsAffected = ' +ProwsAffected);
+            //////console.log('ProwsAffected = ' +ProwsAffected);
 
             if (ProwsAffected === '0') {
 
-                //console.log('ProwsAffected = 0 - ' +ProwsAffected);  
-                //console.log('id = '+ id); 
+                //////console.log('ProwsAffected = 0 - ' +ProwsAffected);  
+                //////console.log('id = '+ id); 
 
                 idListToRemove.push(id);
 
-                //console.log('id insert to array = '+ id); 
+                //////console.log('id insert to array = '+ id); 
 
             }
 
@@ -1009,31 +788,28 @@ function fnUpdateMessagesSendStatus(id, dmy_uid, dhis_uid, dsendStatus, dmdatum)
             return true;
 
         }
-
-
-
 }
 
 //------------------------------------------------------------//  
 
 function JsonMessagesToReceive() {
     var uid = localStorage.getItem('UID');
-    console.log('Fn JsonMessagesToReceive Start');
+    ////console.log('Fn JsonMessagesToReceive Start');
 
     $$.ajax({
         method: 'POST',
         dataType: 'jsonp',
         url: 'http://' + localStorage.getItem('server') +
-            '.sslnoteserver.com/appie/php/include/JsonMessagesToReceive.php?sslnoteapp=' +
-            localStorage.getItem('sslnoteapp') + '&callback=?',
+            '.sslnoteserver.com/appie/php/include/JsonMessagesToReceive.php?myAppapp=' +
+            localStorage.getItem('myAppapp') + '&callback=?',
         crossDomain: true,
         data: {
             uid: uid
         },
         success: function(responseData, textStatus, jqXHR) {
-                // console.log('............................................');
-                // console.log('responseData JsonMessagesToReceive = '+responseData); 
-                // console.log('............................................');
+                // ////console.log('............................................');
+                // ////console.log('responseData JsonMessagesToReceive = '+responseData); 
+                // ////console.log('............................................');
 
 
                 var deletemid = [];
@@ -1043,7 +819,7 @@ function JsonMessagesToReceive() {
 
                 {
 
-                    console.log('sessionStorage.JsonMessagesToReceive not the same ');
+                    ////console.log('sessionStorage.JsonMessagesToReceive not the same ');
 
                     sessionStorage.JsonMessagesToReceive = responseData;
 
@@ -1057,7 +833,7 @@ function JsonMessagesToReceive() {
                         // //console.log(data.id);
                         if (data.id != null) {
                             deletemid.push(data.id);
-                            ////console.log('+++ data.id - data.mdatum = ' + data.id + ' - ' +data.mdatum);
+                            ////////console.log('+++ data.id - data.mdatum = ' + data.id + ' - ' +data.mdatum);
                             //var insertdata = data.my_uid+','+data.his_uid+','+data.message+','+data.mdatum+',0';
                             var dmy_uid = data.my_uid;
                             var dhis_uid = data.his_uid;
@@ -1080,7 +856,7 @@ function JsonMessagesToReceive() {
                     var themessage = localStorage.getItem('messagesdelivered'); // TRANSLATE
                     // time to delete
 
-                    console.log('PushNotification = Deliverd');
+                    ////console.log('PushNotification = Deliverd');
 
                     console.log(deletemid);
 
@@ -1100,8 +876,8 @@ function JsonMessagesToReceive() {
                         $$.ajax({
                             method: 'POST',
                             dataType: 'jsonp',
-                            url: 'http://' + localStorage.getItem('server') + '.sslnoteserver.com/appie/php/include/JsonMessagesToReceiveDelete.php?sslnoteapp=' +
-                                localStorage.getItem('sslnoteapp') + '&themessage=' + themessage + '&callback=?',
+                            url: 'http://' + localStorage.getItem('server') + '.sslnoteserver.com/appie/php/include/JsonMessagesToReceiveDelete.php?myAppapp=' +
+                                localStorage.getItem('myAppapp') + '&themessage=' + themessage + '&callback=?',
                             crossDomain: true,
                             data: {
                                 id: deletemid,
@@ -1113,26 +889,26 @@ function JsonMessagesToReceive() {
                             },
                             success: function(responseData, textStatus, jqXHR) {
                                 //deletemid = '';
-                                console.log('..............Success..............................');
+                                ////console.log('..............Success..............................');
                                 console.log(responseData);
-                                console.log('............................................');
+                                ////console.log('............................................');
                             },
                             error: function(responseData, textStatus, jqXHR) {
                                 //deletemid = '';
-                                console.log('..............Error..............................');
+                                ////console.log('..............Error..............................');
                                 console.log(responseData, textStatus, jqXHR);
-                                console.log('............................................');
+                                ////console.log('............................................');
                             },
                             complete: function(responseData, textStatus, jqXHR) {
                                 deletemid = '';
-                                //console.log('..............Complete..............................');
+                                //////console.log('..............Complete..............................');
                                 //console.log(responseData,textStatus, jqXHR);
-                                //console.log('............................................');
+                                //////console.log('............................................');
                             }
 
                         });
 
-                        console.log('Fn SQLiteUpdateMessagesTotal from Fn JsonMessagesToReceive');
+                        ////console.log('Fn SQLiteUpdateMessagesTotal from Fn JsonMessagesToReceive');
                         SQLiteUpdateMessagesTotal();
 
                     }
@@ -1142,22 +918,22 @@ function JsonMessagesToReceive() {
 
 
                 {
-                    console.log('sessionStorage.JsonMessagesToReceive WELL the same ');
+                    ////console.log('sessionStorage.JsonMessagesToReceive WELL the same ');
                 }
             } // end suscces
     }); // end AJAX
     //}, 800);
-    //console.log('2 Fn makeContactlist from Fn JsonMessagesToReceive');
+    //////console.log('2 Fn makeContactlist from Fn JsonMessagesToReceive');
     //SQLiteUpdateMessagesTotal();
 
-console.log('Fn JsonMessagesToReceive End Call JsonMessagesSendStatus');
+////console.log('Fn JsonMessagesToReceive End Call JsonMessagesSendStatus');
     JsonMessagesSendStatus();
 }
 
 //------------------------------------------------------------//  
 
 function SQLiteUpdateMessagesTotal() {
-        console.log('SQLiteUpdateMessagesTotal');
+        ////console.log('SQLiteUpdateMessagesTotal');
 
         app.db.transaction(function(tx) {
 
@@ -1176,11 +952,11 @@ function SQLiteUpdateMessagesTotal() {
 
 function totalMessageUpdate() {
 
-    console.log('fn totalMessageUpdate');
+    ////console.log('fn totalMessageUpdate');
 
     app.selectTotalMessages = function(fn) {
         app.db.transaction(function(tx) {
-            //console.log('Collect totalmessages');
+            //////console.log('Collect totalmessages');
             tx.executeSql(selectTotalMessages, [], fn, onError);
         });
     }
@@ -1195,7 +971,7 @@ function totalMessageUpdate() {
 
                     var totalMessage = rs.rows.item(i);
 
-                    //  console.log('totalMessage.totalmessages = ' +totalMessage.totalmessages);
+                    //  ////console.log('totalMessage.totalmessages = ' +totalMessage.totalmessages);
 
                     if (totalMessage.totalmessages >= '1') {
                         $('.totalMessages').addClass('badge badge-red');
@@ -1209,7 +985,7 @@ function totalMessageUpdate() {
             } 
             else 
             {
-                console.log('RECORD DONT EXIST');
+                ////console.log('RECORD DONT EXIST');
             }
 
             totalDataBaseMessages();
@@ -1221,18 +997,79 @@ function totalMessageUpdate() {
 }
 
 
+//------------------------------------------------------------//  
 
+function totalContacts() {
+
+    ////console.log('fn totalContacts');
+
+    app.selectTotalContacts = function(fn) {
+        app.db.transaction(function(tx) {
+            //////console.log('Collect totalmessages');
+            tx.executeSql(selectTotalContacts, [], fn, onError);
+        });
+    }
+
+    var render = function(tx, rs) {
+
+            for (var i = 0; i < rs.rows.length; i++)
+
+            if (rs.rows.length) {
+
+                for (var i = 0; i < rs.rows.length; i++) {
+
+                    var total = rs.rows.item(i);
+
+
+////console.log('!!! ---------------------------------------------------');
+////console.log('total.totalcontacts = ' +total.totalcontacts);
+////console.log('!!! ---------------------------------------------------');
+
+
+
+
+var maxlink = localStorage.getItem('maxlink');
+
+////console.log('!!! ---------------------------------------------------');
+////console.log('maxlink: ', maxlink);
+////console.log('!!! ---------------------------------------------------');
+
+localStorage.setItem('contactallowed','yes');
+
+if(total.totalcontacts >= maxlink ){ 
+////console.log('!!! ---------------------------------------------------');
+////console.log('ADD CONTACT NOT ALLOWED');
+////console.log('!!! ---------------------------------------------------');
+localStorage.setItem('contactallowed','no');
+}
+
+
+
+
+
+                }
+            } 
+
+
+
+
+
+    };
+
+    app.selectTotalContacts(render);
+
+}
 
 //------------------------------------------------------------//  
 
 
 function totalDataBaseMessages() {
 
-    console.log('fn totalDataBaseMessages');
+    ////console.log('fn totalDataBaseMessages');
 
     app.selectTotalDataBaseMessagesReceived = function(fn) {
         app.db.transaction(function(tx) {
-            //console.log('Collect totalmessages');
+            //////console.log('Collect totalmessages');
             tx.executeSql(selectTotalDataBaseMessagesReceived, [], fn, onError);
         });
     }
@@ -1249,14 +1086,14 @@ function totalDataBaseMessages() {
 
                     var totalDataBaseMessageNrReceived = totalDataBaseMessageRecieved.totalDataBaseMessagesReceived;
 
-                    console.log('+++ totalDataBaseMessageNrReceived = ' +totalDataBaseMessageNrReceived);
+                    ////console.log('+++ totalDataBaseMessageNrReceived = ' +totalDataBaseMessageNrReceived);
 
                     // $$('.running').html('R='+totalDataBaseMessageNrReceived);
 
                     sessionStorage.totalDataBaseMessageNrReceived = totalDataBaseMessageNrReceived;
                 }
             } else {
-                console.log('NO totalDataBaseMessages');
+                ////console.log('NO totalDataBaseMessages');
             }
     };
     app.selectTotalDataBaseMessagesReceived(render);
@@ -1265,7 +1102,7 @@ function totalDataBaseMessages() {
 
     app.selectTotalDataBaseMessagesSend = function(fn) {
         app.db.transaction(function(tx) {
-            //console.log('Collect totalmessages');
+            //////console.log('Collect totalmessages');
             tx.executeSql(selectTotalDataBaseMessagesSend, [], fn, onError);
         });
     }
@@ -1282,14 +1119,14 @@ function totalDataBaseMessages() {
 
                     var totalDataBaseMessageNrSend = totalDataBaseMessageSend.totalDataBaseMessagesSend;
 
-                    console.log('+++ totalDataBaseMessageNrSend = ' +totalDataBaseMessageNrSend);
+                    ////console.log('+++ totalDataBaseMessageNrSend = ' +totalDataBaseMessageNrSend);
 
                     //$$('.running').html('S='+totalDataBaseMessageNrSend);
 
                     sessionStorage.totalDataBaseMessageNrSend = totalDataBaseMessageNrSend;
                 }
             } else {
-                console.log('NO totalDataBaseMessages');
+                ////console.log('NO totalDataBaseMessages');
             }
 
 
@@ -1297,16 +1134,10 @@ function totalDataBaseMessages() {
 $$('.DataBaseMessages').html('(S'+sessionStorage.totalDataBaseMessageNrSend+')(R'+sessionStorage.totalDataBaseMessageNrReceived+')');
 
 
-
     };
 
     
     app.selectTotalDataBaseMessagesSend(render);
-
-
-
-
-
 
 }
 
@@ -1319,16 +1150,16 @@ $$('.DataBaseMessages').html('(S'+sessionStorage.totalDataBaseMessageNrSend+')(R
 
 function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, message_old, activeLi) {
 
-    // console.log('------------------------------------');
-    // console.log('Fn insertMessageSQLite');
-    // console.log('mid = ' + mid);
-    // console.log('thekey = ' + thekey);
-    // console.log('his_uid = ' + his_uid);
-    // console.log('his_server = ' + his_server);
-    // console.log('message_new = ' + message_new);
-    // console.log('message_old = ' + message_old);
-    // console.log('activeLi = ' + activeLi);
-    // console.log('------------------------------------');
+    // ////console.log('------------------------------------');
+    // ////console.log('Fn insertMessageSQLite');
+    // ////console.log('mid = ' + mid);
+    // ////console.log('thekey = ' + thekey);
+    // ////console.log('his_uid = ' + his_uid);
+    // ////console.log('his_server = ' + his_server);
+    // ////console.log('message_new = ' + message_new);
+    // ////console.log('message_old = ' + message_old);
+    // ////console.log('activeLi = ' + activeLi);
+    // ////console.log('------------------------------------');
 
 
     //cryptingStart();
@@ -1337,11 +1168,11 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
 
     {
         // $$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
-        sslnote.modal({
+        myApp.modal({
             title: localStorage.getItem('crypting'),
             text: localStorage.getItem('oepsaerror'),
             buttons: [{
-                text: localStorage.getItem('oke'),
+                text: localStorage.getItem('OKE'),
                 onClick: function() {
                     var themessage = 'Missing his_server'; // TRANSLATE
                     PushErrorToSupport(themessage);
@@ -1350,7 +1181,7 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
 
                     var activePage = localStorage.getItem('activePage');
 
-                    console.log('Load Page activePage = ' + activePage);
+                    ////console.log('Load Page activePage = ' + activePage);
 
                     if (activePage === 'Smessages-send') {
 
@@ -1366,7 +1197,7 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
                         });
                     }
 
-                    console.log('We load Page activePage = ' + activePage);
+                    ////console.log('We load Page activePage = ' + activePage);
 
                 }
             }, ]
@@ -1395,7 +1226,7 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
         var uid = localStorage.getItem('UID');
 
 
-        //console.log('mDate = ' + mDate);
+        //////console.log('mDate = ' + mDate);
 
         if (message_old !== '') {
 
@@ -1404,21 +1235,43 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
 
             var i = new RegExp('i said', 'g');
             message_old = message_old.replace(i, uid);
-            //console.log('DO message_old is not empty');
+            //////console.log('DO message_old is not empty');
 
             var removemessagelast = new RegExp('message-last', 'g');
             message_old = message_old.replace(removemessagelast, '');
-            //console.log('DO message_old is not empty');
+            //////console.log('DO message_old is not empty');
 
-            if (sessionStorage.getItem('imageURL')) {
-                var imageURL = sessionStorage.getItem('imageURL');
-                //console.log('imageURL= ' +imageURL);
+
+
+
+
+
+
+
+            if (sessionStorage.getItem('imageURL') || sessionStorage.getItem('vCardstore') ) {
+                var imageURL= '';
+                var vCardstore= ''; 
+
+                if(sessionStorage.getItem('imageURL') !== null && sessionStorage.getItem('imageURL') !== undefined ) { var imageURL = sessionStorage.getItem('imageURL') };
+                if(sessionStorage.getItem('vCardstore')!== null && sessionStorage.getItem('vCardstore') !== undefined) { var vCardstore = sessionStorage.getItem('vCardstore') } ;
+
+
+                //////console.log('imageURL= ' +imageURL);
                 var message = message_old +
                     "<div class='message message-send message-last'>" +
                     "<div class='message-name'>" + uid + " (" + time_now +
-                    ")</div>" + imageURL + "<div class='message-text'>" +
+                    ")</div>" + 
+
+                imageURL + 
+                vCardstore + 
+
+                 "<div class='message-text'>" +
                     message_new + "</div></div>";
-            } else {
+            } 
+
+            else 
+
+            {
                 var message = message_old +
                     "<div class='message message-send message-last'>" +
                     "<div class='message-name'>" + uid + " (" + time_now +
@@ -1426,20 +1279,46 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
                     "</div></div>";
             }
         } // end if message_old not empty
+
+
+// NEW MESSAGE
+
         else
 
         {
-            console.log('DO message_old is empty');
+            ////console.log('DO message_old is empty');
 
-            if (sessionStorage.getItem('imageURL')) {
-                var imageURL = sessionStorage.getItem('imageURL');
-                //console.log('imageURL= ' +imageURL);
-                var message = "<div class='messages-date'><span>" + date_now +
-                    "</span></div><div class='message message-send message-last'>" +
-                    "<div class='message-name'>" + uid + " (" + time_now +
-                    ")</div>" + imageURL + "<div class='message-text'>" +
-                    message_new + "</div></div>";
-            } else {
+
+
+
+            if (sessionStorage.getItem('imageURL') || sessionStorage.getItem('vCardstore') ) {
+
+                var imageURL = '';
+                var vCardstore = ''; 
+
+                if(sessionStorage.getItem('imageURL') !== null && sessionStorage.getItem('imageURL') !== undefined ) { var imageURL = sessionStorage.getItem('imageURL') };
+                if(sessionStorage.getItem('vCardstore') !== null && sessionStorage.getItem('vCardstore') !== undefined) { var vCardstore = sessionStorage.getItem('vCardstore') } ;
+
+
+
+                //////console.log('imageURL= ' +imageURL);
+
+                var message = 
+                "<div class='messages-date'>" +
+                "   <span>" + date_now +"</span>" +
+                "</div>" +
+                "<div class='message message-send message-last'>" +
+                "<div class='message-name'>" + uid + " (" + time_now + ")</div>" +
+
+                imageURL + 
+                vCardstore + 
+
+                "<div class='message-text'>" + message_new + "</div></div>";
+            } 
+
+            else 
+
+            {
                 var message = "<div class='messages-date'><span>" + date_now +
                     "</span></div><div class='message message-send message-last'>" +
                     "<div class='message-name'>" + uid + " (" + time_now +
@@ -1450,7 +1329,7 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
 
 
         var key2 = thekey.toLowerCase();
-        //console.log('key2 = ' +key2);
+        //////console.log('key2 = ' +key2);
         sessionStorage.setItem(sessionStorage.getItem('his_uid') + 'encryptkey', key2);
 
         var datatosend = sjcl.encrypt(key2, message);
@@ -1460,29 +1339,37 @@ function insertMessageSQLite(mid, thekey, his_uid, his_server, message_new, mess
 
 
         app.db.transaction(function(tx) {
-            console.log('insertUIDMessagesIntoSqlite');
+            ////console.log('insertUIDMessagesIntoSqlite');
 
-            tx.executeSql(insertMessagesToReceive, [localStorage.getItem('UID'), his_uid, '', mDate, '10'], onInsertSuccessMessagesToReceive, onError);
+            // tx.executeSql(insertMessagesToReceive, [localStorage.getItem('UID'), his_uid, '', mDate, '10'], onInsertSuccessMessagesToReceive, onError);
             
+tx.executeSql(insertMessagesToReceive, [localStorage.getItem('UID'), his_uid, message_new, mDate, '10'], onInsertSuccessMessagesToReceive, onError);
+           
+
+
+
+
+
             tx.executeSql(insertUIDMessagesSend, [localStorage.getItem('UID'), his_uid, his_server, datatosend, mDate, '0', '0', '0', '0'], onInsertSuccessMessagesToSend, onError);
 
 
-            console.log('............................................');
-            console.log('insertMessagesToReceive = ' + localStorage.getItem('UID') + his_uid + '' + mDate + '10');
-            console.log('............................................');
+            ////console.log('............................................');
+            ////console.log('insertMessagesToReceive = ' + localStorage.getItem('UID') + his_uid + message_new + mDate + '10');
+            ////console.log('............................................');
 
-            
+         sessionStorage.removeItem('imageURL');
+         sessionStorage.removeItem('vCardstore'); 
 
             // append send message
 
             function onInsertSuccessMessagesToReceive() {
 
-                console.log("onInsertSuccessMessagesToReceive fn makeContactMessages");
+                //console.log("onInsertSuccessMessagesToReceive fn makeContactMessages");
 
 if (mid) {
 
 
-console.log('removeMessagesToReceive = ' + mid);
+////console.log('removeMessagesToReceive = ' + mid);
 
 
 tx.executeSql(removeMessagesToReceive, [mid], onRemovedMessagesSuccess, onError);
@@ -1498,7 +1385,7 @@ tx.executeSql(updateBadgeTo, [], onUpdateSuccess, onError);
 
                 cryptingStop();
 
-                console.log('*** cryptingStop = ');
+                ////console.log('*** cryptingStop = ');
 
                 totalMessageUpdate();
 
@@ -1515,7 +1402,7 @@ else
 
                 cryptingStop();
 
-                console.log('*** cryptingStop = ');
+                ////console.log('*** cryptingStop = ');
 
                 totalMessageUpdate();
 
@@ -1527,7 +1414,7 @@ else
 
 
             function onInsertSuccessMessagesToSend() {
-                        console.log("onInsertSuccessMessagesToSend fn makeContactMessages");
+                        //console.log("onInsertSuccessMessagesToSend fn makeContactMessages");
                         JsonMessagesToSend();
             }
 
@@ -1539,11 +1426,11 @@ else
 
 
                             function onRemovedMessagesSuccess() {
-                                //console.log('+++++++ onRemovedSuccess =' + onRemovedSuccess); 
+                                //////console.log('+++++++ onRemovedSuccess =' + onRemovedSuccess); 
 
 var selectItemId = JSON.parse(sessionStorage.getItem('selectItemId'));
 
-console.log('+++++++ selectItemId: ', selectItemId); 
+////console.log('+++++++ selectItemId: ', selectItemId); 
 
 myMessagesList.deleteItem(selectItemId);
 
@@ -1553,7 +1440,7 @@ sessionStorage.removeItem('selectItemId');
 
 
 
-                sslnote.showTab('#messagesview');
+                myApp.showTab('#messagesview');
 
                 setTimeout(function() {
                     messagesview.router.back({
@@ -1571,9 +1458,9 @@ sessionStorage.removeItem('selectItemId');
 
                                     // var themessage = 'replied'; // TRANSLATE
 
-                                    console.log('Send PushNotification = Replied')
+                                    ////console.log('Send PushNotification = Replied')
 
-                                    console.log('PushDatum = ' + sessionStorage.getItem('Pushmdatum'));
+                                    ////console.log('PushDatum = ' + sessionStorage.getItem('Pushmdatum'));
 
 
                                     $$.ajax({
@@ -1589,7 +1476,7 @@ sessionStorage.removeItem('selectItemId');
                                             sendStatusUpdate: '50'
                                         },
                                         success: function(responseData, textStatus, jqXHR) {
-                                            console.log('PUSH MESSAGE WIPE SEND..');
+                                            ////console.log('PUSH MESSAGE WIPE SEND..');
                                             console.log(responseData, textStatus, jqXHR);
 
                                         }
@@ -1605,7 +1492,7 @@ sessionStorage.removeItem('selectItemId');
 
             sessionStorage.removeItem('imageURL');
 
-            sslnote.hidePreloader();
+            myApp.hidePreloader();
 
 
 
@@ -1619,7 +1506,7 @@ sessionStorage.removeItem('selectItemId');
 //------------------------------------------------------------//  
 
 function importNewUIDLinks() {
-    console.log('*** Fn importNewUIDLinks Started');
+    ////console.log('*** Fn importNewUIDLinks Started');
 
     $$('.importNewUIDLinks').html('<img src="img/loader.png" height="15" width="15">');
 
@@ -1629,26 +1516,26 @@ function importNewUIDLinks() {
     console.log(localStorage.getItem('connection'));
     console.log(localStorage.getItem('UID'));
 
-    //sslnote.showIndicator();
+    //myApp.showIndicator();
     $$.post(localStorage.getItem('connection') +
         '/appie/php/include/JsonImportUIDLinks.php?uid=' + uid +
-        '&sslnoteapp=' + localStorage.getItem('sslnoteapp'),
+        '&myAppapp=' + localStorage.getItem('myAppapp'),
         function(responseData) {
-            ////console.log('*** Fn importNewUIDLinks responseData = ' +responseData);  
+            ////////console.log('*** Fn importNewUIDLinks responseData = ' +responseData);  
             if (responseData) {
 
-                //console.log('*** importNewUIDLinks A = ' + responseData);
+                //////console.log('*** importNewUIDLinks A = ' + responseData);
 
 
                 if (responseData.indexOf('Error') >= 0) {
-                    console.log('Error');
+                    ////console.log('Error');
 
-                    sslnote.closeModal();
+                    myApp.closeModal();
 
                     if (localStorage.debugging == 'true') {
-                        sslnote.alert('Sorry some Error, <BR>' + responseData);
+                        myApp.alert('Sorry some Error, <BR>' + responseData);
                     } else {
-                        sslnote.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
+                        myApp.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
                             window.location.reload();
                         });
                     }
@@ -1657,16 +1544,16 @@ function importNewUIDLinks() {
                 else 
 
                 {
-                    console.log('NO Error');
+                    ////console.log('NO Error');
 
-                    console.log('*** IMPORT UIDLINKS B = ');
+                    ////console.log('*** IMPORT UIDLINKS B = ');
 
                     app.db.transaction(function(tx) {
-                        console.log('dropUIDLinks');
+                        ////console.log('dropUIDLinks');
 
                         tx.executeSql(dropUIDLinks, [], onRemovedSuccess, onError);
 
-                        console.log('createUIDLinks');
+                        ////console.log('createUIDLinks');
                         tx.executeSql(createUIDLinks, [], onUpdateSuccess, onError);
                     });
 
@@ -1680,11 +1567,11 @@ function importNewUIDLinks() {
 
                             var data = obj[key];
 
-                            // console.log('data.his_uid = ' +data.his_uid);
-                            // console.log('data.his_nick = ' +data.his_nick);
-                            // console.log('data.his_server = ' +data.his_server);
-                            // console.log('data.active_last = ' +data.active_last);
-                            //console.log('*** updateUIDLinks');
+                            // ////console.log('data.his_uid = ' +data.his_uid);
+                            // ////console.log('data.his_nick = ' +data.his_nick);
+                            // ////console.log('data.his_server = ' +data.his_server);
+                            // ////console.log('data.active_last = ' +data.active_last);
+                            //////console.log('*** updateUIDLinks');
 
 
                             localStorage.removeItem(data.his_uid + 'encryptkey');
@@ -1692,9 +1579,9 @@ function importNewUIDLinks() {
 
                             //var testonline = "2015-06-01 00:00:01";
 
-                            //console.log('updateUIDLinks');
+                            //////console.log('updateUIDLinks');
 
-                            console.log('*** importNewUIDLinks DATA A = ' + data);
+                            ////console.log('*** importNewUIDLinks DATA AA = ' + data);
 
                             console.log(data);
 
@@ -1702,11 +1589,14 @@ function importNewUIDLinks() {
 
                         } // end for
 
+
+
+
                     }); // end app.db.transaction
 
-                        console.log('importNewUIDLinks makeContactlist');
+                        ////console.log('importNewUIDLinks makeContactlist');
 
-                        importContactListSuccesFul();
+
 
                         setTimeout(function() {
                             contactsview.reloadPage();
@@ -1720,17 +1610,17 @@ function importNewUIDLinks() {
             else
 
             {
-                console.log('NOTHING TO IMPORT ADD NEW');
+                ////console.log('NOTHING TO IMPORT ADD NEW');
                 app.db.transaction(function(tx) {
-                    //console.log('insertTestUID ');
+                    //////console.log('insertTestUID ');
                     var testonline = "2015-06-01 17:05:47";
                     //console.log(testonline);
                     tx.executeSql(insertSupportUID, [localStorage.getItem('UID'), localStorage.getItem('testUID'), localStorage.getItem('testNick'), localStorage.getItem('testserver'), '0', '0', '0'], onInsertSuccess, onError);
                 });
 
                 var posturl =
-                    localStorage.getItem('connection') + '/appie/php/include/JsonInsertUIDLinks.php?sslnoteapp=' +
-                    localStorage.getItem('sslnoteapp') + '&my_server=' +
+                    localStorage.getItem('connection') + '/appie/php/include/JsonInsertUIDLinks.php?myAppapp=' +
+                    localStorage.getItem('myAppapp') + '&my_server=' +
                     localStorage.getItem('server') + '&my_uid=' +
                     localStorage.getItem('UID') + '&my_nick=' +
                     localStorage.getItem('UID') + '&his_uid=' +
@@ -1740,10 +1630,10 @@ function importNewUIDLinks() {
                 //console.log(posturl);
 
                 $$.post(posturl, function(data) {
-                    //console.log('**************************************');
-                    //console.log('POST RESPONSE INSERT');
+                    //////console.log('**************************************');
+                    //////console.log('POST RESPONSE INSERT');
                     //console.log(data);
-                    //console.log('**************************************');
+                    //////console.log('**************************************');
                 });
 
             }
@@ -1751,7 +1641,7 @@ function importNewUIDLinks() {
 
             $$('.importNewUIDLinks').html('');
 
-
+// myApp.alert('SYNC CONTACT LIST DONE');
 
         }); //end contact verzoek check
 }
@@ -1761,7 +1651,7 @@ function importNewUIDLinks() {
 
 function fNupdateUIDServer() {
 
-    console.log('*** Fn updateUIDServer Started');
+    ////console.log('*** Fn updateUIDServer Started');
 
     $$('.importNewUIDLinks').html('<img src="img/loader.png" height="15" width="15">');
 
@@ -1771,28 +1661,28 @@ function fNupdateUIDServer() {
     console.log(localStorage.getItem('connection'));
     console.log(localStorage.getItem('UID'));
 
-    //sslnote.showIndicator();
+    //myApp.showIndicator();
     $$.post(localStorage.getItem('connection') +
         '/appie/php/include/JsonImportUIDLinks.php?uid=' + uid +
-        '&sslnoteapp=' + localStorage.getItem('sslnoteapp'),
+        '&myAppapp=' + localStorage.getItem('myAppapp'),
         function(responseData) {
 
-            console.log('*** Fn updateUIDServer responseData = ' +responseData);  
+            ////console.log('*** Fn updateUIDServer responseData = ' +responseData);  
 
             if (responseData) {
 
-                //console.log('*** IMPORT UIDLINKS A = ' + responseData);
+                //////console.log('*** IMPORT UIDLINKS A = ' + responseData);
 
 
                 if (responseData.indexOf('Error') >= 0) {
-                    console.log('Error');
+                    ////console.log('Error');
 
-                    sslnote.closeModal();
+                    myApp.closeModal();
 
                     if (localStorage.debugging == 'true') {
-                        sslnote.alert('Sorry some Error, <BR>' + responseData);
+                        myApp.alert('Sorry some Error, <BR>' + responseData);
                     } else {
-                        sslnote.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
+                        myApp.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
                             window.location.reload();
                         });
                     }
@@ -1801,16 +1691,16 @@ function fNupdateUIDServer() {
                 else 
 
                 {
-                    console.log('NO Error updateUIDServer');
+                    ////console.log('NO Error updateUIDServer');
 
-                    //console.log('*** IMPORT UIDLINKS B = ');
+                    //////console.log('*** IMPORT UIDLINKS B = ');
 
                     // app.db.transaction(function(tx) {
-                    //     console.log('dropUIDLinks');
+                    //     ////console.log('dropUIDLinks');
 
                     //     tx.executeSql(dropUIDLinks, [], onRemovedSuccess, onError);
 
-                    //     console.log('createUIDLinks');
+                    //     ////console.log('createUIDLinks');
                     //     tx.executeSql(createUIDLinks, [], onUpdateSuccess, onError);
 
                     // });
@@ -1825,14 +1715,14 @@ function fNupdateUIDServer() {
 
                             var data = obj[key];
 
-                            // console.log('data.his_uid = ' +data.his_uid);
-                            // console.log('data.his_nick = ' +data.his_nick);
-                            // console.log('data.his_server = ' +data.his_server);
-                            // console.log('data.active_last = ' +data.active_last);
+                            // ////console.log('data.his_uid = ' +data.his_uid);
+                            // ////console.log('data.his_nick = ' +data.his_nick);
+                            // ////console.log('data.his_server = ' +data.his_server);
+                            // ////console.log('data.active_last = ' +data.active_last);
 
-//console.log('data.id = ' +data.id);
+//////console.log('data.id = ' +data.id);
 
-                            console.log('*** updateUIDServer');
+                            ////console.log('*** updateUIDServer');
 
 
                             localStorage.removeItem(data.his_uid + 'encryptkey');
@@ -1841,9 +1731,9 @@ function fNupdateUIDServer() {
 
                             //var testonline = "2015-06-01 00:00:01";
 
-                            //console.log('updateUIDLinks');
+                            //////console.log('updateUIDLinks');
 
-                            console.log('*** updateUIDServer A :' ,data);
+                            ////console.log('*** updateUIDServer A :' ,data);
 
                             //console.log(data);
 
@@ -1857,12 +1747,12 @@ function fNupdateUIDServer() {
 
                         $$.post(localStorage.getItem('connection') +
                             '/appie/php/include/Ccontactcheckreturn.php?uid=' +
-                            localStorage.getItem('UID') + '&sslnoteapp=' +
-                            localStorage.getItem('sslnoteapp') + '&my_server=' +
+                            localStorage.getItem('UID') + '&myAppapp=' +
+                            localStorage.getItem('myAppapp') + '&my_server=' +
                             localStorage.getItem('server')+ '&action=del&id=',
 
                             function(data) {
-                                console.log('*** updateUIDServer DEL :' ,data);
+                                ////console.log('*** updateUIDServer DEL :' ,data);
                             });
 
 
@@ -1879,17 +1769,7 @@ function fNupdateUIDServer() {
 
 
 
-                        console.log('updateUIDServer makeContactlist');
-
-                        //importContactListSuccesFul();
-
-
-                        // setTimeout(function() {
-                        //     contactsview.reloadPage();
-                        // }, 1000);
-
-                    // norecordes forward to contactadd
-
+                        ////console.log('updateUIDServer makeContactlist');
 
                 } // end
 
@@ -1904,7 +1784,7 @@ function fNupdateUIDServer() {
 
 function updateUIDOnline() {
 
-    console.log('*** Fn updateUIDOnline Started');
+    ////console.log('*** Fn updateUIDOnline Started');
 
     $$('.importNewUIDLinks').html('<img src="img/loader.png" height="15" width="15">');
 
@@ -1914,27 +1794,27 @@ function updateUIDOnline() {
     console.log(localStorage.getItem('connection'));
     console.log(localStorage.getItem('UID'));
 
-    //sslnote.showIndicator();
+    //myApp.showIndicator();
     $$.post(localStorage.getItem('connection') +
         '/appie/php/include/JsonImportUIDLinks.php?uid=' + uid +
-        '&sslnoteapp=' + localStorage.getItem('sslnoteapp'),
+        '&myAppapp=' + localStorage.getItem('myAppapp'),
         function(responseData) {
 
-            //console.log('*** Fn updateUIDOnline responseData = ' +responseData);  
+            //////console.log('*** Fn updateUIDOnline responseData = ' +responseData);  
             if (responseData) {
 
-                //console.log('*** IMPORT UIDLINKS A = ' + responseData);
+                //////console.log('*** IMPORT UIDLINKS A = ' + responseData);
 
 
                 if (responseData.indexOf('Error') >= 0) {
-                    console.log('Error');
+                    ////console.log('Error');
 
-                    sslnote.closeModal();
+                    myApp.closeModal();
 
                     if (localStorage.debugging == 'true') {
-                        sslnote.alert('Sorry some Error, <BR>' + responseData);
+                        myApp.alert('Sorry some Error, <BR>' + responseData);
                     } else {
-                        sslnote.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
+                        myApp.alert('Sorry main System Error, <BR>Pleasde try again later.<BR>', 'PEM Error!', function() {
                             window.location.reload();
                         });
                     }
@@ -1943,16 +1823,16 @@ function updateUIDOnline() {
                 else 
 
                 {
-                    console.log('NO Error updateUIDOnline');
+                    ////console.log('NO Error updateUIDOnline');
 
-                    //console.log('*** IMPORT UIDLINKS B = ');
+                    //////console.log('*** IMPORT UIDLINKS B = ');
 
                     // app.db.transaction(function(tx) {
-                    //     console.log('dropUIDLinks');
+                    //     ////console.log('dropUIDLinks');
 
                     //     tx.executeSql(dropUIDLinks, [], onRemovedSuccess, onError);
 
-                    //     console.log('createUIDLinks');
+                    //     ////console.log('createUIDLinks');
                     //     tx.executeSql(createUIDLinks, [], onUpdateSuccess, onError);
 
                     // });
@@ -1967,11 +1847,11 @@ function updateUIDOnline() {
 
                             var data = obj[key];
 
-                            // console.log('data.his_uid = ' +data.his_uid);
-                            // console.log('data.his_nick = ' +data.his_nick);
-                            // console.log('data.his_server = ' +data.his_server);
-                            // console.log('data.active_last = ' +data.active_last);
-                            // console.log('*** updateUIDOnline');
+                            // ////console.log('data.his_uid = ' +data.his_uid);
+                            // ////console.log('data.his_nick = ' +data.his_nick);
+                            // ////console.log('data.his_server = ' +data.his_server);
+                            // ////console.log('data.active_last = ' +data.active_last);
+                            // ////console.log('*** updateUIDOnline');
 
 
                             localStorage.removeItem(data.his_uid + 'encryptkey');
@@ -1980,9 +1860,9 @@ function updateUIDOnline() {
 
                             //var testonline = "2015-06-01 00:00:01";
 
-                            //console.log('updateUIDLinks');
+                            //////console.log('updateUIDLinks');
 
-                            // console.log('*** updateUIDOnline A :' ,data);
+                            // ////console.log('*** updateUIDOnline A :' ,data);
 
                             // console.log(data);
 
@@ -2003,9 +1883,7 @@ tx.executeSql(updateHisOnline, [data.active_last ,data.his_uid], onInsertSuccess
                         makeNewContactList();
 
 
-                        console.log('updateUIDOnline makeContactlist');
-
-                        importContactListSuccesFul();
+                        ////console.log('updateUIDOnline makeContactlist');
 
 
                         setTimeout(function() {
@@ -2023,100 +1901,16 @@ tx.executeSql(updateHisOnline, [data.active_last ,data.his_uid], onInsertSuccess
         }); //end contact verzoek check
 }
 
-//------------------------------------------------------------//  
-
-function setDataSource() {
-
-
-    // console.log(localStorage.getItem('UID') + ' *** Fn setDataSource ');
-
-    //         if (!!window.EventSource) {
-
-    // var CcheckContactsOnline = new EventSource("http://pem.world/sse/CcheckContactsOnline.php?uid=" + localStorage.getItem('UID'));
-
-    // console.log("***** LOADING http://pem.world/sse/CcheckContactsOnline.php?uid=" + localStorage.getItem('UID') );
-
-    //             var CcheckContactsLastOnline = new EventSource("http://pem.world/sse/CcheckContactsLastOnline.php?uid=" + localStorage.getItem('UID'));
-
-    // //            console.log("***** LOADING http://pem.world/sse/CcheckContactsLastOnline.php?uid=" + localStorage.getItem('UID') );
-
-
-    // CcheckContactsOnline.addEventListener("open", function(e) {
-    //               console.log("OPENED CcheckContactsOnline"+ '');
-    //             }, false);
-
-    // CcheckContactsOnline.addEventListener("error", function(e) {
-    //               console.log("<BR>ERROR CcheckContactsOnline " +e.data );
-
-    //               if (e.readyState == EventSource.CLOSED) {
-    //                 console.log("<BR>CLOSED CcheckContactsOnline");
-    //               }
-
-    //             }, false);
-
-
-    // CcheckContactsOnline.addEventListener("onlineStatus", function(e) {
-
-    //                 // logMessage(e);
-    //                 //console.log('addEventListener onlineStatus ' + e.data);
-
-    //                 onlineStatus(e.data);
-
-    //             }, false);
-
-
-    // CcheckContactsOnline.addEventListener("onlineStatusDo", function(e) {
-
-    //                 // logMessage(e);
-    //                 console.log('addEventListener onlineStatusDo ' + e.data);
-
-    //                 //onlineStatus(e.data);
-
-    //             }, false);
-
-
-
-
-    // CcheckContactsLastOnline.addEventListener("open", function(e) {
-    //               console.log("OPENED CcheckContactsLastOnline"+ '');
-    //             }, false);
-
-    // CcheckContactsLastOnline.addEventListener("error", function(e) {
-    //               // console.log("<BR>ERROR CcheckContactsLastOnline " +e.data );
-
-    //               if (e.readyState == EventSource.CLOSED) {
-    //                 console.log("<BR>CLOSED CcheckContactsLastOnline");
-    //               }
-    //             }, false);
-
-    // CcheckContactsLastOnline.addEventListener("lastOnline", function(e) {
-
-    //                 lastOnline(e.data);
-
-    //             }, false);
-
-    // CcheckContactsLastOnline.addEventListener("lastOnlineDo", function(e) {
-
-    //                 console.log('addEventListener lastOnlineDo ' + e.data);
-
-    //             }, false);
-
-    //         } 
-
-}
-
-//------------------------------------------------------------//  
-
 
 //------------------------------------------------------------//  
 
 function iAmOnline() {
 
-    console.log('***** iAmOnlineLoop By Boot App *****');
+    ////console.log('***** iAmOnlineLoop By Boot App *****');
 
     $$.post(localStorage.getItem('connection') +
         '/appie/php/include/iAmOnline.php?uid=' +
-        localStorage.getItem('UID') + '&sslnoteapp=' + localStorage.getItem('sslnoteapp') + '&token=' + localStorage.getItem('token'),
+        localStorage.getItem('UID') + '&myAppapp=' + localStorage.getItem('myAppapp') + '&token=' + localStorage.getItem('token'),
         function(data) {}); // end post
 
 
@@ -2138,17 +1932,17 @@ function iAmOnlineLoop() {
 
     $$.post(localStorage.getItem('connection') +
          '/appie/php/include/iAmOnline.php?uid=' +
-         localStorage.getItem('UID') + '&sslnoteapp=' + localStorage.getItem('sslnoteapp'), function(data) {
+         localStorage.getItem('UID') + '&myAppapp=' + localStorage.getItem('myAppapp')+ '&token=' + localStorage.getItem('token'), function(data) {
      }); // end post
 
     //     JsonMessagesToSend();
 
 
-    console.log('+++ !!! sessionStorage.totalMessagesList = ' + sessionStorage.totalMessagesList);
+    ////console.log('+++ !!! sessionStorage.totalMessagesList = ' + sessionStorage.totalMessagesList);
 
     loop = setTimeout(function() {
 
-        console.log('***** iAmOnlineLoop Start Fn ***** 30 sec');
+        ////console.log('***** iAmOnlineLoop Start Fn ***** 30 sec');
 
         JsonMessagesToReceive();
 
@@ -2156,14 +1950,14 @@ function iAmOnlineLoop() {
 
         contactRequest();
 
-        console.log('***** iAmOnlineLoop End Fn ***** 30 sec');
+        ////console.log('***** iAmOnlineLoop End Fn ***** 30 sec');
 
         var idListToRemove2 = JSON.stringify(idListToRemove);
 
 
         if (idListToRemove2 >= 1) {
 
-            console.log('..............JsonStatusToDelete..............................');
+            ////console.log('..............JsonStatusToDelete..............................');
 
             $$.ajax({
                 method: 'POST',
@@ -2175,10 +1969,10 @@ function iAmOnlineLoop() {
                 },
                 success: function(responseData, textStatus, jqXHR) {
                     //deletemid = '';
-                    //console.log('..............Success..............................');
+                    //////console.log('..............Success..............................');
                     //console.log(responseData);
-                    //console.log('............................................');
-                    //console.log('idListToRemove RESET = ');
+                    //////console.log('............................................');
+                    //////console.log('idListToRemove RESET = ');
 
                     idListToRemove.length = 0;
 
@@ -2186,15 +1980,15 @@ function iAmOnlineLoop() {
                 },
                 error: function(responseData, textStatus, jqXHR) {
                     //deletemid = '';
-                    console.log('..............Error..............................');
+                    ////console.log('..............Error..............................');
                     console.log(responseData, textStatus, jqXHR);
-                    console.log('............................................');
+                    ////console.log('............................................');
                 },
                 complete: function(responseData, textStatus, jqXHR) {
                     //deletemid = '';
-                    //console.log('..............Complete..............................');
+                    //////console.log('..............Complete..............................');
                     //console.log(responseData,textStatus, jqXHR);
-                    //console.log('............................................');
+                    //////console.log('............................................');
                 }
 
             });
@@ -2202,12 +1996,12 @@ function iAmOnlineLoop() {
 
         if (localStorage.debugging == 'true') {
 
-            console.log('***** START CHECK MESSAGE TO SEND *****');
+            ////console.log('***** START CHECK MESSAGE TO SEND *****');
             console.log(localStorage.getItem('UID') + ' *** Fn iAmOnlineLoop ');
 
         }
 
-        console.log('***** iAmOnlineLoop Call Loop ***** 30 sec');
+        ////console.log('***** iAmOnlineLoop Call Loop ***** 30 sec');
         iAmOnlineLoop();
 
     }, 30000);
@@ -2219,7 +2013,7 @@ function iAmOnlineLoop() {
 
 //------------------------------------------------------------//  
 
-function sslnoteupdate() {
+function myAppupdate() {
     var html = '<div class=\'animate-height\'> \t<div class=\'content-block tablet-inset\'> \t    <div class=\'content-block-inner\'> \t    \t<img src=\'iTunesArtwork.png\' style=\'width: 60px; height: 60px; vertical-align: top; float: left;\'> \t    \t<p style=\'margin: 0; margin-left: 8px;\'> \t    \t\t<span style=\'font-weight: 500; font-size: 16px; margin-left: 8px\'>Bug Reporter&#8311; {{version}}<br></span> \t    \t\t<span style=\'font-size: 14px; margin-left: 8px\'>Sniper_GER<br></span> \t    \t\t<span style=\'font-size: 14px; margin-left: 8px\'>Downloaded</span> \t    \t</p>\xA0\t    \t<p>{{description}}<br><br>For more information, visit:<br><a href=\'https://github.com/SniperGER/Bug-Reporter7\' class=\'external\' target=\'_blank\' style=\'text-decoration: underline;\'>https://github.com/SniperGER/Bug-Reporter7</a>{{instructions}}</p> \t    </div> \t</div> \t</div> \t<div class=\'list-block tablet-inset\'> \t    <ul> \t    \t<li> \t    \t\t<a href=\'#\' class=\'item-link open-popup\' data-popup=\'.popup-update-detail\'> \t    \t\t\t<div class=\'item-content\'> \t    \t\t\t\t<div class=\'item-inner\'> \t    \t\t\t\t\t<div class=\'item-title\'>Details</div> \t    \t\t\t\t</div> \t    \t\t\t</div> \t    \t\t</a> \t    \t</li> \t    </ul> \t</div> \t<div class=\'list-block tablet-inset\'> \t    <ul> \t    \t<li class=\'center item-button\'> \t    \t\t<a href=\'#\' class=\'update-button\'> \t    \t\t\t<div class=\'item-content\'> \t    \t\t\t\t<div class=\'item-inner\'> \t    \t\t\t\t\t<div class=\'item-title\' style=\'width: 100%;\'>Install</div> \t    \t\t\t\t</div> \t    \t\t\t</div> \t    \t\t</a> \t    \t</li> \t    </ul> \t</div>';
     $.getJSON('update.json', function(data) {
         $('p#update-status').closest('.page-content').html(html.replace(
@@ -2228,19 +2022,19 @@ function sslnoteupdate() {
         ).replace(/{{instructions}}/g, ''));
         $('span#content').html(data.en.updates[0].content);
         $('.update-button').on('click', function() {
-            sslnote.modal({
+            myApp.modal({
                 title: 'Software Update',
-                text: unescape('SSLNote ' + data.en.updates[0].version + ' will begin installing. The app will restart when installation is finished.'),
+                text: unescape('myApp ' + data.en.updates[0].version + ' will begin installing. The app will restart when installation is finished.'),
                 buttons: [{
                     text: 'Later',
                     onClick: function() {
-                        sslnote.closeModal();
+                        myApp.closeModal();
                     }
                 }, {
                     text: 'Install',
                     bold: true,
                     onClick: function() {
-                        sslnote.hidePreloader();
+                        myApp.hidePreloader();
                         $('body').append('<div class="update-view"><img src="iTunesArtwork.png" /></div>');
                         setTimeout(function() {
                             $('.update-view').append('<div class="progress-bar"><div class="inner-progress" id="update-progress"></div></div>');
@@ -2298,21 +2092,23 @@ function addProgress(selector, callback) {
 
 
 
-var os = sslnote.device.os;
+var os = myApp.device.os;
 localStorage.setItem('device', os);
+////console.log('device:',os);
+
 // result contains any message sent from the plugin call
 
 //------------------------------------------------------------//  
 
 function successHandler(result) {
-        console.log('successHandler result = ' + result);
+        ////console.log('successHandler result = ' + result);
     }
     // result contains any error description text returned from the plugin call
 
 //------------------------------------------------------------//  
 
 function errorHandler(error) {
-        console.log('errorHandler error = ' + error);
+        ////console.log('errorHandler error = ' + error);
     }
     // iOS
 
@@ -2321,7 +2117,7 @@ function errorHandler(error) {
 //------------------------------------------------------------//  
 
 function tokenHandler(result) {
-    // console.log('Fn tokenHandler = UID: ' +localStorage.getItem('UID') + ' - token: ' + result);
+    // ////console.log('Fn tokenHandler = UID: ' +localStorage.getItem('UID') + ' - token: ' + result);
 
     // localStorage.setItem('token', result);
 
@@ -2330,8 +2126,8 @@ function tokenHandler(result) {
     //     if (!localStorage.tokenUpdated) {
 
     //         var posturl =
-    //             localStorage.getItem('connection') + '/appie/php/include/updatetoken.php?sslnoteapp=' +
-    //             localStorage.getItem('sslnoteapp') + '&server=' +
+    //             localStorage.getItem('connection') + '/appie/php/include/updatetoken.php?myAppapp=' +
+    //             localStorage.getItem('myAppapp') + '&server=' +
     //             localStorage.getItem('server') + '&App=' + localStorage.getItem(
     //                 'App') + '&os=' + os + '&uid=' + localStorage.getItem(
     //                 'UID') + '&token=' + localStorage.getItem('token');
@@ -2339,38 +2135,38 @@ function tokenHandler(result) {
     //            console.log(posturl);     
 
     //         $$.post(posturl, function(data) {
-    //             //console.log('**************************************');
-    //             console.log('POST RESPONSE FN tokenHandler ');
+    //             //////console.log('**************************************');
+    //             ////console.log('POST RESPONSE FN tokenHandler ');
     //             console.log(data);
-    //             sslnote.hideIndicator();
-    //             //console.log('**************************************');
-    //             if (!sslnote.formGetData('settings-pushnotification')) {
-    //                 //console.log('! NO settings-pushnotification');
-    //                 sslnote.formStoreData(
+    //             myApp.hideIndicator();
+    //             //////console.log('**************************************');
+    //             if (!myApp.formGetData('settings-pushnotification')) {
+    //                 //////console.log('! NO settings-pushnotification');
+    //                 myApp.formStoreData(
     //                     'settings-pushnotification', {
     //                         'pushreceived': ['on'],
     //                         'pushread': ['on'],
     //                         'pushwipe': ['on']
     //                     });
     //             }
-    //             if (!sslnote.formGetData('settingslogoff')) {
-    //                 //console.log('! NO settingslogoff');
-    //                 sslnote.formStoreData('settingslogoff', {
+    //             if (!myApp.formGetData('settingslogoff')) {
+    //                 //////console.log('! NO settingslogoff');
+    //                 myApp.formStoreData('settingslogoff', {
     //                     'autologoff': '3'
     //                 });
     //             }
-    //             if (!sslnote.formGetData('settings-notification')) {
-    //                 //console.log('! NO settings-notification');
-    //                 sslnote.formStoreData('settings-notification', {
+    //             if (!myApp.formGetData('settings-notification')) {
+    //                 //////console.log('! NO settings-notification');
+    //                 myApp.formStoreData('settings-notification', {
     //                     'sound': '1.m4a',
     //                     'volume': '50',
     //                     'repeatpush': ['on'],
     //                     'slider': 10
     //                 });
     //             }
-    //             if (!sslnote.formGetData('settings-containers')) {
-    //                 //console.log('! NO settings-containers');
-    //                 sslnote.formStoreData('settings-containers', {
+    //             if (!myApp.formGetData('settings-containers')) {
+    //                 //////console.log('! NO settings-containers');
+    //                 myApp.formStoreData('settings-containers', {
     //                     'my-container': 'RUSSIA'
     //                 });
     //             }
@@ -2383,28 +2179,6 @@ function tokenHandler(result) {
 
 
 
-function deleteAndSendPush(d) {
-
-    console.log('deleteAndSendPush = ');
-
-    //     var mid = d.getAttribute('data-id');
-    //     sessionStorage.setItem('mid', mid);
-    // //console.log('mid = ' +mid);
-
-    //     var mdatum = d.getAttribute('data-mdatum');
-    //     sessionStorage.setItem('mdatum', mdatum);
-    // //console.log('mdatum = ' +mdatum);
-
-    //     var his_uid = d.getAttribute('data-his_uid');
-    //     sessionStorage.setItem('his_uid', his_uid);
-    // //console.log('his_uid = ' +his_uid);
-
-    //     var sendPushMessage = d.getAttribute('data-sendPushMessage');
-    //     sessionStorage.setItem('sendPushMessage',sendPushMessage);  
-    // //console.log('sendPushMessage = ' +sendPushMessage);
-}
-
-
 
 
 //------------------------------------------------------------//  
@@ -2414,21 +2188,21 @@ function DeleteUidLink(d) {
     var DeleteUidLinkiD = d.getAttribute('data-id');
     var DeleteUidLinkHisUID = d.getAttribute('his_nick');  
      
-    console.log('DeleteUidLink = ', DeleteUidLinkiD );
+    ////console.log('DeleteUidLink = ', DeleteUidLinkiD );
 
 
-    //   sslnote.alert('Are you sure?<br>Delete link with<br>' + DeleteUidLinkiD);
+    //   myApp.alert('Are you sure?<br>Delete link with<br>' + DeleteUidLinkiD);
     $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
         "/strings.json",
         function(languageSpecificObject) {
-            sslnote.confirm('Are you sure?', 'Delete <br>' +
+            myApp.confirm('Are you sure?', 'Delete <br>' +
                 DeleteUidLinkiD + '<br>(' + DeleteUidLinkHisUID + ')',
 
                 function() {
-                    //sslnote.showPreloader(languageSpecificObject.languageSpecifications[0]['deleting']);
+                    //myApp.showPreloader(languageSpecificObject.languageSpecifications[0]['deleting']);
                    
                     app.db.transaction(function(tx) {
-                        //console.log('Fn removeUIDlinks '); 
+                        //////console.log('Fn removeUIDlinks '); 
                         tx.executeSql(removeUIDlinks, [DeleteUidLinkiD], onRemovedSuccess, onError);
                         makeNewContactList();
 
@@ -2436,40 +2210,40 @@ function DeleteUidLink(d) {
 
                     // delete remote uids_links
                     var posturl =
-                        localStorage.getItem('connection') + '/appie/php/include/JsonRemoveUIDLinks.php?sslnoteapp=' +
-                        localStorage.getItem('sslnoteapp') +
+                        localStorage.getItem('connection') + '/appie/php/include/JsonRemoveUIDLinks.php?myAppapp=' +
+                        localStorage.getItem('myAppapp') +
                         '&server=' + localStorage.getItem('server') +
                         '&uid=' + localStorage.getItem('UID') +
                         '&his_uid=' + DeleteUidLinkiD;
 
                     //console.log(posturl);
                     $$.post(posturl, function(data) {
-                        console.log('**************************************');
-                        console.log('POST RESPONSE DELETE');
+                        ////console.log('**************************************');
+                        ////console.log('POST RESPONSE DELETE');
                         console.log(data);
-                        sslnote.hidePreloader();
-                        //console.log('**************************************');
+                        myApp.hidePreloader();
+                        //////console.log('**************************************');
                         var data = 'Delete <br>' +
                         DeleteUidLinkiD + '<br>(' +
                         DeleteUidLinkHisUID + ')<br>SuccesFully.';
-                        sslnote.hidePreloader();
+                        myApp.hidePreloader();
 
                         syncUILinks();
                         // $$.getJSON("i18n/"+localStorage.getItem('cLANGUAGE')+"/strings.json" , function(languageSpecificObject) { 
 
 
-                        sslnote.modal({
+                        myApp.modal({
                             title: localStorage.getItem('contactlink'),
                             text: data,
                             verticalButtons: true,
                             buttons: [{
-                                text: localStorage.getItem('oke'),
+                                text: localStorage.getItem('OKE'),
                                 onClick: function() {
                                     // window.location.reload();
-                                    //console.log('NO Contactlist create new');
+                                    //////console.log('NO Contactlist create new');
                                     //  makeContactlist();
-                                    //console.log('makeContactlist();');
-                                    sslnote.hidePreloader();
+                                    //////console.log('makeContactlist();');
+                                    myApp.hidePreloader();
                                     // mainView.loadPage('frames/contacts/Scontactlist.html');
                                     contactsview.router.refreshPage();
                                 }
@@ -2480,11 +2254,11 @@ function DeleteUidLink(d) {
                     });
                 },
                 function() {
-                    console.log('sslnote.swipeoutClose(); canceled');
-                    sslnote.swipeoutClose();
+                    ////console.log('myApp.swipeoutClose(); canceled');
+                    myApp.swipeoutClose();
                     contactsview.router.refreshPage();
                     //  makeContactlist();
-                    //console.log('You clicked Cancel button');
+                    //////console.log('You clicked Cancel button');
                 });
         });
 }
@@ -2492,36 +2266,36 @@ function DeleteUidLink(d) {
 //------------------------------------------------------------//  
 
 function KeySettings(d) {
-    console.log('KeySettings = ');
+    ////console.log('KeySettings = ');
     var KeySettingsiD = d.getAttribute('data-id');
     var KeySettingsHis_nick = d.getAttribute('his_nick');
 
-    sslnote.allowSwipeout = true;
-    //  sslnote.alert('Are you sure?<br>Set Key Settings<br>' + KeySettingsiD);
+    myApp.allowSwipeout = true;
+    //  myApp.alert('Are you sure?<br>Set Key Settings<br>' + KeySettingsiD);
 
     $$.getJSON("i18n/" + localStorage.getItem('cLANGUAGE') +
         "/strings.json",
         function(languageSpecificObject) {
             //languageSpecificObject.languageSpecifications[0]['crypting'],
-            sslnote.modal({
+            myApp.modal({
                 title: languageSpecificObject.languageSpecifications[0]['keysettings'],
                 text: languageSpecificObject.languageSpecifications[0]['keysettingstxt'] + '<br>(' + KeySettingsHis_nick + ')',
                 buttons: [{
                     text: '<center><i class="icons_modalcancel"></i></center>',
                     onClick: function() {
                         //makeContactlist();
-                        console.log('You clicked Cancel button');
+                        ////console.log('You clicked Cancel button');
 
 
-                        sslnote.swipeoutClose();
+                        myApp.swipeoutClose();
                         // setTimeout(function(){
                         contactsview.router.refreshPage();
                     }
                 }, {
                     text: '<center><i class="icons_keysave"></i></center>',
                     onClick: function() {
-                        // sslnote.alert('You clicked second button!')
-                        sslnote.prompt(
+                        // myApp.alert('You clicked second button!')
+                        myApp.prompt(
                             languageSpecificObject.languageSpecifications[0]['whatkeytouse'] + '<br>' +
                             KeySettingsHis_nick, languageSpecificObject.languageSpecifications[0]['keysettings'],
                             function(value) { //oke 
@@ -2530,9 +2304,9 @@ function KeySettings(d) {
                                 var tempkey = str.toLowerCase();
                                 var tempkey = calcMD5(tempkey);
 
-                                console.log('+++ str = ' + str);
-                                console.log('+++ tempkey = ' + tempkey);
-                                console.log('+++ KeySettingsiD = ' + KeySettingsiD);
+                                ////console.log('+++ str = ' + str);
+                                ////console.log('+++ tempkey = ' + tempkey);
+                                ////console.log('+++ KeySettingsiD = ' + KeySettingsiD);
 
 
                                 localStorage.setItem(KeySettingsiD + 'encryptkey', tempkey);
@@ -2542,7 +2316,7 @@ function KeySettings(d) {
 
                                 app.db.transaction(
                                     function(tx) {
-                                        //console.log('Fn KeySettings '); 
+                                        //////console.log('Fn KeySettings '); 
                                         tx.executeSql(updateKey, ['1', tempkey, KeySettingsiD], onUpdateSuccess, onError);
 
 
@@ -2552,24 +2326,24 @@ function KeySettings(d) {
 
                                     });
 
-                                sslnote.modal({
+                                myApp.modal({
                                     title: languageSpecificObject.languageSpecifications[0]['keyset'],
                                     text: languageSpecificObject.languageSpecifications[0]['keysetxt'],
                                     verticalButtons: true,
                                     buttons: [{
-                                        text: languageSpecificObject.languageSpecifications[0]['oke'],
+                                        text: localStorage.getItem('OKE'),
                                         onClick: function() {
-                                            //console.log('NO Contactlist create new');
+                                            //////console.log('NO Contactlist create new');
                                             //makeContactlist();
-                                            console.log('KEY SET');
-                                            sslnote.swipeoutClose();
+                                            ////console.log('KEY SET');
+                                            myApp.swipeoutClose();
 
 
                                             // setTimeout(function(){
 
                                                 sessionStorage.setItem('doReload', '1');
 
-                                            console.log('RELOADPAGE');
+                                            ////console.log('RELOADPAGE');
 
                                             makeNewMessageList('noLoad');       
 
@@ -2584,9 +2358,9 @@ function KeySettings(d) {
                             },
                             function(value) { //cancel
                                 //makeContactlist();
-                                //console.log('You clicked Cancel button');
+                                //////console.log('You clicked Cancel button');
 
-                                sslnote.swipeoutClose();
+                                myApp.swipeoutClose();
                                 // setTimeout(function(){
                                 contactsview.router.refreshPage();
                             });
@@ -2603,7 +2377,7 @@ function KeySettings(d) {
 
 
                         app.db.transaction(function(tx) {
-                            //console.log('Fn KeySettings '); 
+                            //////console.log('Fn KeySettings '); 
                             tx.executeSql(updateKey, ['0', '', KeySettingsiD], onUpdateSuccess, onError);
 
                             sessionStorage.setItem('doReload', '1');
@@ -2613,17 +2387,17 @@ function KeySettings(d) {
                         });
 
 
-                        sslnote.modal({
+                        myApp.modal({
                             title: languageSpecificObject.languageSpecifications[0]['keyremoved'],
                             text: languageSpecificObject.languageSpecifications[0]['keyremovedtxt'],
                             verticalButtons: true,
                             buttons: [{
-                                text: languageSpecificObject.languageSpecifications[0]['oke'],
+                                text: localStorage.getItem('OKE'),
                                 onClick: function() {
-                                    console.log('Remove KEY');
+                                    ////console.log('Remove KEY');
                                     //makeContactlist();
-                                    //console.log('makeContactlist();');
-                                    sslnote.swipeoutClose();
+                                    //////console.log('makeContactlist();');
+                                    myApp.swipeoutClose();
                                     // setTimeout(function(){
                                     contactsview.router.refreshPage();
                                     // },800);
@@ -2637,9 +2411,122 @@ function KeySettings(d) {
 }
 
 
+
+function insertThisVcard(d) {
+    ////console.log('insertThisVcard ');
+
+    var his_uid = d.getAttribute('data-his_uid');
+    var his_nick = d.getAttribute('data-his_nick');
+    var his_server = d.getAttribute('data-his_server');
+
+    var his_nick = his_nick.toUpperCase();
+
+      ////console.log('his_uid = ',his_uid);
+        ////console.log('his_nick = ',his_nick);
+          ////console.log('his_server = ',his_server);
+
+
+    var thevcardHTML = 
+    '   <div class="message message-sent message-vcard message-last"> '+ 
+
+    '   <span><a href="#" onclick="cancelThisVcard(this)" data-his_uid="'+his_uid+'" data-his_nick="'+his_nick+'" data-his_server="'+his_server+'" >' + 
+    '   <div class="message-vcardicon"></div>'+
+
+        his_nick + ' (' + his_uid + ') </a><span>'+
+
+    '   </div>';
+
+
+   $$('#thevcard').html(thevcardHTML);
+
+
+// var conversationStarted = false;
+// var myMessages = myApp.messages('.messages', {
+//   autoLayout:true
+// });
+// var avatar, name;
+
+// var messageType = 'sent';
+
+// var messageText = '<a href="#" onclick="addThisVcard(this)" >CONTACT: ' + his_nick + '<BR> ( ' + his_uid + ' ) </a>';
+
+// ////console.log('myMessages.addMessage ');
+
+// myMessages.addMessage({
+//     // Message text
+//     text: messageText,
+//     // Random message type
+//     type: messageType,
+//     // Avatar and name:
+//     avatar: avatar,
+//     name: name,
+//     // Day
+//     day: !conversationStarted ? 'Today' : false,
+//     time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
+//   })
+
+// ////console.log('myMessages.addMessage DONE');
+
+//   // Update conversation flag
+//   conversationStarted = true;
+
+var myMessages = $$('.messages')[0].f7Messages;
+
+myMessages.scrollMessages();
+
+//var vCardstore = '<div class="message message-send message-vcard"><a href="#" onclick="addThisVcard(this)" data-his_uid="'+his_uid+'" data-his_nick="'+his_nick+'" data-his_server="'+his_server+'" style="color: #808080"  >' + his_nick + '<BR> ( ' + his_uid + ' ) </a></div>';
+
+var vCardstore = '<div class="message message-send message-vcard"><span><a href="frames/settings/mysettings/contactAdd.html" onclick="addThisVcard(this)" class="item-link link item-content" data-view=".view-settings" data-his_uid="'+his_uid+'" data-his_nick="'+his_nick+'" data-his_server="'+his_server+'" ><div class="message-vcardicon"></div>' + his_nick + ' (' + his_uid + ') </a></span></div>'
+
+
+sessionStorage.setItem('vCardstore', vCardstore);
+
+
+
+}
+
+
+
+function addThisVcard(d) {
+    ////console.log('addThisVcard ');
+
+    var his_uid = d.getAttribute('data-his_uid');
+    var his_nick = d.getAttribute('data-his_nick');
+    var his_server = d.getAttribute('data-his_server');
+
+
+sessionStorage.setItem('QRscanUID',his_uid );
+sessionStorage.setItem('QRscanNICK',his_nick);
+
+
+      ////console.log('his_uid = ',his_uid);
+        ////console.log('his_nick = ',his_nick);
+          ////console.log('his_server = ',his_server);
+
+}
+
+function cancelThisVcard(d) {
+    ////console.log('cancelThisVcard ');
+
+    // var his_uid = d.getAttribute('data-his_uid');
+    // var his_nick = d.getAttribute('data-his_nick');
+    // var his_server = d.getAttribute('data-his_server');
+
+    //   ////console.log('his_uid = ',his_uid);
+    //     ////console.log('his_nick = ',his_nick);
+    //       ////console.log('his_server = ',his_server);
+
+myApp.closeModal('.popup');
+sessionStorage.removeItem('vCardstore');
+
+$$('#thevcard').html('');
+}
+
+
+
 function playNotificationSound(sound) {
 
-    console.log('----------- playSound event -----------');
+    ////console.log('----------- playSound event -----------');
 
     if (sessionStorage.getItem('soundIsPlaying') !== '1') {
 
@@ -2647,7 +2534,7 @@ function playNotificationSound(sound) {
 
         if (sound) {
 
-            console.log('----------- have sound -----------' + sound);
+            ////console.log('----------- have sound -----------' + sound);
 
             if (os === 'ios') 
             {
@@ -2678,7 +2565,7 @@ function playNotificationSound(sound) {
         {
 
 
-            console.log('----------- have saved sound -----------');
+            ////console.log('----------- have saved sound -----------');
 
 
             if (os === 'ios') {
@@ -2707,7 +2594,7 @@ function playNotificationSound(sound) {
 
     {
 
-        console.log('----------- SOUND BUSY -----------');
+        ////console.log('----------- SOUND BUSY -----------');
     }
 }
 
@@ -2715,74 +2602,9 @@ function playNotificationSound(sound) {
 
 
 
-
-
-
-
-
-
-
-// function ShowHidePassword(ID) {
-
-
-//     console.log('Fn  ID x= ' + ID.id);
-
-
-
-//     //document.getElementById("demo").innerHTML = x;
-
-
-//     if (document.getElementById($("#ShowHidePassword").prev().attr('id')).type == "password") {
-
-
-//         // console.log('Fn  ID 1= ' +ID.id);    
-
-//         console.log('Fn  ID 1= ' + document.getElementById($("#ShowHidePassword").prev().attr('id')).type);
-
-
-//         document.getElementById($("#ShowHidePassword").attr("data-hint", "Hide"));
-
-
-
-//         //    var x = document.getElementsByClassName("icon");
-
-//         // x.removeClass("active");
-//         // x.addClass("deactive");
-
-//         document.getElementById($("#icon_eye").removeClass("active").addClass("deactive"));
-//         // document.getElementById($("#icon_eye").addClass("deactive"));
-
-
-//         //    document.getElementById($("#ShowHidePassword").prev().attr('id')).type = "text";
-
-//         // document.getElementById('myElement').type = 'text';
-
-
-//         document.getElementById('password').type = "text";
-
-
-//     } else
-
-//     {
-
-//         // console.log('Fn  ID 2= ' +ID.id);   
-
-//         console.log('Fn  ID 2= ' + document.getElementById($("#" + ID.id).prev().attr('id')).type);
-
-//         document.getElementById($("#ShowHidePassword").attr("data-hint", "Show"));
-
-//         document.getElementById($("#icon_eye").removeClass("deactive").addClass("active"));
-
-//         document.getElementById($("#ShowHidePassword").prev().attr('id')).type = "password";
-//     }
-// }
-
-
-
-
 function loadMyContacts() {
 
-    console.log('loadMyContacts() = Started on autologon 999');
+    ////console.log('loadMyContacts() = Started on autologon 999');
 
 
     app.selectAllRecords = function(fn) {
@@ -2794,7 +2616,7 @@ function loadMyContacts() {
     var render = function(tx, rs) {
 
             if (rs.rows.length) {
-                console.log('RECORD EXIST myContactListItems');
+                ////console.log('RECORD EXIST myContactListItems');
 
                 //console.log(rs.rows.length);
 
@@ -2855,7 +2677,7 @@ function loadMyContacts() {
                         (+dateArray[1]), (+dateArray[2]) - 1, // Careful, month starts at 0!
                         (+dateArray[3]), (+dateArray[4]), (+dateArray[5]), (+dateArray[6]));
 
-                    ////console.log('mdatum2 = ' +mdatum2);
+                    ////////console.log('mdatum2 = ' +mdatum2);
 // MONTH
                     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -2868,14 +2690,14 @@ function loadMyContacts() {
                 } // end for
 
 
-                // console.log('items : b ');
+                // ////console.log('items : b ');
                 // console.log(items);
 
                 localStorage.setItem('myContactListItems', JSON.stringify(items));
 
                 var myContactListItems = JSON.parse(localStorage.getItem('myContactListItems'));
 
-                console.log('myContactListItems : b ');
+                ////console.log('myContactListItems : b ');
                 console.log(myContactListItems);
 
 
@@ -2884,7 +2706,7 @@ function loadMyContacts() {
             else
 
             {
-                console.log('Fn importNewUIDLinks')
+                ////console.log('Fn importNewUIDLinks')
             }
 
 
@@ -2899,12 +2721,14 @@ function loadMyContacts() {
 
 
 function contactRequest() {
-    console.log('*** Fn contactRequest Start');
+    ////console.log('*** Fn contactRequest Start');
+
+
 
     $$.post(localStorage.getItem('connection') +
-        '/appie/php/include/Ccontactcheck.php?uid=' + localStorage.getItem('UID') + '&sslnoteapp=' + localStorage.getItem('sslnoteapp'),
+        '/appie/php/include/Ccontactcheck.php?uid=' + localStorage.getItem('UID') + '&myAppapp=' + localStorage.getItem('myAppapp'),
         function(data) {
-            console.log('--- START Ccontactcheck.php data response= ',data); 
+            ////console.log('--- START Ccontactcheck.php data response= ',data); 
 
 if(data){
 
@@ -2914,11 +2738,11 @@ if(data){
             var contactRequestId = jsonObject.id;
 
 
-            //console.log('--- jsonObject.idstatus: ',jsonObject.idstatus);     
+            //////console.log('--- jsonObject.idstatus: ',jsonObject.idstatus);     
 
 
             if (jsonObject.idstatus >= '1' && jsonObject.idstatus <= '4' ) {
-                console.log('--- jsonObject.idstatus: new contact verzoek ',jsonObject.idstatus); 
+                ////console.log('--- jsonObject.idstatus: new contact verzoek ',jsonObject.idstatus); 
 
                 $('.messagessearchbar').hide();
                 $('.messagesinvitation').show();
@@ -2940,11 +2764,11 @@ if(data){
 
      //           if (jsonObject.id >= '1') {
 
-                    // console.log('---------------- contactRequest -------------------');
+                    // ////console.log('---------------- contactRequest -------------------');
 
                     // console.log(data);
 
-                    // console.log('---------------- contactRequest -------------------');
+                    // ////console.log('---------------- contactRequest -------------------');
 
 
 
@@ -2969,9 +2793,9 @@ if(data){
 
             if (jsonObject.idstatus === '5') {
 
-                console.log('............................................');
-                console.log("idstatus 5 do updateUIDServer");
-                console.log('............................................');
+                ////console.log('............................................');
+                //console.log("idstatus 5 do updateUIDServer");
+                ////console.log('............................................');
 
                 fNupdateUIDServer();
 
@@ -2982,9 +2806,9 @@ if(data){
 else 
 
             {
-                console.log('............................................');
-                console.log("NO DATA Fn contactRequest");
-                console.log('............................................');
+                ////console.log('............................................');
+                //console.log("NO DATA Fn contactRequest");
+                ////console.log('............................................');
 
                 // var contactrequestHTML =
                 //     '<div class="searchbar-input">' +
@@ -3007,7 +2831,7 @@ else
 
         }); //end post
 
-console.log('*** Fn contactRequest End');
+////console.log('*** Fn contactRequest End');
 
 }
 
@@ -3016,9 +2840,9 @@ function changeShowPassword(password) {
 
 
 
-                console.log('changeShowPassword');
+                ////console.log('changeShowPassword');
                 if(!sessionStorage.showPassword){
-                console.log('show Password');
+                ////console.log('show Password');
                 
 
                 $$('#eye').removeClass('showPassword');
@@ -3032,7 +2856,7 @@ function changeShowPassword(password) {
                 else
 
                 {
-                console.log('hide Password');
+                ////console.log('hide Password');
 
 
                 $$('#eye').removeClass('hidePassword');
@@ -3052,15 +2876,91 @@ function checkPasswordInputLogin(password) {
 
     // LOGIN
 
-    //console.log('We have Password input ' + password);
+    //////console.log('We have Password input ' + password);
 
     var uid = localStorage.getItem('UID');
 
     var pass = calcMD5(password);
 
+
+
+if(sessionStorage.getItem('pemworldLoginCheck') === '1') {
+
+        if(pass === '3ef581d87874845960abc887a0366ca1') {
+
+
+        // pemworld oke, reset session
+
+         ////console.log('pemworld reset ok ' + pass);
+
+
+            sessionStorage.removeItem('pemworldLoginCheck');
+            document.getElementById("uid").reset();
+
+
+                        var buttons1 = [{
+                            // text: '"pemworld" fil in ok. try your password.',
+                            text: localStorage.getItem('TEMPERY_BLOCK_OKE'),
+                            label: true,
+                            color: 'red',
+                    
+                        }];
+
+                        var group = [
+                            buttons1,
+                            // buttons2
+                        ];
+                        myApp.actions(group);
+return false;
+
+
+        }
+
+        else
+
+        {
+
+        // pemworld not ok
+        // popup
+
+         ////console.log('pemworld reset not ok ' + pass);
+
+                        var buttons1 = [{
+                            text: localStorage.getItem('TEMPERY_BLOCK'),
+                            label: true,
+                            color: 'red',
+                    
+                        }];
+
+                        var group = [
+                            buttons1,
+                            // buttons2
+                        ];
+
+                        myApp.actions(group);
+
+
+
+        }
+
+
+
+
+}
+
+else
+
+{
+
+
+    //////console.log('We have Password input ' + pass);
+
+
+    // pemworld = 3ef581d87874845960abc887a0366ca1
+
     app.selectAllRecords = function(fn) {
         app.db.transaction(function(tx) {
-            //console.log('app.selectAllRecords');
+            //////console.log('app.selectAllRecords');
             tx.executeSql("SELECT * FROM uid WHERE uid = ? and pass = ?", [uid, pass], fn, app.onError);
         });
     }
@@ -3072,18 +2972,18 @@ function checkPasswordInputLogin(password) {
         }
 
         if (rs.rows.length) {
-            console.log('A USER EXIST');
+            ////console.log('A USER EXIST');
 
 
             document.activeElement.blur();
 
 window.plugins.toast.show('authorized', 'short', 'center');
 
-            console.log('UID: ' + localStorage.getItem('UID') + ' - TOKEN: ' + localStorage.getItem('token'));  
+            ////console.log('UID: ' + localStorage.getItem('UID') + ' - TOKEN: ' + localStorage.getItem('token'));  
 
             // $('.loginfailsbadge').show();
 
-            //sslnote.showIndicator();
+            //myApp.showIndicator();
 
             // playNotificationSound('plop.mp3');
 
@@ -3092,15 +2992,15 @@ window.plugins.toast.show('authorized', 'short', 'center');
 
                 makeNewMessageList('reFreshYes');
                 // myMessagesList.update();
-                console.log('!!! reLoggin = myMessagesList.update');
+                ////console.log('!!! reLoggin = myMessagesList.update');
 
             }
 
 
             for (var i = 0; i < rs.rows.length; i++) {
-                //console.log('A RECORD HAVE VAR');
+                //////console.log('A RECORD HAVE VAR');
                 var data = rs.rows.item(i);
-                //console.log('!!! DATA = ');
+                //////console.log('!!! DATA = ');
                 //console.log(data);
                 //localStorage.setItem('server',data.server);
                 localStorage.setItem('sound', data.sound);
@@ -3113,7 +3013,7 @@ window.plugins.toast.show('authorized', 'short', 'center');
 
                 var running = data.running;
                 localStorage.setItem('running', running);
-                console.log('!!! RUNNING = ' + running);
+                ////console.log('!!! RUNNING = ' + running);
             }
 
             document.getElementById("uid").reset();
@@ -3130,41 +3030,113 @@ window.plugins.toast.show('authorized', 'short', 'center');
 
             var totalsec = localStorage.getItem('logofftimer') * 60;
 
-            console.log('+++++++++ totalsec = ' + totalsec);
+            ////console.log('+++++++++ totalsec = ' + totalsec);
 
             startCounter(totalsec);
 
             var userLoggedIn = sessionStorage.getItem('userLoggedIn');
 
-            console.log('+++++++++ userLoggedIn = ' + userLoggedIn);
+            ////console.log('+++++++++ userLoggedIn = ' + userLoggedIn);
 
             $(".statusbar-overlay").removeClass("black");
 
-           // console.log('iAmOnline() = Started on PasswordCheck');
+           // ////console.log('iAmOnline() = Started on PasswordCheck');
 
+// UPDATE LICENSE
+
+////console.log('------- UPDATE LICENSE ---------');
+
+    $$.ajax({
+        method: 'POST',
+        dataType: 'jsonp',
+        url: localStorage.getItem('connection') + '/appie/php/pemworldupdatelicense.php?callback=?',
+        crossDomain: true,
+        data: {
+            uid: uid
+        },
+        success: function(responseData, textStatus, jqXHR) {
+            ////console.log('Connect to = ' +localStorage.getItem('connection'));
+            console.log(responseData);
+            var a = JSON.parse(responseData);
+            
+            var date_expire = a.date_expire;
+            var version = a.version;
+
+
+localStorage.setItem('date_expire', a.date_expire);
+localStorage.setItem('maxlink', a.maxlink);  
+localStorage.setItem('myAppapp',version);
+
+var dateExpireTxt = moment(a.date_expire).format('MMMM Do YYYY');
+
+localStorage.setItem('date_expire_txt', dateExpireTxt);
+////console.log('!!! dateExpireTxt', dateExpireTxt);
+
+
+
+
+
+var myAppapp = localStorage.getItem('myAppapp');
+
+if (myAppapp === 'Lite'){
+localStorage.setItem('maxlink', '1');
+}
+
+if (myAppapp === 'Pro'){
+localStorage.setItem('maxlink', 'Unlimited');
+}
+
+localStorage.setItem('license',
+
+    'PEM: '  + localStorage.getItem('myAppapp') + '<BR>' +
+    'Total allowed contacts<BR>* ' + localStorage.getItem('maxlink') + ' *<BR>' +
+    'License expire on<BR>* ' + localStorage.getItem('date_expire_txt') + ' *');
+
+
+
+
+
+totalContacts();
+
+
+
+
+
+
+        },
+        error: function(responseData, textStatus, errorThrown) {
+            //console.log("something went wrong A!! Error: " ,responseData,textStatus,errorThrown);
+            myApp.hidePreloader();
+            PushErrorToSupport(errorThrown);
+        },
+        complete: function(responseData, textStatus, errorThrown) {
+            //console.log("complete: " +textStatus);
+        }
+});
+
+
+// UPDATE LICENSE
 
 makeNewMessageList('reFreshYes');
 
 
 
             setTimeout(function() {
-                sslnote.closeModal()
-                console.log('+++++++++ messagesCallback.trigger ');
+                myApp.closeModal()
+                ////console.log('+++++++++ messagesCallback.trigger ');
                 messagesCallback.trigger();
-
-
-
             }, 300);
 
 
         } 
 
         else 
+
         {
-            console.log('PASSWORD NOT FOUND');
+            ////console.log('PASSWORD NOT FOUND');
 
             var loginAttemps = parseInt(localStorage.getItem('loginfails') );
-            console.log('loginAttemps: ',loginAttemps);
+            ////console.log('loginAttemps: ',loginAttemps);
 
             loginAttemps = loginAttemps +1;
 
@@ -3175,11 +3147,11 @@ makeNewMessageList('reFreshYes');
 
             $$(".loginAttemptsCountFailer").text(loginAttemps);
 
-            if (localStorage.getItem('loginfails') < '2') {
+            if (localStorage.getItem('loginfails') < '3') {
 
 
                         var buttons1 = [{
-                            text: 'WRONG PASSWORD',
+                            text: localStorage.getItem('INVALID_PASSWORD'),
                             label: true,
                             color: 'red',
                             onClick: function() {
@@ -3192,20 +3164,18 @@ makeNewMessageList('reFreshYes');
                             // buttons2
                         ];
 
-                        sslnote.actions(group);
+                        myApp.actions(group);
 
                 setTimeout(function(){
-                    sslnote.closeModal('.actions-modal');
+                    myApp.closeModal('.actions-modal');
                 }, 3000);
-            }           
+            }   
 
-            if (localStorage.getItem('loginfails') === '2') {
-
-                $$('.loginAttemptsTxt').addClass('lastAttempt');
+            if (localStorage.getItem('loginfails') === '3') {
 
 
                         var buttons1 = [{
-                            text: 'Your LAST attempt at illegal entry,<BR>the App will be erased!',
+                            text: localStorage.getItem('TEMPERY_BLOCK'),
                             label: true,
                             color: 'red',
                     
@@ -3215,13 +3185,42 @@ makeNewMessageList('reFreshYes');
                             buttons1,
                             // buttons2
                         ];
-                        sslnote.actions(group);
+
+                        myApp.actions(group);
+
+                   sessionStorage.setItem('pemworldLoginCheck', '1');     
+
+                // setTimeout(function(){
+                //     myApp.closeModal('.actions-modal');
+                // }, 3000);
+            }  
+
+
+
+
+            if (localStorage.getItem('loginfails') === '4') {
+
+                $$('.loginAttemptsTxt').addClass('lastAttempt');
+
+
+                        var buttons1 = [{
+                            text: localStorage.getItem('LAST_ATTEMPT'),
+                            label: true,
+                            color: 'red',
+                    
+                        }];
+
+                        var group = [
+                            buttons1,
+                            // buttons2
+                        ];
+                        myApp.actions(group);
             }
 
-            if (localStorage.getItem('loginfails') >= '3') {
+            if (localStorage.getItem('loginfails') >= '5') {
 
-                                // localStorage.clear();
-                                // sessionStorage.clear();
+                                localStorage.clear();
+                                sessionStorage.clear();
 
                                 $('body').append('<div class="update-view"><img src="iTunesArtwork.png" /></div>');
 
@@ -3239,6 +3238,8 @@ makeNewMessageList('reFreshYes');
             }
         }
     }
+
+    }
     app.selectAllRecords(render);
 }
 
@@ -3247,7 +3248,7 @@ function checkPasswordInput(password) {
 
     // LOGIN
 
-    //console.log('We have Password input ' + password);
+    //////console.log('We have Password input ' + password);
 
 //     var uid = localStorage.getItem('UID');
 
@@ -3255,7 +3256,7 @@ function checkPasswordInput(password) {
 
 //     app.selectAllRecords = function(fn) {
 //         app.db.transaction(function(tx) {
-//             //console.log('app.selectAllRecords');
+//             //////console.log('app.selectAllRecords');
 //             tx.executeSql("SELECT * FROM uid WHERE uid = ? and pass = ?", [uid, pass], fn, app.onError);
 //         });
 //     }
@@ -3267,15 +3268,15 @@ function checkPasswordInput(password) {
 //         }
 
 //         if (rs.rows.length) {
-//             console.log('A USER EXIST');
+//             ////console.log('A USER EXIST');
 
 //             document.activeElement.blur();
 
-//             console.log('UID: ' + localStorage.getItem('UID') + ' - TOKEN: ' + localStorage.getItem('token'));  
+//             ////console.log('UID: ' + localStorage.getItem('UID') + ' - TOKEN: ' + localStorage.getItem('token'));  
 
 //             $('.loginfailsbadge').show();
 
-//             //sslnote.showIndicator();
+//             //myApp.showIndicator();
 
 //             playNotificationSound('plop.mp3');
 
@@ -3283,15 +3284,15 @@ function checkPasswordInput(password) {
 
 //                 makeNewMessageList('reFreshYes');
 //                 // myMessagesList.update();
-//                 console.log('!!! reLoggin = myMessagesList.update');
+//                 ////console.log('!!! reLoggin = myMessagesList.update');
 
 //             }
 
 
 //             for (var i = 0; i < rs.rows.length; i++) {
-//                 //console.log('A RECORD HAVE VAR');
+//                 //////console.log('A RECORD HAVE VAR');
 //                 var data = rs.rows.item(i);
-//                 //console.log('!!! DATA = ');
+//                 //////console.log('!!! DATA = ');
 //                 //console.log(data);
 //                 //localStorage.setItem('server',data.server);
 //                 localStorage.setItem('sound', data.sound);
@@ -3304,7 +3305,7 @@ function checkPasswordInput(password) {
 
 //                 var running = data.running;
 //                 localStorage.setItem('running', running);
-//                 console.log('!!! RUNNING = ' + running);
+//                 ////console.log('!!! RUNNING = ' + running);
 //             }
 
 //             document.getElementById("uid").reset();
@@ -3321,27 +3322,27 @@ function checkPasswordInput(password) {
 
 //             var totalsec = localStorage.getItem('logofftimer') * 60;
 
-//             console.log('+++++++++ totalsec = ' + totalsec);
+//             ////console.log('+++++++++ totalsec = ' + totalsec);
 
 //             startCounter(totalsec);
 
 //             var userLoggedIn = sessionStorage.getItem('userLoggedIn');
 
-//             console.log('+++++++++ userLoggedIn = ' + userLoggedIn);
+//             ////console.log('+++++++++ userLoggedIn = ' + userLoggedIn);
 
 //             $(".statusbar-overlay").removeClass("black");
 
-//             console.log('iAmOnline() = Started on PasswordCheck');
+//             ////console.log('iAmOnline() = Started on PasswordCheck');
 
 
 // window.plugins.toast.show('Hello there!', 'long', 'center', function(a){
-//     console.log('toast success: ' + a)
+//     ////console.log('toast success: ' + a)
 // })
 
 
 
 //             setTimeout(function() {
-//                 sslnote.closeModal()
+//                 myApp.closeModal()
 
 //                 messagesCallback.trigger();
 
@@ -3349,7 +3350,7 @@ function checkPasswordInput(password) {
 
 
 //         } else {
-//             console.log('PASSWORD NOT FOUND');
+//             ////console.log('PASSWORD NOT FOUND');
 //         }
 //     }
 //     app.selectAllRecords(render);
@@ -3358,25 +3359,11 @@ function checkPasswordInput(password) {
 }
 
 
-$(document).ready(function() {
-
-    // $('input').blur(function() {
-
-    //     // check if the input has any value (if we've typed into it)
-    //     if ($(this).val())
-    //         $(this).addClass('used');
-    //     else
-    //         $(this).removeClass('used');
-    // });
-
-});
-
-
 
 
 function checkPasswordInputRules(password) {
 
-    //console.log('We have Password input ');
+    //////console.log('We have Password input ');
 
     var decimal =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;  
 
@@ -3389,7 +3376,7 @@ function checkPasswordInputRules(password) {
     else  
     {  
 
-    $$('.passwordCheckAlert').text('Not strong enough.'); 
+    $$('.passwordCheckAlert').text('Too short.'); 
         $$('.passwordCheckAlert').css('color','#f64f02');
 
     }
@@ -3405,7 +3392,7 @@ function checkPasswordInputRules(password) {
 
 function checkBurnPasswordInputRules(password) {
 
-    //console.log('We have Password input ');
+    //////console.log('We have Password input ');
 
     var decimal =  /^(?=.*\d)(?=.*[a-z])(?!.*\s).{4,15}$/;  
 
@@ -3418,7 +3405,7 @@ function checkBurnPasswordInputRules(password) {
     else  
     {  
 
-    $$('.passwordCheckAlert').text('Not strong enough.'); 
+    $$('.passwordCheckAlert').text('Too short.'); 
         $$('.passwordCheckAlert').css('color','#f64f02');
 
     }
@@ -3432,46 +3419,17 @@ function checkBurnPasswordInputRules(password) {
 
 }
 
-// $(document).ready(function() {
-
-
-//$('#myControl').focus();
-
-
-moveOnMax = function (field, nextFieldID) {
-
- console.log('We have moveOnMax ', field);
-
-    if (field.value.length == 1) {
-
-       console.log('We have moveOnMax ', nextFieldID);
-
-// setTimeout(function() { 
-    document.getElementById(nextFieldID).focus();
-     // }, 1000);
-
-
-        
-
-       // $('#b').focus();
-
-    }
-
-}
-
-
-// });
 
 
 
 var lastNotificationUpdate;
 
 window.onNotification = function(event) {
-    // console.log('!!!!!! onNotificationAPN event');
+    // ////console.log('!!!!!! onNotificationAPN event');
     // var updateBadgeData;
     // var updateAlertData;
 
-    // console.log('----------- onNotificationAPN event -----------');
+    // ////console.log('----------- onNotificationAPN event -----------');
     // updateBadgeData = event.badge;
     // // console.log(updateBadgeData);
     // updateAlertData = event.alert;
@@ -3479,7 +3437,7 @@ window.onNotification = function(event) {
 
     // var lastNotificationUpdate = sessionStorage.getItem('lastNotificationUpdate');
 
-    // console.log('----------- onNotificationAPN event -----------');
+    // ////console.log('----------- onNotificationAPN event -----------');
 
     // if (localStorage.getItem('showalert') === '1') {
     //     localStorage.removeItem('repeatsound');
@@ -3501,7 +3459,7 @@ window.onNotification = function(event) {
 
     //     if (updateBadgeData.indexOf('UPDATE') >= 0) {
 
-    //         console.log('We have updateBadgeData = UPDATE');
+    //         ////console.log('We have updateBadgeData = UPDATE');
     //         // console.log(event.alert);
     //         JsonMessagesSendStatus();
 
@@ -3518,7 +3476,7 @@ window.onNotification = function(event) {
     //         var rdatum = rdatum.replace(/:/g, "");
 
     //         if (rdatum >= '1' && message != 'messagesreply' && message != 'Nieuw') {
-    //             console.log('!!! we have date !!!!');
+    //             ////console.log('!!! we have date !!!!');
     //             makeContactMessages(mdatum, his_uid, status);
 
 
@@ -3527,19 +3485,19 @@ window.onNotification = function(event) {
 
     //         if (status === '50') {
 
-    //             sslnote.swipeoutDelete('.li' + his_uid + mdatum);
+    //             myApp.swipeoutDelete('.li' + his_uid + mdatum);
 
     //         }
 
     //         if (status === '60') {
-    //             console.log('!!!!!!!!  event.alert replied');
+    //             ////console.log('!!!!!!!!  event.alert replied');
 
     //             $('#li' + his_uid + rdatum).fadeOut(1000).remove();
 
     //             sessionStorage.totalMessagesList = Number(sessionStorage.totalMessagesList) - 1;
 
     //             if (sessionStorage.totalMessagesList === '0') {
-    //                 console.log('totalMessagesList = empty refresh page');
+    //                 ////console.log('totalMessagesList = empty refresh page');
     //                 messagesview.router.refreshPage();
     //             }
 
@@ -3556,7 +3514,7 @@ window.onNotification = function(event) {
 
 
     // if (updateBadgeData.indexOf('Accepted') >= 0) {
-    //     console.log('event.alert Contact accepted');
+    //     ////console.log('event.alert Contact accepted');
     //     setTimeout(function() {
     //         importNewUIDLinks();
     //     }, 1200);
@@ -3564,7 +3522,7 @@ window.onNotification = function(event) {
 
 
     // if (updateBadgeData.indexOf('Request') >= 0) {
-    //     console.log('event.alert Contact request');
+    //     ////console.log('event.alert Contact request');
     //     setTimeout(function() {
     //         makeContactlist();
     //     }, 1200);
@@ -3572,39 +3530,39 @@ window.onNotification = function(event) {
 
 
     // if (updateBadgeData.indexOf('Nieuw') >= 0) {
-    //     console.log('event.alert Nieuw');
+    //     ////console.log('event.alert Nieuw');
     //     JsonMessagesToReceive();
     // }
 
     // if (updateBadgeData.indexOf('New') >= 0) {
-    //     console.log('event.alert New');
+    //     ////console.log('event.alert New');
     //     JsonMessagesToReceive();
     // }
 
     // if (updateBadgeData.indexOf('deliverd') >= 0) {
-    //     console.log('event.alert deliverd');
+    //     ////console.log('event.alert deliverd');
 
     // }
 
 
     // if (updateBadgeData.indexOf('reply') >= 0) {
-    //     console.log('event.alert reply');
+    //     ////console.log('event.alert reply');
 
     // }
 
     // if (updateBadgeData.indexOf('wiped') >= 0) {
-    //     console.log('event.alert wiped');
+    //     ////console.log('event.alert wiped');
 
     // }
 
     // if (updateBadgeData.indexOf('gelezen') >= 0) {
-    //     console.log('event.alert gelezen');
+    //     ////console.log('event.alert gelezen');
 
     // }
 
 
     // if (updateAlertData) {
-    //     console.log('!!!!!!  event.alert afgeleverd');
+    //     ////console.log('!!!!!!  event.alert afgeleverd');
     //     alertShow(updateAlertData);
     // }
 
@@ -3613,22 +3571,27 @@ window.onNotification = function(event) {
 
 function onDeviceReady() {
 
-    console.log('*** Fn onDeviceReady');
+    ////console.log('*** Fn onDeviceReady');
 
-    sslnote.hideToolbar('.tabbar');
+    myApp.hideToolbar('.tabbar');
+
+
+
+
 
 
     var push = PushNotification.init({ 
         "android": {"senderID": "12345679"},
-         "ios": {"alert": "true", "badge": "true", "sound": "true" , "clearBadge": "true" }, 
-      "windows": {} } );
+        "ios": {"alert": "true", "badge": "true", "sound": "true" , "clearBadge": "true" }, 
+        "windows": {}
+    });
 
     push.on('registration', function(data) {
         // data.registrationId
 
             localStorage.setItem('token', data.registrationId);
 
-console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.getItem('token'));
+            ////console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.getItem('token'));
 
 
 
@@ -3637,47 +3600,47 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
         if (!localStorage.tokenUpdated) {
 
             var posturl =
-                localStorage.getItem('connection') + '/appie/php/include/updatetoken.php?sslnoteapp=' +
-                localStorage.getItem('sslnoteapp') + '&server=' +
-                localStorage.getItem('server') + '&App=' + localStorage.getItem(
-                    'App') + '&os=' + os + '&uid=' + localStorage.getItem(
-                    'UID') + '&token=' + localStorage.getItem('token');
+                localStorage.getItem('connection') + '/appie/php/include/updatetoken.php?myAppapp=' +
+                localStorage.getItem('myAppapp') + '&server=' +
+                localStorage.getItem('server') + '&App=' + 
+                localStorage.getItem('App') + '&os=' + os + '&uid=' + 
+                localStorage.getItem('UID') + '&token=' + localStorage.getItem('token');
 
                console.log(posturl);     
 
             $$.post(posturl, function(data) {
-                //console.log('**************************************');
-                console.log('POST RESPONSE FN tokenHandler ');
+                //////console.log('**************************************');
+                ////console.log('POST RESPONSE FN tokenHandler ');
                 console.log(data);
-                sslnote.hideIndicator();
-                //console.log('**************************************');
-                if (!sslnote.formGetData('settings-pushnotification')) {
-                    //console.log('! NO settings-pushnotification');
-                    sslnote.formStoreData(
+                myApp.hideIndicator();
+                //////console.log('**************************************');
+                if (!myApp.formGetData('settings-pushnotification')) {
+                    //////console.log('! NO settings-pushnotification');
+                    myApp.formStoreData(
                         'settings-pushnotification', {
                             'pushdelivered': ['on'],
                             'pushread': ['on'],
                             'pushwipe': ['on']
                         });
                 }
-                if (!sslnote.formGetData('settingslogoff')) {
-                    //console.log('! NO settingslogoff');
-                    sslnote.formStoreData('settingslogoff', {
+                if (!myApp.formGetData('settingslogoff')) {
+                    //////console.log('! NO settingslogoff');
+                    myApp.formStoreData('settingslogoff', {
                         'autologoff': '3'
                     });
                 }
-                if (!sslnote.formGetData('settings-notification')) {
-                    //console.log('! NO settings-notification');
-                    sslnote.formStoreData('settings-notification', {
+                if (!myApp.formGetData('settings-notification')) {
+                    //////console.log('! NO settings-notification');
+                    myApp.formStoreData('settings-notification', {
                         'sound': '1.m4a',
                         'volume': '50',
                         'repeatpush': ['on'],
                         'slider': 10
                     });
                 }
-                if (!sslnote.formGetData('settings-containers')) {
-                    //console.log('! NO settings-containers');
-                    sslnote.formStoreData('settings-containers', {
+                if (!myApp.formGetData('settings-containers')) {
+                    //////console.log('! NO settings-containers');
+                    myApp.formStoreData('settings-containers', {
                         'my-container': 'RUSSIA'
                     });
                 }
@@ -3696,21 +3659,21 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
         // data.image,
         // data.additionalData
 
-        console.log('+++ data.message: ',data.message);
-        console.log('+++ pdata.title: ',data.title);
-        console.log('+++ data.count: ',data.count);
-        console.log('+++ data.sound: ',data.sound);
-        console.log('+++ data.image: ',data.image);
-        console.log('+++ data.additionalData: ',data.additionalData);
+        ////console.log('+++ data.message: ',data.message);
+        ////console.log('+++ pdata.title: ',data.title);
+        ////console.log('+++ data.count: ',data.count);
+        ////console.log('+++ data.sound: ',data.sound);
+        ////console.log('+++ data.image: ',data.image);
+        ////console.log('+++ data.additionalData: ',data.additionalData);
         console.log(data.additionalData);
 
 
 
-    console.log('!!!!!! onNotificationAPN event');
+    ////console.log('!!!!!! onNotificationAPN event');
     var updateBadgeData;
     var updateAlertData;
 
-    console.log('----------- onNotificationAPN event -----------');
+    ////console.log('----------- onNotificationAPN event -----------');
     updateBadgeData = data.count;
     // console.log(updateBadgeData);
     updateAlertData = data.message;
@@ -3718,7 +3681,7 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
     var lastNotificationUpdate = sessionStorage.getItem('lastNotificationUpdate');
 
-    console.log('----------- onNotificationAPN event -----------');
+    ////console.log('----------- onNotificationAPN event -----------');
 
     if (localStorage.getItem('showalert') === '1') {
         localStorage.removeItem('repeatsound');
@@ -3740,7 +3703,7 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
         if (updateBadgeData.indexOf('UPDATE') >= 0) {
 
-            console.log('We have updateBadgeData = UPDATE');
+            ////console.log('We have updateBadgeData = UPDATE');
             // console.log(event.alert);
             JsonMessagesSendStatus();
 
@@ -3757,28 +3720,24 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
             var rdatum = rdatum.replace(/:/g, "");
 
             if (rdatum >= '1' && message != 'messagesreply' && message != 'Nieuw') {
-                console.log('!!! we have data !!!!');
+                ////console.log('!!! we have data !!!!');
                 makeContactMessages(mdatum, his_uid, status);
-
-
             }
 
 
             if (status === '50') {
-
-                sslnote.swipeoutDelete('.li' + his_uid + mdatum);
-
+                myApp.swipeoutDelete('.li' + his_uid + mdatum);
             }
 
             if (status === '60') {
-                console.log('!!!!!!!!  event.alert replied');
+                ////console.log('!!!!!!!!  event.alert replied');
 
                 $('#li' + his_uid + rdatum).fadeOut(1000).remove();
 
                 sessionStorage.totalMessagesList = Number(sessionStorage.totalMessagesList) - 1;
 
                 if (sessionStorage.totalMessagesList === '0') {
-                    console.log('totalMessagesList = empty refresh page');
+                    ////console.log('totalMessagesList = empty refresh page');
                     messagesview.router.refreshPage();
                 }
 
@@ -3795,7 +3754,7 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
 
     if (updateBadgeData.indexOf('Accepted') >= 0) {
-        console.log('event.alert Contact accepted');
+        ////console.log('event.alert Contact accepted');
         setTimeout(function() {
             fNupdateUIDServer();
         }, 1200);
@@ -3803,7 +3762,7 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
 
     if (updateBadgeData.indexOf('Request') >= 0) {
-        console.log('event.alert Contact request');
+        ////console.log('event.alert Contact request');
         setTimeout(function() {
             makeContactlist();
         }, 1200);
@@ -3811,44 +3770,41 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
 
     if (updateBadgeData.indexOf('Nieuw') >= 0) {
-        console.log('event.alert Nieuw');
+        ////console.log('event.alert Nieuw');
         JsonMessagesToReceive();
     }
 
     if (updateBadgeData.indexOf('New') >= 0) {
-        console.log('event.alert New');
+        ////console.log('event.alert New');
         JsonMessagesToReceive();
     }
 
     if (updateBadgeData.indexOf('deliverd') >= 0) {
-        console.log('event.alert deliverd');
+        ////console.log('event.alert deliverd');
 
     }
 
 
     if (updateBadgeData.indexOf('reply') >= 0) {
-        console.log('event.alert reply');
+        ////console.log('event.alert reply');
 
     }
 
     if (updateBadgeData.indexOf('wiped') >= 0) {
-        console.log('event.alert wiped');
+        ////console.log('event.alert wiped');
 
     }
 
     if (updateBadgeData.indexOf('gelezen') >= 0) {
-        console.log('event.alert gelezen');
+        ////console.log('event.alert gelezen');
 
     }
 
 
     if (updateAlertData) {
-        console.log('!!!!!!  event.alert afgeleverd');
+        ////console.log('!!!!!!  event.alert afgeleverd');
         alertShow(updateAlertData);
     }
-
-
-
 
 
     });
@@ -3877,7 +3833,7 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
     //             'ecb': 'window.onNotification'
     //         });
 
-    //         console.log('+++ pushNotification iOS ACTIVE  ');
+    //         ////console.log('+++ pushNotification iOS ACTIVE  ');
     //     }
 
     // } catch (err) {
@@ -3891,7 +3847,7 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
     $(".statusbar-overlay").addClass("black");
 
-    var storedData = sslnote.formGetData('settings-logoff');
+    var storedData = myApp.formGetData('settings-logoff');
 
     if (storedData) {
 
@@ -3930,21 +3886,100 @@ console.log('UID: ' +localStorage.getItem('UID') + ' - token: ' + localStorage.g
 
         if (localStorage.getItem('doneSetup')) {
 
-            console.log('LOAD loginScreen');
-            sslnote.loginScreen();
+            ////console.log('++++ LOAD loginScreen');
+  myApp.loginScreen(); 
+
+
+
+
+
+//             loader.check().then(function(updateAvailable) { 
+
+//                 ////console.log('updateAvailable:' ,updateAvailable);
+
+//                 if(updateAvailable === true){
+
+//                         ////console.log('UPDATES BESCHIKBAAR:' ,updateAvailable);
+//                         myApp.alert('NEW UPDATES...');
+
+// loader.download(onprogress).then(function(manifest){ 
+//     ////console.log('onprogress:' ,onprogress);
+//     ////console.log('manifest:' ,manifest);
+//     console.log(manifest);
+
+
+//     // {
+//     //     "files":
+//     //     {
+//     //         "bluebird":{"version":"f37ff9832449594d1cefe98260cae9fdc13e0749","filename":"lib/bluebird.js"},
+//     //         "CordovaPromiseFS":{"version":"58f3b1d28ea7dda0c1c336360b26f92e3f24731e","filename":"lib/CordovaPromiseFS.js"},
+//     //         "CordovaAppLoader":{"version":"d6a10cd44da1ac10216593b735d9fe9f8acc22b6","filename":"lib/CordovaAppLoader.js"},
+//     //         "contacts":{"version":"1.12.14","filename":"js/myApp.contacts.js"},
+//     //         "messages":{"version":"1.12.14","filename":"js/myApp.messages.js"},
+//     //         "settings":{"version":"1.12.14","filename":"js/myApp.settings.js"},
+//     //         "setup":{"version":"1.12.14","filename":"js/myApp.setup.js"},
+//     //         "functions":{"version":"1.12.18","filename":"js/myApp.functions.js"},
+//     //         "style":{"version":"1.12.19","filename":"css/pem.css"}
+//     //     },
+//     //         "load":["css/pem.css","lib/bluebird.js","lib/CordovaPromiseFS.js","lib/CordovaAppLoader.js","js/myApp.contacts.js","js/myApp.messages.js","js/myApp.settings.js","js/myApp.setup.js","js/myApp.functions.js"],
+//     //         "version":"1.12.19",
+//     //         "root":"cdvfile://localhost/persistent/app/"
+//     // }
+
+
+
+
+
+//     loader.update(); 
+
+//  },function(failedDownloadUrlArray){ 
+//     ////console.log('failedDownloadUrlArray:' ,failedDownloadUrlArray);
+
+//     loader.update(); 
+
+//   });
+
+
+
+
+//                 }
+
+//                 else
+
+//                 {
+
+// ////console.log('NON UPDATES BESCHIKBAAR:' ,updateAvailable);
+
+//                    myApp.loginScreen(); 
+
+//                 }
+
+//              }); 
+
+            
         }
 
 
 
 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
+
+////console.log('navigator.globalization');
 console.log(navigator.globalization);
+navigator.globalization
 
 
 
 setTimeout(function (){
+////console.log('-- HIDE splashscreen');
          navigator.splashscreen.hide();
-}, 500);
+    
+
+}, 800);
+
+// database curupt
+
+
 
 
 

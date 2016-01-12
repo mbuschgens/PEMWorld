@@ -1,0 +1,52 @@
+{
+  "files": {
+    "bluebird": {
+      "version": "f37ff9832449594d1cefe98260cae9fdc13e0749",
+      "filename": "lib/bluebird.js"
+    },
+    "CordovaPromiseFS": {
+      "version": "58f3b1d28ea7dda0c1c336360b26f92e3f24731e",
+      "filename": "lib/CordovaPromiseFS.js"
+    },
+    "CordovaAppLoader": {
+      "version": "d6a10cd44da1ac10216593b735d9fe9f8acc22b6",
+      "filename": "lib/CordovaAppLoader.js"
+    },
+    "contacts": {
+      "version": "1.12.2",
+      "filename": "js/sslnote.contacts.js"
+    },
+    "messages": {
+      "version": "1.12.1",
+      "filename": "js/sslnote.messages.js"
+    },
+    "settings": {
+      "version": "1.12.1",
+      "filename": "js/sslnote.settings.js"
+    },
+    "setup": {
+      "version": "1.12.1",
+      "filename": "js/sslnote.setup.js"
+    },
+    "functions": {
+      "version": "1.12.1",
+      "filename": "js/sslnote.functions.js"
+    },
+    "style": {
+      "version": "1.12.1",
+      "filename": "css/pem.css"
+    }
+  },
+  "load": [
+    "css/pem.css",
+    "lib/bluebird.js",
+    "lib/CordovaPromiseFS.js",
+    "lib/CordovaAppLoader.js",
+    "js/sslnote.contacts.js",
+    "js/sslnote.messages.js",
+    "js/sslnote.settings.js",
+    "js/sslnote.setup.js",
+    "js/sslnote.functions.js"
+  ],
+  "version": "1.12.1"
+}
